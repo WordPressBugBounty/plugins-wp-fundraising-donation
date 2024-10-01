@@ -1,0 +1,5 @@
+# Template redirect Documentation:
+    1. create a new folder in your theme root directory - "wp-fundraising". 
+     Follow folder structure : theme-folder/wp-fundraising/single-page/single-fundraising.php
+
+ 

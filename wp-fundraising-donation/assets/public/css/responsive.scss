@@ -1,0 +1,707 @@
+
+
+@media (min-width: 1200px) {
+  
+
+    
+}
+
+
+@media (min-width: 980px) and (max-width: 1199px) {
+    
+
+    
+}
+  
+
+// @media (min-width: 768px) and (max-width: 1024px){
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .wfp-view{
+        section.wfp-dashboard {
+            div.dashboard-content {
+                .dashboard-left-section{
+                    padding-left: 20px;
+                    padding-right: 20px;
+    
+                    .wfp-logout {
+                        left: 15px;
+                    }
+    
+                    .wfp-add-campaign{
+                        .add-button{
+                            padding: 12px;
+                        }
+                    }
+                    .wfp-menu-left {
+                        margin-left: -20px;
+                        margin-right: -20px;
+                    }
+                }
+            }
+    
+            .wfp-campaign-content{
+                #wfp_regForm{
+                    .wfp-tab-step-control{
+                        .wfp-step{
+                            padding: 13px;
+                        }
+                    }
+                    .wfp-tabs-control{
+                        margin-top: 20px;
+                        padding: 20px;
+                        .wfp-tab{
+                            padding-right: 0;
+                        }
+                    }
+                }
+            }
+    
+            .rewards-content .rewards-block, 
+            .password-content .rewards-block{
+                padding: 18px;
+            }
+    
+            .profile-content .profile-section, 
+            .password-content .profile-section{
+                display: block;
+                .profile-block{
+                    margin: 0;
+                    padding: 15px;
+                    margin-bottom: 30px;
+                    padding-top: 0;
+                    .intro-info{
+                        margin-bottom: 10px;
+                        label {
+                            padding: 0;
+                        }
+                    }
+                    .wfp-report-table-wraper{
+                        overflow: auto;
+                    }
+                }
+            }
+    
+            .password-content .profile-section{
+                .profile-block{
+                    overflow: hidden;
+                    h3 {
+                        margin-top: 0;
+                    }
+                }
+            }
+    
+            table.wfp-report-table thead tr th,
+            table.wfp-report-table thead tr td{
+                min-width: 130px;
+            }
+        }
+    
+        .wfp-list-campaign {
+            .campaign-blog {
+                .wfp-compaign-contents{
+                    padding: 20px;
+    
+                    .wfp-campaign-content--title {
+                        font-size: 15px;
+                        line-height: 20px;
+                    }
+                }
+            }
+
+            .wfp-column-tablet-1{
+                .single-campaign-blog{
+                    flex: 0 0 100%;
+                }
+            }
+            .wfp-column-tablet-3{
+                .single-campaign-blog{
+                    flex: 0 0 33.33%;
+                }
+            }
+            .wfp-column-tablet-2{
+                .single-campaign-blog{
+                    flex: 0 0 50%;
+                }
+            }
+            .wfp-column-tablet-4{
+                .single-campaign-blog{
+                    flex: 0 0 25%;
+                }
+            }
+    
+            // masonary view
+            .wfp-layout-masonary{
+                &.wfp-column-tablet-1{
+                    .wfp-campaign-row {
+                        column-count: 1;
+                    }
+                }
+                &.wfp-column-tablet-2 {
+                    .wfp-campaign-row {
+                        column-count: 2;
+                    }
+                }
+                &.wfp-column-tablet-4 {
+                    .wfp-campaign-row {
+                        column-count: 4;
+                    }
+                }
+            }
+        }
+    
+        .wfp-single-page {
+            .wfp-goal-wraper {
+                .wfp-additional-data{
+                    width: 100%;
+                    flex-wrap: wrap;
+    
+                    .pledge__detail {
+                        width: 100%;
+                        .xs-field{
+                            width: calc(100% - 70px);
+                        }
+                        .pledge__detail-info{
+                            margin-right: 0;
+                            .submit-btn{
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+                .wfp-share-media > li:not(:last-child) {
+                    margin-right: 3px;
+                }
+            }
+            .wfp-backers-count, .wfp-pledge-count{
+                font-size: 25px;
+            }
+            .wfp-short-berif-title {
+                font-size: 25px;
+                margin-bottom: 18px;
+            }
+        }
+    
+        .wfp-single-page-sidebar-section {
+            margin-top: 30px;
+        }
+    
+        .wfp-search-tab-wraper {
+            .search-tab {
+                &:not(:last-child){
+                    margin-right: 5px;
+                }
+                > label {
+                    display: block;
+                    color: #444444;
+                    font-size: 13px;
+                    font-weight: 600;
+                    margin-bottom: 12px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    
+        .wfp-order {
+            .wfp-order-summery-section{
+                .order_details li{
+                    border-bottom: 1px solid #eeddee;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    margin-bottom: 10px;
+                    padding-bottom: 10px;
+                    display: block;
+                }
+                
+            }
+            
+        }
+    
+        .wfp-post-title {
+            font-size: 30px;
+            line-height: 35px;
+        }
+    }
+}
+
+// @media (min-width: 750px) and (max-width: 760px) {
+//     body{
+//         display: none;
+//     }
+//     section.wfp-dashboard .wfp-campaign-content #wfp_regForm .wfp-tab-step-control .wfp-step {
+//         font-size: 13px;
+//     } 
+// }
+
+  
+@media (max-width: 767px) {
+    .wfp-view{
+        section.wfp-dashboard{
+            div.dashboard-content {
+                .wfp-content-padding{
+                    padding-bottom: 0;
+                }
+                .dashboard-left-section{
+                    position: absolute;
+                    left: -300px;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 2;
+                    opacity: 0;
+                    visibility: hidden;
+                    max-width: 300px;
+                    transition: left .4s;
+                    .wfp-mobile-close-btn{
+                        display: block;
+                        &--icon{
+                            color: #FF4938;
+                            font-size: 22px;
+                            position: absolute;
+                            right: 10px;
+                            top: 10px;
+                            cursor: pointer;
+                        }
+                    }
+                    &.opened{
+                        left: 0;
+                        visibility: visible;
+                        opacity: 1;
+                        transition: left .4s;
+                    }
+                }
+                .dashboard-right-section{
+                    .wfp-mobile-nav {
+                        display: block;
+                        display: block;
+                        text-align: center;
+                        background-color: #333;
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                        &--icon{
+                            color: #fff;
+                            padding: 6px;
+                            font-size: 18px;
+                            display: block;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .my-campaign{
+               
+                .profile-content.wfp-my-campaign-list {
+                    .profile-section .profile-block{
+                        padding: 15px;
+                        padding-top: 0;
+                    }
+    
+                    .wfp-campaign-list .wfp-report-table{
+                        min-width: 500px;
+                    }
+                    
+                }
+    
+                .campaign-tab-container{
+                    padding: 15px;
+                }
+                .campaign-tab{
+                    .top-menu-dashboard{
+                        text-align: center;
+                        li {
+                            display: block;
+                            margin: 0;
+                            margin-bottom: 10px;
+                            a {
+                                display: block;
+                            }
+                            &.active a {
+                                border-bottom: 1px solid #324aff;
+                            }
+                        }
+                        border-bottom: none;
+                    }
+                }
+                .campaign-body {
+                    .campaign-blog{
+                        display: block;
+                        text-align: center;
+                        .campaign-blog-content {
+                            padding-right: 0;
+                            margin-bottom: 10px;
+                            width: 80%;
+                            text-align: left;
+                        }
+                    }
+                }
+    
+                .rasied-amount-overview.rewards-content{
+                    display: block;
+                    .intro-info.rewards-block{
+                        margin: 0;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+    
+           
+            .profile-content .profile-section, .password-content .profile-section{
+                display: block;
+                &.my-campaign-chart{
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+                }
+                .profile-block{
+                    margin: 0;
+                    padding: 15px;
+                    padding-top: 0;
+                    overflow: hidden;
+                    margin-bottom: 20px;
+                    
+    
+                    .wfp-input-col {
+                        padding-right: 0;
+                    }
+    
+    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+    
+                    h3{
+                        margin-top:0;
+                        margin-bottom: 10px;
+                        margin-left: -30px;
+                        margin-right: -30px;
+                    }
+    
+                    &.wfp-my-campaign-list{
+                        margin-top: 0;
+                        .profile-section .profile-block {
+                            padding: 15px;
+                        }
+                    }
+    
+                    .intro-info{
+                        margin: 0;
+                        margin-bottom: 10px;
+    
+                        label{
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+    
+            .wfp-search-tab-wraper {
+                display: block;
+                .search-tab{
+                    margin-right: 0;
+                    margin-bottom: 10px;
+    
+                    > label{
+                        margin-bottom: 2px;
+                    }
+    
+                    .button-primary{
+                        display: block;
+                        width: 100%;
+                    }
+                }
+            }
+    
+            .wfp-report-table-wraper{
+                overflow: auto;
+            }
+    
+            .wfp-campaign-content {
+                #wfp_regForm {
+                    .xs-donate-row-head{
+                        > h2 {
+                            font-size: 16px;
+                            padding: 0 10px;
+                        }
+                    }
+                    .xs-donate-visible{
+                        padding-top: 16px;
+                    }
+                    .wfp-tab-step-control{
+                        .wfp-step{
+                            width: 100%;
+                            display: block;
+                        }
+                    }
+                    .wfp-tabs-control{
+                        padding: 15px;
+                        .wfp-tab{
+                            margin-right: 0;
+                            padding-right: 0;
+                        }
+                        label{
+                            padding: 0;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+    
+    
+            .xs-row-body{
+                padding: 0px;
+            }
+            .xs-form-group {
+                margin-right: 0;
+                margin-left: 0;
+            }
+        }
+    
+        .wfp-list-campaign {
+            .campaign-blog {
+                .wfp-compaign-contents{
+                    padding: 15px;
+                    min-height: auto;
+                }
+            }
+            .wfp-column-mobile-1{
+                .single-campaign-blog{
+                    flex: 0 0 100%;
+                }
+            }
+            .wfp-column-mobile-3{
+                .single-campaign-blog{
+                    flex: 0 0 33.33%;
+                }
+            }
+            .wfp-column-mobile-2{
+                .single-campaign-blog{
+                    flex: 0 0 50%;
+                }
+            }
+            .wfp-column-mobile-4{
+                .single-campaign-blog{
+                    flex: 0 0 25%;
+                }
+            }
+    
+            // Layout
+            .wfp-layout-list {
+                .single-campaign-blog  {
+                    .campaign-blog{
+                        display: block;
+                        .wfp-post-image:before,
+                        .wfp-feature-video:after{
+                            top: inherit;
+                            bottom: -35px;
+                            right: 30px;
+                        }
+                    }
+                }
+            }
+    
+            // masonary view
+            .wfp-layout-masonary{
+                &.wfp-column-mobile-1{
+                    .wfp-campaign-row {
+                        column-count: 1;
+                    }
+                }
+                &.wfp-column-mobile-2 {
+                    .wfp-campaign-row {
+                        column-count: 2;
+                    }
+                }
+                &.wfp-column-mobile-4 {
+                    .wfp-campaign-row {
+                        column-count: 4;
+                    }
+                }
+            }
+    
+        }
+    
+        .wfp-single-page {
+            .wfp-goal-wraper {
+                padding-left: 0;
+                .wfp-campaign-user{
+                    text-align: center;
+                }
+                .wfp-total-pledge-count{
+                    .wfp-additional-data {
+                        display: block;
+                        .pledge__detail{
+                            margin-bottom: 5px;
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                            .pledge-count{
+                                margin: 0;
+                                font-size: 25px;
+                            }
+                        }
+                    }
+                }
+                .wfp-backers-count, .wfp-pledge-count{
+                    font-size: 25px;
+                }
+    
+                .wfp-additional-data {
+                    display: block;
+                    .pledge__detail{
+                        &-info {
+                            margin: 0;
+                            .submit-btn{
+                                margin-top: 5px;
+                                width: 100%;
+                            }
+                        }
+                        .xs-field{
+                            width: calc(100% - 70px);
+                        }
+                    }
+                    
+                }
+            }
+            .wfp-social-share {
+                margin-top: 30px;
+                text-align: center;
+                p {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    
+        .wfp-single-tabs {
+            .wfp-tab {
+                padding: 0;
+                > li{
+                    display: block;
+                    text-align: center;
+                    margin-right: 0;
+                    margin-bottom: 15px;
+    
+                    &.active > a::before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    
+        .wfp-order-summery-section{
+            .order_details li{
+                border-bottom: 1px solid #eeddee;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+                display: block;
+            }
+            
+        }
+    
+        .wfp-post-title {
+            font-size: 30px;
+            line-height: 35px;
+        }
+        .wfp-login {
+            .wfp-login-form-container{
+                padding: 20px;
+                padding-top: 50px;
+
+                &::before {
+                    width: 60px;
+                    height: 60px;
+                    top: -30px;
+                }
+            }
+            .wfp-login-heading--main {
+                font-size: 22px;
+            }
+        }
+    }
+    
+}
+  
+  
+// @media (min-width: 320px) and (max-width: 480px) {
+
+@media (max-width: 479px){
+    
+    .wfp-view{
+        section.wfp-dashboard{
+    
+            .my-campaign{
+                .campaign-body {
+                    .campaign-blog {
+                        .campaign-blog-content{
+                            width: 100%;
+                            text-align: center;
+                        }
+                    }
+                }
+                .profile-content .profile-section, .password-content .profile-section{
+    
+                    .profile-block{
+    
+                        .wfp-separator {
+                            display: none;
+                        }
+                    }
+                }
+            }
+    
+        }
+
+        .wfp-bdage-list > li {
+            margin-bottom: 10px;
+            margin-right: 0px;
+            padding: 12px 15px;
+            font-size: 14px;
+        }
+    
+        .wfp-post-title {
+            font-size: 30px;
+            line-height: 35px;
+        }
+
+        .wfp-donation-form-wraper .wfdp-donation-input-form.wfp-text, 
+        .wfp-donation-form-wraper .wfdp-donation-input-form.wfp-number {
+            width: 100%;
+        }
+
+        .xs-donate-display-amount > li {
+            display: block;
+        }
+        .wfdp-donationForm  {
+            .wfp-donate-form-footer{
+                text-align: center;
+                padding-top: 15px;
+                .wfdp-donation-input-form,
+                .submit-btn,
+                .xs-donate-display-amount {
+                    float: none;
+                }
+                .xs-donate-display-amount{
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .wfp-modal-content{
+            width: 100%;
+            padding: 10px;
+        }
+        #xs-donate-modal-popup{
+            .xs-modal-header--title{
+                font-size: 20px;
+            }
+            .xs-modal-header {
+                padding-bottom: 10px;
+            }
+        }
+        
+
+
+    }
+    
+}

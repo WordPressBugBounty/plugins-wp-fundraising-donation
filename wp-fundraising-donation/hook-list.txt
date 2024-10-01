@@ -1,0 +1,602 @@
+#-------- Donate forms ------#
+1. For Donate forms
+    
+	Amount Box:
+	Multi amount set:
+		Filters: wfp_donate_multi_amount
+		Uses: <?php add_filter('wfp_donate_multi_amount', function( $amount ){
+			$amount[] = (object) [
+				'price' => '0',
+				'lebel' => 'Others'
+			];
+			return $amount;
+		});
+		?>
+	
+	Symbol set:
+		Filters: wfp_donate_amount_symbol
+		Uses: <?php add_filter('wfp_donate_amount_symbol', function( $symbol, $country, $code){
+			
+			return $symbol;
+		}, 10, 3);
+		?>
+
+	Total Charge Replace:
+		Filters: wfp_donate_forms_total_charge
+	Charge Content Before:	
+		After: wfp_donate_forms_total_charge_before
+	Charge Content After:	
+		After: wfp_donate_forms_total_charge_after
+
+    Additional Fees Replace:
+		Filters: wfp_donate_forms_additional_fees
+	Additional Fees Before:	
+		After: wfp_donate_forms_additional_fees_before
+	Additional Fees After:	
+		After: wfp_donate_forms_additional_fees_after
+		
+	Payment Method Replace:
+		Filters : wfp_donate_forms_payment_method_headding
+	Payment Method Before:	
+		After: wfp_donate_forms_payment_method_headding_before
+	Payment Method After:	
+		After: wfp_donate_forms_payment_method_headding_after
+	
+	Payment Method Details Replace:
+		Filters : wfp_donate_forms_payment_method_details
+		
+	Payment Method Instructions Replace:
+		Filters : wfp_donate_forms_payment_method_instructions
+
+
+
+#------ Single Page Hook-------#
+1. For Title - 
+	Title After:  
+	  Action: wfp_single_title_after
+   Title Before 
+	  Action: wfp_single_title_before
+	
+2. For Content - 
+	Content After:  
+	 Action: wfp_single_content_after
+   Content Before 
+	 Action: wfp_single_content_before
+	
+	Excerpt Hide: Yes/No
+	 Filters: wfp_single_excerpt_hide
+
+3. For Thumbnil - 
+	Gallery Hide: true/false
+	 Filters: wfp_single_gallery_hide
+
+	Thumbnil After: 
+	 Action: wfp_single_thumbnil_after
+    Thumbnil Before 
+	 Action: wfp_single_thumbnil_before
+
+4. For Sidebar  -
+	Sidebar After: 
+	 Action: wfp_single_sidebar_after
+	 
+    Sidebar Before: 
+	 Action: wfp_single_sidebar_before
+
+	Sidebar Disable: Yes/No
+     Filter: wfp_single_sidebar_disable	
+	 Uses: <?php add_filter('wfp_single_sidebar_disable', function( $return ){
+		return 'Yes';
+	});
+	?>
+	 
+
+4. For Goal Bar -
+	Goal Hide: true/false
+	 Filters: wfp_single_goal_hide
+
+	Goal Style:  pie_bar / progressbar
+		Filters: wfp_single_goal_style
+
+	Pie Chart : Pie Data Attribute
+		Filter: wfp_pie_bar_attr
+
+	Display Backers Hide: Yes/No
+	 Filters: wfp_single_display_backers_hide
+	Doner Title:
+		Filters: wfp_single_donercounter_title
+
+	Goal Bar Hide: true/false
+	 Filters: wfp_single_goalbar_hide
+
+	Funded Amount Hide: true/false
+	 Filters: wfp_single_foundamount_hide
+	Funded Amount Title: 
+	 Filters: wfp_single_foundamount_title
+
+	Raised Amount Hide: true/false
+	 Filters: wfp_single_raisedamount_hide
+	Raised Amount Title: 
+	 Filters: wfp_single_raisedamount_title
+
+	Goal Counter Hide: true/false
+	 Filters: wfp_single_goalcounter_hide
+	Goal Counter Title: 
+	 Filters: wfp_single_goalcounter_title
+
+	Date Left Hide: true/false
+	 Filters: wfp_single_date_left_hide
+	Date Left Title: text
+	 Filters: wfp_single_date_left_title
+
+
+	Goal After 
+	 Action: wfp_single_goal_progress_after
+    Goal Before 
+	 Action: wfp_single_goal_progress_before
+	 
+5. For Short Brief -
+	Brief Title
+	 Filters: wfp_single_excerpt_title	
+	Brief After
+	 Action: wfp_single_excerpt_after
+    Brief Before
+	 Action: wfp_single_excerpt_before
+	 
+6. For Description -
+	Description Hide: Yes/No 
+	 Filters: wfp_single_content_decription_hide
+	Description Title 
+	 Filters: wfp_single_content_decription	
+
+	Review Hide: Yes/No 
+	 Filters: wfp_single_content_review_hide
+	Review Title 
+	 Filters: wfp_single_content_review
+
+	Updates Hide: Yes/No 
+	 Filters: wfp_single_content_updates_hide
+    Updates Title 
+	 Filters: wfp_single_content_updates
+
+	Recent Hide: Yes/No 
+	 Filters: wfp_single_content_recent_hide 
+	Recent Title 
+	 Filters: wfp_single_content_recent	
+
+	Contributor Hide: Yes/No 
+	 Filters: wfp_single_content_contributor_hide
+
+
+	Rewards Hide: true/ false
+	 Filters: wfp_single_content_rewards_hide
+	Rewards Title 
+	 Filters: wfp_single_content_rewards
+	Rewards Select Title 
+	 Filters: wfp_single_content_select_rewards
+	Rewards Left Title 
+	 Filters: wfp_single_content_rewards_left	
+	Rewards Include Title 
+	 Filters: wfp_single_content_rewards_include	
+	Rewards Estimated Title 
+	 Filters: wfp_single_content_rewards_estimated	
+	Rewards Ships Title 
+	 Filters: wfp_single_content_rewards_ships	
+	Rewards Shipping Destination Title 
+	 Filters: wfp_single_content_rewards_shipping_destination	
+	Rewards Pledge Amount Title 
+	 Filters: wfp_single_content_rewards_pledge_amount	
+	Rewards Pledge Continue Button Title 
+	 Filters: wfp_single_content_rewards_continue_button	
+	 
+7. For Goal Info / Backers Info :
+	Backers Hide: true
+	 filtters: wfp_single_backers_title_hide
+	Backers Title: return text
+	 filtters: wfp_single_backers_title
+
+	Pledged Hide: true
+	 filtters: wfp_single_target_pledged_hide
+	Target Pledged: return text
+	 filtters: wfp_single_target_pledged
+
+	Continue Hide: true
+	 filtters: wfp_single_continue_hide
+	Continue Text: return text
+	 filtters: wfp_single_continue_title
+	
+	Socail Hide: true
+	 filtters: wfp_single_social_hide
+	Social Text: return text
+	 filtters: wfp_single_social_title
+	Social Providers: return all default Providers
+	 Filters: wfp_single_social_providers
+	
+	User Info Hide: true
+	 filtters: wfp_single_userinfo_hide
+
+	Target Raised: return text
+	 filtters: wfp_single_target_raised
+	Target Date:
+	 filtters: wfp_single_target_date
+	After Backers: return array
+		Action: wfp_single_backers_after
+		uses: <?php add_action('wfp_single_backers_after', function( $attr ){
+				print_r( $attr);
+			});?>
+	Before Backers: return array
+		Action: wfp_single_backers_before
+		uses: <?php add_action('wfp_single_backers_before', function( $attr ){
+				print_r( $attr);
+			});?>
+	Middle Backers: return array
+		Action: wfp_single_backers_middle
+		uses: <?php add_action('wfp_single_backers_middle', function( $attr ){
+				print_r( $attr);
+			});?>
+	
+
+8. For checkout page:
+	Title After:  
+	  Action: wfp_checkout_title_before
+    Title Before 
+	  Action: wfp_checkout_title_after
+	Invalid Message:   
+	  filtters: wfp_checkout_invalid_message
+	Billing Details:   
+	  filtters: wfp_checkout_billing_details
+	Checkout Button:   
+	  filtters: wfp_checkout_button
+	
+	Checkout Details:
+		Filter: wfp_checkout_details
+	Checkout Details Before:
+		Filter: wfp_checkout_details_before
+	Checkout Details After:
+		Filter: wfp_checkout_details_after
+	Checkout Details Product:	
+		Filter: wfp_checkout_details_product
+	Checkout Details Total:	
+		Filter: wfp_checkout_details_total
+	Checkout Details Sub Total:	
+		Filter: wfp_checkout_details_subtotal
+	Checkout Details Shipping:	
+		Filter: wfp_checkout_details_shipping
+	Checkout Details Total Amount:	
+		Filter: wfp_checkout_details_total_amount
+	Checkout Country Name:	
+		Filter: wfp_checkout_country_name
+	Checkout City Name:	
+		Filter: wfp_checkout_city_name
+	Checkout Street Name:	
+		Filter: wfp_checkout_street_name
+	Checkout PostCode Name:	
+		Filter: wfp_checkout_postcode_name
+
+9. For Review Page:
+	Heading:
+		Filter: wfp_single_content_review_heading
+	Write:
+		Filter: wfp_single_content_review_write
+	Reviwer Name:
+		Filter: wfp_single_content_reviewer_name
+	Reviwer Email:
+		Filter: wfp_single_content_reviewer_email
+	Reviwer Summery:
+		Filter: wfp_single_content_reviewer_summery
+	Reviwer Ratting:
+		Filter: wfp_single_content_reviewer_ratting
+	Reviwer Submit:
+		Filter: wfp_single_content_reviewer_submit
+		
+
+10. For Updates Page:
+	Heading:
+		Filter: wfp_single_content_update_heading
+	Update Submit:
+		Filter: wfp_single_content_update_submit
+		
+		
+		
+
+== Order Details Page After Confirm order ==
+1. For Order Details
+	Order Heading:
+		Filter: wfp_order_heading
+	Order Heading Before:
+		Filter: wfp_order_heading_before
+	Order Heading After:
+		Filter: wfp_order_heading_after
+	
+	Order Success Message:
+		Filter: wfp_order_success_message
+	Invalid Order Message:
+		Filter: wfp_order_invalid_message
+		
+	Summery Order Number:
+		FIlter: wfp_summery_order_number
+	Summery Order Invoice:
+		FIlter: wfp_summery_order_invoice
+	Summery Order Date:
+		Filter: wfp_summery_order_date
+	Summery Order Email:
+		Filter: wfp_summery_order_email
+	Summery Order Total:
+		Filter: wfp_summery_order_total
+	Summery Order Method:
+		Filter: wfp_summery_order_method
+
+	Order Details:
+		Filter: wfp_order_details
+	Order Details Before:
+		Filter: wfp_order_details_before
+	Order Details After:
+		Filter: wfp_order_details_after
+	Order Details Product:	
+		Filter: wfp_order_details_product
+	Order Details Total:	
+		Filter: wfp_order_details_total
+	Order Details Sub Total:	
+		Filter: wfp_order_details_subtotal
+	Order Details Shipping:	
+		Filter: wfp_order_details_shipping
+	Order Details Total Amount:	
+		Filter: wfp_order_details_total_amount
+	
+	Order Billing:
+		Filter: wfp_order_billing
+	Order Billing Before:
+		Filter: wfp_order_billing_before
+	Order Billing After:
+		Filter: wfp_order_billing_after	
+
+
+=== Dashboard ===
+	Dashboard Menu:
+	My Campaings:
+		Filter: wfp_dashboard_new_campaign_text
+	My Campaings:
+		Filter: wfp_dashboard_mycampaings_text
+	My Accounts:
+		Filter: wfp_dashboard_myaccounts_text	
+	My Profile:
+		Filter: wfp_dashboard_profile_text
+	Password:
+		Filter: wfp_dashboard_password_text
+	Rewards:
+		Filter: wfp_dashboard_rewards_text
+	Report:
+		Filter: wfp_dashboard_report_text	
+	Report Info:
+		Filter: wfp_dashboard_report_join_text	
+	Billing Info:
+		Filter: wfp_dashboard_billing_text
+	Logout Info:
+		Filter: wfp_dashboard_logout_text	
+	
+	Dashboard Content:
+	Dashboard Heading:
+		Filter: wfp_dashboard_dashboard_heading
+	Statistics Heading:
+		Filter: wfp_dashboard_statistics_headding
+	My Information Heading:
+		Filter: wfp_dashboard_information_headding
+
+	New Campaings Form:
+	
+	Campaing Intro:
+		Filter: wfp_dashboard_newcam_tab_intro
+	Campaing Details:
+		Filter: wfp_dashboard_newcam_tab_details
+	Campaing Rewards:
+		Filter: wfp_dashboard_newcam_tab_rewards
+	Campaing Submit:
+		Filter: wfp_dashboard_newcam_tab_submit
+	Campaing Button Next:
+		Filter: wfp_dashboard_newcam_button_next
+	Campaing Button Previous:
+		Filter: wfp_dashboard_newcam_button_pre
+	
+    Campaign Intro:
+	
+	Campaign Title:	
+		Filter: wfp_dashboard_newcam_campaign_title
+	Short Description:	
+		Filter: wfp_dashboard_newcam_short_description
+	Campaign Description:	
+		Filter: wfp_dashboard_newcam_campign_description
+	
+	Campaign Details:
+	
+	Campaign Categories:	
+		Filter: wfp_dashboard_newcam_campaign_categories
+	Campaign TAGs:	
+		Filter: wfp_dashboard_newcam_campaign_tags
+	Campaign Featured Type:	
+		Filter: wfp_dashboard_newcam_campaign_featured_type
+	Campaign Image:	
+		Filter: wfp_dashboard_newcam_campaign_image
+	Campaign Video:	
+		Filter: wfp_dashboard_newcam_campaign_video
+	Campaign Min Amount:	
+		Filter: wfp_dashboard_newcam_campaign_min_amount
+	Campaign Max Amount:	
+		Filter: wfp_dashboard_newcam_campaign_max_amount
+	Campaign Recomended Amount:	
+		Filter: wfp_dashboard_newcam_campaign_recomended_amount
+	Campaign End Method:	
+		Filter: wfp_dashboard_newcam_campaign_end_method
+	Campaign Raised Amount:	
+		Filter: wfp_dashboard_newcam_campaign_raised_amount
+	Campaign Raised Backers:	
+		Filter: wfp_dashboard_newcam_campaign_raised_backers
+	Campaign Target Date:	
+		Filter: wfp_dashboard_newcam_campaign_target_date
+	Campaign Target Rasided Message:	
+		Filter: wfp_dashboard_newcam_campaign_raised_message
+		
+	Campaign Rewards:
+	
+	Campaign Enable Rewards:	
+		Filter: wfp_dashboard_newcam_campaign_enable_rewards
+	Campaign Enable Rewards Message:	
+		Filter: wfp_dashboard_newcam_campaign_enable_rewards_message
+	Campaign Rewards Amount:	
+		Filter: wfp_dashboard_newcam_campaign_rewards_amount
+	Campaign Rewards Quantity:	
+		Filter: wfp_dashboard_newcam_campaign_rewards_quantity
+	Campaign Rewards Label:
+		Filter: wfp_dashboard_newcam_campaign_rewards_lebel
+	Campaign Rewards Label Description:
+		Filter: wfp_dashboard_newcam_campaign_rewards_lebel_description
+	Campaign Rewards Includes:	
+		Filter: wfp_dashboard_newcam_campaign_rewards_includes
+	Campaign Rewards Estimated Delivery:	
+		Filter: wfp_dashboard_newcam_campaign_rewards_estimated_delivery
+	Campaign Rewards Ships to:	
+		Filter: wfp_dashboard_newcam_campaign_rewards_ships_to
+		
+	Campaign Finish:	
+	
+	Campaign Finish Country:	
+		Filter: wfp_dashboard_newcam_campaign_finish_country
+	Campaign Finish Location:	
+		Filter: wfp_dashboard_newcam_campaign_finish_location
+	Campaign Finish Contributor Info:	
+		Filter: wfp_dashboard_newcam_campaign_finish_contributor_info
+	Campaign Finish Contributor Info Message:	
+		Filter: wfp_dashboard_newcam_campaign_finish_contributor_info_message
+	Campaign Finish Review Enable:	
+		Filter: wfp_dashboard_newcam_campaign_finish_review_enable
+	Campaign Finish Review Enable Message:	
+		Filter: wfp_dashboard_newcam_campaign_finish_review_enable_message
+
+
+	My campaign:
+	
+	My Campaign Heading:
+		Filter: wfp_dashboard_mycampaign_heading
+	
+	My Account:
+	
+	Profile Info
+		Filter: wfp_dashboard_profile_content_billing_headding
+		
+	First Name:
+		Filter: wfp_dashboard_profile_content_first_name
+	Last Name:
+		Filter: wfp_dashboard_profile_content_last_name
+	Email:
+		Filter: wfp_dashboard_profile_content_email
+	Company:
+		Filter: wfp_dashboard_profile_content_company_name
+	Address:
+		Filter: wfp_dashboard_profile_content_address
+	City:
+		Filter: wfp_dashboard_profile_content_city_name
+	Postcode:
+		Filter: wfp_dashboard_profile_content_postcode
+	Country:
+		Filter: wfp_dashboard_profile_content_country
+	Telephone:
+		Filter: wfp_dashboard_profile_content_telephone
+		
+	Shipping Info:
+		Filter: wfp_dashboard_profile_content_shipping_headding
+	
+	Submit Button
+		Filter: wfp_dashboard_profile_content_submit_button
+		
+	Rewards:	
+	Heading:
+		Filter: wfp_dashboard_reward_content_headding
+	
+	Reports:	
+	Heading:
+		Filter: wfp_dashboard_reports_content_headding
+	
+	Password:	
+	Heading:
+		Filter: wfp_dashboard_password_content_headding
+	Current Pass:
+		Filter: wfp_dashboard_password_content_current_password
+	New Pass:
+		Filter: wfp_dashboard_password_content_new_password
+	Confirm Pass:
+		Filter: wfp_dashboard_password_content_confirm_password
+	Submit Button:
+		Filter: wfp_dashboard_password_content_submit_button
+	
+  	
+=== Login ===
+	Form Outer:
+		Before Action: wfp_login_form_before_outer
+		After Action: wfp_login_form_after_outer
+	
+	Form Inner:
+		Before Action: wfp_login_form_before_inner
+		After Action: wfp_login_form_after_inner
+		
+	Form Start:
+		Action: wfp_login_form_start
+	
+	Form End:
+		Action: wfp_login_form_end
+	
+	Form Button Before:
+		Action: wfp_login_form_button_before
+	
+	Form Button After:
+		Action: wfp_login_form_button_after
+	
+	Form Message:
+		Action: wfp_login_form_message
+	
+    Login Heading:
+		Filter: wfp_login_form_login_heading
+	
+	Login Heading:
+		Filter: wfp_login_form_register_heading
+		
+	User Label:
+		Filter: wfp_login_form_user_label
+	Password Label:
+		Filter: wfp_login_form_pass_label
+		
+	Login Button Name:
+		Filter: wfp_login_form_login_button
+	Remember Me:
+		Filter: wfp_login_form_remember
+	Lost Password:
+		Filter: wfp_login_form_lost_password
+		
+	
+	User Label Register:
+		Filter: wfp_register_form_user_label
+	Email Label:
+		Filter: wfp_register_form_email_label
+	Password Label:
+		Filter: wfp_register_form_pass_label
+		
+	Login Button Name:
+		Filter: wfp_register_form_register_button
+	Have an Account:
+		Filter: wfp_register_form_have_account	
+
+
+===== Campaign List ======
+	Campaign Heading:
+		Filter: wfp_campaign_list_heading
+		
+	Campaign Thumbnil Before:
+		Action: wfp_campaign_list_thumbnil_before
+	Campaign Thumbnil After:
+		Action: wfp_campaign_list_thumbnil_after
+
+		
+===== Country Added =====
+add_filter('wfp_country_set_info', 'wfp_hook_country');
+
+function wfp_hook_country( $info ){
+	return $info;
+}
+	 
