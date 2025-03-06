@@ -373,7 +373,7 @@ class Settings {
 		if ( $defaultNumberDecimal < 0 ) {
 			$defaultNumberDecimal = 0;
 		}
-		$userNumber = number_format( $amount, $defaultNumberDecimal );
+		$userNumber = number_format($amount ?? 0, $defaultNumberDecimal);
 
 		$numberExplode = explode( '.', $userNumber );
 		$replaceNumber = str_replace( array( ',' ), array( $defaultThou_seperator ), $numberExplode[0] );
@@ -568,7 +568,7 @@ class Settings {
 
 			$cachedInfo = $this->create_default_pages();
 
-			$option = get_option( self::OK_GENERAL_DATA );
+			$option = get_option( self::OK_GENERAL_DATA, [] );
 
 			if ( empty( $option['options']['pages'] ) ) {
 

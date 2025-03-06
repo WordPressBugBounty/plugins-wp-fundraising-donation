@@ -218,10 +218,12 @@ if ( isset( $formGoalData->enable ) ) {
 
 $termsContent = '';
 if ( isset( $formTermsData->enable ) ) {
+	$level = isset( $formTermsData->level ) ? $formTermsData->level : '';
+    $content = isset( $formTermsData->content ) ? $formTermsData->content : '';
 	$termsContent .= '<div class="xs-switch-button_wraper">
 					<input type="checkbox" class="xs_donate_switch_button" name="xs-donate-terms-condition" id="xs-donate-terms-condition" value="Yes">
-					<label class="xs_donate_switch_button_label small xs-round" for="xs-donate-terms-condition"></label><span class="xs-donate-terms-label">' . $formTermsData->level . '</span>
-					<span class="xs-donate-terms"> ' . $formTermsData->content . ' </span>
+					<label class="xs_donate_switch_button_label small xs-round" for="xs-donate-terms-condition"></label><span class="xs-donate-terms-label">' . $level . '</span>
+					<span class="xs-donate-terms"> ' . $content . ' </span>
 				</div>';
 }
 

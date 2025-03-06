@@ -30,6 +30,8 @@ class Content {
 
 	public $user_id = 0;
 
+	private $additionalCss;
+
 
 	/**
 	 * Construct the cpt object

@@ -101,7 +101,8 @@ class Setup {
 			$this->_data_url[ $k ] = $v;
 		}
 
-		if ( ! empty( trim( $this->_token ) ) ) {
+		// Ensure $_token is not null
+		if ( ! empty( trim( $this->_token ?? '' ) ) ) {
 			$this->_data_url['at'] = $this->_token;
 		}
 

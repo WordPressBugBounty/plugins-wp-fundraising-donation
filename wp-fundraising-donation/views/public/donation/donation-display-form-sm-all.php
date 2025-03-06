@@ -59,7 +59,7 @@ require __DIR__ . '/donation-display-form-common.php';
 									} else {
 										?>
 										<button type="submit" name="submit-form-donation"
-												class="xs-btn btn-special submit-btn" <?php echo esc_html( $formTermsData->enable ? 'disabled' : '' ); ?> ><?php echo esc_html( $formDesignData->submit_button ? $formDesignData->submit_button : __( 'Donate Now', 'wp-fundraising' ) ); ?></button>
+												class="xs-btn btn-special submit-btn" <?php echo esc_html(isset($formTermsData->enable) && $formTermsData->enable ? 'disabled' : ''); ?> ><?php echo esc_html($formDesignData->submit_button ? $formDesignData->submit_button : __('Donate Now', 'wp-fundraising')); ?></button>
 										<?php
 									}
 									if ( isset( $formTermsData->enable ) && $formTermsData->content_position == 'after-submit-button' ) {
@@ -82,6 +82,7 @@ require __DIR__ . '/donation-display-form-common.php';
 
 	<?php require __DIR__ . '/include/_add2cart_form.php'; ?>
 
+	<?php $toFixedPoint = isset($toFixedPoint) ? $toFixedPoint : 2;?>
 	<script type='text/javascript'>
 		xs_donate_amount_set(<?php echo esc_html( $defaultData ); ?>,<?php echo esc_html( $post->ID ); ?>,<?php echo esc_html( $toFixedPoint ); ?>);
 	</script>

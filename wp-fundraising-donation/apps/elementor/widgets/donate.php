@@ -42,6 +42,7 @@ class Wfp_Donate extends Widget_Base {
 
 		$args['post_status'] = 'publish';
 		$args['post_type']   = \WfpFundraising\Apps\Content::post_type();
+		$args['posts_per_page'] = -1;
 		$args['meta_query']  = array(
 			'relation' => 'AND',
 			array(

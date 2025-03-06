@@ -1,270 +1,270 @@
-# Copyright (C) 2024 Wpmet
+# Copyright (C) 2025 Wpmet
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: FundEngine – Donation and Crowdfunding Platform 1.7.1\n"
+"Project-Id-Version: FundEngine – Donation and Crowdfunding Platform 1.7.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wp-fundraising-donation\n"
-"POT-Creation-Date: 2024-07-30 11:37:33+00:00\n"
+"POT-Creation-Date: 2025-03-06 04:36:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: apps/content.php:425 apps/content.php:554
+#: apps/content.php:427 apps/content.php:556
 msgid "Sorry wrong campaign."
 msgstr ""
 
-#: apps/content.php:429
+#: apps/content.php:431
 msgid "Invalid payment method."
 msgstr ""
 
-#: apps/content.php:436 apps/content.php:575
+#: apps/content.php:438 apps/content.php:577
 msgid "Invalid payment."
 msgstr ""
 
-#: apps/content.php:440 apps/content.php:584
+#: apps/content.php:442 apps/content.php:586
 msgid "Your payment already processed. [Code: %s]"
 msgstr ""
 
-#: apps/content.php:562
+#: apps/content.php:564
 msgid "Sorry Stripe Method not Active."
 msgstr ""
 
-#: apps/content.php:641
+#: apps/content.php:643
 msgid "Thanks for your payment"
 msgstr ""
 
-#: apps/content.php:648
+#: apps/content.php:650
 msgid "System error!"
 msgstr ""
 
-#: apps/content.php:735
+#: apps/content.php:737
 msgid "Sorry invalid form of Donation."
 msgstr ""
 
-#: apps/content.php:833
+#: apps/content.php:835
 msgid "Enter select payment method"
 msgstr ""
 
-#: apps/content.php:843
+#: apps/content.php:845
 msgid "Enter donate amount"
 msgstr ""
 
-#: apps/content.php:855
+#: apps/content.php:857
 msgid "Sorry! minimum donate amount: "
 msgstr ""
 
-#: apps/content.php:859
+#: apps/content.php:861
 msgid "Sorry! max donate amount: "
 msgstr ""
 
-#: apps/content.php:1095
+#: apps/content.php:1097
 msgid "Successfully donation. "
 msgstr ""
 
-#: apps/content.php:1101
+#: apps/content.php:1103
 msgid "Something is wrong"
 msgstr ""
 
-#: apps/content.php:1163 apps/content.php:1484
+#: apps/content.php:1165 apps/content.php:1486
 msgid "Something error."
 msgstr ""
 
-#: apps/content.php:1180
+#: apps/content.php:1182
 msgid "Sorry could't update this campaign"
 msgstr ""
 
-#: apps/content.php:1418
+#: apps/content.php:1420
 msgid "Successfully Update this Campaign."
 msgstr ""
 
-#: apps/content.php:1420
+#: apps/content.php:1422
 msgid "Successfully Submitted Campaign for Review."
 msgstr ""
 
-#: apps/content.php:1440
+#: apps/content.php:1442
 msgid "Invalid Campaign."
 msgstr ""
 
-#: apps/content.php:1531
+#: apps/content.php:1533
 msgid "Successfully Update your Information."
 msgstr ""
 
-#: apps/content.php:1553
+#: apps/content.php:1555
 msgid "Sorry you could not able to update password."
 msgstr ""
 
-#: apps/content.php:1575
+#: apps/content.php:1577
 msgid "Successfully set new password."
 msgstr ""
 
-#: apps/content.php:1578
+#: apps/content.php:1580
 msgid "Sorry don't match new password"
 msgstr ""
 
-#: apps/content.php:1581
+#: apps/content.php:1583
 msgid "Sorry current don't match password"
 msgstr ""
 
-#: apps/content.php:1584
+#: apps/content.php:1586
 msgid "Please enter current password."
 msgstr ""
 
-#: apps/content.php:1612 apps/content.php:2899
+#: apps/content.php:1614 apps/content.php:2901
 msgid "Please enter email or username"
 msgstr ""
 
-#: apps/content.php:1619 apps/content.php:2906
+#: apps/content.php:1621 apps/content.php:2908
 msgid "Please enter password"
 msgstr ""
 
-#: apps/content.php:1658 apps/content.php:2947
+#: apps/content.php:1660 apps/content.php:2949
 msgid "System Error"
 msgstr ""
 
-#: apps/content.php:1666
+#: apps/content.php:1668
 msgid "Already used this email"
 msgstr ""
 
-#: apps/content.php:1669 apps/content.php:1749
+#: apps/content.php:1671 apps/content.php:1751
 msgid "Please enter email address"
 msgstr ""
 
-#: apps/content.php:1674
+#: apps/content.php:1676
 msgid "Please enter your user name"
 msgstr ""
 
-#: apps/content.php:1680 apps/content.php:2989
+#: apps/content.php:1682 apps/content.php:2991
 msgid "Please set your password"
 msgstr ""
 
-#: apps/content.php:1694
+#: apps/content.php:1696
 msgid "Sorry system error. Try again."
 msgstr ""
 
-#: apps/content.php:1707
+#: apps/content.php:1709
 msgid "Please enter your valid email address"
 msgstr ""
 
-#: apps/content.php:1734 apps/content.php:2024
+#: apps/content.php:1736 apps/content.php:2026
 msgid "Sorry invalid campaign."
 msgstr ""
 
-#: apps/content.php:1754
+#: apps/content.php:1756
 msgid "Please enter your name"
 msgstr ""
 
-#: apps/content.php:1760
+#: apps/content.php:1762
 msgid "Please give your ratting"
 msgstr ""
 
-#: apps/content.php:1778 apps/content.php:1907 apps/content.php:1968
+#: apps/content.php:1780 apps/content.php:1909 apps/content.php:1970
 msgid "Sorry invalid review."
 msgstr ""
 
-#: apps/content.php:1789 apps/content.php:1920 apps/content.php:1981
+#: apps/content.php:1791 apps/content.php:1922 apps/content.php:1983
 msgid "Sorry you are not valid user."
 msgstr ""
 
-#: apps/content.php:1795 apps/content.php:1926 apps/content.php:1987
+#: apps/content.php:1797 apps/content.php:1928 apps/content.php:1989
 msgid "Invalid Review."
 msgstr ""
 
-#: apps/content.php:1818
+#: apps/content.php:1820
 msgid "Successfully updated review"
 msgstr ""
 
-#: apps/content.php:1823
+#: apps/content.php:1825
 msgid "Sorry system error."
 msgstr ""
 
-#: apps/content.php:1832
+#: apps/content.php:1834
 msgid "Sorry already submitted review"
 msgstr ""
 
-#: apps/content.php:1861
+#: apps/content.php:1863
 msgid "Successfully submitted review"
 msgstr ""
 
-#: apps/content.php:1866 apps/content.php:2062
+#: apps/content.php:1868 apps/content.php:2064
 msgid "System error"
 msgstr ""
 
-#: apps/content.php:1871
+#: apps/content.php:1873
 msgid "Please sign in first"
 msgstr ""
 
-#: apps/content.php:1894 apps/content.php:1955
+#: apps/content.php:1896 apps/content.php:1957
 msgid "Sorry you are not valid author for delete review."
 msgstr ""
 
-#: apps/content.php:1932
+#: apps/content.php:1934
 msgid "Successfully remove your review."
 msgstr ""
 
-#: apps/content.php:1934
+#: apps/content.php:1936
 msgid "System error."
 msgstr ""
 
-#: apps/content.php:2039
+#: apps/content.php:2041
 msgid "Please enter your update details."
 msgstr ""
 
-#: apps/content.php:2058
+#: apps/content.php:2060
 msgid "Successfully submitted update"
 msgstr ""
 
-#: apps/content.php:2067
+#: apps/content.php:2069
 msgid "Sorry invalid user for post campaign update."
 msgstr ""
 
-#: apps/content.php:2304 apps/content.php:2799 views/public/auth/form.php:141
+#: apps/content.php:2306 apps/content.php:2801 views/public/auth/form.php:141
 #: views/public/fundraising/single-page/include/page/review.php:171
 #: views/public/fundraising/single-page/include/page/review.php:172
 msgid "Login"
 msgstr ""
 
-#: apps/content.php:2305 apps/content.php:2800 views/public/auth/form.php:121
+#: apps/content.php:2307 apps/content.php:2802 views/public/auth/form.php:121
 #: views/public/auth/form.php:142 views/public/auth/modal.php:142
 #: views/public/fundraising/dynamic-page/login.php:95
 msgid "Register"
 msgstr ""
 
-#: apps/content.php:2306 views/public/auth/form.php:66
+#: apps/content.php:2308 views/public/auth/form.php:66
 #: views/public/auth/modal.php:87
 #: views/public/fundraising/dynamic-page/login.php:45
 msgid "Login Now"
 msgstr ""
 
-#: apps/content.php:2795
+#: apps/content.php:2797
 msgid "Dahsboard"
 msgstr ""
 
-#: apps/content.php:2797
+#: apps/content.php:2799
 msgid "Sign Out"
 msgstr ""
 
-#: apps/content.php:2957
+#: apps/content.php:2959
 msgid "New user registration option is turned off"
 msgstr ""
 
-#: apps/content.php:2966
+#: apps/content.php:2968
 msgid "This email is already used"
 msgstr ""
 
-#: apps/content.php:2973
+#: apps/content.php:2975
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: apps/content.php:2982
+#: apps/content.php:2984
 msgid "Please enter valid username"
 msgstr ""
 
-#: apps/content.php:3018
+#: apps/content.php:3020
 msgid "Sorry system error. Try again"
 msgstr ""
 
@@ -375,62 +375,62 @@ msgstr ""
 msgid "Donate Button"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:73 apps/elementor/widgets/listing.php:221
+#: apps/elementor/widgets/donate.php:74 apps/elementor/widgets/listing.php:221
 #: widgets/donate/donate.php:62 widgets/listing/listing.php:213
 msgid "Content"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:81 apps/elementor/widgets/listing.php:363
+#: apps/elementor/widgets/donate.php:82 apps/elementor/widgets/listing.php:363
 #: widgets/donate/donate.php:70 widgets/listing/listing.php:355
 msgid "Query Options"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:89 widgets/donate/donate.php:78
+#: apps/elementor/widgets/donate.php:90 widgets/donate/donate.php:78
 msgid "Select Donate"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:101 apps/elementor/widgets/listing.php:463
+#: apps/elementor/widgets/donate.php:102 apps/elementor/widgets/listing.php:463
 #: widgets/donate/donate.php:90 widgets/listing/listing.php:455
 msgid "Display Options"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:110 widgets/donate/donate.php:99
+#: apps/elementor/widgets/donate.php:111 widgets/donate/donate.php:99
 msgid "From Style"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:114
+#: apps/elementor/widgets/donate.php:115
 #: views/admin/fundraising/include/donations-general.php:309
 #: widgets/donate/donate.php:103
 msgid "All Fields"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:115
+#: apps/elementor/widgets/donate.php:116
 #: views/admin/fundraising/include/donations-general.php:314
 #: widgets/donate/donate.php:104
 msgid "Only Button"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:123 widgets/donate/donate.php:112
+#: apps/elementor/widgets/donate.php:124 widgets/donate/donate.php:112
 msgid "Show Modal"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:127 apps/elementor/widgets/listing.php:354
+#: apps/elementor/widgets/donate.php:128 apps/elementor/widgets/listing.php:354
 #: widgets/donate/donate.php:116 widgets/listing/listing.php:346
 msgid "Yes"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:128 apps/elementor/widgets/listing.php:355
+#: apps/elementor/widgets/donate.php:129 apps/elementor/widgets/listing.php:355
 #: widgets/donate/donate.php:117 widgets/listing/listing.php:347
 msgid "No"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:137 apps/elementor/widgets/listing.php:518
+#: apps/elementor/widgets/donate.php:138 apps/elementor/widgets/listing.php:518
 #: widgets/donate/donate.php:126 widgets/listing/listing.php:510
 msgid "Show Title"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:139 apps/elementor/widgets/donate.php:151
-#: apps/elementor/widgets/donate.php:162 apps/elementor/widgets/donate.php:174
+#: apps/elementor/widgets/donate.php:140 apps/elementor/widgets/donate.php:152
+#: apps/elementor/widgets/donate.php:163 apps/elementor/widgets/donate.php:175
 #: apps/elementor/widgets/listing.php:473
 #: apps/elementor/widgets/listing.php:484
 #: apps/elementor/widgets/listing.php:495
@@ -449,8 +449,8 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:140 apps/elementor/widgets/donate.php:152
-#: apps/elementor/widgets/donate.php:163 apps/elementor/widgets/donate.php:175
+#: apps/elementor/widgets/donate.php:141 apps/elementor/widgets/donate.php:153
+#: apps/elementor/widgets/donate.php:164 apps/elementor/widgets/donate.php:176
 #: apps/elementor/widgets/listing.php:474
 #: apps/elementor/widgets/listing.php:485
 #: apps/elementor/widgets/listing.php:496
@@ -469,32 +469,32 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:149 apps/elementor/widgets/listing.php:493
+#: apps/elementor/widgets/donate.php:150 apps/elementor/widgets/listing.php:493
 #: widgets/donate/donate.php:138 widgets/listing/listing.php:485
 msgid "Show Featured"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:160 apps/elementor/widgets/listing.php:565
+#: apps/elementor/widgets/donate.php:161 apps/elementor/widgets/listing.php:565
 #: widgets/donate/donate.php:149 widgets/listing/listing.php:557
 msgid "Show Category"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:172 apps/elementor/widgets/listing.php:576
+#: apps/elementor/widgets/donate.php:173 apps/elementor/widgets/listing.php:576
 #: widgets/donate/donate.php:161 widgets/listing/listing.php:568
 msgid "Show Goal"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:186 apps/elementor/widgets/listing.php:883
+#: apps/elementor/widgets/donate.php:187 apps/elementor/widgets/listing.php:883
 #: apps/elementor/widgets/listing.php:1402 widgets/donate/donate.php:175
 #: widgets/listing/listing.php:875 widgets/listing/listing.php:1394
 msgid "Title"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:205 apps/elementor/widgets/donate.php:247
-#: apps/elementor/widgets/donate.php:298 apps/elementor/widgets/donate.php:329
-#: apps/elementor/widgets/donate.php:471 apps/elementor/widgets/donate.php:528
-#: apps/elementor/widgets/donate.php:608 apps/elementor/widgets/donate.php:736
-#: apps/elementor/widgets/donate.php:774 apps/elementor/widgets/listing.php:902
+#: apps/elementor/widgets/donate.php:206 apps/elementor/widgets/donate.php:248
+#: apps/elementor/widgets/donate.php:299 apps/elementor/widgets/donate.php:330
+#: apps/elementor/widgets/donate.php:472 apps/elementor/widgets/donate.php:529
+#: apps/elementor/widgets/donate.php:609 apps/elementor/widgets/donate.php:737
+#: apps/elementor/widgets/donate.php:775 apps/elementor/widgets/listing.php:902
 #: apps/elementor/widgets/listing.php:957
 #: apps/elementor/widgets/listing.php:1012
 #: apps/elementor/widgets/listing.php:1076
@@ -519,69 +519,69 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:228 apps/elementor/widgets/listing.php:993
+#: apps/elementor/widgets/donate.php:229 apps/elementor/widgets/listing.php:993
 #: widgets/donate/donate.php:217 widgets/listing/listing.php:985
 msgid "Categories "
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:270
+#: apps/elementor/widgets/donate.php:271
 #: apps/elementor/widgets/listing.php:1048 widgets/donate/donate.php:259
 #: widgets/listing/listing.php:1040
 msgid "Goal "
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:279
+#: apps/elementor/widgets/donate.php:280
 #: apps/elementor/widgets/listing.php:1057
 #: views/admin/fundraising/include/_partial_input_type_selector.php:32
 #: widgets/donate/donate.php:268 widgets/listing/listing.php:1049
 msgid "Text"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:310
+#: apps/elementor/widgets/donate.php:311
 #: apps/elementor/widgets/listing.php:1088
 #: views/admin/fundraising/include/_partial_input_type_selector.php:34
 #: widgets/donate/donate.php:299 widgets/listing/listing.php:1080
 msgid "Number"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:341
+#: apps/elementor/widgets/donate.php:342
 #: apps/elementor/widgets/listing.php:1199 widgets/donate/donate.php:330
 #: widgets/listing/listing.php:1191
 msgid "Bar"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:350
+#: apps/elementor/widgets/donate.php:351
 #: apps/elementor/widgets/listing.php:1208 widgets/donate/donate.php:339
 #: widgets/listing/listing.php:1200
 msgid "Visible Bar"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:359
+#: apps/elementor/widgets/donate.php:360
 #: apps/elementor/widgets/listing.php:1217 widgets/donate/donate.php:348
 #: widgets/listing/listing.php:1209
 msgid "Visible Background"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:371
+#: apps/elementor/widgets/donate.php:372
 #: apps/elementor/widgets/listing.php:1229 widgets/donate/donate.php:360
 #: widgets/listing/listing.php:1221
 msgid "Disable Bar"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:380
+#: apps/elementor/widgets/donate.php:381
 #: apps/elementor/widgets/listing.php:1238 widgets/donate/donate.php:369
 #: widgets/listing/listing.php:1230
 msgid "Disable Background"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:392
+#: apps/elementor/widgets/donate.php:393
 #: apps/elementor/widgets/listing.php:1250 widgets/donate/donate.php:381
 #: widgets/listing/listing.php:1242
 msgid "Global Bar"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:400 apps/elementor/widgets/donate.php:560
-#: apps/elementor/widgets/donate.php:664 apps/elementor/widgets/listing.php:748
+#: apps/elementor/widgets/donate.php:401 apps/elementor/widgets/donate.php:561
+#: apps/elementor/widgets/donate.php:665 apps/elementor/widgets/listing.php:748
 #: apps/elementor/widgets/listing.php:1258
 #: apps/elementor/widgets/listing.php:1362 widgets/donate/donate.php:389
 #: widgets/donate/donate.php:549 widgets/donate/donate.php:653
@@ -590,29 +590,29 @@ msgstr ""
 msgid "Border radius"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:412
+#: apps/elementor/widgets/donate.php:413
 #: apps/elementor/widgets/listing.php:1270 widgets/donate/donate.php:401
 #: widgets/listing/listing.php:1262
 msgid "Bar Height"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:436
+#: apps/elementor/widgets/donate.php:437
 #: apps/elementor/widgets/listing.php:1294 widgets/donate/donate.php:425
 #: widgets/listing/listing.php:1286
 msgid "Bar Count Size"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:463
+#: apps/elementor/widgets/donate.php:464
 #: apps/elementor/widgets/listing.php:1321 widgets/donate/donate.php:452
 #: widgets/listing/listing.php:1313
 msgid "Bar Count Typography"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:486 widgets/donate/donate.php:475
+#: apps/elementor/widgets/donate.php:487 widgets/donate/donate.php:475
 msgid "Button "
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:503 apps/elementor/widgets/donate.php:630
+#: apps/elementor/widgets/donate.php:504 apps/elementor/widgets/donate.php:631
 #: apps/elementor/widgets/listing.php:768
 #: apps/elementor/widgets/listing.php:840
 #: apps/elementor/widgets/listing.php:1174
@@ -626,7 +626,7 @@ msgstr ""
 msgid "Padding"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:515 apps/elementor/widgets/donate.php:642
+#: apps/elementor/widgets/donate.php:516 apps/elementor/widgets/donate.php:643
 #: apps/elementor/widgets/listing.php:779
 #: apps/elementor/widgets/listing.php:1687
 #: apps/elementor/widgets/listing.php:1818
@@ -637,7 +637,7 @@ msgstr ""
 msgid "Margin"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:540 apps/elementor/widgets/listing.php:792
+#: apps/elementor/widgets/donate.php:541 apps/elementor/widgets/listing.php:792
 #: apps/elementor/widgets/listing.php:1162
 #: apps/elementor/widgets/listing.php:2059
 #: apps/elementor/widgets/listing.php:2090 widgets/donate/donate.php:529
@@ -646,7 +646,7 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:552 apps/elementor/widgets/donate.php:655
+#: apps/elementor/widgets/donate.php:553 apps/elementor/widgets/donate.php:656
 #: apps/elementor/widgets/listing.php:740
 #: apps/elementor/widgets/listing.php:865 widgets/donate/donate.php:541
 #: widgets/donate/donate.php:644 widgets/listing/listing.php:732
@@ -654,31 +654,31 @@ msgstr ""
 msgid "Border"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:583 widgets/donate/donate.php:572
+#: apps/elementor/widgets/donate.php:584 widgets/donate/donate.php:572
 msgid "Input "
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:591 widgets/donate/donate.php:580
+#: apps/elementor/widgets/donate.php:592 widgets/donate/donate.php:580
 msgid "Input"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:621 widgets/donate/donate.php:610
+#: apps/elementor/widgets/donate.php:622 widgets/donate/donate.php:610
 msgid "Background Color"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:684 widgets/donate/donate.php:673
+#: apps/elementor/widgets/donate.php:685 widgets/donate/donate.php:673
 msgid "Radio Input"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:693 widgets/donate/donate.php:682
+#: apps/elementor/widgets/donate.php:694 widgets/donate/donate.php:682
 msgid "Radio Normal Color"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:705 widgets/donate/donate.php:694
+#: apps/elementor/widgets/donate.php:706 widgets/donate/donate.php:694
 msgid "Radio Active Color"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:718
+#: apps/elementor/widgets/donate.php:719
 #: views/admin/fundraising/include/_partial_input_type_selector.php:51
 #: views/admin/fundraising/include/donations-pledge-setup.php:53
 #: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:63
@@ -686,15 +686,15 @@ msgstr ""
 msgid "Label"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:756 widgets/donate/donate.php:745
+#: apps/elementor/widgets/donate.php:757 widgets/donate/donate.php:745
 msgid "Headding"
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:800 widgets/donate/donate.php:788
+#: apps/elementor/widgets/donate.php:801 widgets/donate/donate.php:788
 msgid "Select any Donation from Dropdown."
 msgstr ""
 
-#: apps/elementor/widgets/donate.php:819 widgets/donate/donate.php:807
+#: apps/elementor/widgets/donate.php:820 widgets/donate/donate.php:807
 msgid "Please select any donate."
 msgstr ""
 
@@ -1396,7 +1396,7 @@ msgid "Enable"
 msgstr ""
 
 #: payment-module/views/payment-setup.php:17
-#: views/public/donation/donation-page-short-code.php:343
+#: views/public/donation/donation-page-short-code.php:345
 #: views/public/fundraising/single-page/include/content-header-crowdfund.php:142
 #: views/public/fundraising/single-page/include/content-header-donation.php:128
 #: views/public/fundraising/single-page/include/crowd_donation_body.php:212
@@ -2681,21 +2681,21 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: views/public/donation/donation-page-short-code.php:327
+#: views/public/donation/donation-page-short-code.php:329
 #: views/public/fundraising/single-page/include/content-header-crowdfund.php:127
 #: views/public/fundraising/single-page/include/content-header-donation.php:113
 #: views/public/fundraising/single-page/include/crowd_donation_body.php:192
 msgid "Recent Funds"
 msgstr ""
 
-#: views/public/donation/donation-page-short-code.php:350
+#: views/public/donation/donation-page-short-code.php:352
 #: views/public/fundraising/single-page/include/content-header-crowdfund.php:149
 #: views/public/fundraising/single-page/include/content-header-donation.php:135
 #: views/public/fundraising/single-page/include/crowd_donation_body.php:220
 msgid "Reviews"
 msgstr ""
 
-#: views/public/donation/donation-page-short-code.php:357
+#: views/public/donation/donation-page-short-code.php:359
 #: views/public/fundraising/single-page/include/content-header-crowdfund.php:156
 #: views/public/fundraising/single-page/include/content-header-donation.php:142
 #: views/public/fundraising/single-page/include/crowd_donation_body.php:229
