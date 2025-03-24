@@ -21,7 +21,7 @@ require __DIR__ . '/donation-display-form-common.php';
 							class="xs-btn btn-special submit-btn"
 							name="submit-form-donation"
 							data-type="modal-trigger"
-							data-target="xs-donate-modal-popup"> <?php echo esc_html__( 'Donate', 'wp-fundraising' ); ?>
+							data-target="xs-donate-modal-popup-<?php echo esc_attr($post->ID) ?>"> <?php echo esc_html__( 'Donate', 'wp-fundraising' ); ?>
 					</button>
 				</div>
 				<?php
@@ -29,7 +29,7 @@ require __DIR__ . '/donation-display-form-common.php';
 				// So if modal status is on then this needs to be printed out.
 				if ( $modal_status == 'Yes' ) :
 					?>
-					<div class="xs-modal-dialog wfp-donate-modal-popup" id="xs-donate-modal-popup">
+					<div class="xs-modal-dialog wfp-donate-modal-popup" id="xs-donate-modal-popup-<?php echo esc_attr($post->ID) ?>">
 						<div class="wfp-donate-modal-popup-wraper">
 							<div class="wfp-modal-content">
 								<div class="xs-modal-header">

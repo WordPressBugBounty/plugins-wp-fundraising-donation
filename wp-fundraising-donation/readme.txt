@@ -3,7 +3,7 @@ Contributors: ataurr, XpeedStudio
 Tags: fundraising, fund, donation, donations, crowdfunding, funding, crowd funding,  donate, donation plugin, wordpress donation plugin, fundraising plugin, nonprofit, nonprofits, charity, church, churches, backer, crowdfunding plugin, donation plugin, fund rising, kickstarter
 Requires at least: 5.2
 Tested up to: 6.7
-Stable tag: 1.7.2
+Stable tag: 1.7.3
 Requires PHP: 7.4
 License:  GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -123,6 +123,9 @@ FundEngine - Fundraising Donation plugin and Crowdfunding Platform comes with Si
 
 
 == Changelog ==
+Version 1.7.3 //2025-03-23
+- Fixed: Duplicate campaign issue where the same campaign appeared in multiple campaign shortcodes on a single page.
+
 Version 1.7.2 //2025-03-05
 - Fixed: Elementor widget issue.
 - Fixed: PayPal payment redirection issue.
