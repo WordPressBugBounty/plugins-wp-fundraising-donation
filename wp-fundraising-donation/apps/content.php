@@ -1167,7 +1167,9 @@ class Content {
 		}
 
 		$formId      = isset( $request['formid'] ) ? intval( $request['formid'] ) : 0;
-		$post        = (array) isset( $request['campaign_post'] ) ? map_deep( $request['campaign_post'], 'sanitize_text_field' ) : array();
+		$post        = (array) isset( $request['campaign_post'] ) ? map_deep( $request['campaign_post'], function( $value ) {
+			return is_string( $value ) ? wp_kses_post( $value ) : $value;
+		} ) : array();
 		$meta_post   = (array) isset( $request['campaign_meta_post'] ) ? map_deep( $request['campaign_meta_post'], 'sanitize_text_field' ) : array();
 		$update_post = isset( $request['update_post'] ) ? intval( $request['update_post'] ) : 0;
 

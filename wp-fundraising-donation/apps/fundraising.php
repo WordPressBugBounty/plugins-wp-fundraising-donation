@@ -601,7 +601,22 @@ class Fundraising {
 
 		require_once \WFP_Fundraising::plugin_dir() . 'views/admin/fundraising/reports/donation-reports.php';
 	}
+	
+	/**
+	 * Check nonce for settings page.
+	 * Method Description: Check nonce for settings page.
+	 *
+	 * @since 1.7.4
+	 * @access public
+	 */
+	public function is_settings_page_nonce_valid(){
+		
+		if ( isset( $_POST['wpf_settings_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wpf_settings_nonce'] ) ), 'wpf_save_settings' ) ) {
+			return true;
+		}
 
+		return false;
+	}
 
 	/**
 	 * Donate wfp_donate_settings.
@@ -638,11 +653,11 @@ class Fundraising {
 
 		$metaKey = 'wfp_payment_options_data';
 
-		if (
-			isset( $_POST['submit_donate_settings_gateways'] ) &&
-			isset( $_POST['wpf_settings_nonce'] ) &&
-			wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wpf_settings_nonce'] ) ), 'wpf_save_settings' )
-		) {
+		if ( isset( $_POST['submit_donate_settings_gateways'] ) ) {
+
+			if( ! $this->is_settings_page_nonce_valid() ) {
+				wp_die( esc_html__( 'Nonce verification failed', 'wp-fundraising' ) );
+			}
 
 			$post_options = isset( $_POST['xs_submit_settings_data'] ) ? map_deep( wp_unslash( $_POST['xs_submit_settings_data'] ), 'sanitize_text_field' ) : array();
 
@@ -675,6 +690,10 @@ class Fundraising {
 			 */
 			if ( isset( $_POST['submit_pp_settings_gateways'] ) ) {
 
+				if( ! $this->is_settings_page_nonce_valid() ) {
+					wp_die( esc_html__( 'Nonce verification failed', 'wp-fundraising' ) );
+				}
+
 				$pp_data = ! empty( $_POST['wpfp_pp_settings_data'] ) ? map_deep( wp_unslash( $_POST['wpfp_pp_settings_data'] ), 'sanitize_text_field' ) : array();
 
 				if ( ! empty( $pp_data['gateways']['services'] ) ) {
@@ -698,6 +717,11 @@ class Fundraising {
 
 		$metaShareKey = 'wfp_share_media_options';
 		if ( isset( $_POST['submit_donate_settings_share'] ) ) {
+
+			if( ! $this->is_settings_page_nonce_valid() ) {
+				wp_die( esc_html__( 'Nonce verification failed', 'wp-fundraising' ) );
+			}
+			
 			$post_options = isset( $_POST['xs_submit_settings_data_share'] ) ? map_deep( wp_unslash( $_POST['xs_submit_settings_data_share'] ), 'sanitize_text_field' ) : array();
 
 			if ( update_option( $metaShareKey, $post_options, 'Yes' ) ) {
@@ -717,6 +741,11 @@ class Fundraising {
 
 		$metaGlobalKey = 'wfp_global_options_data';
 		if ( isset( $_POST['submit_donate_global_setting'] ) ) {
+
+			if( ! $this->is_settings_page_nonce_valid() ) {
+				wp_die( esc_html__( 'Nonce verification failed', 'wp-fundraising' ) );
+			}
+
 			$post_options = isset( $_POST['xs_submit_settings_data_global'] ) ? map_deep( wp_unslash( $_POST['xs_submit_settings_data_global'] ), 'sanitize_text_field' ) : array();
 
 			// global options data
@@ -738,7 +767,11 @@ class Fundraising {
 		$metaGeneralKey   = 'wfp_general_options_data';
 		$getMetaGeneralOp = get_option( $metaGeneralKey );
 
-		if ( isset( $_POST['submit_donate_general_setting'] ) ) {
+		if ( isset( $_POST['submit_donate_general_setting'] )) {
+
+			if( ! $this->is_settings_page_nonce_valid() ) {
+				wp_die( esc_html__( 'Nonce verification failed', 'wp-fundraising' ) );
+			}
 
 			$post_options = isset( $_POST['xs_submit_settings_data_general'] ) ? map_deep( wp_unslash( $_POST['xs_submit_settings_data_general'] ), 'sanitize_text_field' ) : array();
 
@@ -759,6 +792,10 @@ class Fundraising {
 		 */
 		$metaDisplayKey = 'wfp_display_options_data';
 		if ( isset( $_POST['submit_donate_display_setting'] ) ) {
+
+			if( ! $this->is_settings_page_nonce_valid() ) {
+				wp_die( esc_html__( 'Nonce verification failed', 'wp-fundraising' ) );
+			}
 
 			$post_options = isset( $_POST['xs_submit_donation_data'] ) ? map_deep( wp_unslash( $_POST['xs_submit_donation_data'] ), 'sanitize_text_field' ) : array();
 
@@ -782,6 +819,11 @@ class Fundraising {
 		 * Page Setting
 		 */
 		if ( isset( $_POST['submit_donate_page_setting'] ) ) {
+
+			if( ! $this->is_settings_page_nonce_valid() ) {
+				wp_die( esc_html__( 'Nonce verification failed', 'wp-fundraising' ) );
+			}
+
 			$post_options = isset( $_POST['xs_submit_settings_data_general'] ) ? map_deep( wp_unslash( $_POST['xs_submit_settings_data_general'] ), 'sanitize_text_field' ) : array();
 
 			$args = array(
@@ -829,6 +871,11 @@ class Fundraising {
 		 */
 		$metaTermsKey = 'wfp_etrms_condition_options_data';
 		if ( isset( $_POST['submit_donate_terms_setting'] ) ) {
+
+			if( ! $this->is_settings_page_nonce_valid() ) {
+				wp_die( esc_html__( 'Nonce verification failed', 'wp-fundraising' ) );
+			}
+
 			$post_options = isset( $_POST['xs_submit_terms_condition_data'] ) ? map_deep( wp_unslash( $_POST['xs_submit_terms_condition_data'] ), 'sanitize_text_field' ) : array();
 			// terms options data
 			if ( update_option( $metaTermsKey, $post_options, 'Yes' ) ) {
@@ -852,6 +899,10 @@ class Fundraising {
 			$ok_auth = \WP_Fundraising_Pro\Keys::OK_AUTH_SETTINGS;
 
 			if ( isset( $_POST['submit_auth_settings_btn'] ) ) {
+
+				if( ! $this->is_settings_page_nonce_valid() ) {
+					wp_die( esc_html__( 'Nonce verification failed', 'wp-fundraising' ) );
+				}
 
 				$post_options = isset( $_POST['wpfd_submit_auth_data'] ) ? map_deep( wp_unslash( $_POST['wpfd_submit_auth_data'] ), 'sanitize_text_field' ) : array();
 

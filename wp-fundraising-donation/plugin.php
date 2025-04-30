@@ -65,6 +65,16 @@ final class Plugin {
 
 	public function init() {
 
+
+		// Load the text domain for translation warning issue
+
+		add_filter('doing_it_wrong_trigger_error', function($doing_it_wrong, $function_name) {
+            if ('_load_textdomain_just_in_time' === $function_name) {
+                return false;
+            }
+            return $doing_it_wrong;
+        }, 10, 2);
+
 		add_filter( 'the_content', array( $this, 'wfp_content_replace_for_invoice_page' ) );
 
 		add_filter( 'plugin_action_links_' . $this->base_location, array( $this, 'wfp_action_links' ) );
@@ -117,12 +127,18 @@ final class Plugin {
 
 			$url = admin_url( 'edit.php?post_type=' . Fundraising_Cpt::TYPE . '&page=donations&donation_id=' . $post->ID );
 
-			$trash = $actions['trash'];
+			$trash = isset( $actions['trash'] ) ? $actions['trash'] : '';
 
-			unset( $actions['trash'] );
+			if ( isset( $actions['trash'] ) ) {
+				unset( $actions['trash'] );
+			}
 
 			$actions['wfp_donations'] = '<a href="' . $url . '" title="check all donations" target="_blank" >' . esc_html__( 'Donations', 'wp-fundraising' ) . '</a>';
-			$actions['trash']         = $trash;
+			
+			// Restore trash action if it existed
+			if ( ! empty( $trash ) ) {
+				$actions['trash'] = $trash;
+			}
 
 		}
 
