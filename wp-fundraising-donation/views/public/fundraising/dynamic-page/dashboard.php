@@ -30,7 +30,27 @@
 
 					$defaultUse_space = isset( $getMetaGeneral['currency']['use_space'] ) ? $getMetaGeneral['currency']['use_space'] : 'off';
 
-					require __DIR__ . '/dashboard/' . $getPage . '-content.php';
+					$getPage = sanitize_file_name( $getPage );
+
+					// Dynamically find all allowed pages from existing `*-content.php` files
+					$allowed_pages = array_map(
+						function( $file ) {
+							return basename( $file, '-content.php' );
+						},
+						glob( __DIR__ . '/dashboard/*-content.php' )
+					);
+
+					if ( in_array( $getPage, $allowed_pages, true ) ) {
+						$page_file = __DIR__ . '/dashboard/' . $getPage . '-content.php';
+
+						if ( file_exists( $page_file ) ) {
+							require $page_file;
+						} else {
+							echo esc_html__( 'Dashboard page not found.', 'wp-fundraising' );
+						}
+					} else {
+						echo esc_html__( 'Invalid dashboard page requested.', 'wp-fundraising' );
+					}
 				?>
 			</div>
 		</div>
