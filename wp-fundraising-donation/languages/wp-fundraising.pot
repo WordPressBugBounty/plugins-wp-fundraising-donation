@@ -1,270 +1,270 @@
-# Copyright (C) 2025 Wpmet
+# Copyright (C) 2026 Wpmet
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: FundEngine – Donation and Crowdfunding Platform 1.7.5\n"
+"Project-Id-Version: FundEngine – Donation and Crowdfunding Platform 1.7.6\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wp-fundraising-donation\n"
-"POT-Creation-Date: 2025-06-24 10:01:02+00:00\n"
+"POT-Creation-Date: 2026-05-05 11:37:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: apps/content.php:427 apps/content.php:556
+#: apps/content.php:431 apps/content.php:560
 msgid "Sorry wrong campaign."
 msgstr ""
 
-#: apps/content.php:431
+#: apps/content.php:435
 msgid "Invalid payment method."
 msgstr ""
 
-#: apps/content.php:438 apps/content.php:577
+#: apps/content.php:442 apps/content.php:581
 msgid "Invalid payment."
 msgstr ""
 
-#: apps/content.php:442 apps/content.php:586
+#: apps/content.php:446 apps/content.php:590
 msgid "Your payment already processed. [Code: %s]"
 msgstr ""
 
-#: apps/content.php:564
+#: apps/content.php:568
 msgid "Sorry Stripe Method not Active."
 msgstr ""
 
-#: apps/content.php:643
+#: apps/content.php:647
 msgid "Thanks for your payment"
 msgstr ""
 
-#: apps/content.php:650
+#: apps/content.php:654
 msgid "System error!"
 msgstr ""
 
-#: apps/content.php:737
+#: apps/content.php:741
 msgid "Sorry invalid form of Donation."
 msgstr ""
 
-#: apps/content.php:835
+#: apps/content.php:839
 msgid "Enter select payment method"
 msgstr ""
 
-#: apps/content.php:845
+#: apps/content.php:849
 msgid "Enter donate amount"
 msgstr ""
 
-#: apps/content.php:857
+#: apps/content.php:861
 msgid "Sorry! minimum donate amount: "
 msgstr ""
 
-#: apps/content.php:861
+#: apps/content.php:865
 msgid "Sorry! max donate amount: "
 msgstr ""
 
-#: apps/content.php:1097
+#: apps/content.php:1101
 msgid "Successfully donation. "
 msgstr ""
 
-#: apps/content.php:1103
+#: apps/content.php:1107
 msgid "Something is wrong"
 msgstr ""
 
-#: apps/content.php:1165 apps/content.php:1488
+#: apps/content.php:1169 apps/content.php:1492
 msgid "Something error."
 msgstr ""
 
-#: apps/content.php:1184
+#: apps/content.php:1188
 msgid "Sorry could't update this campaign"
 msgstr ""
 
-#: apps/content.php:1422
+#: apps/content.php:1426
 msgid "Successfully Update this Campaign."
 msgstr ""
 
-#: apps/content.php:1424
+#: apps/content.php:1428
 msgid "Successfully Submitted Campaign for Review."
 msgstr ""
 
-#: apps/content.php:1444
+#: apps/content.php:1448
 msgid "Invalid Campaign."
 msgstr ""
 
-#: apps/content.php:1535
+#: apps/content.php:1539
 msgid "Successfully Update your Information."
 msgstr ""
 
-#: apps/content.php:1557
+#: apps/content.php:1561
 msgid "Sorry you could not able to update password."
 msgstr ""
 
-#: apps/content.php:1579
+#: apps/content.php:1583
 msgid "Successfully set new password."
 msgstr ""
 
-#: apps/content.php:1582
+#: apps/content.php:1586
 msgid "Sorry don't match new password"
 msgstr ""
 
-#: apps/content.php:1585
+#: apps/content.php:1589
 msgid "Sorry current don't match password"
 msgstr ""
 
-#: apps/content.php:1588
+#: apps/content.php:1592
 msgid "Please enter current password."
 msgstr ""
 
-#: apps/content.php:1616 apps/content.php:2903
+#: apps/content.php:1620 apps/content.php:2909
 msgid "Please enter email or username"
 msgstr ""
 
-#: apps/content.php:1623 apps/content.php:2910
+#: apps/content.php:1627 apps/content.php:2916
 msgid "Please enter password"
 msgstr ""
 
-#: apps/content.php:1662 apps/content.php:2951
+#: apps/content.php:1666 apps/content.php:2957
 msgid "System Error"
 msgstr ""
 
-#: apps/content.php:1670
+#: apps/content.php:1668 apps/content.php:2967
+msgid "New user registration option is turned off"
+msgstr ""
+
+#: apps/content.php:1676
 msgid "Already used this email"
 msgstr ""
 
-#: apps/content.php:1673 apps/content.php:1753
+#: apps/content.php:1679 apps/content.php:1759
 msgid "Please enter email address"
 msgstr ""
 
-#: apps/content.php:1678
+#: apps/content.php:1684
 msgid "Please enter your user name"
 msgstr ""
 
-#: apps/content.php:1684 apps/content.php:2993
+#: apps/content.php:1690 apps/content.php:2999
 msgid "Please set your password"
 msgstr ""
 
-#: apps/content.php:1698
+#: apps/content.php:1704
 msgid "Sorry system error. Try again."
 msgstr ""
 
-#: apps/content.php:1711
+#: apps/content.php:1717
 msgid "Please enter your valid email address"
 msgstr ""
 
-#: apps/content.php:1738 apps/content.php:2028
+#: apps/content.php:1744 apps/content.php:2034
 msgid "Sorry invalid campaign."
 msgstr ""
 
-#: apps/content.php:1758
+#: apps/content.php:1764
 msgid "Please enter your name"
 msgstr ""
 
-#: apps/content.php:1764
+#: apps/content.php:1770
 msgid "Please give your ratting"
 msgstr ""
 
-#: apps/content.php:1782 apps/content.php:1911 apps/content.php:1972
+#: apps/content.php:1788 apps/content.php:1917 apps/content.php:1978
 msgid "Sorry invalid review."
 msgstr ""
 
-#: apps/content.php:1793 apps/content.php:1924 apps/content.php:1985
+#: apps/content.php:1799 apps/content.php:1930 apps/content.php:1991
 msgid "Sorry you are not valid user."
 msgstr ""
 
-#: apps/content.php:1799 apps/content.php:1930 apps/content.php:1991
+#: apps/content.php:1805 apps/content.php:1936 apps/content.php:1997
 msgid "Invalid Review."
 msgstr ""
 
-#: apps/content.php:1822
+#: apps/content.php:1828
 msgid "Successfully updated review"
 msgstr ""
 
-#: apps/content.php:1827
+#: apps/content.php:1833
 msgid "Sorry system error."
 msgstr ""
 
-#: apps/content.php:1836
+#: apps/content.php:1842
 msgid "Sorry already submitted review"
 msgstr ""
 
-#: apps/content.php:1865
+#: apps/content.php:1871
 msgid "Successfully submitted review"
 msgstr ""
 
-#: apps/content.php:1870 apps/content.php:2066
+#: apps/content.php:1876 apps/content.php:2072
 msgid "System error"
 msgstr ""
 
-#: apps/content.php:1875
+#: apps/content.php:1881
 msgid "Please sign in first"
 msgstr ""
 
-#: apps/content.php:1898 apps/content.php:1959
+#: apps/content.php:1904 apps/content.php:1965
 msgid "Sorry you are not valid author for delete review."
 msgstr ""
 
-#: apps/content.php:1936
+#: apps/content.php:1942
 msgid "Successfully remove your review."
 msgstr ""
 
-#: apps/content.php:1938
+#: apps/content.php:1944
 msgid "System error."
 msgstr ""
 
-#: apps/content.php:2043
+#: apps/content.php:2049
 msgid "Please enter your update details."
 msgstr ""
 
-#: apps/content.php:2062
+#: apps/content.php:2068
 msgid "Successfully submitted update"
 msgstr ""
 
-#: apps/content.php:2071
+#: apps/content.php:2077
 msgid "Sorry invalid user for post campaign update."
 msgstr ""
 
-#: apps/content.php:2308 apps/content.php:2803 views/public/auth/form.php:141
+#: apps/content.php:2314 apps/content.php:2809 views/public/auth/form.php:141
 #: views/public/fundraising/single-page/include/page/review.php:171
 #: views/public/fundraising/single-page/include/page/review.php:172
 msgid "Login"
 msgstr ""
 
-#: apps/content.php:2309 apps/content.php:2804 views/public/auth/form.php:121
+#: apps/content.php:2315 apps/content.php:2810 views/public/auth/form.php:121
 #: views/public/auth/form.php:142 views/public/auth/modal.php:142
 #: views/public/fundraising/dynamic-page/login.php:95
 msgid "Register"
 msgstr ""
 
-#: apps/content.php:2310 views/public/auth/form.php:66
+#: apps/content.php:2316 views/public/auth/form.php:66
 #: views/public/auth/modal.php:87
 #: views/public/fundraising/dynamic-page/login.php:45
 msgid "Login Now"
 msgstr ""
 
-#: apps/content.php:2799
+#: apps/content.php:2805
 msgid "Dahsboard"
 msgstr ""
 
-#: apps/content.php:2801
+#: apps/content.php:2807
 msgid "Sign Out"
 msgstr ""
 
-#: apps/content.php:2961
-msgid "New user registration option is turned off"
-msgstr ""
-
-#: apps/content.php:2970
+#: apps/content.php:2976
 msgid "This email is already used"
 msgstr ""
 
-#: apps/content.php:2977
+#: apps/content.php:2983
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: apps/content.php:2986
+#: apps/content.php:2992
 msgid "Please enter valid username"
 msgstr ""
 
-#: apps/content.php:3022
+#: apps/content.php:3028
 msgid "Sorry system error. Try again"
 msgstr ""
 
@@ -2801,27 +2801,27 @@ msgstr ""
 msgid "Short Brief"
 msgstr ""
 
-#: views/public/fundraising/dynamic-page/campaign-elementor.php:345
-#: views/public/fundraising/dynamic-page/campaign.php:307
-#: views/public/fundraising/dynamic-page/campaign_listing.php:324
-msgid "Created by"
-msgstr ""
-
-#: views/public/fundraising/dynamic-page/campaign-elementor.php:392
-#: views/public/fundraising/dynamic-page/campaign.php:335
-#: views/public/fundraising/dynamic-page/campaign_listing.php:355
-#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:81
-msgid "Sorry, not found any campaign."
-msgstr ""
-
-#: views/public/fundraising/dynamic-page/campaign.php:235
 #: views/public/fundraising/dynamic-page/campaign_listing.php:249
+#: views/public/fundraising/dynamic-page/campaign.php:235
 msgid "28 Days Left"
 msgstr ""
 
-#: views/public/fundraising/dynamic-page/campaign.php:313
+#: views/public/fundraising/dynamic-page/campaign_listing.php:324
+#: views/public/fundraising/dynamic-page/campaign-elementor.php:345
+#: views/public/fundraising/dynamic-page/campaign.php:307
+msgid "Created by"
+msgstr ""
+
 #: views/public/fundraising/dynamic-page/campaign_listing.php:332
+#: views/public/fundraising/dynamic-page/campaign.php:313
 msgid "Back Project"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/campaign_listing.php:355
+#: views/public/fundraising/dynamic-page/campaign-elementor.php:392
+#: views/public/fundraising/dynamic-page/campaign.php:335
+#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:81
+msgid "Sorry, not found any campaign."
 msgstr ""
 
 #: views/public/fundraising/dynamic-page/checkout.php:4

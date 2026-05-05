@@ -332,7 +332,7 @@ class Content {
 					array(
 						'methods'             => 'POST',
 						'callback'            => array( $this, 'wfp_action_rest_register_user' ),
-						'permission_callback' => '__return_true',
+						'permission_callback' => array( $this, 'wfp_can_register_user' ),
 					)
 				);
 
@@ -362,7 +362,7 @@ class Content {
 					array(
 						'methods'             => 'POST',
 						'callback'            => array( $this, 'wfp_sh_register' ),
-						'permission_callback' => '__return_true',
+						'permission_callback' => array( $this, 'wfp_can_register_user' ),
 					)
 				);
 
@@ -410,6 +410,10 @@ class Content {
 			},
 			11
 		);
+	}
+
+	public function wfp_can_register_user() {
+		return (bool) get_option( 'users_can_register', false ) || current_user_can( 'create_users' );
 	}
 
 	public function wfp_action_rest_payment_redirect( \WP_REST_Request $request ) {
@@ -1660,6 +1664,8 @@ class Content {
 
 		if ( is_user_logged_in() ) {
 			$return['error'] = esc_html__( 'System Error', 'wp-fundraising' );
+		} elseif ( ! get_option( 'users_can_register', false ) && ! current_user_can( 'create_users' ) ) {
+			$return['error'] = esc_html__( 'New user registration option is turned off', 'wp-fundraising' );
 		} else {
 			$email_address = isset( $wfp_register['email'] ) ? $wfp_register['email'] : '';
 			$username      = isset( $wfp_register['username'] ) ? $wfp_register['username'] : '';
@@ -2457,7 +2463,7 @@ class Content {
 		// get payment type from options data
 		$metaSetupKey = 'wfp_setup_services_data';
 		$getSetUpData = get_option( $metaSetupKey );
-		$paymentType  = isset( $getMetaData['services']['payment'] ) ? $getMetaData['services']['payment'] : 'default';
+		$paymentType  = isset( $getSetUpData['services']['payment'] ) ? $getSetUpData['services']['payment'] : 'default';
 
 		$dashboardPage = isset( $getMetaGeneralPage['checkout'] ) ? $getMetaGeneralPage['checkout'] : 'wfp-checkout';
 

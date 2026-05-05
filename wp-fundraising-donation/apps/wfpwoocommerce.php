@@ -248,7 +248,7 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 	 * This invokes when clicked on checkout button...........
 	 */
 	add_action( 'woocommerce_checkout_create_order_line_item', 'wfp_checkout_create_order_line_item', 20, 4 );
-	add_filter( 'woocommerce_data_stores', 'wfp_woocommerce_data_stores' );
+	add_filter( 'woocommerce_data_stores', 'wfp_woocommerce_data_stores', 20 );
 	add_filter( 'woocommerce_product_get_price', 'wfp_woocommerce_product_get_price', 10, 2 );
 	add_action( 'woocommerce_thankyou', 'wfp_woo_callback', 10, 1 );
 	add_filter( 'woocommerce_add_to_cart_redirect', 'redirect_checkout_add_cart' );
