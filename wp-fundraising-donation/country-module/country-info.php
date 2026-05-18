@@ -1,7 +1,10 @@
 <?php
+
+defined( 'ABSPATH' ) || exit;
+
 // https://en.wikipedia.org/wiki/Currency_symbol#List_of_currency_symbols_currently_in_use
 
-$country_data = array(
+$wfp_fundraising_country_data = array( // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: country dataset prefixed to `wfp_fundraising_`
 	'AF' =>
 		array(
 			'info'     =>
@@ -7903,4 +7906,5 @@ $country_data = array(
 
 );
 
-$countryList = apply_filters( 'wfp_country_set_info', $country_data );
+$wfp_fundraising_country_list = apply_filters( 'wfp_country_set_info', $wfp_fundraising_country_data ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: legacy country hook kept for compatibility and the country list variable already uses the plugin prefix
+$wfpCountryList = $wfp_fundraising_country_list; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Legacy global alias kept for backward compatibility with existing integrations.

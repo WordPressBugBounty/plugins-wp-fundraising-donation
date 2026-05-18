@@ -1,46 +1,50 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
 if ( isset( $request['nonce'] ) && wp_verify_nonce( $request['nonce'], 'wfp-update' ) ) {
-	$paged = isset( $_GET['review_page'] ) ? sanitize_text_field( wp_unslash( $_GET['review_page'] ) ) : 1;
+	$wfp_paged = isset( $_GET['review_page'] ) ? sanitize_text_field( wp_unslash( $_GET['review_page'] ) ) : 1;
 } else {
-	$paged = 1;
+	$wfp_paged = 1;
 }
-$postId = empty( $post->ID ) ? get_the_ID() : $post->ID;
+$wfpPostId = empty( $post->ID ) ? get_the_ID() : $post->ID;
 
-$postId = empty( $formId ) ? $postId : $formId; // overriding for short code...
+$wfpPostId = empty( $wfpFormId ) ? $wfpPostId : $wfpFormId; // overriding for short code...
 
-$args = array(
+$wfp_args = array(
 	'post_type'      => 'wfp-update',
-	'post_parent'    => $postId,
+	'post_parent'    => $wfpPostId,
 	'post_status'    => 'publish',
 
 	'orderby'        => array(
 		'post_date' => 'DESC',
 	),
 	'posts_per_page' => 15,
-	'paged'          => $paged,
+	'paged'          => $wfp_paged,
 );
 
-$the_review = new \WP_Query( $args );
+$wfp_the_review = new \WP_Query( $wfp_args );
 
-$postCount = 1;
+$wfpPostCount = 1;
 
-if ( $the_review->have_posts() ) { ?>
+if ( $wfp_the_review->have_posts() ) { ?>
 
 	<div class="wfp-details-update-tab">
 		<?php
-		while ( $the_review->have_posts() ) {
-			$the_review->the_post();
-			$id           = $post->ID;
-			$post_date    = $post->post_date;
-			$post_content = $post->post_content;
+		while ( $wfp_the_review->have_posts() ) {
+			$wfp_the_review->the_post();
+			$wfp_id           = $post->ID;
+			$wfp_post_date    = $post->post_date;
+			$wfp_post_content = $post->post_content;
 
 			?>
 			<div class="wfp-details-update-tab--list">
-				<h3 class="wfp-details-update-tab--list__title"> <?php echo esc_html( gmdate( ' d F Y', strtotime( $post_date ) ) ); ?></h3>
-				<p class="wfp-details-update-tab--list__content"><?php echo wp_kses( $post_content, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></p>
+				<h3 class="wfp-details-update-tab--list__title"> <?php echo esc_html( gmdate( ' d F Y', strtotime( $wfp_post_date ) ) ); ?></h3>
+				<p class="wfp-details-update-tab--list__content"><?php echo wp_kses( $wfp_post_content, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></p>
 			</div>
 			<?php
-			$postCount ++;
+			$wfpPostCount ++;
 		}
 
 		wp_reset_postdata();
@@ -51,15 +55,15 @@ if ( $the_review->have_posts() ) { ?>
 
 }
 
-$userId = get_current_user_id();
+$wfpUserId = get_current_user_id();
 global $post;
-$author_id = $post->post_author;
+$wfp_author_id = $post->post_author;
 
-if ( is_user_logged_in() && $userId == $author_id ) {
+if ( is_user_logged_in() && $wfpUserId == $wfp_author_id ) {
 	?>
 	<div class="wfp-submit-updates">
 		<div class="wfp-entry-reiv">
-			<form class="wfp-user-update" id="wfp_update-<?php esc_attr( $postId ); ?>" method="post">
+			<form class="wfp-user-update" id="wfp_update-<?php esc_attr( $wfpPostId ); ?>" method="post">
 				<div class="message-update-status"></div>
 
 

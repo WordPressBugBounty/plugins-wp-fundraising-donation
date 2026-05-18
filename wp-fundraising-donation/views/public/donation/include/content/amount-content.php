@@ -1,23 +1,26 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-$std                       = new stdClass();
-$std->enable_custom_amount = 'No';
+defined( 'ABSPATH' ) || exit;
 
-$fixed_data = empty( $formDonation->fixed ) ? $std : $formDonation->fixed;
+$wfp_std                       = new stdClass();
+$wfp_std->enable_custom_amount = 'No';
+
+$wfp_fixed_data = empty( $wfpFormDonation->fixed ) ? $wfp_std : $wfpFormDonation->fixed;
 
 
-if ( $donation_type == 'multi-lebel' ) {
+if ( $wfp_donation_type == 'multi-lebel' ) {
 
-	$displayStyle         = isset( $formDonation->display ) ? $formDonation->display : 'boxed';
-	$donationLimit        = isset( $formDonation->set_limit ) ? $formDonation->set_limit : '';
-	$enable_custom_amount = isset( $fixedData->enable_custom_amount ) == 'Yes' ? '' : 'readonly';
+	$wfpDisplayStyle         = isset( $wfpFormDonation->display ) ? $wfpFormDonation->display : 'boxed';
+	$wfpDonationLimit        = isset( $wfpFormDonation->set_limit ) ? $wfpFormDonation->set_limit : '';
+	$wfp_enable_custom_amount = isset( $wfpFixedData->enable_custom_amount ) == 'Yes' ? '' : 'readonly';
 	?>
 
 	<div class="wfdp-donation-input-form xs-multi-lebel" >
 		<div class="xs-donate-field-wrap-group">
 			<div class="xs-donate-field-wrap">
-				<label for="xs_donate_amount" class="xs-money-symbol xs-money-symbol-before"><?php echo esc_html( $cur_symbol ); ?></label>
-				<input type="number" step="any" required min="0" onkeyup="xs_additional_fees(this.value, <?php echo esc_html( $post->ID ); ?>)" onblur="xs_additional_fees(this.value, <?php echo esc_html( $post->ID ); ?>)" name="xs_donate_data_submit[donate_amount]" id="xs_donate_amount" placeholder="<?php echo esc_html( apply_filters( 'donate_placeholder_amount', '1.00' ) ); ?>" class="xs-field xs-money-field xs-text_small" <?php echo esc_attr( $enable_custom_amount ); ?>>
+				<label for="xs_donate_amount" class="xs-money-symbol xs-money-symbol-before"><?php echo esc_html( $wfp_cur_symbol ); ?></label>
+				<input type="number" step="any" required min="0" onkeyup="xs_additional_fees(this.value, <?php echo esc_html( $post->ID ); ?>)" onblur="xs_additional_fees(this.value, <?php echo esc_html( $post->ID ); ?>)" name="xs_donate_data_submit[donate_amount]" id="xs_donate_amount" placeholder="<?php echo esc_html( apply_filters( 'donate_placeholder_amount', '1.00' ) ); ?>" class="xs-field xs-money-field xs-text_small" <?php echo esc_attr( $wfp_enable_custom_amount ); ?>>
 			</div>
 
 			<?php require __DIR__ . '/_partials/limit_details.php'; ?>
@@ -25,17 +28,17 @@ if ( $donation_type == 'multi-lebel' ) {
 
 		<?php
 
-		$multiData = apply_filters( 'wfp_donate_multi_amount', $multiData );
+		$wfpMultiData = apply_filters( 'wfp_donate_multi_amount', $wfpMultiData );
 
-		if ( $displayStyle == 'boxed' || $displayStyle == '' ) {
+		if ( $wfpDisplayStyle == 'boxed' || $wfpDisplayStyle == '' ) {
 
 			require __DIR__ . '/amount-in-boxed.php';
 
-		} elseif ( $displayStyle == 'radio' ) {
+		} elseif ( $wfpDisplayStyle == 'radio' ) {
 
 			require __DIR__ . '/amount-in-radio.php';
 
-		} elseif ( $displayStyle == 'dropdown' ) {
+		} elseif ( $wfpDisplayStyle == 'dropdown' ) {
 
 			require __DIR__ . '/amount-in-dropdown.php';
 		}
@@ -48,16 +51,16 @@ if ( $donation_type == 'multi-lebel' ) {
 
 } else {
 
-	$customFieldEnable = ( isset( $fixedData->enable_custom_amount ) && $fixedData->enable_custom_amount == 'Yes' ) ? 'show' : 'hide';
+	$wfpCustomFieldEnable = ( isset( $wfpFixedData->enable_custom_amount ) && $wfpFixedData->enable_custom_amount == 'Yes' ) ? 'show' : 'hide';
 
-	$fixed_amount = empty( $fixedData->price ) ? 0 : $fixedData->price;
+	$wfp_fixed_amount = empty( $wfpFixedData->price ) ? 0 : $wfpFixedData->price;
 
-	$defaultData = (float) $fixed_amount;
+	$wfpDefaultData = (float) $wfp_fixed_amount;
 
-	if ( isset( $fixedData->enable_custom_amount ) == 'Yes' ) {
-		$amount_dis = '';
+	if ( isset( $wfpFixedData->enable_custom_amount ) == 'Yes' ) {
+		$wfp_amount_dis = '';
 	} else {
-		$amount_dis = 'readonly';
+		$wfp_amount_dis = 'readonly';
 	}
 
 	?>
@@ -65,17 +68,17 @@ if ( $donation_type == 'multi-lebel' ) {
 		<div class="wfdp-input-payment-field xs-fixed-lebel oka">
 			<div class="xs-donate-field-wrap-group">
 				<div class="xs-donate-field-wrap">
-					<label class="xs-money-symbol xs-money-symbol-before"><?php echo esc_html( $cur_symbol ); ?></label>
+					<label class="xs-money-symbol xs-money-symbol-before"><?php echo esc_html( $wfp_cur_symbol ); ?></label>
 					<input
 							type="number"
 							step="any"
 							required min="0"
-						<?php echo esc_attr( ( $customFieldEnable == 'hide' ) ? 'readonly' : '' ); ?>
+						<?php echo esc_attr( ( $wfpCustomFieldEnable == 'hide' ) ? 'readonly' : '' ); ?>
 							name="xs_donate_data_submit[donate_amount]"
 							id="xs_donate_amount"
-							value="<?php echo esc_attr( $fixed_amount ); ?>"
+							value="<?php echo esc_attr( $wfp_fixed_amount ); ?>"
 							placeholder="1.001"
-							class="xs-field xs-money-field xs-text_small <?php echo ( $customFieldEnable == 'hide' ) ? 'input-hidden' : ''; ?>" <?php echo esc_attr( $amount_dis ); ?>>
+							class="xs-field xs-money-field xs-text_small <?php echo ( $wfpCustomFieldEnable == 'hide' ) ? 'input-hidden' : ''; ?>" <?php echo esc_attr( $wfp_amount_dis ); ?>>
 				</div>
 
 				<?php require __DIR__ . '/_partials/limit_details.php'; ?>

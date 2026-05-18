@@ -1,10 +1,10 @@
 <?php
 
-namespace WFP_Fundraising\Wpmet\Libs;
+namespace WfpFundraising\Wpmet\Libs; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound -- Reason: namespace uses plugin prefix `WfpFundraising`
 
 defined('ABSPATH') || exit;
 
-if( !class_exists('\WFP_Fundraising\Wpmet\Libs\Plugins') ) {
+if( !class_exists('\WfpFundraising\Wpmet\Libs\Plugins') ) {
 
     /**
      * Description: Wpmet Apps class. This class is used to display the wpmet other plugins
@@ -323,7 +323,7 @@ if( !class_exists('\WFP_Fundraising\Wpmet\Libs\Plugins') ) {
          * @return void
          */
         private function collect_activated_plugins() {
-            foreach ( apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) as $plugin ) {
+            foreach ( apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) as $plugin ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Reason: core WP hook `active_plugins`
                 array_push( $this->activated_plugins, $plugin );
             }
         }

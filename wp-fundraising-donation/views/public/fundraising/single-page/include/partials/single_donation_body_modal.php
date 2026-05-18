@@ -1,4 +1,9 @@
+<?php 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="wfp-modal-header">
 	<?php
 
@@ -7,9 +12,9 @@
 	require __DIR__ . '/_check_featured_markup.php';
 
 
-	if ( $title_enable === \WfpFundraising\Apps\Key::WFP_YES ) :
+	if ( $wfp_title_enable === \WfpFundraising\Apps\Key::WFP_YES ) :
 
-		if ( $show_in_modal === \WfpFundraising\Apps\Key::WFP_YES ) :
+		if ( $wfp_show_in_modal === \WfpFundraising\Apps\Key::WFP_YES ) :
 
 			?><h4 class="xs-modal-header--title"><?php echo esc_html( $post->post_title ); ?></h4>
 			<?php
@@ -33,7 +38,7 @@
 /**
  * before content data, if there any
  */
-if ( isset( $formContentData->enable ) ) {
+if ( isset( $wfpFormContentData->enable ) ) {
 
 	require __DIR__ . '/form_content_before.php';
 }
@@ -42,7 +47,7 @@ if ( isset( $formContentData->enable ) ) {
 /**
  * Show goal data
  */
-if ( $enable_goal == 'Yes' ) {
+if ( $wfp_enable_goal == 'Yes' ) {
 
 	require __DIR__ . '/goal_content.php';
 }
@@ -55,14 +60,14 @@ require __DIR__ . '/amount-content.php';
 // addition fees
 // include(__DIR__ . '/content/fees-content.php');
 
-if ( $paymentType == 'default' ) {
+if ( $wfpPaymentType == 'default' ) {
 
 	require __DIR__ . '/form_content_fields.php';
 
 	include __DIR__ . '/payment_options_content.php';
 }
 
-// if($gateCampaignData == 'default') {
+// if($wfpGateCampaignData == 'default') {
 // addition al filed content
 // include(__DIR__ . '/content/filed-content.php');
 // payment content
@@ -73,7 +78,7 @@ if ( $paymentType == 'default' ) {
 /**
  * After content data, if there any
  */
-if ( isset( $formContentData->enable ) ) {
+if ( isset( $wfpFormContentData->enable ) ) {
 
 	require __DIR__ . '/form_content_after.php';
 }

@@ -1,4 +1,7 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Hook for putting anything before donation content
@@ -8,15 +11,15 @@ do_action( 'wfp_campaign_content_before' );
 ?>
 
 	<div class="wfp-container xs-wfp-donation"
-		 style="<?php echo esc_attr( $page_width <= 0 ? '' : 'max-width:' . $page_width . 'px;' ); ?>">
+		 style="<?php echo esc_attr( $wfpPage_width <= 0 ? '' : 'max-width:' . $wfpPage_width . 'px;' ); ?>">
 		<div class="wfp-view wfp-view-public">
-			<div class="wfdp-donation-form <?php echo esc_html( $customClass ); ?>" <?php echo esc_attr( empty( $customIdData ) ? '' : 'id=".' . $customIdData . '."' ); ?>>
+			<div class="wfdp-donation-form <?php echo esc_html( $wfpCustomClass ); ?>" <?php echo esc_attr( empty( $wfpCustomIdData ) ? '' : 'id=".' . $wfpCustomIdData . '."' ); ?>>
 				<form method="post"
 					  class="wfdp-donationForm ft8"
-					  id="wfdp-donationForm-<?php echo esc_attr( $postId ); ?>"
-					  data-wfp-id="<?php echo esc_attr( $postId ); ?>"
-					  data-wfp-payment_type="<?php echo esc_attr( $paymentType ); ?>"
-					  wfp-data-url="<?php echo esc_url( $urlCheckout ); ?>">
+					  id="wfdp-donationForm-<?php echo esc_attr( $wfpPostId ); ?>"
+					  data-wfp-id="<?php echo esc_attr( $wfpPostId ); ?>"
+					  data-wfp-payment_type="<?php echo esc_attr( $wfpPaymentType ); ?>"
+					  wfp-data-url="<?php echo esc_url( $wfpUrlCheckout ); ?>">
 					  <?php wp_nonce_field( 'wpf_checkout_nonce_field', 'wpf_checkout' ); ?>
 					<div class="wfdp-donation-input-form">
 						<button type="button"
@@ -68,7 +71,7 @@ do_action( 'wfp_campaign_content_before' );
 
 				if ( \WfpFundraising\Utilities\Helper::is_woocom_payment() ) {
 
-					\WfpFundraising\Utilities\Helper::add_2_cart_form( $postId );
+					\WfpFundraising\Utilities\Helper::add_2_cart_form( $wfpPostId );
 				}
 
 				?>
@@ -78,7 +81,7 @@ do_action( 'wfp_campaign_content_before' );
 
 		<!-- maybe later i will move this part to a js file but for now putting it as it is-->
 		<script type='text/javascript'>
-			xs_donate_amount_set(<?php echo esc_attr( $defaultData ); ?>,<?php echo esc_attr( $postId ); ?>);
+			xs_donate_amount_set(<?php echo esc_attr( $wfpDefaultData ); ?>,<?php echo esc_attr( $wfpPostId ); ?>);
 		</script>
 
 	</div>

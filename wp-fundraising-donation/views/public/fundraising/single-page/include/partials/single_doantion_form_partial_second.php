@@ -1,3 +1,10 @@
+<?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
+
 <div class="wfdp-donation-message" ></div>
 
 <?php
@@ -5,7 +12,7 @@
 /**
  * before content data, if there any
  */
-if ( isset( $formContentData->enable ) ) {
+if ( isset( $wfpFormContentData->enable ) ) {
 
 	require __DIR__ . '/form_content_before.php';
 }
@@ -14,13 +21,13 @@ if ( isset( $formContentData->enable ) ) {
 /**
  * Show goal data
  */
-if ( $enable_goal == 'Yes' ) {
+if ( $wfp_enable_goal == 'Yes' ) {
 
 	require __DIR__ . '/goal_content.php';
 }
 
 
-if ( $paymentType == 'default' ) {
+if ( $wfpPaymentType == 'default' ) {
 
 	require __DIR__ . '/form_content_fields.php';
 
@@ -31,7 +38,7 @@ if ( $paymentType == 'default' ) {
 /**
  * After content data, if there any
  */
-if ( isset( $formContentData->enable ) ) {
+if ( isset( $wfpFormContentData->enable ) ) {
 
 	require __DIR__ . '/form_content_after.php';
 }

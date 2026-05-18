@@ -1,5 +1,9 @@
 <?php
-$cur_symbol = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_code();
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+$wfp_cur_symbol = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_code();
 ?>
 <div class="wfp-donation-pop-up-body">
 	<p class="wfp-donation-pop-up-heading">
@@ -18,7 +22,7 @@ $cur_symbol = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_cod
 					<option value=""><?php echo esc_html__( '-- Select One --', 'wp-fundraising' ); ?></option>
 					<?php
 					$wfp_pop_up_multiple_meta = array();
-					$i                        = 1;
+					$wfp_i                        = 1;
 					foreach ( $wfp_pop_up_donnations as $wfp_pop_up_donnation ) :
 
 						$wfp_pop_up_meta_data_Json = get_post_meta( $wfp_pop_up_donnation->ID, $wfp_pop_up_metaKey, false );
@@ -33,17 +37,17 @@ $cur_symbol = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_cod
 
 							if ( $wfp_pop_up_get_meta_data->donation->type == 'multi-lebel' ) {
 								$wfp_pop_up_multi_array = array(
-									'no'                   => $i,
+									'no'                   => $wfp_i,
 									'meta'                 => $wfp_pop_up_get_meta_data,
 									'enable_custom_amount' => $wfp_pop_up_enable_custom_amount,
 								);
 								array_push( $wfp_pop_up_multiple_meta, $wfp_pop_up_multi_array );
 							}
 							?>
-							<option data-permalink="<?php echo esc_url( get_permalink( $wfp_pop_up_donnation->ID ) ); ?>" data-no="<?php echo esc_attr( $i ); ?>" data-enable_custom_amount="<?php echo esc_attr( $wfp_pop_up_enable_custom_amount ); ?>" value="<?php echo esc_attr( $wfp_pop_up_donnation->ID ); ?>" data-type="<?php echo esc_attr( $wfp_pop_up_get_meta_data->donation->type ); ?>" data-price="<?php echo esc_attr( $wfp_pop_up_get_meta_data->donation->fixed->price ); ?>"><?php echo esc_html( $wfp_pop_up_donnation->post_title ); ?></option>
+							<option data-permalink="<?php echo esc_url( get_permalink( $wfp_pop_up_donnation->ID ) ); ?>" data-no="<?php echo esc_attr( $wfp_i ); ?>" data-enable_custom_amount="<?php echo esc_attr( $wfp_pop_up_enable_custom_amount ); ?>" value="<?php echo esc_attr( $wfp_pop_up_donnation->ID ); ?>" data-type="<?php echo esc_attr( $wfp_pop_up_get_meta_data->donation->type ); ?>" data-price="<?php echo esc_attr( $wfp_pop_up_get_meta_data->donation->fixed->price ); ?>"><?php echo esc_html( $wfp_pop_up_donnation->post_title ); ?></option>
 							<?php
 					endif;
-						$i++;
+						$wfp_i++;
 					endforeach;
 					?>
 				</select>
@@ -51,18 +55,18 @@ $cur_symbol = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_cod
 			<div class="wfp-donation-pop-up-form-group wfp-donation-pop-up-fixed" style="display: none;">
 			</div>
 			<?php
-			foreach ( $wfp_pop_up_multiple_meta as $meta ) :
+			foreach ( $wfp_pop_up_multiple_meta as $wfp_meta ) :
 				?>
-				<div class="wfp-donation-pop-up-form-group wfp-donation-pop-up-multi wfp-donation-pop-up-multi-<?php echo esc_attr( $meta['no'] ); ?>" style="display: none;">
+				<div class="wfp-donation-pop-up-form-group wfp-donation-pop-up-multi wfp-donation-pop-up-multi-<?php echo esc_attr( $wfp_meta['no'] ); ?>" style="display: none;">
 					<label for=""><?php esc_html_e( 'Multi Price', 'wp-fundraising' ); ?></label>
 					<select name="multiple_amount" id="" onchange="wfp_pop_up_custom_amount(this)" required>
 						<?php
-						foreach ( $meta['meta']->donation->multi->dimentions as $multi ) :
+						foreach ( $wfp_meta['meta']->donation->multi->dimentions as $multi ) :
 							?>
-							<option value="<?php echo esc_attr( $multi->price ); ?>"><?php echo esc_html( $multi->lebel . ' (' . $multi->price . ' ' . $cur_symbol . ')' ); ?></option>
+							<option value="<?php echo esc_attr( $multi->price ); ?>"><?php echo esc_html( $multi->lebel . ' (' . $multi->price . ' ' . $wfp_cur_symbol . ')' ); ?></option>
 							<?php
 						endforeach;
-						if ( isset( $meta['meta']->donation->fixed->enable_custom_amount ) && $meta['meta']->donation->fixed->enable_custom_amount == 'Yes' ) :
+						if ( isset( $wfp_meta['meta']->donation->fixed->enable_custom_amount ) && $wfp_meta['meta']->donation->fixed->enable_custom_amount == 'Yes' ) :
 							?>
 							<option value="custom"><?php echo esc_html__( 'Custom', 'wp-fundraising' ); ?></option>
 						<?php endif; ?>

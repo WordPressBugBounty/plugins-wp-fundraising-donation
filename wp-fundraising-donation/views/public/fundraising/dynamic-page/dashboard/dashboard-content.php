@@ -1,64 +1,74 @@
 <?php
+
+defined( 'ABSPATH' ) || exit;
+
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
 	global $wpdb;
 ?>
 <div class="my-campaign wfp-content-padding">
 	<?php require_once __DIR__ . '/report-search/dashboard-report-search.php'; ?>
-	<!-- <p class="period"><?php // echo esc_html__('Reporting Period : ', 'wp-fundraising'); ?> <datetime><?php // echo esc_html(date("F j, Y", strtotime($fromDate))); ?></datetime> <em>to</em> <datetime><?php // echo esc_html(date("F j, Y", strtotime($toDate))); ?></datetime></p>
+	<!-- <p class="period"><?php // echo esc_html__('Reporting Period : ', 'wp-fundraising-donation'); ?> <datetime><?php // echo esc_html(date("F j, Y", strtotime($wfpFromDate))); ?></datetime> <em>to</em> <datetime><?php // echo esc_html(date("F j, Y", strtotime($wfpToDate))); ?></datetime></p>
 	 -->
 	<div class="rewards-content rasied-amount-overview">
 		<div class="intro-info rewards-block">
 			<?php
-				$fundAmount = $wpdb->get_var(
+				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+				$wfpFundAmount = $wpdb->get_var(
+					// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 					$wpdb->prepare(
 						"SELECT SUM(fund.donate_amount) FROM $wpdb->posts as post 
 				INNER JOIN " . $wpdb->prefix . "wdp_fundraising as fund ON post.ID = fund.form_id
 				WHERE post.post_author = %d AND post.post_type = %s AND fund.status IN ('Active', 'Review')
 				AND (fund.date_time BETWEEN %s AND %s)",
-						$userId,
+						$wfpUserId,
 						self::post_type(),
-						$fromDate,
-						$toDate
+						$wfpFromDate,
+						$wfpToDate
 					)
-				);
+				); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for dashboard fund raised total.
 				?>
 			<p class="intro-info--title"> <?php echo esc_html__( 'Fund Raised', 'wp-fundraising' ); ?></p>
-			<p class="intro-info--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $fundAmount ) ); ?></strong><span class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?></span></p>
+			<p class="intro-info--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpFundAmount ) ); ?></strong><span class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></span></p>
 		</div>
 		<div class="intro-info rewards-block">
 			<?php
-				$backendAmount = $wpdb->get_var(
+				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+				$wfpBackendAmount = $wpdb->get_var(
+					// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 					$wpdb->prepare(
 						"SELECT SUM(fund.donate_amount) FROM $wpdb->posts as post 
 				INNER JOIN " . $wpdb->prefix . "wdp_fundraising as fund ON post.ID = fund.form_id
 				WHERE post.post_author = %d AND post.post_type = %s AND fund.status IN ('Active')
 				AND (fund.date_time BETWEEN %s AND %s)",
-						$userId,
+						$wfpUserId,
 						self::post_type(),
-						$fromDate,
-						$toDate
+						$wfpFromDate,
+						$wfpToDate
 					)
-				);
+				); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for dashboard backed total.
 				?>
 			<p class="intro-info--title"> <?php echo esc_html__( 'Total Backed', 'wp-fundraising' ); ?></p>
-			<p class="intro-info--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $backendAmount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?></em></p>
+			<p class="intro-info--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpBackendAmount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em></p>
 		</div>
 		<div class="intro-info rewards-block">
 			<?php
-				$pledgeAmount = $wpdb->get_var(
+				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+				$wfpPledgeAmount = $wpdb->get_var(
 					$wpdb->prepare(
 						"SELECT SUM(fund.donate_amount) FROM $wpdb->posts as post 
 				INNER JOIN " . $wpdb->prefix . "wdp_fundraising as fund ON post.ID = fund.form_id
 				WHERE post.post_author = %d AND post.post_type = %s AND fund.status IN ('Active') AND fund.pledge_id > 0
 				AND (fund.date_time BETWEEN %s AND %s)",
-						$userId,
+						$wfpUserId,
 						self::post_type(),
-						$fromDate,
-						$toDate
+						$wfpFromDate,
+						$wfpToDate
 					)
-				);
+				); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for dashboard pledge total.
 				?>
 			<p class="intro-info--title"> <?php echo esc_html__( 'Pledge Received', 'wp-fundraising' ); ?></p>
-			<p class="intro-info--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $pledgeAmount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?></em></p>
+			<p class="intro-info--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpPledgeAmount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em></p>
 		</div>
 	</div>
 
@@ -67,53 +77,53 @@
 			<div class="my-campaign-chart-inner profile-block">
 				<h3> <i class="wfpf wfpf-cog"></i> <?php echo esc_html( apply_filters( 'wfp_dashboard_dashboard_heading', __( 'Income Data', 'wp-fundraising' ) ) ); ?></h3>
 				<?php
-					$dataChartArray = array();
-					$dataChart      = array();
+					$wfpDataChartArray = array();
+					$wfpDataChart      = array();
 
 					// chart data
-					$chartLabel = array();
-				for ( $m = 1; $m <= ( $total_days + 1 ); $m++ ) {
-					$chartLabel[] = str_pad( $m, 2, '0', STR_PAD_LEFT );
+					$wfpChartLabel = array();
+				for ( $wfp_m = 1; $wfp_m <= ( $wfp_total_days + 1 ); $wfp_m++ ) {
+					$wfpChartLabel[] = str_pad( $wfp_m, 2, '0', STR_PAD_LEFT );
 				}
 
-					$dataChartArray['labels'] = $chartLabel;
+					$wfpDataChartArray['labels'] = $wfpChartLabel;
 
-					$dataLabelsJson = wp_json_encode( array_filter( $dataChartArray['labels'] ) );
+					$wfpDataLabelsJson = wp_json_encode( array_filter( $wfpDataChartArray['labels'] ) );
 
 					// chart data
-					$data_lavel['rasied_report'] = array(
+					$wfp_data_lavel['rasied_report'] = array(
 						'label'           => 'Raised',
 						'backgroundColor' => 'rgba(53, 60, 220, 0.35)',
 					);
-					$data_lavel['backed_report'] = array(
+					$wfp_data_lavel['backed_report'] = array(
 						'label'           => 'Income',
 						'backgroundColor' => 'rgba(120, 43, 40, 0.26)',
 					);
-					$data_lavel['pledge_report'] = array(
+					$wfp_data_lavel['pledge_report'] = array(
 						'label'           => 'Pledge',
 						'backgroundColor' => 'rgba(220, 53, 59, 0.46)',
 					);
 
-					foreach ( $data_lavel as $k => $v ) :
-						$data_value = array();
-						if ( $k == 'rasied_report' ) {
-							$status = " AND fund.status IN ('Active', 'Review')";
-						} elseif ( $k == 'pledge_report' ) {
-							$status = " AND fund.status IN ('Active') AND fund.pledge_id > 0";
+					foreach ( $wfp_data_lavel as $wfp_k => $v ) :
+						$wfp_data_value = array();
+						if ( $wfp_k == 'rasied_report' ) {
+							$wfp_status = " AND fund.status IN ('Active', 'Review')";
+						} elseif ( $wfp_k == 'pledge_report' ) {
+							$wfp_status = " AND fund.status IN ('Active') AND fund.pledge_id > 0";
 						} else {
-							$status = " AND fund.status IN ('Active')";
+							$wfp_status = " AND fund.status IN ('Active')";
 						}
 
-						for ( $m = 1; $m <= ( $total_days + 1 ); $m++ ) {
+						for ( $wfp_m = 1; $wfp_m <= ( $wfp_total_days + 1 ); $wfp_m++ ) {
 
-							$date_query = $exp_d[0] . '-' . $exp_d[1] . '-' . str_pad( $m, 2, '0', STR_PAD_LEFT );
+							$wfp_date_query = $wfp_exp_d[0] . '-' . $wfp_exp_d[1] . '-' . str_pad( $wfp_m, 2, '0', STR_PAD_LEFT );
 
-							$data_value[] = (int) $wpdb->get_var( $wpdb->prepare( "SELECT SUM(fund.donate_amount) FROM $wpdb->posts as post INNER JOIN " . $wpdb->prefix . "wdp_fundraising as fund ON post.ID = fund.form_id WHERE post.post_author = %d AND post.post_type = %s AND (fund.date_time BETWEEN %s AND %s) $status", $userId, self::post_type(), $date_query, $date_query ) ); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared  -- $status variable does not have any dynamic value.
+							$wfp_data_value[] = (int) $wpdb->get_var( $wpdb->prepare( "SELECT SUM(fund.donate_amount) FROM $wpdb->posts as post INNER JOIN " . $wpdb->prefix . "wdp_fundraising as fund ON post.ID = fund.form_id WHERE post.post_author = %d AND post.post_type = %s AND (fund.date_time BETWEEN %s AND %s) $wfp_status", $wfpUserId, self::post_type(), $wfp_date_query, $wfp_date_query ) ); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- $wfp_status variable does not have any dynamic value.
 						}
 
-						$dataChartArray['datasets'][] = array(
+						$wfpDataChartArray['datasets'][] = array(
 							'label'                => $v['label'],
-							'data'                 => array_map( 'intval', $data_value ),
+							'data'                 => array_map( 'intval', $wfp_data_value ),
 							'backgroundColor'      => $v['backgroundColor'],
 							'hoverBackgroundColor' => $v['backgroundColor'],
 							'borderColor'          => $v['backgroundColor'],
@@ -124,7 +134,7 @@
 						);
 					endforeach;
 
-					$dataJson = wp_json_encode( array_filter( $dataChartArray['datasets'] ) );
+					$wfpDataJson = wp_json_encode( array_filter( $wfpDataChartArray['datasets'] ) );
 					?>
 				<div class="wfp-chart" >
 					<canvas id="wfp-income-chart"></canvas>
@@ -138,18 +148,18 @@
 		
 		<div class="profile-section">
 			<!--<div class="profile-block left-profile">
-				<h3><i class="fas fa-building"></i><?php // echo esc_html(apply_filters('wfp_dashboard_statistics_headding', __('Statistics Reports ', 'wp-fundraising'))); ?></h3>
+				<h3><i class="fas fa-building"></i><?php // echo esc_html(apply_filters('wfp_dashboard_statistics_headding', __('Statistics Reports ', 'wp-fundraising-donation'))); ?></h3>
 				<div class="statistics-item">
 					<?php
-					// $persentange = 0;
-					// if($fundAmount > 0){
-						// $persentange = ($backendAmount * 100 ) / $fundAmount;
+					// $wfp_persentange = 0;
+					// if($wfpFundAmount > 0){
+						// $wfp_persentange = ($wfpBackendAmount * 100 ) / $wfpFundAmount;
 					// }
 					?>
 					<div class="xs-progress wfp-campaign-content--progress">
-						<div class="xs-progress-bar" role="xs-progressbar" style="width: <?php // echo esc_attr($persentange); ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?php // echo esc_attr($fundAmount); ?>"></div>
+						<div class="xs-progress-bar" role="xs-progressbar" style="width: <?php // echo esc_attr($wfp_persentange); ?>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="<?php // echo esc_attr($wfpFundAmount); ?>"></div>
 					</div>
-					<span class="wfp-campaign-content--raised-fund"><?php // echo esc_html__(' Raised Amount :', 'wp-fundraising'); ?> <strong class="wfp-campaign-content--raised-fund__amount"><?php // echo esc_html(WfpFundraising\Apps\Settings::wfp_number_format_currency_icon('left', $defaultUse_space)); ?><strong><?php // echo esc_html(WfpFundraising\Apps\Settings::wfp_number_format_currency($backendAmount)); ?></strong><em class="wfp-currency-symbol"><?php // echo esc_html(WfpFundraising\Apps\Settings::wfp_number_format_currency_icon('right', $defaultUse_space)); ?></em></strong> </span>
+					<span class="wfp-campaign-content--raised-fund"><?php // echo esc_html__(' Raised Amount :', 'wp-fundraising-donation'); ?> <strong class="wfp-campaign-content--raised-fund__amount"><?php // echo esc_html(WfpFundraising\Apps\Settings::wfp_number_format_currency_icon('left', $wfp_defaultUse_space)); ?><strong><?php // echo esc_html(WfpFundraising\Apps\Settings::wfp_number_format_currency($wfpBackendAmount)); ?></strong><em class="wfp-currency-symbol"><?php // echo esc_html(WfpFundraising\Apps\Settings::wfp_number_format_currency_icon('right', $wfp_defaultUse_space)); ?></em></strong> </span>
 				</div>
 			</div>-->
 			
@@ -164,7 +174,7 @@
 							<span>:</span>
 						</div>
 						<div class="xs-col-7 xs-col-md-7 wfp-input-col">
-							<span><?php echo esc_html( get_user_meta( $userId, 'nickname', true ) ); ?></span>
+							<span><?php echo esc_html( get_user_meta( $wfpUserId, 'nickname', true ) ); ?></span>
 						</div>
 						
 					</div>
@@ -176,7 +186,7 @@
 							<span> : </span>
 						</div>
 						<div class="xs-col-7 xs-col-md-7 wfp-input-col">
-							<span><?php echo esc_html( get_user_meta( $userId, '_wfp_phone', true ) ); ?></span>
+							<span><?php echo esc_html( get_user_meta( $wfpUserId, '_wfp_phone', true ) ); ?></span>
 						</div>
 						
 					</div>
@@ -188,7 +198,7 @@
 							<span> : </span>
 						</div>
 						<div class="xs-col-7 xs-col-md-7 wfp-input-col">
-							<span><?php echo esc_html( get_user_meta( $userId, '_wfp_first_name', true ) ); ?></span>
+							<span><?php echo esc_html( get_user_meta( $wfpUserId, '_wfp_first_name', true ) ); ?></span>
 						</div>
 						
 					</div>
@@ -201,7 +211,7 @@
 							<span> : </span>
 						</div>
 						<div class="xs-col-7 xs-col-md-7 wfp-input-col">
-							<span><?php echo esc_html( get_user_meta( $userId, '_wfp_last_name', true ) ); ?></span>
+							<span><?php echo esc_html( get_user_meta( $wfpUserId, '_wfp_last_name', true ) ); ?></span>
 						</div>
 						
 					</div>
@@ -214,7 +224,7 @@
 							<span> : </span>
 						</div>
 						<div class="xs-col-7 xs-col-md-7 wfp-input-col">
-							<span><?php echo esc_html( get_user_meta( $userId, '_wfp_email_address', true ) ); ?></span>
+							<span><?php echo esc_html( get_user_meta( $wfpUserId, '_wfp_email_address', true ) ); ?></span>
 						</div>
 						
 					</div>
@@ -227,7 +237,7 @@
 							<span> : </span>
 						</div>
 						<div class="xs-col-7 xs-col-md-7 wfp-input-col">
-							<span><?php echo esc_html( get_user_meta( $userId, 'description', true ) ); ?></span>
+							<span><?php echo esc_html( get_user_meta( $wfpUserId, 'description', true ) ); ?></span>
 						</div>
 						
 					</div>
@@ -237,18 +247,20 @@
 			<div class="profile-block right-profile wfp-current-balance">
 				<h3><i class="wfpf wfpf-wallet"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_balance_headding', __( 'My Balance ', 'wp-fundraising' ) ) ); ?></h3>
 				<?php
-					$balanceAmount = $wpdb->get_var(
+					// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+					$wfpBalanceAmount = $wpdb->get_var(
+						// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 						$wpdb->prepare(
 							"SELECT SUM(fund.donate_amount) FROM $wpdb->posts as post 
 					INNER JOIN " . $wpdb->prefix . "wdp_fundraising as fund ON post.ID = fund.form_id
 					WHERE post.post_author = %d AND post_type = %s AND fund.status IN ('Active')",
-							$userId,
+							$wfpUserId,
 							self::post_type()
 						)
-					);
+					); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for dashboard balance total.
 					?>
 				<p class="wfp-current-balance--title"> <?php echo esc_html__( 'Current Balance', 'wp-fundraising' ); ?></p>
-				<p class="wfp-current-balance--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $balanceAmount ) ); ?></strong><span class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?></span></p>
+				<p class="wfp-current-balance--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpBalanceAmount ) ); ?></strong><span class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></span></p>
 			
 			</div>
 
@@ -264,17 +276,17 @@
 				<div class="campaign-body">
 				<?php
 
-				$args['author']      = $userId;
-				$args['post_status'] = array( 'publish' );
-				$args['post_type']   = self::post_type();
+				$wfp_args['author']      = $wfpUserId;
+				$wfp_args['post_status'] = array( 'publish' );
+				$wfp_args['post_type']   = self::post_type();
 
-				$args['orderby'] = 'post_date';
-				$args['order']   = 'DESC';
+				$wfp_args['orderby'] = 'post_date';
+				$wfp_args['order']   = 'DESC';
 
-				$the_query = new \WP_Query( $args );
+				$wfp_the_query = new \WP_Query( $wfp_args );
 				?>
 				
-				<?php if ( $the_query->have_posts() ) : ?>
+				<?php if ( $wfp_the_query->have_posts() ) : ?>
 				<div class="wfp-report-table-wraper wfp-campaign-list">
 					<table class="form-table wfdp-table-design wc_gateways widefat wfp-report-table">
 						<thead>
@@ -286,8 +298,8 @@
 						</thead>
 					<tbody>
 					<?php
-					while ( $the_query->have_posts() ) :
-						$the_query->the_post();
+					while ( $wfp_the_query->have_posts() ) :
+						$wfp_the_query->the_post();
 						?>
 						<tr>
 							<td class="icon"> <a class="wfp-campaign-list--link" href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( wp_trim_words( get_the_title(), 3, '...' ) ); ?></a></td>
@@ -296,9 +308,10 @@
 							</td>
 							<td>
 								<?php
-									$raised_amount = $wpdb->get_var( $wpdb->prepare( "SELECT SUM( 'donate_amount') FROM `{$wpdb->prefix}wdp_fundraising` WHERE form_id = %d AND `status` = 'Active' AND payment_gateway NOT IN ('test_payment')", get_the_ID() ) );
+									// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+									$wfp_raised_amount = $wpdb->get_var( $wpdb->prepare( "SELECT SUM( 'donate_amount') FROM `{$wpdb->prefix}wdp_fundraising` WHERE form_id = %d AND `status` = 'Active' AND payment_gateway NOT IN ('test_payment')", get_the_ID() ) ); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for campaign listing raised total.
 								?>
-								<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $raised_amount ) ); ?></strong><span class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?></span> 
+								<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_raised_amount ) ); ?></strong><span class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></span> 
 							</td>
 						</tr>
 							
@@ -317,15 +330,15 @@
 
 <script type="text/javascript">
 	<?php
-	// var_dump($dataLabelsJson);
+	// var_dump($wfpDataLabelsJson);
 	?>
 	jQuery(document).ready(function(){
 		var incomeId = document.querySelector('#wfp-income-chart');
 		var income = new Chart(incomeId, {
 			type: 'line',
 			data: {
-				labels: <?php echo wp_kses_data( $dataLabelsJson ); ?>,
-				datasets: <?php echo wp_kses_data( $dataJson ); ?>
+				labels: <?php echo wp_kses_data( $wfpDataLabelsJson ); ?>,
+				datasets: <?php echo wp_kses_data( $wfpDataJson ); ?>
 			},
 			options: {
 				showLines: true,

@@ -1,4 +1,7 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
 
 if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), '_wpnonce' ) ) {
 	esc_html_e( 'You are not allowed to view the page', 'wp-fundraising' );
@@ -19,24 +22,24 @@ if ( empty( $_GET['invoice'] ) || empty( $_GET['campaign'] ) ) {
 if ( is_user_logged_in() ) {
 
 
-	$invoice     = sanitize_key( $_GET['invoice'] );
-	$campaign_id = intval( $_GET['campaign'] );
+	$wfp_invoice     = sanitize_key( $_GET['invoice'] );
+	$wfp_campaign_id = intval( $_GET['campaign'] );
 
 	/**
 	 * todo - put necessary checking for if cp id is valid
 	 * todo - invoice is valid
 	 */
-	$author_id     = get_post_field( 'post_author', $campaign_id );
-	$creator_email = get_the_author_meta( 'email', $author_id );
-	$admin_email   = get_option( 'admin_email' );
+	$wfp_author_id     = get_post_field( 'post_author', $wfp_campaign_id );
+	$wfp_creator_email = get_the_author_meta( 'email', $wfp_author_id );
+	$wfp_admin_email   = get_option( 'admin_email' );
 
-	$current_user = wp_get_current_user();
-	$user_email   = $current_user->user_email;
+	$wfp_current_user = wp_get_current_user();
+	$wfp_user_email   = $wfp_current_user->user_email;
 
-	$model    = new \WfpFundraising\Utilities\Donation();
-	$donation = $model->get_donation( $campaign_id, $invoice );
+	$wfp_model    = new \WfpFundraising\Utilities\Donation();
+	$wfp_donation = $wfp_model->get_donation( $wfp_campaign_id, $wfp_invoice );
 
-	if ( empty( $donation ) ) {
+	if ( empty( $wfp_donation ) ) {
 
 		?>
 		<div>
@@ -50,15 +53,15 @@ if ( is_user_logged_in() ) {
 	/**
 	 * To view invoice you must be either campaign creator or admin or the donor
 	 */
-	if ( in_array( $user_email, array( $donation['email'], $creator_email, $admin_email ) ) ) {
+	if ( in_array( $wfp_user_email, array( $wfp_donation['email'], $wfp_creator_email, $wfp_admin_email ) ) ) {
 
-		$metas = $model->get_meta( $donation['donate_id'] );
+		$wfp_metas = $wfp_model->get_meta( $wfp_donation['donate_id'] );
 
-		$obj = array();
+		$wfp_obj = array();
 
-		foreach ( $metas as $meta ) {
+		foreach ( $wfp_metas as $wfp_meta ) {
 
-			$obj[ $meta->meta_key ] = $meta;
+			$wfp_obj[ $wfp_meta->meta_key ] = $wfp_meta;
 		}
 
 		?>
@@ -73,39 +76,39 @@ if ( is_user_logged_in() ) {
 				<tbody>
 				<tr>
 					<td>Order No.</td>
-					<td><?php echo esc_html( $donation['donate_id'] ); ?></td>
+					<td><?php echo esc_html( $wfp_donation['donate_id'] ); ?></td>
 				</tr>
 				<tr>
 					<td>Invoice</td>
-					<td><?php echo esc_html( $donation['invoice'] ); ?></td>
+					<td><?php echo esc_html( $wfp_donation['invoice'] ); ?></td>
 				</tr>
 				<tr>
 					<td>Date</td>
-					<td><?php echo esc_html( $donation['date_time'] ); ?></td>
+					<td><?php echo esc_html( $wfp_donation['date_time'] ); ?></td>
 				</tr>
 				<tr>
 					<td>Amount</td>
-					<td><?php echo esc_html( $donation['donate_amount'] ); ?></td>
+					<td><?php echo esc_html( $wfp_donation['donate_amount'] ); ?></td>
 				</tr>
 				<tr>
 					<td>Currency</td>
-					<td><?php echo esc_html( $obj['_wfp_currency']->meta_value ); ?></td>
+					<td><?php echo esc_html( $wfp_obj['_wfp_currency']->meta_value ); ?></td>
 				</tr>
 				<tr>
 					<td>Payment type</td>
-					<td><?php echo esc_html( $donation['payment_type'] ); ?></td>
+					<td><?php echo esc_html( $wfp_donation['payment_type'] ); ?></td>
 				</tr>
 				<tr>
 					<td>Payment gateway</td>
-					<td><?php echo esc_html( $donation['payment_gateway'] ); ?></td>
+					<td><?php echo esc_html( $wfp_donation['payment_gateway'] ); ?></td>
 				</tr>
 				<tr>
 					<td>Type</td>
-					<td><?php echo esc_html( $donation['fundraising_type'] ); ?></td>
+					<td><?php echo esc_html( $wfp_donation['fundraising_type'] ); ?></td>
 				</tr>
 				<tr>
 					<td>Status</td>
-					<td><?php echo esc_html( $donation['status'] ); ?></td>
+					<td><?php echo esc_html( $wfp_donation['status'] ); ?></td>
 				</tr>
 				</tbody>
 			</table>
@@ -120,15 +123,15 @@ if ( is_user_logged_in() ) {
 				<tbody>
 				<tr>
 					<td>Name</td>
-					<td><?php echo esc_html( $obj['_wfp_first_name']->meta_value . ' ' . $obj['_wfp_last_name']->meta_value ); ?></td>
+					<td><?php echo esc_html( $wfp_obj['_wfp_first_name']->meta_value . ' ' . $wfp_obj['_wfp_last_name']->meta_value ); ?></td>
 				</tr>
 				<tr>
 					<td>Email</td>
-					<td><?php echo esc_html( $donation['email'] ); ?></td>
+					<td><?php echo esc_html( $wfp_donation['email'] ); ?></td>
 				</tr>
 				<tr>
 					<td>Country</td>
-					<td><?php echo esc_html( $obj['_wfp_country']->meta_value ); ?></td>
+					<td><?php echo esc_html( $wfp_obj['_wfp_country']->meta_value ); ?></td>
 				</tr>
 
 				</tbody>
@@ -145,15 +148,15 @@ if ( is_user_logged_in() ) {
 
 				<?php
 
-				if ( ! empty( $obj['_wfp_additional_data']->meta_value ) ) {
+				if ( ! empty( $wfp_obj['_wfp_additional_data']->meta_value ) ) {
 
-					$addi = unserialize( $obj['_wfp_additional_data']->meta_value );
+					$wfp_addi = unserialize( $wfp_obj['_wfp_additional_data']->meta_value );
 
-					foreach ( $addi as $ky => $vl ) {
+					foreach ( $wfp_addi as $wfp_ky => $vl ) {
 						?>
 
 						<tr>
-							<td><?php echo esc_html( WfpFundraising\Apps\Key::make_user_readable( $ky ) ); ?></td>
+							<td><?php echo esc_html( WfpFundraising\Apps\Key::make_user_readable( $wfp_ky ) ); ?></td>
 							<td><?php echo esc_html( $vl ); ?></td>
 						</tr>
 
@@ -179,12 +182,12 @@ if ( is_user_logged_in() ) {
 	}
 } else {
 
-	$current_url = home_url( add_query_arg( array(), $GLOBALS['wp']->request ) );
+	$wfp_current_url = home_url( add_query_arg( array(), $GLOBALS['wp']->request ) );
 	?>
 
 	<div>
 		<?php esc_html_e( 'To view invoice details please', 'wp-fundraising' ); ?> <a
-				href="<?php echo esc_url( wp_login_url( $current_url ) ); ?>"><?php esc_html_e( 'Log in', 'wp-fundraising' ); ?></a>
+				href="<?php echo esc_url( wp_login_url( $wfp_current_url ) ); ?>"><?php esc_html_e( 'Log in', 'wp-fundraising' ); ?></a>
 	</div>
 
 	<?php

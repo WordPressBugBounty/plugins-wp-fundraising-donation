@@ -1,103 +1,106 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
 
 require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 
 /*currency information*/
-$getMetaGeneralOp = get_option( \WfpFundraising\Apps\Settings::OK_GENERAL_DATA );
-$getMetaGeneral   = isset( $getMetaGeneralOp['options'] ) ? $getMetaGeneralOp['options'] : array();
+$wfpGetMetaGeneralOp = get_option( \WfpFundraising\Apps\Settings::OK_GENERAL_DATA );
+$wfpGetMetaGeneral   = isset( $wfpGetMetaGeneralOp['options'] ) ? $wfpGetMetaGeneralOp['options'] : array();
 
-$defaultCurrencyInfo = isset( $getMetaGeneral['currency']['name'] ) ? $getMetaGeneral['currency']['name'] : 'US-USD';
-$explCurr            = explode( '-', $defaultCurrencyInfo );
-$currCode            = isset( $explCurr[1] ) ? $explCurr[1] : 'USD';
-$symbols             = isset( $countryList[ $currCode ]['currency']['symbol'] ) ? $countryList[ $currCode ]['currency']['symbol'] : '';
-$symbols             = strlen( $symbols ) > 0 ? $symbols : $currCode;
+$wfpDefaultCurrencyInfo = isset( $wfpGetMetaGeneral['currency']['name'] ) ? $wfpGetMetaGeneral['currency']['name'] : 'US-USD';
+$wfpExplCurr            = explode( '-', $wfpDefaultCurrencyInfo );
+$wfpCurrCode            = isset( $wfpExplCurr[1] ) ? $wfpExplCurr[1] : 'USD';
+$wfpSymbols             = isset( $wfpCountryList[ $wfpCurrCode ]['currency']['symbol'] ) ? $wfpCountryList[ $wfpCurrCode ]['currency']['symbol'] : '';
+$wfpSymbols             = strlen( $wfpSymbols ) > 0 ? $wfpSymbols : $wfpCurrCode;
 
-$defaultThou_seperator = isset( $getMetaGeneral['currency']['thou_seperator'] ) ? $getMetaGeneral['currency']['thou_seperator'] : ',';
+$wfp_defaultThou_seperator = isset( $wfpGetMetaGeneral['currency']['thou_seperator'] ) ? $wfpGetMetaGeneral['currency']['thou_seperator'] : ',';
 
-$defaultDecimal_seperator = isset( $getMetaGeneral['currency']['decimal_seperator'] ) ? $getMetaGeneral['currency']['decimal_seperator'] : '.';
+$wfp_defaultDecimal_seperator = isset( $wfpGetMetaGeneral['currency']['decimal_seperator'] ) ? $wfpGetMetaGeneral['currency']['decimal_seperator'] : '.';
 
-$defaultNumberDecimal = isset( $getMetaGeneral['currency']['number_decimal'] ) ? $getMetaGeneral['currency']['number_decimal'] : '2';
-if ( $defaultNumberDecimal < 0 ) {
-	$defaultNumberDecimal = 0;
+$wfpDefaultNumberDecimal = isset( $wfpGetMetaGeneral['currency']['number_decimal'] ) ? $wfpGetMetaGeneral['currency']['number_decimal'] : '2';
+if ( $wfpDefaultNumberDecimal < 0 ) {
+	$wfpDefaultNumberDecimal = 0;
 }
 
-$defaultUse_space = isset( $getMetaGeneral['currency']['use_space'] ) ? $getMetaGeneral['currency']['use_space'] : 'off';
+$wfp_defaultUse_space = isset( $wfpGetMetaGeneral['currency']['use_space'] ) ? $wfpGetMetaGeneral['currency']['use_space'] : 'off';
 
 /*Custom class design data*/
-$customClass  = isset( $getMetaData->form_design->custom_class ) ? $getMetaData->form_design->custom_class : '';
-$customIdData = isset( $getMetaData->form_design->custom_id ) ? $getMetaData->form_design->custom_id : '';
+$wfpCustomClass  = isset( $wfpGetMetaData->form_design->custom_class ) ? $wfpGetMetaData->form_design->custom_class : '';
+$wfpCustomIdData = isset( $wfpGetMetaData->form_design->custom_id ) ? $wfpGetMetaData->form_design->custom_id : '';
 
-$found = new WfpFundraising\Apps\Fundraising( false );
+$wfp_found = new WfpFundraising\Apps\Fundraising( false );
 
 // target goal check
-$goalStatus     = 'Yes';
-$goalDataAmount = 0;
-$goalMessage    = '';
+$wfpGoalStatus     = 'Yes';
+$wfpGoalDataAmount = 0;
+$wfpGoalMessage    = '';
 
-$campaign_status = 'Publish';
+$wfp_campaign_status = 'Publish';
 
-$time        = time();
-$to_date     = gmdate( 'Y-m-d' );
-$target_date = gmdate( 'Y-m-d' );
+$wfp_time        = time();
+$wfp_to_date     = gmdate( 'Y-m-d' );
+$wfp_target_date = gmdate( 'Y-m-d' );
 
-$persentange   = 0;
-$target_amount = 0;
+$wfp_persentange   = 0;
+$wfp_target_amount = 0;
 
-$target_amount_fake  = 0;
-$total_rasied_count  = 0;
-$total_rasied_amount = 0;
+$wfp_target_amount_fake  = 0;
+$wfp_total_rasied_count  = 0;
+$wfp_total_rasied_amount = 0;
 
-$total_rasied_amount_fake = 0;
-$total_rasied_count_fake  = 0;
+$wfp_total_rasied_amount_fake = 0;
+$wfp_total_rasied_count_fake  = 0;
 
-if ( isset( $formGoalData->enable ) ) {
+if ( isset( $wfpFormGoalData->enable ) ) {
 	global $wpdb;
-	$goal_type           = isset( $formGoalData->goal_type ) ? $formGoalData->goal_type : 'terget_goal';
-	$total_rasied_amount = $wpdb->get_var( $wpdb->prepare( "SELECT SUM(donate_amount) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", $post->ID ) );
-	$total_rasied_count  = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(donate_id) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", $post->ID ) );
+	$wfp_goal_type           = isset( $wfpFormGoalData->goal_type ) ? $wfpFormGoalData->goal_type : 'terget_goal';
+	$wfp_total_rasied_amount = $wpdb->get_var( $wpdb->prepare( "SELECT SUM(donate_amount) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", $post->ID ) ); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for load.php campaign total.
+	$wfp_total_rasied_count  = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(donate_id) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", $post->ID ) ); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for load.php campaign count.
 
-	$total_rasied_amount_fake = $total_rasied_amount;
-	$total_rasied_count_fake  = $total_rasied_count;
+	$wfp_total_rasied_amount_fake = $wfp_total_rasied_amount;
+	$wfp_total_rasied_count_fake  = $wfp_total_rasied_count;
 
-	if ( in_array( $goal_type, array( 'terget_goal', 'terget_goal_date', 'campaign_never_end', 'terget_date' ) ) ) {
-		$target_amount      = isset( $formGoalData->terget->terget_goal->amount ) ? $formGoalData->terget->terget_goal->amount : 0;
-		$target_amount_fake = isset( $formGoalData->terget->terget_goal->fake_amount ) ? $formGoalData->terget->terget_goal->fake_amount : 0;
-		$target_date        = isset( $formGoalData->terget->terget_goal->date ) ? $formGoalData->terget->terget_goal->date : gmdate( 'Y-m-d' );
+	if ( in_array( $wfp_goal_type, array( 'terget_goal', 'terget_goal_date', 'campaign_never_end', 'terget_date' ) ) ) {
+		$wfp_target_amount      = isset( $wfpFormGoalData->terget->terget_goal->amount ) ? $wfpFormGoalData->terget->terget_goal->amount : 0;
+		$wfp_target_amount_fake = isset( $wfpFormGoalData->terget->terget_goal->fake_amount ) ? $wfpFormGoalData->terget->terget_goal->fake_amount : 0;
+		$wfp_target_date        = isset( $wfpFormGoalData->terget->terget_goal->date ) ? $wfpFormGoalData->terget->terget_goal->date : gmdate( 'Y-m-d' );
 
-		$target_time = strtotime( $target_date );
+		$wfp_target_time = strtotime( $wfp_target_date );
 
-		$total_rasied_amount_fake = $total_rasied_amount + $target_amount_fake;
+		$wfp_total_rasied_amount_fake = $wfp_total_rasied_amount + $wfp_target_amount_fake;
 
 		// check amount with data
-		if ( $total_rasied_amount_fake >= $target_amount ) {
-			$total_rasied_amount_fake = $total_rasied_amount;
+		if ( $wfp_total_rasied_amount_fake >= $wfp_target_amount ) {
+			$wfp_total_rasied_amount_fake = $wfp_total_rasied_amount;
 		}
 
-		if ( $target_amount > 0 ) {
-			$persentange = ( $total_rasied_amount_fake * 100 ) / $target_amount;
+		if ( $wfp_target_amount > 0 ) {
+			$wfp_persentange = ( $wfp_total_rasied_amount_fake * 100 ) / $wfp_target_amount;
 		}
 
-		if ( $total_rasied_amount >= $target_amount ) {
-			$goalStatus = 'No';
+		if ( $wfp_total_rasied_amount >= $wfp_target_amount ) {
+			$wfpGoalStatus = 'No';
 		}
-		if ( $goal_type == 'terget_goal_date' || $goal_type == 'terget_date' ) {
-			if ( $time > $target_time ) {
-				$goalStatus = 'No';
+		if ( $wfp_goal_type == 'terget_goal_date' || $wfp_goal_type == 'terget_date' ) {
+			if ( $wfp_time > $wfp_target_time ) {
+				$wfpGoalStatus = 'No';
 			}
-		} elseif ( $goal_type == 'campaign_never_end' ) {
-			$goalStatus = 'Yes';
+		} elseif ( $wfp_goal_type == 'campaign_never_end' ) {
+			$wfpGoalStatus = 'Yes';
 		}
 	}
 
-	$campaign_status = ( $goalStatus == 'Yes' ) ? 'Publish' : 'Ends';
+	$wfp_campaign_status = ( $wfpGoalStatus == 'Yes' ) ? 'Publish' : 'Ends';
 
-	$goalMessageEmable = isset( $formGoalData->terget->enable ) ? $formGoalData->terget->enable : 'No';
-	$goalMessage       = isset( $formGoalData->terget->message ) ? $formGoalData->terget->message : '';
+	$wfpGoalMessageEmable = isset( $wfpFormGoalData->terget->enable ) ? $wfpFormGoalData->terget->enable : 'No';
+	$wfpGoalMessage       = isset( $wfpFormGoalData->terget->message ) ? $wfpFormGoalData->terget->message : '';
 
 
-	update_post_meta( get_the_ID(), '__wfp_campaign_status', $campaign_status );
+	update_post_meta( get_the_ID(), '__wfp_campaign_status', $wfp_campaign_status );
 	// css code generate
-	$continueCOlor    = isset( $formDesignData->continue_color ) ? $formDesignData->continue_color : '#0085ba';
-	$submitCOlor      = isset( $formDesignData->submit_color ) ? $formDesignData->submit_color : '#0085ba';
-	$barProgressCOlor = isset( $formGoalData->bar_color ) ? $formGoalData->bar_color : '#324aff';
+	$wfpContinueCOlor    = isset( $wfpFormDesignData->continue_color ) ? $wfpFormDesignData->continue_color : '#0085ba';
+	$wfpSubmitCOlor      = isset( $wfpFormDesignData->submit_color ) ? $wfpFormDesignData->submit_color : '#0085ba';
+	$wfpBarProgressCOlor = isset( $wfpFormGoalData->bar_color ) ? $wfpFormGoalData->bar_color : '#324aff';
 }

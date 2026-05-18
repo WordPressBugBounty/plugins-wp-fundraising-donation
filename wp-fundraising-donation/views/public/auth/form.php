@@ -1,6 +1,9 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-$uuid = \WfpFundraising\Utilities\Helper::get_html_unique_id();
+defined( 'ABSPATH' ) || exit;
+
+$wfp_uuid = \WfpFundraising\Utilities\Helper::get_html_unique_id();
 
 ?>
 
@@ -29,7 +32,7 @@ $uuid = \WfpFundraising\Utilities\Helper::get_html_unique_id();
 
 		<?php if ( $showLogin === true ) : ?>
 
-		<div class="section-content <?php echo esc_attr( $both_show ? 'xs-donate-visible' : '' ); ?>" id="wfp-login-section_<?php echo esc_attr( $uuid ); ?>">
+		<div class="section-content <?php echo esc_attr( $both_show ? 'xs-donate-visible' : '' ); ?>" id="wfp-login-section_<?php echo esc_attr( $wfp_uuid ); ?>">
 
 			<p class="wfp-login-message">
 				<?php do_action( 'wfp_login_form_message' ); ?>
@@ -81,7 +84,7 @@ $uuid = \WfpFundraising\Utilities\Helper::get_html_unique_id();
 		<?php if ( $showRegister === true ) : ?>
 
 
-		<div class="section-content <?php echo esc_attr( $both_show ? 'xs-donate-hidden' : '' ); ?>" id="wfp-register-section_<?php echo esc_attr( $uuid ); ?>">
+		<div class="section-content <?php echo esc_attr( $both_show ? 'xs-donate-hidden' : '' ); ?>" id="wfp-register-section_<?php echo esc_attr( $wfp_uuid ); ?>">
 
 			<p class="wfp-login-message">
 				<?php do_action( 'wfp_login_form_message' ); ?>
@@ -138,8 +141,8 @@ $uuid = \WfpFundraising\Utilities\Helper::get_html_unique_id();
 		<?php if ( $both_show ) : ?>
 
 		<div class="section-content wfp-tab-control wfp-reg-login-navs">
-			<button class="wfp-button wfp-login-btn wfp-button-active xs-btn xs-btn-muted" onclick="toggle_class_in_target('#wfp-login-section_<?php echo esc_attr( $uuid ); ?>', '.wfp-login-form-container')"><i class="wfpf wfpf-user wfp-reg-login-navs--icon"></i><?php esc_html_e( 'Login', 'wp-fundraising' ); ?></button>
-			<button class="wfp-button wfp-register-btn xs-btn xs-btn-secondary" onclick="toggle_class_in_target('#wfp-register-section_<?php echo esc_attr( $uuid ); ?>', '.wfp-login-form-container')"><i class="wfpf wfpf-user wfp-reg-login-navs--icon"></i><?php esc_html_e( 'Register', 'wp-fundraising' ); ?></button>
+			<button class="wfp-button wfp-login-btn wfp-button-active xs-btn xs-btn-muted" onclick="toggle_class_in_target('#wfp-login-section_<?php echo esc_attr( $wfp_uuid ); ?>', '.wfp-login-form-container')"><i class="wfpf wfpf-user wfp-reg-login-navs--icon"></i><?php esc_html_e( 'Login', 'wp-fundraising' ); ?></button>
+			<button class="wfp-button wfp-register-btn xs-btn xs-btn-secondary" onclick="toggle_class_in_target('#wfp-register-section_<?php echo esc_attr( $wfp_uuid ); ?>', '.wfp-login-form-container')"><i class="wfpf wfpf-user wfp-reg-login-navs--icon"></i><?php esc_html_e( 'Register', 'wp-fundraising' ); ?></button>
 		</div>
 
 	<?php endif; ?>

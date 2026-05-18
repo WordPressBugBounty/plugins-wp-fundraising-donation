@@ -85,11 +85,11 @@ class Ipn {
 		$res = wp_remote_post($this->get_verify_url(), $args);
 
 		if ( ! ($res['response']['code'] = 200)) {
-			throw new \Exception($res['response']['message']);
+			throw new \Exception( esc_html( (string) $res['response']['message'] ) );
 		}
 
 		if ($res['response']['code'] != 200) {
-			throw new \Exception("PayPal responded with http code " . $res['response']['code']);
+			throw new \Exception( 'PayPal responded with http code ' . esc_html( (string) $res['response']['code'] ) );
 		}
 
 		if ($res['response']['body'] == self::VALID) {

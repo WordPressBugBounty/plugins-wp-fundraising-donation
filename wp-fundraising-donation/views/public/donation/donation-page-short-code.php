@@ -1,42 +1,45 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
 
 /*
  * AR[20200116]
- * In this file we must have $atts variable defined and not empty.
+ * In this file we must have $wfp_atts variable defined and not empty.
  */
 
-$formDesignData = isset( $getMetaData->form_design ) ? $getMetaData->form_design : (object) array(
+$wfpFormDesignData = isset( $wfpGetMetaData->form_design ) ? $wfpGetMetaData->form_design : (object) array(
 	'styles'          => 'all_fields',
 	'continue_button' => 'Continue',
 	'submit_button'   => 'Donate Now',
 	'modal_show'      => 'No',
 );
 
-$fromShCode = empty( $atts['is_short_code'] ) ? false : true;
-$formId     = empty( $atts['form-id'] ) ? 0 : $atts['form-id'];
+$wfpFromShCode = empty( $wfp_atts['is_short_code'] ) ? false : true;
+$wfpFormId     = empty( $wfp_atts['form-id'] ) ? 0 : $wfp_atts['form-id'];
 
-$wfp_form_id = isset( $atts['form-id'] ) ? intval( $atts['form-id'] ) : ( empty( $post->ID ) ? get_the_ID() : $post->ID );
-$postId      = isset( $atts['form-id'] ) ? intval( $atts['form-id'] ) : ( empty( $post->ID ) ? get_the_ID() : $post->ID );
+$wfp_form_id = isset( $wfp_atts['form-id'] ) ? intval( $wfp_atts['form-id'] ) : ( empty( $post->ID ) ? get_the_ID() : $post->ID );
+$wfpPostId      = isset( $wfp_atts['form-id'] ) ? intval( $wfp_atts['form-id'] ) : ( empty( $post->ID ) ? get_the_ID() : $post->ID );
 
-$donationTypeData = empty( $getMetaData->donation->format ) ? 'donation' : $getMetaData->donation->format;
+$wfpDonationTypeData = empty( $wfpGetMetaData->donation->format ) ? 'donation' : $wfpGetMetaData->donation->format;
 
-$showInModal = ! empty( $atts['modal'] ) ? $atts['modal'] : ( empty( $formDesignData->modal_show ) ? 'No' : $formDesignData->modal_show );
+$wfpShowInModal = ! empty( $wfp_atts['modal'] ) ? $wfp_atts['modal'] : ( empty( $wfpFormDesignData->modal_show ) ? 'No' : $wfpFormDesignData->modal_show );
 
-$form_styles = ! empty( $atts['form-style'] ) ? $atts['form-style'] : $formDesignData->styles;
+$wfp_form_styles = ! empty( $wfp_atts['form-style'] ) ? $wfp_atts['form-style'] : $wfpFormDesignData->styles;
 
-$modal_status = $showInModal;
+$wfp_modal_status = $wfpShowInModal;
 
-$page_width = isset( $getMetaData->donation->page_width ) ? $getMetaData->donation->page_width : 0;
+$wfpPage_width = isset( $wfpGetMetaData->donation->page_width ) ? $wfpGetMetaData->donation->page_width : 0;
 
-$symbols    = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_symbol();
-$cur_symbol = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_code();
+$wfpSymbols    = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_symbol();
+$wfp_cur_symbol = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_code();
 
 
-if ( $donationTypeData == 'donation' ) {
+if ( $wfpDonationTypeData == 'donation' ) {
 
-	if ( $showInModal == 'Yes' ) {
+	if ( $wfpShowInModal == 'Yes' ) {
 
-		if ( $form_styles == 'all_fields' ) {
+		if ( $wfp_form_styles == 'all_fields' ) {
 
 			require \WFP_Fundraising::plugin_dir() . 'views/public/donation/donation-display-form-sm-all.php';
 
@@ -60,221 +63,221 @@ if ( $donationTypeData == 'donation' ) {
  * Below code is for crowd-funding type.
  *
  */
-$cont = new \WfpFundraising\Apps\Content( false );
+$wfp_cont = new \WfpFundraising\Apps\Content( false );
 
 require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 
 /*currency information*/
-$getMetaGeneralOp = get_option( \WfpFundraising\Apps\Settings::OK_GENERAL_DATA );
-$getMetaGeneral   = isset( $getMetaGeneralOp['options'] ) ? $getMetaGeneralOp['options'] : array();
+$wfpGetMetaGeneralOp = get_option( \WfpFundraising\Apps\Settings::OK_GENERAL_DATA );
+$wfpGetMetaGeneral   = isset( $wfpGetMetaGeneralOp['options'] ) ? $wfpGetMetaGeneralOp['options'] : array();
 
-$defaultCurrencyInfo = isset( $getMetaGeneral['currency']['name'] ) ? $getMetaGeneral['currency']['name'] : 'US-USD';
-$explCurr            = explode( '-', $defaultCurrencyInfo );
-$currCode            = isset( $explCurr[1] ) ? $explCurr[1] : 'USD';
-$countCode           = isset( $explCurr[0] ) ? $explCurr[0] : 'US';
-$symbols             = isset( $countryList[ $countCode ]['currency']['symbol'] ) ? $countryList[ $countCode ]['currency']['symbol'] : '';
-$symbols             = strlen( $symbols ) > 0 ? $symbols : $currCode;
+$wfpDefaultCurrencyInfo = isset( $wfpGetMetaGeneral['currency']['name'] ) ? $wfpGetMetaGeneral['currency']['name'] : 'US-USD';
+$wfpExplCurr            = explode( '-', $wfpDefaultCurrencyInfo );
+$wfpCurrCode            = isset( $wfpExplCurr[1] ) ? $wfpExplCurr[1] : 'USD';
+$wfpCountCode           = isset( $wfpExplCurr[0] ) ? $wfpExplCurr[0] : 'US';
+$wfpSymbols             = isset( $wfpCountryList[ $wfpCountCode ]['currency']['symbol'] ) ? $wfpCountryList[ $wfpCountCode ]['currency']['symbol'] : '';
+$wfpSymbols             = strlen( $wfpSymbols ) > 0 ? $wfpSymbols : $wfpCurrCode;
 
 
-$symbols = apply_filters( 'wfp_donate_amount_symbol', $symbols, $countryList, $countCode );
+$wfpSymbols = apply_filters( 'wfp_fundraising_donate_amount_symbol', $wfpSymbols, $wfpCountryList, $wfpCountCode );
 
-$defaultThou_seperator = isset( $getMetaGeneral['currency']['thou_seperator'] ) ? $getMetaGeneral['currency']['thou_seperator'] : ',';
+$wfp_defaultThou_seperator = isset( $wfpGetMetaGeneral['currency']['thou_seperator'] ) ? $wfpGetMetaGeneral['currency']['thou_seperator'] : ',';
 
-$defaultDecimal_seperator = isset( $getMetaGeneral['currency']['decimal_seperator'] ) ? $getMetaGeneral['currency']['decimal_seperator'] : '.';
+$wfp_defaultDecimal_seperator = isset( $wfpGetMetaGeneral['currency']['decimal_seperator'] ) ? $wfpGetMetaGeneral['currency']['decimal_seperator'] : '.';
 
-$defaultNumberDecimal = isset( $getMetaGeneral['currency']['number_decimal'] ) ? $getMetaGeneral['currency']['number_decimal'] : '2';
-if ( $defaultNumberDecimal < 0 ) {
-	$defaultNumberDecimal = 0;
+$wfpDefaultNumberDecimal = isset( $wfpGetMetaGeneral['currency']['number_decimal'] ) ? $wfpGetMetaGeneral['currency']['number_decimal'] : '2';
+if ( $wfpDefaultNumberDecimal < 0 ) {
+	$wfpDefaultNumberDecimal = 0;
 }
 
-$defaultUse_space = isset( $getMetaGeneral['currency']['use_space'] ) ? $getMetaGeneral['currency']['use_space'] : 'off';
+$wfp_defaultUse_space = isset( $wfpGetMetaGeneral['currency']['use_space'] ) ? $wfpGetMetaGeneral['currency']['use_space'] : 'off';
 
 /*Custom class design data*/
-$customClass  = isset( $getMetaData->form_design->custom_class ) ? $getMetaData->form_design->custom_class : '';
-$customIdData = isset( $getMetaData->form_design->custom_id ) ? $getMetaData->form_design->custom_id : '';
+$wfpCustomClass  = isset( $wfpGetMetaData->form_design->custom_class ) ? $wfpGetMetaData->form_design->custom_class : '';
+$wfpCustomIdData = isset( $wfpGetMetaData->form_design->custom_id ) ? $wfpGetMetaData->form_design->custom_id : '';
 
-$customClass  = isset( $atts['class'] ) ? $atts['class'] : $customClass;
-$customIdData = isset( $atts['id'] ) ? $atts['id'] : $customIdData;
+$wfpCustomClass  = isset( $wfp_atts['class'] ) ? $wfp_atts['class'] : $wfpCustomClass;
+$wfpCustomIdData = isset( $wfp_atts['id'] ) ? $wfp_atts['id'] : $wfpCustomIdData;
 
-$format_style = isset( $atts['format-style'] ) ? $atts['format-style'] : $format_style;
+$wfp_format_style = isset( $wfp_atts['format-style'] ) ? $wfp_atts['format-style'] : $wfp_format_style;
 
 // payment method setup
-$metaSetupKey = 'wfp_setup_services_data';
-$getSetUpData = get_option( $metaSetupKey );
-$setupData    = isset( $getSetUpData['services'] ) ? $getSetUpData['services'] : array();
-$paymentType  = \WfpFundraising\Apps\Global_Settings::instance()->get_payment_type();
+$wfpMetaSetupKey = 'wfp_setup_services_data';
+$wfpGetSetUpData = get_option( $wfpMetaSetupKey );
+$wfpSetupData    = isset( $wfpGetSetUpData['services'] ) ? $wfpGetSetUpData['services'] : array();
+$wfpPaymentType  = \WfpFundraising\Apps\Global_Settings::instance()->get_payment_type();
 
-$urlCheckout = get_site_url() . '/wfp-checkout?wfpout=true';
+$wfpUrlCheckout = get_site_url() . '/wfp-checkout?wfpout=true';
 
-if ( $paymentType == 'woocommerce' ) {
+if ( $wfpPaymentType == 'woocommerce' ) {
 
-	$cart_url = wc_get_cart_url();
+	$wfp_cart_url = wc_get_cart_url();
 
-	$urlCheckout = $cart_url . '?wfpout=true&virtual=yes';
+	$wfpUrlCheckout = $wfp_cart_url . '?wfpout=true&virtual=yes';
 }
 
-$defaultData = 0;
+$wfpDefaultData = 0;
 
-$donation_type = isset( $getMetaData->donation->type ) ? $getMetaData->donation->type : 'multi-lebel';
+$wfp_donation_type = isset( $wfpGetMetaData->donation->type ) ? $wfpGetMetaData->donation->type : 'multi-lebel';
 
-$fixedData = isset( $getMetaData->donation->fixed ) ? $getMetaData->donation->fixed : array();
+$wfpFixedData = isset( $wfpGetMetaData->donation->fixed ) ? $wfpGetMetaData->donation->fixed : array();
 
-$multiData = isset( $getMetaData->donation->multi->dimentions ) && sizeof( $getMetaData->donation->multi->dimentions ) ? $getMetaData->donation->multi->dimentions : array();
+$wfpMultiData = isset( $wfpGetMetaData->donation->multi->dimentions ) && sizeof( $wfpGetMetaData->donation->multi->dimentions ) ? $wfpGetMetaData->donation->multi->dimentions : array();
 
-$displayData   = isset( $getMetaData->donation->display ) ? $getMetaData->donation->display : 'boxed';
-$donationLimit = isset( $getMetaData->donation->set_limit ) ? $getMetaData->donation->set_limit : 'No';
+$wfpDisplayData   = isset( $wfpGetMetaData->donation->display ) ? $wfpGetMetaData->donation->display : 'boxed';
+$wfpDonationLimit = isset( $wfpGetMetaData->donation->set_limit ) ? $wfpGetMetaData->donation->set_limit : 'No';
 
 // form donation data
-$formDonation = isset( $getMetaData->donation ) ? $getMetaData->donation : array();
+$wfpFormDonation = isset( $wfpGetMetaData->donation ) ? $wfpGetMetaData->donation : array();
 
 // form design data
-$formDesignData = isset( $getMetaData->form_design ) ? $getMetaData->form_design : (object) array(
+$wfpFormDesignData = isset( $wfpGetMetaData->form_design ) ? $wfpGetMetaData->form_design : (object) array(
 	'styles'          => 'all_fields',
 	'continue_button' => 'Continue',
 	'submit_button'   => 'Donate Now',
 );
 
 // form content data
-$formContentData = isset( $getMetaData->form_content ) ? $getMetaData->form_content : (object) array(
+$wfpFormContentData = isset( $wfpGetMetaData->form_content ) ? $wfpGetMetaData->form_content : (object) array(
 	'enable'           => 'No',
 	'content_position' => 'after-form',
 );
 
 // form goal data
-$formGoalData = isset( $getMetaData->goal_setup ) ? $getMetaData->goal_setup : (object) array(
+$wfpFormGoalData = isset( $wfpGetMetaData->goal_setup ) ? $wfpGetMetaData->goal_setup : (object) array(
 	'enable'    => 'No',
 	'goal_type' => 'goal_terget_amount',
 );
 
 // form terms data
-$formTermsData = isset( $getMetaData->form_terma ) ? $getMetaData->form_terma : (object) array(
+$wfpFormTermsData = isset( $wfpGetMetaData->form_terma ) ? $wfpGetMetaData->form_terma : (object) array(
 	'enable'           => 'No',
 	'content_position' => 'after-submit-button',
 );
 
-$add_fees = isset( $getMetaData->donation->set_add_fees ) ? $getMetaData->donation->set_add_fees : (object) array(
+$wfpAdd_fees = isset( $wfpGetMetaData->donation->set_add_fees ) ? $wfpGetMetaData->donation->set_add_fees : (object) array(
 	'enable'      => 'No',
 	'fees_amount' => 0,
 );
 
 // target goal check
-$goalStatus      = 'Yes';
-$campaign_status = 'Publish';
-$goalDataAmount  = 0;
+$wfpGoalStatus      = 'Yes';
+$wfp_campaign_status = 'Publish';
+$wfpGoalDataAmount  = 0;
 
-$goalMessageEmable = isset( $formGoalData->terget->enable ) ? $formGoalData->terget->enable : 'No';
-$goalMessage       = isset( $formGoalData->terget->message ) ? $formGoalData->terget->message : '';
-$goal_type         = isset( $formGoalData->goal_type ) ? $formGoalData->goal_type : 'terget_goal';
+$wfpGoalMessageEmable = isset( $wfpFormGoalData->terget->enable ) ? $wfpFormGoalData->terget->enable : 'No';
+$wfpGoalMessage       = isset( $wfpFormGoalData->terget->message ) ? $wfpFormGoalData->terget->message : '';
+$wfp_goal_type         = isset( $wfpFormGoalData->goal_type ) ? $wfpFormGoalData->goal_type : 'terget_goal';
 
-$persentange        = 0;
-$target_amount      = 0;
-$target_amount_fake = 0;
-$target_date        = gmdate( 'Y-m-d' );
-$time               = time();
-$to_date            = gmdate( 'Y-m-d' );
+$wfp_persentange        = 0;
+$wfp_target_amount      = 0;
+$wfp_target_amount_fake = 0;
+$wfp_target_date        = gmdate( 'Y-m-d' );
+$wfp_time               = time();
+$wfp_to_date            = gmdate( 'Y-m-d' );
 
-if ( isset( $formGoalData->enable ) ) {
+if ( isset( $wfpFormGoalData->enable ) ) {
 	global $wpdb;
-	$total_rasied_amount = $wpdb->get_var( $wpdb->prepare( "SELECT SUM(donate_amount) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", $post->ID ) );
-	$total_rasied_count  = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(donate_id) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", $post->ID ) );
+	$wfp_total_rasied_amount = $wpdb->get_var( $wpdb->prepare( "SELECT SUM(donate_amount) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", $post->ID ) ); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for campaign totals in donation shortcode rendering.
+	$wfp_total_rasied_count  = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(donate_id) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", $post->ID ) ); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for campaign donor count in donation shortcode rendering.
 
-	$total_rasied_amount_fake = $total_rasied_amount;
-	$total_rasied_count_fake  = $total_rasied_count;
+	$wfp_total_rasied_amount_fake = $wfp_total_rasied_amount;
+	$wfp_total_rasied_count_fake  = $wfp_total_rasied_count;
 
-	if ( in_array( $goal_type, array( 'terget_goal', 'terget_goal_date', 'campaign_never_end', 'terget_date' ) ) ) {
-		$target_amount      = isset( $formGoalData->terget->terget_goal->amount ) ? $formGoalData->terget->terget_goal->amount : 0;
-		$target_amount_fake = isset( $formGoalData->terget->terget_goal->fake_amount ) ? $formGoalData->terget->terget_goal->fake_amount : 0;
-		$target_date        = isset( $formGoalData->terget->terget_goal->date ) ? $formGoalData->terget->terget_goal->date : $target_date;
+	if ( in_array( $wfp_goal_type, array( 'terget_goal', 'terget_goal_date', 'campaign_never_end', 'terget_date' ) ) ) {
+		$wfp_target_amount      = isset( $wfpFormGoalData->terget->terget_goal->amount ) ? $wfpFormGoalData->terget->terget_goal->amount : 0;
+		$wfp_target_amount_fake = isset( $wfpFormGoalData->terget->terget_goal->fake_amount ) ? $wfpFormGoalData->terget->terget_goal->fake_amount : 0;
+		$wfp_target_date        = isset( $wfpFormGoalData->terget->terget_goal->date ) ? $wfpFormGoalData->terget->terget_goal->date : $wfp_target_date;
 
-		$target_time = strtotime( $target_date );
+		$wfp_target_time = strtotime( $wfp_target_date );
 
-		$total_rasied_amount_fake = $total_rasied_amount + $target_amount_fake;
+		$wfp_total_rasied_amount_fake = $wfp_total_rasied_amount + $wfp_target_amount_fake;
 		// check amount with data
-		if ( $total_rasied_amount_fake >= $target_amount ) {
-			$total_rasied_amount_fake = $total_rasied_amount;
+		if ( $wfp_total_rasied_amount_fake >= $wfp_target_amount ) {
+			$wfp_total_rasied_amount_fake = $wfp_total_rasied_amount;
 		}
-		if ( $target_amount > 0 ) {
-			$persentange = ( $total_rasied_amount_fake * 100 ) / $target_amount;
+		if ( $wfp_target_amount > 0 ) {
+			$wfp_persentange = ( $wfp_total_rasied_amount_fake * 100 ) / $wfp_target_amount;
 		}
 
-		if ( $total_rasied_amount >= $target_amount ) {
-			$goalStatus = 'No';
+		if ( $wfp_total_rasied_amount >= $wfp_target_amount ) {
+			$wfpGoalStatus = 'No';
 		}
-		if ( $goal_type == 'terget_goal_date' || $goal_type == 'terget_date' ) {
-			if ( $time > $target_time ) {
-				$goalStatus = 'No';
+		if ( $wfp_goal_type == 'terget_goal_date' || $wfp_goal_type == 'terget_date' ) {
+			if ( $wfp_time > $wfp_target_time ) {
+				$wfpGoalStatus = 'No';
 			}
-		} elseif ( $goal_type == 'campaign_never_end' ) {
-			$goalStatus = 'Yes';
+		} elseif ( $wfp_goal_type == 'campaign_never_end' ) {
+			$wfpGoalStatus = 'Yes';
 		}
 	}
 
-	$campaign_status = ( $goalStatus == 'Yes' ) ? 'Publish' : 'Ends';
+	$wfp_campaign_status = ( $wfpGoalStatus == 'Yes' ) ? 'Publish' : 'Ends';
 
 
-	update_post_meta( $post->ID, '__wfp_campaign_status', $campaign_status );
+	update_post_meta( $post->ID, '__wfp_campaign_status', $wfp_campaign_status );
 }
 
 
-$termsContent = '';
-if ( isset( $formTermsData->enable ) ) {
-	$level = isset( $formTermsData->level ) ? $formTermsData->level : '';
-    $content = isset( $formTermsData->content ) ? $formTermsData->content : '';
-	$termsContent .= '<div class="xs-switch-button_wraper">
+$wfpTermsContent = '';
+if ( isset( $wfpFormTermsData->enable ) ) {
+	$wfp_level = isset( $wfpFormTermsData->level ) ? $wfpFormTermsData->level : '';
+    $wfp_content = isset( $wfpFormTermsData->content ) ? $wfpFormTermsData->content : '';
+	$wfpTermsContent .= '<div class="xs-switch-button_wraper">
 					<input type="checkbox" class="xs_donate_switch_button" name="xs-donate-terms-condition" id="xs-donate-terms-condition" value="Yes">
-					<label class="xs_donate_switch_button_label small xs-round" for="xs-donate-terms-condition"></label><span class="xs-donate-terms-label">' . $level . '</span>
-					<span class="xs-donate-terms"> ' . $content . ' </span>
+					<label class="xs_donate_switch_button_label small xs-round" for="xs-donate-terms-condition"></label><span class="xs-donate-terms-label">' . $wfp_level . '</span>
+					<span class="xs-donate-terms"> ' . $wfp_content . ' </span>
 				</div>';
 }
 
-$modalHow = isset( $formDesignData->modal_show ) ? $formDesignData->modal_show : 'No';
+$wfpModalHow = isset( $wfpFormDesignData->modal_show ) ? $wfpFormDesignData->modal_show : 'No';
 
-$form_styles = isset( $atts['form-style'] ) ? $atts['form-style'] : $formDesignData->styles;
+$wfp_form_styles = isset( $wfp_atts['form-style'] ) ? $wfp_atts['form-style'] : $wfpFormDesignData->styles;
 
-$modal_status = isset( $atts['modal'] ) ? $atts['modal'] : $modalHow;
+$wfp_modal_status = isset( $wfp_atts['modal'] ) ? $wfp_atts['modal'] : $wfpModalHow;
 
-if ( $form_styles == 'all_fields' ) {
-	$modal_status = 'No';
+if ( $wfp_form_styles == 'all_fields' ) {
+	$wfp_modal_status = 'No';
 }
 
-if ( $format_style == 'single_donation' ) {
-	$modal_status                      = 'Yes';
-	$form_styles                       = 'no_button';
-	$formContentData->content_position = 'no_content';
+if ( $wfp_format_style == 'single_donation' ) {
+	$wfp_modal_status                      = 'Yes';
+	$wfp_form_styles                       = 'no_button';
+	$wfpFormContentData->content_position = 'no_content';
 }
 
 // css code generate
-$continueCOlor    = isset( $formDesignData->continue_color ) ? $formDesignData->continue_color : '#0085ba';
-$submitCOlor      = isset( $formDesignData->submit_color ) ? $formDesignData->submit_color : '#0085ba';
-$barProgressCOlor = isset( $formGoalData->bar_color ) ? $formGoalData->bar_color : '#324aff';
+$wfpContinueCOlor    = isset( $wfpFormDesignData->continue_color ) ? $wfpFormDesignData->continue_color : '#0085ba';
+$wfpSubmitCOlor      = isset( $wfpFormDesignData->submit_color ) ? $wfpFormDesignData->submit_color : '#0085ba';
+$wfpBarProgressCOlor = isset( $wfpFormGoalData->bar_color ) ? $wfpFormGoalData->bar_color : '#324aff';
 
 
-$formSetting = isset( $getMetaData->form_settings ) ? $getMetaData->form_settings : array();
+$wfpFormSetting = isset( $wfpGetMetaData->form_settings ) ? $wfpGetMetaData->form_settings : array();
 
-$enableSingleContent = isset( $formSetting->single_content->enable ) ? $formSetting->single_content->enable : 'No';
-$enableSingleContent = apply_filters( 'wfp_single_content_decription_hide', $enableSingleContent );
+$wfpEnableSingleContent = isset( $wfpFormSetting->single_content->enable ) ? $wfpFormSetting->single_content->enable : 'No';
+$wfpEnableSingleContent = apply_filters( 'wfp_single_content_decription_hide', $wfpEnableSingleContent );
 
-$enableSingleReview = isset( $formSetting->single_review->enable ) ? $formSetting->single_review->enable : 'No';
-$enableSingleReview = apply_filters( 'wfp_single_content_review_hide', $enableSingleReview );
+$wfpEnableSingleReview = isset( $wfpFormSetting->single_review->enable ) ? $wfpFormSetting->single_review->enable : 'No';
+$wfpEnableSingleReview = apply_filters( 'wfp_single_content_review_hide', $wfpEnableSingleReview );
 
-$enableSingleUpdates = isset( $formSetting->single_updates->enable ) ? $formSetting->single_updates->enable : 'No';
-$enableSingleUpdates = apply_filters( 'wfp_single_content_updates_hide', $enableSingleUpdates );
+$wfpEnableSingleUpdates = isset( $wfpFormSetting->single_updates->enable ) ? $wfpFormSetting->single_updates->enable : 'No';
+$wfpEnableSingleUpdates = apply_filters( 'wfp_single_content_updates_hide', $wfpEnableSingleUpdates );
 
-$enableSingleRecents = isset( $formSetting->single_recents->enable ) ? $formSetting->single_recents->enable : 'No';
-$enableSingleRecents = apply_filters( 'wfp_single_content_recent_hide', $enableSingleRecents );
+$wfpEnableSingleRecents = isset( $wfpFormSetting->single_recents->enable ) ? $wfpFormSetting->single_recents->enable : 'No';
+$wfpEnableSingleRecents = apply_filters( 'wfp_single_content_recent_hide', $wfpEnableSingleRecents );
 
-$enableSingleContributor = isset( $formSetting->contributor->enable ) ? $formSetting->contributor->enable : 'No';
-$enableSingleContributor = apply_filters( 'wfp_single_content_contributor_hide', $enableSingleContributor );
+$wfpEnableSingleContributor = isset( $wfpFormSetting->contributor->enable ) ? $wfpFormSetting->contributor->enable : 'No';
+$wfpEnableSingleContributor = apply_filters( 'wfp_single_content_contributor_hide', $wfpEnableSingleContributor );
 
-$multiPleData = isset( $getMetaData->pledge_setup->multi->dimentions ) && sizeof( $getMetaData->pledge_setup->multi->dimentions ) ? $getMetaData->pledge_setup->multi->dimentions : array();
+$wfpMultiPleData = isset( $wfpGetMetaData->pledge_setup->multi->dimentions ) && sizeof( $wfpGetMetaData->pledge_setup->multi->dimentions ) ? $wfpGetMetaData->pledge_setup->multi->dimentions : array();
 
-$postContent = $post->post_content;
+$wfpPostContent = $post->post_content;
 
-$page_width = isset( $getMetaData->donation->page_width ) ? $getMetaData->donation->page_width : 0;
+$wfpPage_width = isset( $wfpGetMetaData->donation->page_width ) ? $wfpGetMetaData->donation->page_width : 0;
 
 ?>
 
-<div class="wfp-container xs-wfp-crowd" style="<?php echo $page_width <= 0 ? '' : 'width:' . esc_attr( $page_width ) . 'px;'; ?>">
+<div class="wfp-container xs-wfp-crowd" style="<?php echo $wfpPage_width <= 0 ? '' : 'width:' . esc_attr( $wfpPage_width ) . 'px;'; ?>">
 	<div class="wfp-view wfp-view-public">
 		<section id="main-content" class="wfp-single-page" role="main">
 			<div class="xs-container">
@@ -283,8 +286,8 @@ $page_width = isset( $getMetaData->donation->page_width ) ? $getMetaData->donati
 						<div class="wfp-entry-content">
 							<article id="post-<?php echo esc_attr( $post->ID ); ?>"
 									 class="post-<?php echo esc_attr( $post->ID ); ?> <?php echo esc_attr( join( ' ', get_post_class( '', $post->ID ) ) ); ?>"
-									 wfp-data-url="<?php echo esc_url( add_query_arg( 'wpf_checkout_nonce_field', wp_create_nonce( 'wpf_checkout' ), $urlCheckout ) ); ?>"
-									 wfp-payment-type="<?php echo esc_html( $paymentType ); ?>">
+									 wfp-data-url="<?php echo esc_url( add_query_arg( 'wpf_checkout_nonce_field', wp_create_nonce( 'wpf_checkout' ), $wfpUrlCheckout ) ); ?>"
+									 wfp-payment-type="<?php echo esc_html( $wfpPaymentType ); ?>">
 
 								<div class="wfp_wraper_con">
 
@@ -326,50 +329,50 @@ $page_width = isset( $getMetaData->donation->page_width ) ? $getMetaData->donati
 									<div class="xs-row">
 										<?php
 
-										$recentTitle = __( 'Recent Funds', 'wp-fundraising' );
+										$wfpRecentTitle = __( 'Recent Funds', 'wp-fundraising' );
 
-										$argsTotal = array(
+										$wfpArgsTotal = array(
 											'post_type'   => 'wfp-review',
-											'post_parent' => $postId,
+											'post_parent' => $wfpPostId,
 											'post_status' => 'publish',
 										);
 
-										$the_queryTotal = new \WP_Query( $argsTotal );
-										$count          = $the_queryTotal->post_count;
+										$wfp_the_queryTotal = new \WP_Query( $wfpArgsTotal );
+										$wfp_count          = $wfp_the_queryTotal->post_count;
 										wp_reset_postdata();
 										?>
 										<div class="xs-col-lg-8 wfp-single-tabs">
 											<ul class="wfp-tab" id="wfp_menu_fixed">
-												<?php if ( $enableSingleContent == 'No' ) : ?>
+												<?php if ( $wfpEnableSingleContent == 'No' ) : ?>
 													<li class="wfp_tab_li active"><a
 																href="#wfp_tab_content_decription"><?php echo esc_html( apply_filters( 'wfp_single_content_decription', esc_html__( 'Description', 'wp-fundraising' ) ) ); ?></a>
 													</li>
 													<?php
 												endif;
-												if ( $enableSingleReview == 'No' ) :
+												if ( $wfpEnableSingleReview == 'No' ) :
 													?>
 													<li class="wfp_tab_li "><a
 																href="#wfp_tab_content_review"><?php echo esc_html( apply_filters( 'wfp_single_content_review', esc_html__( 'Reviews', 'wp-fundraising' ) ) ); ?>
-															(<?php echo esc_html( $count ); ?>)</a></li>
+															(<?php echo esc_html( $wfp_count ); ?>)</a></li>
 													<?php
 												endif;
-												if ( $enableSingleUpdates == 'No' ) :
+												if ( $wfpEnableSingleUpdates == 'No' ) :
 													?>
 													<li class="wfp_tab_li "><a
 																href="#wfp_tab_content_updates"><?php echo esc_html( apply_filters( 'wfp_single_content_updates', esc_html__( 'Updates', 'wp-fundraising' ) ) ); ?></a>
 													</li>
 													<?php
 												endif;
-												if ( $enableSingleRecents == 'No' ) :
+												if ( $wfpEnableSingleRecents == 'No' ) :
 													?>
 													<li class="wfp_tab_li "><a
-																href="#wfp_tab_content_recent"><?php echo esc_html( apply_filters( 'wfp_single_content_recent', esc_html( $recentTitle ) ) ); ?></a>
+																href="#wfp_tab_content_recent"><?php echo esc_html( apply_filters( 'wfp_single_content_recent', esc_html( $wfpRecentTitle ) ) ); ?></a>
 													</li>
 												<?php endif; ?>
 											</ul>
 
 											<div class="wfp-tab-content-wraper">
-												<?php if ( $enableSingleContent == 'No' ) : ?>
+												<?php if ( $wfpEnableSingleContent == 'No' ) : ?>
 													<div class="wfp-tab-content wfp-tab-div-disable active"
 														 id="wfp_tab_content_decription">
 														<div class="wfp-post-description">
@@ -377,7 +380,7 @@ $page_width = isset( $getMetaData->donation->page_width ) ? $getMetaData->donati
 
 															do_action( 'wfp_single_content_before' );
 
-															echo wp_kses( $postContent, \WfpFundraising\Utilities\Utils::get_kses_array() );
+															echo wp_kses( $wfpPostContent, \WfpFundraising\Utilities\Utils::get_kses_array() );
 
 															do_action( 'wfp_single_content_after' );
 
@@ -387,7 +390,7 @@ $page_width = isset( $getMetaData->donation->page_width ) ? $getMetaData->donati
 													<!-- Article content -->
 													<?php
 												endif;
-												if ( $enableSingleReview == 'No' ) :
+												if ( $wfpEnableSingleReview == 'No' ) :
 													?>
 													<div class="wfp-tab-content wfp-tab-div-disable "
 														 id="wfp_tab_content_review">
@@ -395,14 +398,14 @@ $page_width = isset( $getMetaData->donation->page_width ) ? $getMetaData->donati
 													</div>
 													<?php
 												endif;
-												if ( $enableSingleUpdates == 'No' ) :
+												if ( $wfpEnableSingleUpdates == 'No' ) :
 													?>
 													<div class="wfp-tab-content wfp-tab-div-disable " id="wfp_tab_content_updates">
 														<?php include __DIR__ . '/../fundraising/single-page/include/page/updates.php'; ?>
 													</div>
 													<?php
 												endif;
-												if ( $enableSingleRecents == 'No' ) :
+												if ( $wfpEnableSingleRecents == 'No' ) :
 													?>
 													<div class="wfp-tab-content wfp-tab-div-disable "
 														 id="wfp_tab_content_recent">
@@ -433,7 +436,7 @@ $page_width = isset( $getMetaData->donation->page_width ) ? $getMetaData->donati
 	</div>
 
 	<script type='text/javascript'>
-		xs_donate_amount_set(<?php echo esc_html( $defaultData ); ?>,<?php echo esc_html( $post->ID ); ?>);
+		xs_donate_amount_set(<?php echo esc_html( $wfpDefaultData ); ?>,<?php echo esc_html( $post->ID ); ?>);
 	</script>
 
 </div>

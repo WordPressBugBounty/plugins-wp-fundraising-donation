@@ -2,6 +2,8 @@
 
 namespace WfpFundraising\Apps;
 
+defined( 'ABSPATH' ) || exit;
+
 use WfpFundraising\Traits\Singleton;
 
 
@@ -51,7 +53,7 @@ class Donation_Cpt {
 
 		$args = array(
 			'label'               => __( 'Donation', 'wp-fundraising' ),
-			'description'         => __( '', 'wp-fundraising' ),
+			'description'         => __( 'Donation post type for managing fundraising campaigns.', 'wp-fundraising' ),
 			'labels'              => $labels,
 			'menu_icon'           => '',
 			'supports'            => array( 'title', 'editor', 'author' ),

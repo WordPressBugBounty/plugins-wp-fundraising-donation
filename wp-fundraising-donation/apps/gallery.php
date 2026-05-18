@@ -116,31 +116,31 @@ class Gallery {
 
 		// check post type with current post type.
 		if ( $getPostTYpe == self::post_type() ) {
-			$post_id = $post->ID;
+			$wfp_post_id = $post->ID;
 			include \WFP_Fundraising::plugin_dir() . 'views/admin/gallery/add-gallery.php';
 		}
 	}
 
-	public function wfp_featured_gallery_save( $post_id, $post ) {
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return $post_id;
+	public function wfp_featured_gallery_save( $wfp_post_id, $post ) {
+		if ( ! current_user_can( 'edit_post', $wfp_post_id ) ) {
+			return $wfp_post_id;
 		}
 		// check post id
-		if ( ! empty( $post_id ) and is_object( $post ) ) {
+		if ( ! empty( $wfp_post_id ) and is_object( $post ) ) {
 			if ( $post->post_type == self::post_type() && ! empty( $_POST['meta-box-order-nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['meta-box-order-nonce'] ) ), 'meta-box-order' ) ) {
 				$custom_meta_fields = self::wfp_featured_gallery_filed();
 				foreach ( $custom_meta_fields as $field ) {
 					if ( isset( $_POST[ $field['id'] ] ) ) {
 						$new_meta_value = sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) );
 						$meta_key       = $field['id'];
-						$meta_value     = get_post_meta( $post_id, $meta_key, true );
+						$meta_value     = get_post_meta( $wfp_post_id, $meta_key, true );
 
 						if ( $new_meta_value && $meta_value == null ) {
-								add_post_meta( $post_id, $meta_key, $new_meta_value, true );
+								add_post_meta( $wfp_post_id, $meta_key, $new_meta_value, true );
 						} elseif ( $new_meta_value && $new_meta_value != $meta_value ) {
-								update_post_meta( $post_id, $meta_key, $new_meta_value );
+								update_post_meta( $wfp_post_id, $meta_key, $new_meta_value );
 						} elseif ( $new_meta_value == null && $meta_value ) {
-								delete_post_meta( $post_id, $meta_key, $meta_value );
+								delete_post_meta( $wfp_post_id, $meta_key, $meta_value );
 						}
 					}
 				}
@@ -150,6 +150,7 @@ class Gallery {
 
 	public function wfp_portfolio_get_image_id( $image_url ) {
 		global $wpdb;
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared lookup by GUID to resolve media attachment ID; intentional and safe.
 		$attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid=%s", $image_url ) );
 		return isset( $attachment[0] ) ? $attachment[0] : '';
 	}
@@ -215,7 +216,7 @@ class Gallery {
 		echo '<p>Example HTML content goes here.</p>';
 	}
 
-	public function honor_ssl_for_attachments( $url, $post_id ) {
+	public function honor_ssl_for_attachments( $url, $wfp_post_id ) {
 		$image = 'https://paloimages.prothom-alo.com/contents/cache/images/320x179x1/uploads/media/2019/09/20/85de63814ed858ddb7c6216160b0806d-5d843cc10ab43.jpg';
 		return '';
 	}

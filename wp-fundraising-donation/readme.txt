@@ -1,15 +1,14 @@
 === FundEngine – Donation and Crowdfunding Platform ===
 Contributors: ataurr, XpeedStudio
-Tags: fundraising, fund, donation, donations, crowdfunding, funding, crowd funding,  donate, donation plugin, wordpress donation plugin, fundraising plugin, nonprofit, nonprofits, charity, church, churches, backer, crowdfunding plugin, donation plugin, fund rising, kickstarter
+Tags: crowdfunding, fundraising, donate, recurring-donations, donation
 Requires at least: 5.2
-Tested up to: 6.9
-Stable tag: 1.7.6
+Tested up to: 6.9.4
+Stable tag: 1.7.7
 Requires PHP: 7.4
 License:  GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
-FundEngine - Fundraising Donation plugin and Crowdfunding Platform comes with Single donation and crowdfunding solution. You can use our plugin Either single donation or crowdfunding solution. We have two types of the payment system. Standalone and woocommerce payment system.  You can get paid with PayPal and stripe without any third-party plugin.  And also you can get the payment with woocommerce to get popular payment gateways with our plugin.
-
+FundEngine - FundEngine is a fundraising and crowdfunding plugin with PayPal, Stripe, and WooCommerce payment support.
 
 == Description ==
 FundEngine - Fundraising Donation plugin and Crowdfunding Platform comes with Single donation and crowdfunding solution. This plugin gives the ability to anyone to create a crowdfunding and single donation site with WordPress.
@@ -123,6 +122,10 @@ FundEngine - Fundraising Donation plugin and Crowdfunding Platform comes with Si
 
 
 == Changelog ==
+Version 1.7.7 //2026-05-18
+- Fixed: Woocommerce product price and type changing security issue.
+- Improved: Security recommendations from WP.ORG. 
+
 Version 1.7.6 //2026-05-05
 - Fixed: REST registration bypass issue when WordPress user registration is disabled.
 - Fixed: Payment type retrieval in content issue.

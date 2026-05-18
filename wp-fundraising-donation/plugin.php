@@ -2,6 +2,8 @@
 
 namespace WfpFundraising;
 
+defined( 'ABSPATH' ) || exit;
+
 use WfpFundraising\Apps\Donation_Cpt;
 use WfpFundraising\Apps\Fundraising_Cpt;
 use WfpFundraising\Apps\Key;
@@ -152,7 +154,7 @@ final class Plugin {
 		/**
          * Show our plugins menu for others wpmet plugins
         */
-		\WFP_Fundraising\Wpmet\Libs\Plugins::instance()->init('wp-fundraising')
+		\WfpFundraising\Wpmet\Libs\Plugins::instance()->init('wp-fundraising-donation')
         ->set_parent_menu_slug('edit.php?post_type=wp-fundraising')
         ->set_submenu_name('Our Plugins')
         ->set_section_title('Want to Take Your Fundraising to the Next Level?')

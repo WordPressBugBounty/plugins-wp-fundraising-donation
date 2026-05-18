@@ -38,7 +38,7 @@ class Manifest {
 			),
 		);
 
-		return apply_filters( 'wfp_fundraising/widgets/list', $list );
+		return apply_filters( 'wfp_fundraising/widgets/list', $list ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Legacy public filter kept for backward compatibility with existing integrations.
 	}
 
 

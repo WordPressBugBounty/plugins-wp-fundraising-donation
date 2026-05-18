@@ -1,4 +1,8 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
 require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 
 ?>
@@ -19,24 +23,24 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 					<div class="wfdp-social-input">
 						<?php
 
-						$defaultCountry = isset( $getMetaGeneral['location']['country'] ) ? $getMetaGeneral['location']['country'] : 'US-CA';
+						$wfpDefaultCountry = isset( $wfpGetMetaGeneral['location']['country'] ) ? $wfpGetMetaGeneral['location']['country'] : 'US-CA';
 
-						$onlyCOuntry = explode( '-', $defaultCountry );
-						$defultCode  = isset( $countryList[ $onlyCOuntry[0] ]['currency']['code'] ) ? $countryList[ $onlyCOuntry[0] ]['currency']['code'] : 'USD';
+						$wfpOnlyCOuntry = explode( '-', $wfpDefaultCountry );
+						$wfpDefultCode  = isset( $wfpCountryList[ $wfpOnlyCOuntry[0] ]['currency']['code'] ) ? $wfpCountryList[ $wfpOnlyCOuntry[0] ]['currency']['code'] : 'USD';
 
-						$defaultCurrency = isset( $getMetaGeneral['currency']['name'] ) ? $getMetaGeneral['currency']['name'] : $onlyCOuntry[0] . '-' . $defultCode;
+						$wfpDefaultCurrency = isset( $wfpGetMetaGeneral['currency']['name'] ) ? $wfpGetMetaGeneral['currency']['name'] : $wfpOnlyCOuntry[0] . '-' . $wfpDefultCode;
 
 						?>
 						<select class="regular-text wfp-select2-country" name="xs_submit_settings_data_general[options][currency][name]">
 							<?php
-							if ( is_array( $countryList ) && sizeof( $countryList ) > 0 ) {
-								foreach ( $countryList as $key => $value ) :
-									$name    = isset( $value['info']['name'] ) ? $value['info']['name'] : '';
-									$code    = isset( $value['currency']['code'] ) ? $value['currency']['code'] : '';
-									$symbols = isset( $value['currency']['symbol'] ) ? $value['currency']['symbol'] : '';
-									$symbols = strlen( $symbols ) > 0 ? '(' . $symbols . ')' : '';
+							if ( is_array( $wfpCountryList ) && sizeof( $wfpCountryList ) > 0 ) {
+								foreach ( $wfpCountryList as $wfp_key => $wfp_value ) :
+									$wfp_name    = isset( $wfp_value['info']['name'] ) ? $wfp_value['info']['name'] : '';
+									$wfp_code    = isset( $wfp_value['currency']['code'] ) ? $wfp_value['currency']['code'] : '';
+									$wfpSymbols = isset( $wfp_value['currency']['symbol'] ) ? $wfp_value['currency']['symbol'] : '';
+									$wfpSymbols = strlen( $wfpSymbols ) > 0 ? '(' . $wfpSymbols . ')' : '';
 									?>
-									<option value="<?php echo esc_attr( $key . '-' . $code ); ?>" <?php echo ( $defaultCurrency == $key . '-' . $code ) ? 'selected' : ''; ?>> <?php echo esc_html( $name . ' -- ' . $code . $symbols ); ?> </option>
+									<option value="<?php echo esc_attr( $wfp_key . '-' . $wfp_code ); ?>" <?php echo ( $wfpDefaultCurrency == $wfp_key . '-' . $wfp_code ) ? 'selected' : ''; ?>> <?php echo esc_html( $wfp_name . ' -- ' . $wfp_code . $wfpSymbols ); ?> </option>
 									<?php
 
 								endforeach;
@@ -51,12 +55,12 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 					</div>
 					<div class="wfdp-social-input">
 					<?php
-					$defultPositionCountry = isset( $localListDefult['currency_pos'] ) ? $localListDefult['currency_pos'] : 'right';
-					$defaultPosition       = isset( $getMetaGeneral['currency']['position'] ) ? $getMetaGeneral['currency']['position'] : $defultPositionCountry;
+					$wfpDefultPositionCountry = isset( $localListDefult['currency_pos'] ) ? $localListDefult['currency_pos'] : 'right';
+					$wfpDefaultPosition       = isset( $wfpGetMetaGeneral['currency']['position'] ) ? $wfpGetMetaGeneral['currency']['position'] : $wfpDefultPositionCountry;
 					?>
 						<select class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][currency][position]">
-							<option value="left" <?php echo ( $defaultPosition == 'left' ) ? 'selected' : ''; ?> > <?php echo esc_html__( 'Left', 'wp-fundraising' ); ?></option>
-							<option value="right"<?php echo ( $defaultPosition == 'right' ) ? 'selected' : ''; ?> > <?php echo esc_html__( 'Right', 'wp-fundraising' ); ?></option>
+							<option value="left" <?php echo ( $wfpDefaultPosition == 'left' ) ? 'selected' : ''; ?> > <?php echo esc_html__( 'Left', 'wp-fundraising' ); ?></option>
+							<option value="right"<?php echo ( $wfpDefaultPosition == 'right' ) ? 'selected' : ''; ?> > <?php echo esc_html__( 'Right', 'wp-fundraising' ); ?></option>
 						</select>
 					</div>
 				</li>
@@ -66,10 +70,10 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 					</div>
 					<div class="wfdp-social-input">
 					<?php
-					$defaultThou_seperatorCountry = isset( $localListDefult['thousand_sep'] ) ? $localListDefult['thousand_sep'] : ',';
-					$defaultThou_seperator        = isset( $getMetaGeneral['currency']['thou_seperator'] ) ? $getMetaGeneral['currency']['thou_seperator'] : $defaultThou_seperatorCountry;
+					$wfp_defaultThou_seperatorCountry = isset( $localListDefult['thousand_sep'] ) ? $localListDefult['thousand_sep'] : ',';
+					$wfp_defaultThou_seperator        = isset( $wfpGetMetaGeneral['currency']['thou_seperator'] ) ? $wfpGetMetaGeneral['currency']['thou_seperator'] : $wfp_defaultThou_seperatorCountry;
 					?>
-						<input type="text" class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][currency][thou_seperator]" value="<?php echo esc_attr( $defaultThou_seperator ); ?>">
+						<input type="text" class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][currency][thou_seperator]" value="<?php echo esc_attr( $wfp_defaultThou_seperator ); ?>">
 						<span class="xs-donetion-field-description hidden"><?php echo esc_html__( 'Use Thousand Seperator in Display Currency.', 'wp-fundraising' ); ?></span>
 					</div>
 
@@ -80,10 +84,10 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 					</div>
 					<div class="wfdp-social-input">
 					<?php
-					$defaultDecimal_seperatorCountry = isset( $localListDefult['decimal_sep'] ) ? $localListDefult['decimal_sep'] : '.';
-					$defaultDecimal_seperator        = isset( $getMetaGeneral['currency']['decimal_seperator'] ) ? $getMetaGeneral['currency']['decimal_seperator'] : $defaultDecimal_seperatorCountry;
+					$wfp_defaultDecimal_seperatorCountry = isset( $localListDefult['decimal_sep'] ) ? $localListDefult['decimal_sep'] : '.';
+					$wfp_defaultDecimal_seperator        = isset( $wfpGetMetaGeneral['currency']['decimal_seperator'] ) ? $wfpGetMetaGeneral['currency']['decimal_seperator'] : $wfp_defaultDecimal_seperatorCountry;
 					?>
-						<input type="text" class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][currency][decimal_seperator]" value="<?php echo esc_attr( $defaultDecimal_seperator ); ?>">
+						<input type="text" class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][currency][decimal_seperator]" value="<?php echo esc_attr( $wfp_defaultDecimal_seperator ); ?>">
 						
 						<span class="xs-donetion-field-description hidden"><?php echo esc_html__( 'Use Decimal Seperator in Display Currency.', 'wp-fundraising' ); ?></span>
 					</div>
@@ -97,10 +101,10 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 
 					<?php
 
-					$defaultNumberDecimalCountry = isset( $localListDefult['num_decimals'] ) ? $localListDefult['num_decimals'] : '2';
-					$defaultNumberDecimal        = isset( $getMetaGeneral['currency']['number_decimal'] ) ? $getMetaGeneral['currency']['number_decimal'] : $defaultNumberDecimalCountry;
+					$wfpDefaultNumberDecimalCountry = isset( $localListDefult['num_decimals'] ) ? $localListDefult['num_decimals'] : '2';
+					$wfpDefaultNumberDecimal        = isset( $wfpGetMetaGeneral['currency']['number_decimal'] ) ? $wfpGetMetaGeneral['currency']['number_decimal'] : $wfpDefaultNumberDecimalCountry;
 					?>
-						<input type="number" min="0" class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][currency][number_decimal]" value="<?php echo esc_attr( $defaultNumberDecimal ); ?>">
+						<input type="number" min="0" class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][currency][number_decimal]" value="<?php echo esc_attr( $wfpDefaultNumberDecimal ); ?>">
 						<span class="xs-donetion-field-description hidden"><?php echo esc_html__( 'Show Decimal Number in Display Currency.', 'wp-fundraising' ); ?></span>
 					</div>
 
@@ -108,21 +112,21 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 				<!--
 				<li>
 					<div>
-						<?php // echo esc_html__('Display Currency', 'wp-fundraising'); ?>
+						<?php // echo esc_html__('Display Currency', 'wp-fundraising-donation'); ?>
 					</div>
 					<div>
 					<?php
 
-					// $defultDisplayCurrency = isset($getMetaGeneral['currency']['display']) ? $getMetaGeneral['currency']['display'] : 'symbol';
+					// $wfpDefultDisplayCurrency = isset($wfpGetMetaGeneral['currency']['display']) ? $wfpGetMetaGeneral['currency']['display'] : 'symbol';
 					?>
 						<select class="regular-text " name="xs_submit_settings_data_general[options][currency][display]">
-							<option value="code" <?php // echo ($defultDisplayCurrency == 'code') ? 'selected' : ''; ?> > <?php // echo esc_html__('Code (USD)', 'wp-fundraising'); ?></option>
-							<option value="code" <?php // echo ($defultDisplayCurrency == 'code') ? 'selected' : ''; ?> > <?php // echo esc_html__('Code (USD)', 'wp-fundraising'); ?></option>
-							<option value="symbol"<?php // echo ($defultDisplayCurrency == 'symbol') ? 'selected' : ''; ?> > <?php // echo esc_html__('Symbol ($)', 'wp-fundraising'); ?></option>
-							<option value="both"<?php // echo ($defultDisplayCurrency == 'both') ? 'selected' : ''; ?> > <?php // echo esc_html__('($) Both (USD)', 'wp-fundraising'); ?></option>
+							<option value="code" <?php // echo ($wfpDefultDisplayCurrency == 'code') ? 'selected' : ''; ?> > <?php // echo esc_html__('Code (USD)', 'wp-fundraising-donation'); ?></option>
+							<option value="code" <?php // echo ($wfpDefultDisplayCurrency == 'code') ? 'selected' : ''; ?> > <?php // echo esc_html__('Code (USD)', 'wp-fundraising-donation'); ?></option>
+							<option value="symbol"<?php // echo ($wfpDefultDisplayCurrency == 'symbol') ? 'selected' : ''; ?> > <?php // echo esc_html__('Symbol ($)', 'wp-fundraising-donation'); ?></option>
+							<option value="both"<?php // echo ($wfpDefultDisplayCurrency == 'both') ? 'selected' : ''; ?> > <?php // echo esc_html__('($) Both (USD)', 'wp-fundraising-donation'); ?></option>
 						</select>
 						<br/>
-						<span class="xs-donetion-field-description hidden"><?php // echo esc_html__('Use Currency symbol and Currency Code in Display Currency.', 'wp-fundraising'); ?></span>
+						<span class="xs-donetion-field-description hidden"><?php // echo esc_html__('Use Currency symbol and Currency Code in Display Currency.', 'wp-fundraising-donation'); ?></span>
 					</div>
 				</li>-->
 				<li class="wfdp-social-input-container wfdp-social-no-border">
@@ -135,10 +139,10 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 
 							<?php
 
-							$defaultUse_space = isset( $getMetaGeneral['currency']['use_space'] ) ? $getMetaGeneral['currency']['use_space'] : 'off';
+							$wfp_defaultUse_space = isset( $wfpGetMetaGeneral['currency']['use_space'] ) ? $wfpGetMetaGeneral['currency']['use_space'] : 'off';
 							?>
 
-							<input class="xs_donate_switch_button" type="checkbox" id="donation_form_currency_enable__space" <?php echo ( $defaultUse_space == 'on' ) ? 'checked' : ''; ?> name="xs_submit_settings_data_general[options][currency][use_space]" value="on">
+							<input class="xs_donate_switch_button" type="checkbox" id="donation_form_currency_enable__space" <?php echo ( $wfp_defaultUse_space == 'on' ) ? 'checked' : ''; ?> name="xs_submit_settings_data_general[options][currency][use_space]" value="on">
 							<label for="donation_form_currency_enable__space" class="xs_donate_switch_button_label small xs-round"></label>
 						</div>
 						<span class="xs-donetion-field-description hidden"><?php echo esc_html__( 'Use space in display currency.', 'wp-fundraising' ); ?></span>
@@ -148,55 +152,55 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 				</li>
 			</ul>
 			<ul class="wfdp-social_share">
-				<li class="wfdp-social_share-section-title wfp-disabled-div <?php echo ( $gateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>"><h3><?php echo esc_html__( 'Location', 'wp-fundraising' ); ?></h3></li>
+				<li class="wfdp-social_share-section-title wfp-disabled-div <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>"><h3><?php echo esc_html__( 'Location', 'wp-fundraising' ); ?></h3></li>
 
-				<li class="wfdp-social-input-container wfp-disabled-div <?php echo ( $gateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
+				<li class="wfdp-social-input-container wfp-disabled-div <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
 					<div class="wfdp-social-label">
 						<?php echo esc_html__( 'Address Line', 'wp-fundraising' ); ?>
 					</div>
 					<div class="wfdp-social-input">
 					<?php
-					$defaultAddress = isset( $getMetaGeneral['location']['address'] ) ? $getMetaGeneral['location']['address'] : '';
+					$wfpDefaultAddress = isset( $wfpGetMetaGeneral['location']['address'] ) ? $wfpGetMetaGeneral['location']['address'] : '';
 					?>
-						<input type="text" class="regular-text" name="xs_submit_settings_data_general[options][location][address]" value="<?php echo esc_attr( $defaultAddress ); ?>">
+						<input type="text" class="regular-text" name="xs_submit_settings_data_general[options][location][address]" value="<?php echo esc_attr( $wfpDefaultAddress ); ?>">
 					</div>
 
 				</li>
-				<li class="wfdp-social-input-container wfp-disabled-div <?php echo ( $gateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
+				<li class="wfdp-social-input-container wfp-disabled-div <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
 					<div class="wfdp-social-label">
 						<?php echo esc_html__( 'City', 'wp-fundraising' ); ?>
 					</div>
 					<div class="wfdp-social-input">
 					<?php
-					$defaultCity = isset( $getMetaGeneral['location']['city'] ) ? $getMetaGeneral['location']['city'] : '';
+					$wfpDefaultCity = isset( $wfpGetMetaGeneral['location']['city'] ) ? $wfpGetMetaGeneral['location']['city'] : '';
 					?>
-						<input type="text" class="regular-text" name="xs_submit_settings_data_general[options][location][city]" value="<?php echo esc_attr( $defaultCity ); ?>">
+						<input type="text" class="regular-text" name="xs_submit_settings_data_general[options][location][city]" value="<?php echo esc_attr( $wfpDefaultCity ); ?>">
 					</div>
 
 				</li>
-				<li class="wfdp-social-input-container wfp-disabled-div <?php echo ( $gateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
+				<li class="wfdp-social-input-container wfp-disabled-div <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
 					<div class="wfdp-social-label">
 						<?php echo esc_html__( 'Country / State', 'wp-fundraising' ); ?>
 					</div>
 					<div class="wfdp-social-input">
 						<?php
 
-						$defaultCountry = isset( $getMetaGeneral['location']['country'] ) ? $getMetaGeneral['location']['country'] : 'US-CA';
+						$wfpDefaultCountry = isset( $wfpGetMetaGeneral['location']['country'] ) ? $wfpGetMetaGeneral['location']['country'] : 'US-CA';
 						?>
 						<select class="regular-text wfp-select2-country" name="xs_submit_settings_data_general[options][location][country]">
 							<?php
-							if ( is_array( $countryList ) && sizeof( $countryList ) > 0 ) {
+							if ( is_array( $wfpCountryList ) && sizeof( $wfpCountryList ) > 0 ) {
 
-								foreach ( $countryList as $key => $value ) :
-									$name             = isset( $value['info']['name'] ) ? $value['info']['name'] : '';
-									$countryStateList = isset( $value['states'] ) ? $value['states'] : array();
-									if ( is_array( $countryStateList ) && sizeof( $countryStateList ) > 0 ) {
+								foreach ( $wfpCountryList as $wfp_key => $wfp_value ) :
+									$wfp_name             = isset( $wfp_value['info']['name'] ) ? $wfp_value['info']['name'] : '';
+									$wfpCountryStateList = isset( $wfp_value['states'] ) ? $wfp_value['states'] : array();
+									if ( is_array( $wfpCountryStateList ) && sizeof( $wfpCountryStateList ) > 0 ) {
 										?>
-									<optgroup label="<?php echo esc_html( $name ); ?>">
+									<optgroup label="<?php echo esc_html( $wfp_name ); ?>">
 										<?php
-										foreach ( $countryStateList as $keyState => $valueState ) :
+										foreach ( $wfpCountryStateList as $wfpKeyState => $valueState ) :
 											?>
-										<option value="<?php echo esc_attr( $key . '-' . $keyState ); ?>" <?php echo ( $defaultCountry == $key . '-' . $keyState ) ? 'selected' : ''; ?>> <?php echo esc_html( $name . ' -- ' . $valueState ); ?> </option>
+										<option value="<?php echo esc_attr( $wfp_key . '-' . $wfpKeyState ); ?>" <?php echo ( $wfpDefaultCountry == $wfp_key . '-' . $wfpKeyState ) ? 'selected' : ''; ?>> <?php echo esc_html( $wfp_name . ' -- ' . $valueState ); ?> </option>
 										
 											<?php
 										endforeach;
@@ -205,7 +209,7 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 										<?php
 									} else {
 										?>
-									<option value="<?php echo esc_attr( $key ); ?>" <?php echo ( $defaultCountry == $key ) ? 'selected' : ''; ?>> <?php esc_html( $name ); ?> </option>
+									<option value="<?php echo esc_attr( $wfp_key ); ?>" <?php echo ( $wfpDefaultCountry == $wfp_key ) ? 'selected' : ''; ?>> <?php esc_html( $wfp_name ); ?> </option>
 										<?php
 									}
 								endforeach;
@@ -215,15 +219,15 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 					</div>
 				</li>
 
-				<li class="wfdp-social-input-container wfp-disabled-div <?php echo ( $gateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
+				<li class="wfdp-social-input-container wfp-disabled-div <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
 					<div class="wfdp-social-label">
 						<?php echo esc_html__( 'Postcode / ZIP', 'wp-fundraising' ); ?>
 					</div>
 					<div class="wfdp-social-input">
 					<?php
-					$defaultPostcode = isset( $getMetaGeneral['location']['postcode'] ) ? $getMetaGeneral['location']['postcode'] : '';
+					$wfpDefaultPostcode = isset( $wfpGetMetaGeneral['location']['postcode'] ) ? $wfpGetMetaGeneral['location']['postcode'] : '';
 					?>
-						<input type="text" class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][location][postcode]" value="<?php echo esc_attr( $defaultPostcode ); ?>">
+						<input type="text" class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][location][postcode]" value="<?php echo esc_attr( $wfpDefaultPostcode ); ?>">
 					</div>
 
 				</li>

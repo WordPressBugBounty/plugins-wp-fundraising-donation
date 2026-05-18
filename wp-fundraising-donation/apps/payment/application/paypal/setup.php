@@ -72,7 +72,9 @@ class Setup {
 			$return['txn_id']   = isset( $_REQUEST['txn_id'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['txn_id'] ) ) : ''; //phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Already checked inside apps\content.php file ipn_ajax_wfp_callback() method
 			$return['response'] = isset( $_REQUEST ) ? $_REQUEST : ''; //phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Already checked inside apps\content.php file ipn_ajax_wfp_callback() method
 		} else {
-			error_log( 'Invalid PayPal IPN request: ' . json_encode( $_REQUEST ) ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Already checked inside apps\content.php file ipn_ajax_wfp_callback() method
+			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+				error_log( 'Invalid PayPal IPN request: ' . wp_json_encode( $_REQUEST ) ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.PHP.DevelopmentFunctions.error_log_error_log -- Nonce already checked in ipn_ajax_wfp_callback(); error_log is intentional and guarded by WP_DEBUG.
+			}
 		}
 
 		header( 'HTTP/1.1 200 OK' );

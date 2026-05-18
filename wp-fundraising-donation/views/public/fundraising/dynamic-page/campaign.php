@@ -1,46 +1,52 @@
 <?php
-$feature = new \WfpFundraising\Apps\Featured( false );
-$content = new \WfpFundraising\Apps\Content( false );
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+$wfp_feature = new \WfpFundraising\Apps\Featured( false );
+$wfp_content = new \WfpFundraising\Apps\Content( false );
 
 // page limit
-$limit = isset( $wfp_fundraising_content__show_post ) ? (int) $wfp_fundraising_content__show_post : 9;
-$limit = ( $limit > 0 ) ? $limit : 9;
+$wfp_limit = isset( $wfp_fundraising_content__show_post ) ? (int) $wfp_fundraising_content__show_post : 9;
+$wfp_limit = ( $wfp_limit > 0 ) ? $wfp_limit : 9;
 
 // order by
-$orderby = isset( $wfp_fundraising_content__orderby ) ? $wfp_fundraising_content__orderby : 'post_date';
-$orderby = ( strlen( $orderby ) > 2 ) ? $orderby : 'post_date';
+$wfp_orderby = isset( $wfp_fundraising_content__orderby ) ? $wfp_fundraising_content__orderby : 'post_date';
+$wfp_orderby = ( strlen( $wfp_orderby ) > 2 ) ? $wfp_orderby : 'post_date';
 
 // order
-$order = isset( $wfp_fundraising_content__order ) ? $wfp_fundraising_content__order : 'DESC';
-$order = ( strlen( $order ) > 1 ) ? $order : 'DESC';
+$wfp_order = isset( $wfp_fundraising_content__order ) ? $wfp_fundraising_content__order : 'DESC';
+$wfp_order = ( strlen( $wfp_order ) > 1 ) ? $wfp_order : 'DESC';
 
 
-$args['post_status'] = 'publish';
-$args['post_type']   = \WfpFundraising\Apps\Content::post_type();
+$wfp_args['post_status'] = 'publish';
+$wfp_args['post_type']   = \WfpFundraising\Apps\Content::post_type();
 
 // just to avoid the php notice error - todo - ask easin to look into it. ::AR
 $wfp_fundraising_layout_option = '';
 
 if ( $wfp_fundraising_layout_option === 'selected' ) {
 
-	$args['post__in'] = count( $wfp_fundraising_content__selected ) > 0 ? $wfp_fundraising_content__selected : array( -1 );
+	$wfp_args['post__in'] = count( $wfp_fundraising_content__selected ) > 0 ? $wfp_fundraising_content__selected : array( -1 );
 
 } elseif ( $wfp_fundraising_layout_option === 'categories' ) {
 	// categories query data
-	$cate_data = isset( $wfp_fundraising_content__categories ) ? $wfp_fundraising_content__categories : '';
-	if ( is_array( $cate_data ) && sizeof( $cate_data ) > 0 ) {
-		$subQuery          = array(
+	$wfp_cate_data = isset( $wfp_fundraising_content__categories ) ? $wfp_fundraising_content__categories : '';
+	if ( is_array( $wfp_cate_data ) && sizeof( $wfp_cate_data ) > 0 ) {
+		$wfpSubQuery          = array(
 			array(
 				'taxonomy' => 'wfp-categories',
 				'field'    => 'term_id',
-				'terms'    => $cate_data,
+				'terms'    => $wfp_cate_data,
 			),
 			'relation' => 'AND',
 		);
-		$args['tax_query'] = $subQuery;
+		// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- Taxonomy filter is intentionally used for this listing.
+		$wfp_args['tax_query'] = $wfpSubQuery;
 	}
 
-	$args['meta_query'] = array(
+	// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Meta filter is intentionally used to exclude ended campaigns in this listing.
+	$wfp_args['meta_query'] = array(
 		'relation' => 'AND',
 		array(
 			'key'     => '__wfp_campaign_status',
@@ -50,26 +56,25 @@ if ( $wfp_fundraising_layout_option === 'selected' ) {
 	);
 }
 
-$args['orderby']          = $wfp_fundraising_layout_option === 'recent' ? 'post_date' : $orderby;
-$args['posts_per_page']   = $limit;
-$args['order']            = $order;
-$args['suppress_filters'] = true;
+$wfp_args['orderby']          = $wfp_fundraising_layout_option === 'recent' ? 'post_date' : $wfp_orderby;
+$wfp_args['posts_per_page']   = $wfp_limit;
+$wfp_args['order']            = $wfp_order;
 
-$the_query = new \WP_Query( $args );
+$wfp_the_query = new \WP_Query( $wfp_args );
 
 // layout style
-$layout_style = isset( $wfp_fundraising_content__layout_style ) ? $wfp_fundraising_content__layout_style : 'wfp-layout-grid';
+$wfp_layout_style = isset( $wfp_fundraising_content__layout_style ) ? $wfp_fundraising_content__layout_style : 'wfp-layout-grid';
 
-$desk_top_col = isset( $col_from_short_code ) ? $col_from_short_code : 3;
+$wfp_desk_top_col = isset( $col_from_short_code ) ? $col_from_short_code : 3;
 
-$column = array(
-	'desktop' => isset( $settings['wfp_fundraising_content__column_grid'] ) ? esc_attr( $settings['wfp_fundraising_content__column_grid'] ) : $desk_top_col,
-	'tablet'  => isset( $settings['wfp_fundraising_content__column_grid_tablet'] ) ? esc_attr( $settings['wfp_fundraising_content__column_grid_tablet'] ) : 3,
-	'mobile'  => isset( $settings['wfp_fundraising_content__column_grid_mobile'] ) ? esc_attr( $settings['wfp_fundraising_content__column_grid_mobile'] ) : 1,
+$wfp_column = array(
+	'desktop' => isset( $wfp_settings['wfp_fundraising_content__column_grid'] ) ? esc_attr( $wfp_settings['wfp_fundraising_content__column_grid'] ) : $wfp_desk_top_col,
+	'tablet'  => isset( $wfp_settings['wfp_fundraising_content__column_grid_tablet'] ) ? esc_attr( $wfp_settings['wfp_fundraising_content__column_grid_tablet'] ) : 3,
+	'mobile'  => isset( $wfp_settings['wfp_fundraising_content__column_grid_mobile'] ) ? esc_attr( $wfp_settings['wfp_fundraising_content__column_grid_mobile'] ) : 1,
 );
 
-if ( $layout_style == 'wfp-layout-list' ) {
-	$column = array(
+if ( $wfp_layout_style == 'wfp-layout-list' ) {
+	$wfp_column = array(
 		'desktop' => 1,
 		'tablet'  => 1,
 		'mobile'  => 1,
@@ -83,17 +88,17 @@ $wfp_fundraising_content__flip_enable = '';
 ?>
 <div class="wfp-view wfp-view-public">
 	<div class="wfp-list-campaign wfp-content-padding <?php echo isset( $className ) ? esc_attr( $className ) : ''; ?>" id="<?php echo isset( $idName ) ? esc_attr( $idName ) : ''; ?>">
-		<div class="list-campaign-body <?php echo esc_attr( $layout_style ); ?> wfp-column-<?php echo esc_attr( $column['desktop'] ); ?> wfp-column-tablet-<?php echo esc_attr( $column['tablet'] ); ?> wfp-column-mobile-<?php echo esc_attr( $column['mobile'] ); ?>">
+		<div class="list-campaign-body <?php echo esc_attr( $wfp_layout_style ); ?> wfp-column-<?php echo esc_attr( $wfp_column['desktop'] ); ?> wfp-column-tablet-<?php echo esc_attr( $wfp_column['tablet'] ); ?> wfp-column-mobile-<?php echo esc_attr( $wfp_column['mobile'] ); ?>">
 
-			<?php if ( $the_query->have_posts() ) : ?>
+			<?php if ( $wfp_the_query->have_posts() ) : ?>
 
 				<?php if ( $wfp_fundraising_content__is_carousel === 'yes' ) : ?>
 			<div class="wfp-campaign-carousel"
-				 data-autoplay="<?php echo esc_attr( ( $settings['wfp_fundrising_autoplay'] == 'yes' ) ? '{ "delay": ' . $settings['wfp_fundrising_autoplay_speed'] . ' }' : 'false' ); ?>"
-				 data-loop="<?php echo esc_attr( $settings['wfp_fundrising_loop'] == 'yes' ? 'true' : 'false' ); ?>"
-				 data-speed="<?php echo esc_attr( $settings['wfp_fundrising_speed']['size'] * 10 ); ?>"
-				 data-space-between="<?php echo '10'; // echo esc_attr($settings['wfp_fundrising_item_gap']['size']); ?>"
-				 data-responsive-settings='{"wfp_fundraising_content__column_grid": "<?php echo esc_attr( $column['desktop'] ); ?>", "wfp_fundraising_content__column_grid_tablet": "<?php echo esc_attr( $column['tablet'] ); ?>", "wfp_fundraising_content__column_grid_mobile": "<?php echo esc_attr( $column['mobile'] ); ?>"}'
+				 data-autoplay="<?php echo esc_attr( ( $wfp_settings['wfp_fundrising_autoplay'] == 'yes' ) ? '{ "delay": ' . $wfp_settings['wfp_fundrising_autoplay_speed'] . ' }' : 'false' ); ?>"
+				 data-loop="<?php echo esc_attr( $wfp_settings['wfp_fundrising_loop'] == 'yes' ? 'true' : 'false' ); ?>"
+				 data-speed="<?php echo esc_attr( $wfp_settings['wfp_fundrising_speed']['size'] * 10 ); ?>"
+				 data-space-between="<?php echo '10'; // echo esc_attr($wfp_settings['wfp_fundrising_item_gap']['size']); ?>"
+				 data-responsive-settings='{"wfp_fundraising_content__column_grid": "<?php echo esc_attr( $wfp_column['desktop'] ); ?>", "wfp_fundraising_content__column_grid_tablet": "<?php echo esc_attr( $wfp_column['tablet'] ); ?>", "wfp_fundraising_content__column_grid_mobile": "<?php echo esc_attr( $wfp_column['mobile'] ); ?>"}'
 			>
 				<div class="swiper-wrapper">
 					<?php else : ?>
@@ -103,81 +108,81 @@ $wfp_fundraising_content__flip_enable = '';
 							global $wpdb;
 					?>
 						<?php
-						while ( $the_query->have_posts() ) :
-							$the_query->the_post();
-							$categories = get_the_terms( get_the_ID(), 'wfp-categories' );
+						while ( $wfp_the_query->have_posts() ) :
+							$wfp_the_query->the_post();
+							$wfp_categories = get_the_terms( get_the_ID(), 'wfp-categories' );
 
-							$campaign_post_id = get_the_ID();
+							$wfp_campaign_post_id = get_the_ID();
 
-							$metaKey      = 'wfp_form_options_meta_data';
-							$metaDataJson = get_post_meta( get_the_ID(), $metaKey, false );
-							$getMetaData  = json_decode( json_encode( end( $metaDataJson ) ) );
+							$wfpMetaKey      = 'wfp_form_options_meta_data';
+							$wfpMetaDataJson = get_post_meta( get_the_ID(), $wfpMetaKey, false );
+							$wfpGetMetaData  = json_decode( json_encode( end( $wfpMetaDataJson ) ) );
 
-							$formGoalData = isset( $getMetaData->goal_setup ) ? $getMetaData->goal_setup : (object) array(
+							$wfpFormGoalData = isset( $wfpGetMetaData->goal_setup ) ? $wfpGetMetaData->goal_setup : (object) array(
 								'enable'    => 'No',
 								'goal_type' => 'terget_goal',
 							);
 
-							$goalStatus     = 'No';
-							$goalDataAmount = 0;
-							$goalMessage    = '';
+							$wfpGoalStatus     = 'No';
+							$wfpGoalDataAmount = 0;
+							$wfpGoalMessage    = '';
 
-							$category_info = isset( $wfp_fundraising_content__category_enable ) ? $wfp_fundraising_content__category_enable : 'Yes';
-							$user_info     = isset( $wfp_fundraising_content__user_enable ) ? $wfp_fundraising_content__user_enable : 'Yes';
-							$title_info    = isset( $wfp_fundraising_content__title_enable ) ? $wfp_fundraising_content__title_enable : 'Yes';
-							$title_limit   = isset( $wfp_fundraising_content__title_limit ) ? $wfp_fundraising_content__title_limit : 40;
-							$excerpt_info  = isset( $wfp_fundraising_content__excerpt_enable ) ? $wfp_fundraising_content__excerpt_enable : 'Yes';
-							$excerpt_limit = isset( $wfp_fundraising_content__excerpt_limit ) ? $wfp_fundraising_content__excerpt_limit : 60;
-							$featured      = isset( $wfp_fundraising_content__featured_enable ) ? $wfp_fundraising_content__featured_enable : 'Yes';
+							$wfp_category_info = isset( $wfp_fundraising_content__category_enable ) ? $wfp_fundraising_content__category_enable : 'Yes';
+							$wfp_user_info     = isset( $wfp_fundraising_content__user_enable ) ? $wfp_fundraising_content__user_enable : 'Yes';
+							$wfp_title_info    = isset( $wfp_fundraising_content__title_enable ) ? $wfp_fundraising_content__title_enable : 'Yes';
+							$wfp_title_limit   = isset( $wfp_fundraising_content__title_limit ) ? $wfp_fundraising_content__title_limit : 40;
+							$wfp_excerpt_info  = isset( $wfp_fundraising_content__excerpt_enable ) ? $wfp_fundraising_content__excerpt_enable : 'Yes';
+							$wfp_excerpt_limit = isset( $wfp_fundraising_content__excerpt_limit ) ? $wfp_fundraising_content__excerpt_limit : 60;
+							$wfp_featured      = isset( $wfp_fundraising_content__featured_enable ) ? $wfp_fundraising_content__featured_enable : 'Yes';
 
 
-							if ( isset( $formGoalData->enable ) ) {
-								$goalStatus = isset( $wfp_fundraising_content__goal_enable ) ? $wfp_fundraising_content__goal_enable : 'Yes';
+							if ( isset( $wfpFormGoalData->enable ) ) {
+								$wfpGoalStatus = isset( $wfp_fundraising_content__goal_enable ) ? $wfp_fundraising_content__goal_enable : 'Yes';
 
-								$goal_type           = isset( $formGoalData->goal_type ) ? $formGoalData->goal_type : 'terget_goal';
-								$total_rasied_amount = $wpdb->get_var( $wpdb->prepare( "SELECT SUM(donate_amount) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", get_the_ID() ) );
-								$total_rasied_count  = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(donate_id) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", get_the_ID() ) );
+								$wfp_goal_type           = isset( $wfpFormGoalData->goal_type ) ? $wfpFormGoalData->goal_type : 'terget_goal';
+								$wfp_total_rasied_amount = $wpdb->get_var( $wpdb->prepare( "SELECT SUM(donate_amount) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", get_the_ID() ) ); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for campaign totals in dynamic campaign listing.
+								$wfp_total_rasied_count  = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(donate_id) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active'", get_the_ID() ) ); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for campaign donor count in dynamic campaign listing.
 
-								$to_date            = gmdate( 'Y-m-d' );
-								$time               = time();
-								$persentange        = 0;
-								$target_amount      = 0;
-								$target_amount_fake = 0;
-								$target_date        = gmdate( 'Y-m-d' );
+								$wfp_to_date            = gmdate( 'Y-m-d' );
+								$wfp_time               = time();
+								$wfp_persentange        = 0;
+								$wfp_target_amount      = 0;
+								$wfp_target_amount_fake = 0;
+								$wfp_target_date        = gmdate( 'Y-m-d' );
 
-								$total_rasied_amount_fake = $total_rasied_amount;
-								$total_rasied_count_fake  = $total_rasied_count;
+								$wfp_total_rasied_amount_fake = $wfp_total_rasied_amount;
+								$wfp_total_rasied_count_fake  = $wfp_total_rasied_count;
 
-								if ( in_array( $goal_type, array( 'terget_goal', 'terget_goal_date', 'campaign_never_end', 'terget_date' ) ) ) {
-									$target_amount      = isset( $formGoalData->terget->terget_goal->amount ) ? $formGoalData->terget->terget_goal->amount : 0;
-									$target_amount_fake = isset( $formGoalData->terget->terget_goal->fake_amount ) ? $formGoalData->terget->terget_goal->fake_amount : 0;
-									$target_date        = isset( $formGoalData->terget->terget_goal->date ) ? $formGoalData->terget->terget_goal->date : gmdate( 'Y-m-d' );
+								if ( in_array( $wfp_goal_type, array( 'terget_goal', 'terget_goal_date', 'campaign_never_end', 'terget_date' ) ) ) {
+									$wfp_target_amount      = isset( $wfpFormGoalData->terget->terget_goal->amount ) ? $wfpFormGoalData->terget->terget_goal->amount : 0;
+									$wfp_target_amount_fake = isset( $wfpFormGoalData->terget->terget_goal->fake_amount ) ? $wfpFormGoalData->terget->terget_goal->fake_amount : 0;
+									$wfp_target_date        = isset( $wfpFormGoalData->terget->terget_goal->date ) ? $wfpFormGoalData->terget->terget_goal->date : gmdate( 'Y-m-d' );
 
-									$target_time = strtotime( $target_date );
+									$wfp_target_time = strtotime( $wfp_target_date );
 
-									$total_rasied_amount_fake = $total_rasied_amount + $target_amount_fake;
+									$wfp_total_rasied_amount_fake = $wfp_total_rasied_amount + $wfp_target_amount_fake;
 									// check amount with data
-									if ( $total_rasied_amount_fake >= $target_amount ) {
-										$total_rasied_amount_fake = $total_rasied_amount;
+									if ( $wfp_total_rasied_amount_fake >= $wfp_target_amount ) {
+										$wfp_total_rasied_amount_fake = $wfp_total_rasied_amount;
 									}
 
-									if ( $target_amount > 0 ) {
-										$persentange = ( $total_rasied_amount_fake * 100 ) / $target_amount;
+									if ( $wfp_target_amount > 0 ) {
+										$wfp_persentange = ( $wfp_total_rasied_amount_fake * 100 ) / $wfp_target_amount;
 									}
 
-									if ( $total_rasied_amount >= $target_amount ) {
-										// $goalStatus = 'No';
+									if ( $wfp_total_rasied_amount >= $wfp_target_amount ) {
+										// $wfpGoalStatus = 'No';
 									}
-									if ( $goal_type == 'terget_goal_date' || $goal_type == 'terget_date' ) {
-										if ( $time > $target_time ) {
-											// $goalStatus = 'No';
+									if ( $wfp_goal_type == 'terget_goal_date' || $wfp_goal_type == 'terget_date' ) {
+										if ( $wfp_time > $wfp_target_time ) {
+											// $wfpGoalStatus = 'No';
 										}
-									} elseif ( $goal_type == 'campaign_never_end' ) {
-										// $goalStatus = 'Yes';
+									} elseif ( $wfp_goal_type == 'campaign_never_end' ) {
+										// $wfpGoalStatus = 'Yes';
 									}
 								}
 
-								$campaign_status = ( $goalStatus == 'Yes' ) ? 'Publish' : 'Ends';
+								$wfp_campaign_status = ( $wfpGoalStatus == 'Yes' ) ? 'Publish' : 'Ends';
 							}
 							?>
 							<?php if ( $wfp_fundraising_content__is_carousel === 'yes' ) : ?>
@@ -187,14 +192,14 @@ $wfp_fundraising_content__flip_enable = '';
 								<?php endif; ?>
 
 								<div class="campaign-blog wfp-flip-content-<?php echo esc_attr( $wfp_fundraising_content__flip_enable ); ?>">
-									<?php if ( $featured == 'Yes' ) : ?>
+									<?php if ( $wfp_featured == 'Yes' ) : ?>
 										<?php do_action( 'wfp_campaign_list_thumbnil_before' ); ?>
 
 										<div class="wfp-campaign-container">
 											<a href="<?php the_permalink(); ?>">
-												<?php if ( $feature->has_featured_video( get_the_ID() ) ) { ?>
+												<?php if ( $wfp_feature->has_featured_video( get_the_ID() ) ) { ?>
 													<div class="wfp-feature-video">
-														<img src="<?php echo esc_url( $feature->get_video_thumbnail( get_the_ID() ) ); ?>" alt="Video Thumbnail">
+														<img src="<?php echo esc_url( $wfp_feature->get_video_thumbnail( get_the_ID() ) ); ?>" alt="Video Thumbnail">
 													</div>
 												<?php } else { ?>
 													<div class="wfp-post-image">
@@ -208,7 +213,7 @@ $wfp_fundraising_content__flip_enable = '';
 															<?php
 															echo esc_url(
 																get_the_post_thumbnail_url(
-																	$campaign_post_id,
+																	$wfp_campaign_post_id,
 																	'post-thumbnail',
 																	array(
 																		'class' => 'wfp-feature wfp-full-image',
@@ -236,75 +241,75 @@ $wfp_fundraising_content__flip_enable = '';
 											</div>
 
 											<?php
-											if ( $category_info == 'Yes' ) {
-												if ( ! empty( $categories ) ) {
+											if ( $wfp_category_info == 'Yes' ) {
+												if ( ! empty( $wfp_categories ) ) {
 													?>
 													<div class="wfp-campaign-content--cat">
 														<?php
 
-														$separator  = ' - ';
-														$outputCate = '';
-														foreach ( $categories as $category ) {
-															$outputCate .= '<a class="wfp-campaign-content--cat__link" href="' . esc_url( get_category_link( $category->term_id ) ) . '" >' . esc_html( $category->name ) . '</a>' . $separator;
+														$wfp_separator  = ' - ';
+														$wfpOutputCate = '';
+														foreach ( $wfp_categories as $category ) {
+															$wfpOutputCate .= '<a class="wfp-campaign-content--cat__link" href="' . esc_url( get_category_link( $category->term_id ) ) . '" >' . esc_html( $category->name ) . '</a>' . $wfp_separator;
 														}
-														$outputCate = trim( $outputCate, $separator );
+														$wfpOutputCate = trim( $wfpOutputCate, $wfp_separator );
 														?>
-														<?php echo wp_kses( $outputCate, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
+														<?php echo wp_kses( $wfpOutputCate, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
 													</div>
 													<?php
 												}
 											}
 
-											if ( $title_info == 'Yes' ) :
+											if ( $wfp_title_info == 'Yes' ) :
 												?>
 												<h3 class="wfp-campaign-content--title" ><a class="wfp-campaign-content--title__link" href="<?php echo esc_url( get_permalink() ); ?>">
 																																					   <?php
-																																						$ext = '';
-																																						if ( strlen( get_the_title() ) >= $title_limit ) {
-																																							$ext = ' ...';
+																																						$wfp_ext = '';
+																																						if ( strlen( get_the_title() ) >= $wfp_title_limit ) {
+																																							$wfp_ext = ' ...';
 																																						}
-																																						echo wp_kses( substr( get_the_title(), 0, $title_limit ) . $ext, \WfpFundraising\Utilities\Utils::get_kses_array() );
+																																						echo wp_kses( substr( get_the_title(), 0, $wfp_title_limit ) . $wfp_ext, \WfpFundraising\Utilities\Utils::get_kses_array() );
 																																						?>
 														</a></h3>
 												<?php
 											endif;
-											if ( $excerpt_info == 'Yes' ) :
+											if ( $wfp_excerpt_info == 'Yes' ) :
 												?>
 												<p class="wfp-campaign-content--short-description">
 												<?php
-													$ext = '';
-												if ( strlen( get_the_excerpt() ) >= $excerpt_limit ) {
-													$ext = ' ...';
+													$wfp_ext = '';
+												if ( strlen( get_the_excerpt() ) >= $wfp_excerpt_limit ) {
+													$wfp_ext = ' ...';
 												}
-													echo wp_kses( substr( get_the_excerpt(), 0, $excerpt_limit ) . $ext, \WfpFundraising\Utilities\Utils::get_kses_array() );
+													echo wp_kses( substr( get_the_excerpt(), 0, $wfp_excerpt_limit ) . $wfp_ext, \WfpFundraising\Utilities\Utils::get_kses_array() );
 												?>
 													 </p>
 												<?php
 											endif;
-											if ( $goalStatus == 'Yes' ) :
+											if ( $wfpGoalStatus == 'Yes' ) :
 												?>
 												<?php include \WFP_Fundraising::plugin_dir() . 'views/public/donation/include/content/goal-content.php'; ?>
 											<?php endif; ?>
 										</div>
-										<?php if ( $user_info == 'Yes' ) : ?>
+										<?php if ( $wfp_user_info == 'Yes' ) : ?>
 											<div class="wfp-campign-user">
 												<?php
-												$author_id    = get_the_author_meta( 'ID' );
-												$profileImage = get_the_author_meta( 'avatar', $author_id );
-												if ( strlen( $profileImage ) < 5 ) {
-													$profileImage = get_the_author_meta( 'wfp_author_profile_image', $author_id );
+												$wfp_author_id    = get_the_author_meta( 'ID' );
+												$wfpProfileImage = get_the_author_meta( 'avatar', $wfp_author_id );
+												if ( strlen( $wfpProfileImage ) < 5 ) {
+													$wfpProfileImage = get_the_author_meta( 'wfp_author_profile_image', $wfp_author_id );
 												}
 												?>
 												<div class="profile-image">
-													<?php if ( strlen( $profileImage ) > 5 ) { ?>
-														<img src="<?php echo esc_url( $profileImage ); ?> " class="avatar wfp-profile-image" alt="<?php the_author_meta( 'display_name', $author_id ); ?>" />
+													<?php if ( strlen( $wfpProfileImage ) > 5 ) { ?>
+														<img src="<?php echo esc_url( $wfpProfileImage ); ?> " class="avatar wfp-profile-image" alt="<?php the_author_meta( 'display_name', $wfp_author_id ); ?>" />
 													<?php } else { ?>
-														<?php echo get_avatar( $author_id, 35 ); ?>
+														<?php echo get_avatar( $wfp_author_id, 35 ); ?>
 													<?php } ?>
 												</div>
 
 												<div class="profile-info">
-													<span class="display-name"><?php esc_html_e( 'Created by', 'wp-fundraising' ); ?> <strong class="display-name__author"><?php the_author_meta( 'display_name', $author_id ); ?></strong></span>
+													<span class="display-name"><?php esc_html_e( 'Created by', 'wp-fundraising' ); ?> <strong class="display-name__author"><?php the_author_meta( 'display_name', $wfp_author_id ); ?></strong></span>
 												</div>
 											</div>
 										<?php endif; ?>
@@ -321,11 +326,11 @@ $wfp_fundraising_content__flip_enable = '';
 
 							<?php if ( $wfp_fundraising_content__is_carousel === 'yes' ) : ?>
 						</div>
-								<?php if ( 'arrows' == $settings['wfp_fundrising_navigation'] ) : ?>
+								<?php if ( 'arrows' == $wfp_settings['wfp_fundrising_navigation'] ) : ?>
 									<?php $this->render_navigation(); ?>
-					<?php elseif ( 'dots' == $settings['wfp_fundrising_navigation'] ) : ?>
+					<?php elseif ( 'dots' == $wfp_settings['wfp_fundrising_navigation'] ) : ?>
 						<?php $this->render_pagination(); ?>
-					<?php elseif ( 'both' == $settings['wfp_fundrising_navigation'] ) : ?>
+					<?php elseif ( 'both' == $wfp_settings['wfp_fundrising_navigation'] ) : ?>
 						<?php $this->render_navigation(); ?>
 						<?php $this->render_pagination(); ?>
 					<?php endif; ?>

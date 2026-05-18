@@ -1,49 +1,54 @@
+<?php
+defined( 'ABSPATH' ) || exit;
+
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+?>
 <div class="wfp-view wfp-view-admin">
 	<div class="xs-donate-metabox-panel-wrap xs_shadow_card">
 		<?php
 		require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 
 		// get setup data
-		$metaSetupKey = 'wfp_setup_services_data';
-		$getSetUpData = get_option( $metaSetupKey );
-		$setupData    = isset( $getSetUpData['services'] ) ? $getSetUpData['services'] : array();
+		$wfpMetaSetupKey = 'wfp_setup_services_data';
+		$wfpGetSetUpData = get_option( $wfpMetaSetupKey );
+		$wfpSetupData    = isset( $wfpGetSetUpData['services'] ) ? $wfpGetSetUpData['services'] : array();
 
 		// get type of founding
-		$foundingTyepe = isset( $setupData['campaign'] ) ? $setupData['campaign'] : 'donation';
+		$wfpFoundingTyepe = isset( $wfpSetupData['campaign'] ) ? $wfpSetupData['campaign'] : 'donation';
 
-		$donation_format = isset( $getMetaData->donation->format ) ? $getMetaData->donation->format : $foundingTyepe;
+		$wfp_donation_format = isset( $wfpGetMetaData->donation->format ) ? $wfpGetMetaData->donation->format : $wfpFoundingTyepe;
 
-		$donation_type = isset( $getMetaData->donation->type ) ? $getMetaData->donation->type : 'multi-lebel';
+		$wfp_donation_type = isset( $wfpGetMetaData->donation->type ) ? $wfpGetMetaData->donation->type : 'multi-lebel';
 
-		$fixedData = isset( $getMetaData->donation->fixed ) ? $getMetaData->donation->fixed : array();
+		$wfpFixedData = isset( $wfpGetMetaData->donation->fixed ) ? $wfpGetMetaData->donation->fixed : array();
 
-		$multiData = isset( $getMetaData->donation->multi->dimentions ) && sizeof( $getMetaData->donation->multi->dimentions ) ? $getMetaData->donation->multi->dimentions : array(
+		$wfpMultiData = isset( $wfpGetMetaData->donation->multi->dimentions ) && sizeof( $wfpGetMetaData->donation->multi->dimentions ) ? $wfpGetMetaData->donation->multi->dimentions : array(
 			(object) array(
 				'price' => '1.00',
 				'lebel' => 'Basic',
 			),
 		);
 
-		$displayData = isset( $getMetaData->donation->display ) ? $getMetaData->donation->display : 'boxed';
+		$wfpDisplayData = isset( $wfpGetMetaData->donation->display ) ? $wfpGetMetaData->donation->display : 'boxed';
 
-		$donationLimit = isset( $getMetaData->donation->set_limit ) ? $getMetaData->donation->set_limit : array();
+		$wfpDonationLimit = isset( $wfpGetMetaData->donation->set_limit ) ? $wfpGetMetaData->donation->set_limit : array();
 
-		$add_fees = isset( $getMetaData->donation->set_add_fees ) ? $getMetaData->donation->set_add_fees : array();
+		$wfpAdd_fees = isset( $wfpGetMetaData->donation->set_add_fees ) ? $wfpGetMetaData->donation->set_add_fees : array();
 
-		$page_width = isset( $getMetaData->donation->page_width ) ? $getMetaData->donation->page_width : 0;
+		$wfpPage_width = isset( $wfpGetMetaData->donation->page_width ) ? $wfpGetMetaData->donation->page_width : 0;
 
 		/*currency information*/
-		$metaGeneralKey   = 'wfp_general_options_data';
-		$getMetaGeneralOp = get_option( $metaGeneralKey );
-		$getMetaGeneral   = isset( $getMetaGeneralOp['options'] ) ? $getMetaGeneralOp['options'] : array();
+		$wfpMetaGeneralKey   = 'wfp_general_options_data';
+		$wfpGetMetaGeneralOp = get_option( $wfpMetaGeneralKey );
+		$wfpGetMetaGeneral   = isset( $wfpGetMetaGeneralOp['options'] ) ? $wfpGetMetaGeneralOp['options'] : array();
 
-		$defaultCurrencyInfo = isset( $getMetaGeneral['currency']['name'] ) ? $getMetaGeneral['currency']['name'] : 'US-USD';
-		$explCurr            = explode( '-', $defaultCurrencyInfo );
-		$currCode            = isset( $explCurr[1] ) ? $explCurr[1] : 'USD';
-		$symbols             = isset( $countryList[ current( $explCurr ) ]['currency']['symbol'] ) ? $countryList[ current( $explCurr ) ]['currency']['symbol'] : '';
-		$symbols             = strlen( $symbols ) > 0 ? $symbols : $currCode;
+		$wfpDefaultCurrencyInfo = isset( $wfpGetMetaGeneral['currency']['name'] ) ? $wfpGetMetaGeneral['currency']['name'] : 'US-USD';
+		$wfpExplCurr            = explode( '-', $wfpDefaultCurrencyInfo );
+		$wfpCurrCode            = isset( $wfpExplCurr[1] ) ? $wfpExplCurr[1] : 'USD';
+		$wfpSymbols             = isset( $wfpCountryList[ current( $wfpExplCurr ) ]['currency']['symbol'] ) ? $wfpCountryList[ current( $wfpExplCurr ) ]['currency']['symbol'] : '';
+		$wfpSymbols             = strlen( $wfpSymbols ) > 0 ? $wfpSymbols : $wfpCurrCode;
 
-		$defaultUse_space = isset( $getMetaGeneral['currency']['use_space'] ) ? $getMetaGeneral['currency']['use_space'] : 'off';
+		$wfp_defaultUse_space = isset( $wfpGetMetaGeneral['currency']['use_space'] ) ? $wfpGetMetaGeneral['currency']['use_space'] : 'off';
 
 		?>
 		<ul class="xs-donate-form-data-tabs xs-donate-metabox-tabs">
@@ -58,11 +63,11 @@
 			</li>
 
 			<?php
-			$getGoalGlobalOptions = isset( $getGlobalOptions['goal_setup']['enable'] ) ? $getGlobalOptions['goal_setup']['enable'] : 'No';
+			$wfpGetGoalGlobalOptions = isset( $getGlobalOptions['goal_setup']['enable'] ) ? $getGlobalOptions['goal_setup']['enable'] : 'No';
 			if ( ! isset( $getGlobalOptionsGlo['options'] ) ) {
-				$getGoalGlobalOptions = 'Yes';
+				$wfpGetGoalGlobalOptions = 'Yes';
 			}
-			if ( $getGoalGlobalOptions == 'Yes' ) :
+			if ( $wfpGetGoalGlobalOptions == 'Yes' ) :
 				?>
 				<li class="form_field_options_tab">
 					<a href="#form_donate_goal_setup">
@@ -75,16 +80,16 @@
 				</li>
 				<?php
 			endif;
-			$getPledgeGlobalOptions = isset( $getGlobalOptions['pledge_setup']['enable'] ) ? $getGlobalOptions['pledge_setup']['enable'] : 'No';
+			$wfpGetPledgeGlobalOptions = isset( $getGlobalOptions['pledge_setup']['enable'] ) ? $getGlobalOptions['pledge_setup']['enable'] : 'No';
 			if ( ! isset( $getGlobalOptionsGlo['options'] ) ) {
-				$getPledgeGlobalOptions = 'Yes';
+				$wfpGetPledgeGlobalOptions = 'Yes';
 			}
-			$pledge = '';
-			if ( $donation_format == 'crowdfunding' && $getPledgeGlobalOptions == 'Yes' ) :
-				$pledge = 'xs-donate-visible';
+			$wfpPledge = '';
+			if ( $wfp_donation_format == 'crowdfunding' && $wfpGetPledgeGlobalOptions == 'Yes' ) :
+				$wfpPledge = 'xs-donate-visible';
 			endif;
 			?>
-			<li class="form_field_options_tab donation_target_type_filed pledge_setup_target xs-donate-hidden <?php echo esc_attr( $pledge ); ?>">
+			<li class="form_field_options_tab donation_target_type_filed pledge_setup_target xs-donate-hidden <?php echo esc_attr( $wfpPledge ); ?>">
 				<a href="#form_donate_Pledge_setup">
 					<span class="xs-donate-title-wraper">
 						<span class="xs-donate-title"><?php echo esc_html__( 'Pledge Setup', 'wp-fundraising' ); ?></span>
@@ -161,12 +166,12 @@
 			<!-- Start Donate From Content Here-->
 			<div class="xs-tab-div-disable xs-tab-content" id="form_donate_form_content">
 				<?php
-				$formContentData = isset( $getMetaData->form_content ) ? $getMetaData->form_content : (object) array(
+				$wfpFormContentData = isset( $wfpGetMetaData->form_content ) ? $wfpGetMetaData->form_content : (object) array(
 					'enable'           => 'No',
 					'content_position' => 'after-form',
 				);
 
-				$multiFiledData = isset( $getMetaData->form_content->additional->dimentions ) && sizeof( $getMetaData->form_content->additional->dimentions ) ? $getMetaData->form_content->additional->dimentions : \WfpFundraising\Apps\Settings::default_addition_filed();
+				$wfpMultiFiledData = isset( $wfpGetMetaData->form_content->additional->dimentions ) && sizeof( $wfpGetMetaData->form_content->additional->dimentions ) ? $wfpGetMetaData->form_content->additional->dimentions : \WfpFundraising\Apps\Settings::default_addition_filed();
 
 				require __DIR__ . '/include/donations-form-content.php';
 				?>
@@ -175,7 +180,7 @@
 			<!-- Start Donate Goal Setup Here-->
 			<div class="xs-tab-div-disable xs-tab-content" id="form_donate_goal_setup">
 				<?php
-				$formGoalData = isset( $getMetaData->goal_setup ) ? $getMetaData->goal_setup : (object) array(
+				$wfpFormGoalData = isset( $wfpGetMetaData->goal_setup ) ? $wfpGetMetaData->goal_setup : (object) array(
 					'enable'    => 'No',
 					'goal_type' => 'goal_terget_amount',
 				);
@@ -187,9 +192,9 @@
 			<!-- Start Donate Goal Setup Here-->
 			<div class="xs-tab-div-disable xs-tab-content" id="form_donate_Pledge_setup">
 				<?php
-				$formPledgeData = isset( $getMetaData->pledge_setup ) ? $getMetaData->pledge_setup : (object) array( 'enable' => 'No' );
+				$wfpFormPledgeData = isset( $wfpGetMetaData->pledge_setup ) ? $wfpGetMetaData->pledge_setup : (object) array( 'enable' => 'No' );
 
-				$multiPleData = isset( $getMetaData->pledge_setup->multi->dimentions ) && sizeof( $getMetaData->pledge_setup->multi->dimentions ) ? $getMetaData->pledge_setup->multi->dimentions : array(
+				$wfpMultiPleData = isset( $wfpGetMetaData->pledge_setup->multi->dimentions ) && sizeof( $wfpGetMetaData->pledge_setup->multi->dimentions ) ? $wfpGetMetaData->pledge_setup->multi->dimentions : array(
 					(object) array(
 						'price'       => '1.00',
 						'lebel'       => 'Basic',
@@ -205,14 +210,14 @@
 			<div class="xs-tab-div-disable xs-tab-content" id="form_donate_form_terms_condition">
 				<?php
 				// this data get from option of terms
-				$metaTermsKey   = 'wfp_etrms_condition_options_data';
-				$getMetaTermsOp = get_option( $metaTermsKey );
-				$getMetaTerms   = isset( $getMetaTermsOp['form_terma'] ) ? json_decode( json_encode( $getMetaTermsOp['form_terma'] ) ) : (object) array(
+				$wfpMetaTermsKey   = 'wfp_etrms_condition_options_data';
+				$wfpGetMetaTermsOp = get_option( $wfpMetaTermsKey );
+				$wfpGetMetaTerms   = isset( $wfpGetMetaTermsOp['form_terma'] ) ? json_decode( json_encode( $wfpGetMetaTermsOp['form_terma'] ) ) : (object) array(
 					'enable'           => 'No',
 					'content_position' => 'before-submit-button',
 				);
 
-				$formTermsData = isset( $getMetaData->form_terma ) ? $getMetaData->form_terma : $getMetaTerms;
+				$wfpFormTermsData = isset( $wfpGetMetaData->form_terma ) ? $wfpGetMetaData->form_terma : $wfpGetMetaTerms;
 				require __DIR__ . '/include/donations-terms-condition.php';
 
 				?>
@@ -223,47 +228,47 @@
 			<!-- Start Donate Settings Here-->
 			<div class="xs-tab-div-disable xs-tab-content" id="form_donate_form_settings">
 				<?php
-				$formSettingData = isset( $getMetaData->form_settings ) ? $getMetaData->form_settings : array();
+				$wfpFormSettingData = isset( $wfpGetMetaData->form_settings ) ? $wfpGetMetaData->form_settings : array();
 
-				$getContriGlobalOptions = isset( $getGlobalOptions['contributor_info']['enable'] ) ? $getGlobalOptions['contributor_info']['enable'] : 'No';
+				$wfpGetContriGlobalOptions = isset( $getGlobalOptions['contributor_info']['enable'] ) ? $getGlobalOptions['contributor_info']['enable'] : 'No';
 
-				if ( ! isset( $getMetaData->form_settings ) ) {
-					$getContriGlobalOptions = 'No';
+				if ( ! isset( $wfpGetMetaData->form_settings ) ) {
+					$wfpGetContriGlobalOptions = 'No';
 				}
 
-				$showSidebarSett = empty( $globalDisplaySettings['form_settings']['sidebar']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['sidebar']['enable'];
-				$enableSidebar   = $showSidebarSett == 'Yes' ? ( isset( $formSettingData->sidebar->enable ) ? $formSettingData->sidebar->enable : 'No' ) : 'No';
+				$wfpShowSidebarSett = empty( $globalDisplaySettings['form_settings']['sidebar']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['sidebar']['enable'];
+				$wfpEnableSidebar   = $wfpShowSidebarSett == 'Yes' ? ( isset( $wfpFormSettingData->sidebar->enable ) ? $wfpFormSettingData->sidebar->enable : 'No' ) : 'No';
 				// Override from global - if global is turned off then this settings has no effect.
 
 
-				$hideFeaturedSett = empty( $globalDisplaySettings['form_settings']['featured']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['featured']['enable'];
-				$enableFeatured   = $hideFeaturedSett == 'Yes' ? 'Yes' : ( isset( $formSettingData->featured->enable ) ? $formSettingData->featured->enable : 'No' );
+				$wfpHideFeaturedSett = empty( $globalDisplaySettings['form_settings']['featured']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['featured']['enable'];
+				$wfpEnableFeatured   = $wfpHideFeaturedSett == 'Yes' ? 'Yes' : ( isset( $wfpFormSettingData->featured->enable ) ? $wfpFormSettingData->featured->enable : 'No' );
 				// Overriding by global - if global settings is turned on then then enable featured is always on - no way to disable it.
 
-				$hideSingleTitleSett = empty( $globalDisplaySettings['form_settings']['single_title']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_title']['enable'];
-				$enableTitleSIngle   = $hideSingleTitleSett == 'Yes' ? 'Yes' : ( isset( $formSettingData->single_title->enable ) ? $formSettingData->single_title->enable : 'No' );
+				$wfpHideSingleTitleSett = empty( $globalDisplaySettings['form_settings']['single_title']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_title']['enable'];
+				$wfpEnableTitleSIngle   = $wfpHideSingleTitleSett == 'Yes' ? 'Yes' : ( isset( $wfpFormSettingData->single_title->enable ) ? $wfpFormSettingData->single_title->enable : 'No' );
 
 
-				$hideShortBriefSett = empty( $globalDisplaySettings['form_settings']['single_excerpt']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_excerpt']['enable'];
-				$enableTitleExcerpt = $hideShortBriefSett == 'Yes' ? 'Yes' : ( isset( $formSettingData->single_excerpt->enable ) ? $formSettingData->single_excerpt->enable : 'No' );
+				$wfpHideShortBriefSett = empty( $globalDisplaySettings['form_settings']['single_excerpt']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_excerpt']['enable'];
+				$wfpEnableTitleExcerpt = $wfpHideShortBriefSett == 'Yes' ? 'Yes' : ( isset( $wfpFormSettingData->single_excerpt->enable ) ? $wfpFormSettingData->single_excerpt->enable : 'No' );
 
-				$hideDescriptionSett = empty( $globalDisplaySettings['form_settings']['single_content']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_content']['enable'];
-				$enableSingleContent = $hideDescriptionSett == 'Yes' ? 'Yes' : ( isset( $formSettingData->single_content->enable ) ? $formSettingData->single_content->enable : 'No' );
+				$wfpHideDescriptionSett = empty( $globalDisplaySettings['form_settings']['single_content']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_content']['enable'];
+				$wfpEnableSingleContent = $wfpHideDescriptionSett == 'Yes' ? 'Yes' : ( isset( $wfpFormSettingData->single_content->enable ) ? $wfpFormSettingData->single_content->enable : 'No' );
 
 
-				$hideReviewTabSett  = empty( $globalDisplaySettings['form_settings']['single_review']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_review']['enable'];
-				$enableSingleReview = $hideReviewTabSett == 'Yes' ? 'Yes' : ( isset( $formSettingData->single_review->enable ) ? $formSettingData->single_review->enable : 'No' );
+				$wfpHideReviewTabSett  = empty( $globalDisplaySettings['form_settings']['single_review']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_review']['enable'];
+				$wfpEnableSingleReview = $wfpHideReviewTabSett == 'Yes' ? 'Yes' : ( isset( $wfpFormSettingData->single_review->enable ) ? $wfpFormSettingData->single_review->enable : 'No' );
 
-				$hideUpdateTabSett   = empty( $globalDisplaySettings['form_settings']['single_updates']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_updates']['enable'];
-				$enableSingleUpdates = $hideUpdateTabSett == 'Yes' ? 'Yes' : ( isset( $formSettingData->single_updates->enable ) ? $formSettingData->single_updates->enable : 'No' );
+				$wfpHideUpdateTabSett   = empty( $globalDisplaySettings['form_settings']['single_updates']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_updates']['enable'];
+				$wfpEnableSingleUpdates = $wfpHideUpdateTabSett == 'Yes' ? 'Yes' : ( isset( $wfpFormSettingData->single_updates->enable ) ? $wfpFormSettingData->single_updates->enable : 'No' );
 
-				$hideRecentFundTabSett = empty( $globalDisplaySettings['form_settings']['single_recents']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_recents']['enable'];
-				$enableSingleRecents   = $hideRecentFundTabSett == 'Yes' ? 'Yes' : ( isset( $formSettingData->single_recents->enable ) ? $formSettingData->single_recents->enable : 'No' );
+				$wfpHideRecentFundTabSett = empty( $globalDisplaySettings['form_settings']['single_recents']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['single_recents']['enable'];
+				$wfpEnableSingleRecents   = $wfpHideRecentFundTabSett == 'Yes' ? 'Yes' : ( isset( $wfpFormSettingData->single_recents->enable ) ? $wfpFormSettingData->single_recents->enable : 'No' );
 
-				$showContributorEmailSett = empty( $globalDisplaySettings['form_settings']['contributor']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['contributor']['enable'];
-				$enableContributorEmail   = $showContributorEmailSett == 'No' ? 'No' : ( isset( $formSettingData->contributor->enable ) ? $formSettingData->contributor->enable : $getContriGlobalOptions );
+				$wfpShowContributorEmailSett = empty( $globalDisplaySettings['form_settings']['contributor']['enable'] ) ? 'No' : $globalDisplaySettings['form_settings']['contributor']['enable'];
+				$wfpEnableContributorEmail   = $wfpShowContributorEmailSett == 'No' ? 'No' : ( isset( $wfpFormSettingData->contributor->enable ) ? $wfpFormSettingData->contributor->enable : $wfpGetContriGlobalOptions );
 
-				$hide_campaign_author = isset( $formSettingData->campaign_author->enable ) ? $formSettingData->campaign_author->enable : 'No';
+				$wfp_hide_campaign_author = isset( $wfpFormSettingData->campaign_author->enable ) ? $wfpFormSettingData->campaign_author->enable : 'No';
 
 
 				require __DIR__ . '/include/donations-settings.php';
@@ -276,15 +281,15 @@
 
 			if ( did_action( \WfpFundraising\Apps\Key::FUNDRAISING_PRO_LOADED ) ) {
 
-				$metaKey         = \WfpFundraising\Apps\Key::OK_PAYMENT_OPTIONS;
-				$global_gateways = get_option( $metaKey, array() );
+				$wfpMetaKey         = \WfpFundraising\Apps\Key::OK_PAYMENT_OPTIONS;
+				$wfp_global_gateways = get_option( $wfpMetaKey, array() );
 
-				$def_payment_arr = xs_payment_services();
+				$wfp_def_payment_arr = wfp_fundraising_payment_services();
 
-				$current_user    = wp_get_current_user();
-				$campaign_author = $post->post_status == 'auto-draft' ? $current_user->ID : $post->post_author;
+				$wfp_current_user    = wp_get_current_user();
+				$wfp_campaign_author = $post->post_status == 'auto-draft' ? $wfp_current_user->ID : $post->post_author;
 
-				$pp_gate_ways = get_user_meta( $campaign_author, \WP_Fundraising_Pro\Keys::MK_PP_GATEWAY_SETTINGS, true );
+				$wfp_pp_gate_ways = get_user_meta( $wfp_campaign_author, \WP_Fundraising_Pro\Keys::MK_PP_GATEWAY_SETTINGS, true );
 
 
 				include \WFP_Fundraising::plugin_parent_dir() . 'wp-fundraising-donation-pro/views/admin/settings/pp-metabox-settings.php';

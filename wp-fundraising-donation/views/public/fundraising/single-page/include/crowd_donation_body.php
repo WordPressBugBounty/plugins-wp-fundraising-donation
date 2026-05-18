@@ -1,25 +1,30 @@
+<?php 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="wfp-title-section"><?php
 
-if ( $hideTitle == 'No' ) : ?>
+if ( $wfpHideTitle == 'No' ) : ?>
 
 		<header class="wfp-post-header">
 			<div class="wfp-header-cat">
 				<?php
 
-				if ( ! empty( $categories ) ) {
+				if ( ! empty( $wfp_categories ) ) {
 
-					$separator = '';
+					$wfp_separator = '';
 
-					foreach ( $categories as $category ) {
+					foreach ( $wfp_categories as $category ) {
 
-						echo esc_html( $separator );
+						echo esc_html( $wfp_separator );
 						?>
 
 						<a class="wfp-header-cat--link" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>" ><?php echo esc_html( $category->name ); ?></a>
 																		 <?php
 
-																			$separator = ' - ';
+																			$wfp_separator = ' - ';
 					}
 				}
 				?>
@@ -43,7 +48,7 @@ if ( $hideTitle == 'No' ) : ?>
 	<div class="xs-col-sm-12 xs-col-md-6 wfp-single-item"> 
 	<?php
 
-	if ( $hideFeatured == 'No' ) :
+	if ( $wfpHideFeatured == 'No' ) :
 		?>
 
 			<div class="wfp-entry-thumbnail post-media ">
@@ -54,7 +59,7 @@ if ( $hideTitle == 'No' ) : ?>
 				<?php
 
 				echo get_the_post_thumbnail(
-					$postId,
+					$wfpPostId,
 					'post-thumbnail',
 					array(
 						'class' => 'wfp-feature wfp-full-image',
@@ -71,10 +76,10 @@ if ( $hideTitle == 'No' ) : ?>
 				if ( apply_filters( 'wfp_single_gallery_hide', true ) ) :
 
 
-					$gallery_display = '';
-					$gallery_array   = explode( ',', get_post_meta( $postId, 'wfp_portfolio_gallery', true ) );
+					$wfp_gallery_display = '';
+					$wfp_gallery_array   = explode( ',', get_post_meta( $wfpPostId, 'wfp_portfolio_gallery', true ) );
 
-					if ( ! empty( $gallery_array ) && is_array( $gallery_array ) ) {
+					if ( ! empty( $wfp_gallery_array ) && is_array( $wfp_gallery_array ) ) {
 						?>
 
 						<div class="wfp-post-gallery">
@@ -82,7 +87,7 @@ if ( $hideTitle == 'No' ) : ?>
 							<ul class="wfp-portfolio-gallery">
 							<?php
 
-							foreach ( $gallery_array as $gallery_item ) :
+							foreach ( $wfp_gallery_array as $gallery_item ) :
 								?>
 
 									<li>
@@ -116,17 +121,17 @@ if ( $hideTitle == 'No' ) : ?>
 
 			<?php
 
-			if ( $hideShortBrief == 'No' ) :
+			if ( $wfpHideShortBrief == 'No' ) :
 
-				$brief = get_the_excerpt( $post );
+				$wfp_brief = get_the_excerpt( $post );
 
-				if ( ! empty( $brief ) && strlen( $brief ) > 5 ) :
+				if ( ! empty( $wfp_brief ) && strlen( $wfp_brief ) > 5 ) :
 					?>
 
 					<div class="wfp-excerpt-section">
 						<h3 class="wfp-short-berif-title"><?php echo wp_kses( apply_filters( 'wfp_single_excerpt_title', esc_html__( 'Short Brief', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></h3>
 						<?php do_action( 'wfp_single_excerpt_before' ); ?>
-						<div class="wfp-post-excerpt"><?php echo wp_kses( $brief, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></div>
+						<div class="wfp-post-excerpt"><?php echo wp_kses( $wfp_brief, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></div>
 						<?php do_action( 'wfp_single_excerpt_after' ); ?>
 					</div>
 
@@ -158,15 +163,15 @@ if ( $hideTitle == 'No' ) : ?>
 			require __DIR__ . '/common/load.php';
 
 			// goal bar check enable
-			if ( apply_filters( 'wfp_single_goal_hide', isset( $formGoalData->enable ) ) ) {
+			if ( apply_filters( 'wfp_single_goal_hide', isset( $wfpFormGoalData->enable ) ) ) {
 				?>
 				<div class="wfp-goal-single ">
 					<?php
 					// before goal content
-					do_action( 'wfp_single_goal_progress_before', $formGoalData );
+					do_action( 'wfp_single_goal_progress_before', $wfpFormGoalData );
 					include \WFP_Fundraising::plugin_dir() . 'views/public/donation/include/content/goal-content.php';
 					// after goal content
-					do_action( 'wfp_single_goal_progress_after', $formGoalData );
+					do_action( 'wfp_single_goal_progress_after', $wfpFormGoalData );
 					?>
 				</div>
 				<?php
@@ -189,24 +194,24 @@ if ( $hideTitle == 'No' ) : ?>
 </div>
 <div class="xs-row">
 	<?php
-	$recentTitle = ( $donation_format == 'donation' ) ? __( 'Recent Donations', 'wp-fundraising' ) : __( 'Recent Funds', 'wp-fundraising' );
+	$wfpRecentTitle = ( $wfp_donation_format == 'donation' ) ? __( 'Recent Donations', 'wp-fundraising' ) : __( 'Recent Funds', 'wp-fundraising' );
 
-	$argsTotal = array(
+	$wfpArgsTotal = array(
 		'post_type'   => 'wfp-review',
 		'post_parent' => get_the_id(),
 		'post_status' => 'publish',
 	);
 
-	$the_queryTotal = new \WP_Query( $argsTotal );
-	$count          = $the_queryTotal->post_count;
+	$wfp_the_queryTotal = new \WP_Query( $wfpArgsTotal );
+	$wfp_count          = $wfp_the_queryTotal->post_count;
 	wp_reset_postdata();
 	?>
 
-	<div class="xs-col-lg-8 wfp-single-tabs <?php echo ( $donation_format == 'donation' ) ? 'xs-col-lg-12' : ''; ?>">
+	<div class="xs-col-lg-8 wfp-single-tabs <?php echo ( $wfp_donation_format == 'donation' ) ? 'xs-col-lg-12' : ''; ?>">
 		<ul class="wfp-tab" id="wfp_menu_fixed">
 		<?php
 
-		if ( $enableSingleContent == 'No' ) :
+		if ( $wfpEnableSingleContent == 'No' ) :
 			?>
 				<li class="wfp_tab_li active">
 					<a href="#wfp_tab_content_decription"><?php echo wp_kses( apply_filters( 'wfp_single_content_decription', esc_html__( 'Description', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></a>
@@ -214,16 +219,16 @@ if ( $hideTitle == 'No' ) : ?>
 				<?php
 			endif;
 
-		if ( $enableSingleReview == 'No' ) :
+		if ( $wfpEnableSingleReview == 'No' ) :
 			?>
 				<li class="wfp_tab_li ">
 					<a href="#wfp_tab_content_review"><?php echo wp_kses( apply_filters( 'wfp_single_content_review', esc_html__( 'Reviews', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
-						(<?php echo esc_attr( $count ); ?>)</a>
+						(<?php echo esc_attr( $wfp_count ); ?>)</a>
 				</li> 
 				<?php
 			endif;
 
-		if ( $enableSingleUpdates == 'No' && $donation_format == 'crowdfunding' ) :
+		if ( $wfpEnableSingleUpdates == 'No' && $wfp_donation_format == 'crowdfunding' ) :
 			?>
 				<li class="wfp_tab_li ">
 					<a href="#wfp_tab_content_updates"><?php echo wp_kses( apply_filters( 'wfp_single_content_updates', esc_html__( 'Updates', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></a>
@@ -231,10 +236,10 @@ if ( $hideTitle == 'No' ) : ?>
 				<?php
 			endif;
 
-		if ( $enableSingleRecents == 'No' ) :
+		if ( $wfpEnableSingleRecents == 'No' ) :
 			?>
 				<li class="wfp_tab_li ">
-					<a href="#wfp_tab_content_recent"><?php echo wp_kses( apply_filters( 'wfp_single_content_recent', esc_html( $recentTitle ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></a>
+					<a href="#wfp_tab_content_recent"><?php echo wp_kses( apply_filters( 'wfp_single_content_recent', esc_html( $wfpRecentTitle ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></a>
 				</li> 
 				<?php
 			endif;
@@ -244,7 +249,7 @@ if ( $hideTitle == 'No' ) : ?>
 		<div class="wfp-tab-content-wraper">
 			<?php
 
-			if ( $enableSingleContent == 'No' ) :
+			if ( $wfpEnableSingleContent == 'No' ) :
 				?>
 				<div class="wfp-tab-content wfp-tab-div-disable active" id="wfp_tab_content_decription">
 					<div class="wfp-post-description">
@@ -258,7 +263,7 @@ if ( $hideTitle == 'No' ) : ?>
 
 			endif;
 
-			if ( $enableSingleReview == 'No' ) :
+			if ( $wfpEnableSingleReview == 'No' ) :
 				?>
 				<div class="wfp-tab-content wfp-tab-div-disable " id="wfp_tab_content_review">
 					<?php include __DIR__ . '/page/review.php'; ?>
@@ -266,7 +271,7 @@ if ( $hideTitle == 'No' ) : ?>
 				<?php
 			endif;
 
-			if ( $enableSingleUpdates == 'No' && $donation_format == 'crowdfunding' ) :
+			if ( $wfpEnableSingleUpdates == 'No' && $wfp_donation_format == 'crowdfunding' ) :
 				?>
 				<div class="wfp-tab-content wfp-tab-div-disable " id="wfp_tab_content_updates">
 					<?php include __DIR__ . '/page/updates.php'; ?>
@@ -274,7 +279,7 @@ if ( $hideTitle == 'No' ) : ?>
 				<?php
 			endif;
 
-			if ( $enableSingleRecents == 'No' ) :
+			if ( $wfpEnableSingleRecents == 'No' ) :
 				?>
 				<div class="wfp-tab-content wfp-tab-div-disable " id="wfp_tab_content_recent">
 					<?php include __DIR__ . '/page/recent.php'; ?>
@@ -286,12 +291,12 @@ if ( $hideTitle == 'No' ) : ?>
 	</div>
 	<?php
 
-	if ( $donation_format == 'crowdfunding' ) {
+	if ( $wfp_donation_format == 'crowdfunding' ) {
 		?>
 		<div class="xs-col-lg-4 wfp-single-pledges">
 			<?php
-			$enablePladge = isset( $getMetaData->pledge_setup->enable ) ? true : false;
-			if ( apply_filters( 'wfp_single_content_rewards_hide', $enablePladge ) ) {
+			$wfpEnablePladge = isset( $wfpGetMetaData->pledge_setup->enable ) ? true : false;
+			if ( apply_filters( 'wfp_single_content_rewards_hide', $wfpEnablePladge ) ) {
 				include __DIR__ . '/page/pledge.php';
 			}
 			?>

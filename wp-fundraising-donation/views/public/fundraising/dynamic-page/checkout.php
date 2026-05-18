@@ -1,46 +1,49 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
 
 if ( ! isset( $_REQUEST['wpf_checkout_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['wpf_checkout_nonce_field'] ) ), 'wpf_checkout' ) ) {
 	die( esc_html__( 'Security check failed', 'wp-fundraising' ) );
 }
 
-$author_id   = get_current_user_id();
-$userCountry = get_user_meta( $author_id, '_wfp_country', true );
+$wfp_author_id   = get_current_user_id();
+$wfpUserCountry = get_user_meta( $wfp_author_id, '_wfp_country', true );
 
-$getAmount  = isset( $_GET['amount'] ) ? floatval( $_GET['amount'] ) : 0.0;
-$getPledge  = isset( $_GET['pledge'] ) ? intval( $_GET['pledge'] ) : 0;
-$getIndex   = isset( $_GET['index'] ) ? intval( $_GET['index'] ) : -10;
-$pledgeUuid = empty( $_GET['pledge_uid'] ) ? '0' : sanitize_text_field( wp_unslash( $_GET['pledge_uid'] ) );
+$wfpGetAmount  = isset( $_GET['amount'] ) ? floatval( $_GET['amount'] ) : 0.0;
+$wfpGetPledge  = isset( $_GET['pledge'] ) ? intval( $_GET['pledge'] ) : 0;
+$wfpGetIndex   = isset( $_GET['index'] ) ? intval( $_GET['index'] ) : -10;
+$wfpPledgeUuid = empty( $_GET['pledge_uid'] ) ? '0' : sanitize_text_field( wp_unslash( $_GET['pledge_uid'] ) );
 
-$defaultCountry = isset( $_GET['country'] ) && strlen( sanitize_text_field( wp_unslash( $_GET['country'] ) ) ) > 1 ? sanitize_text_field( wp_unslash( $_GET['country'] ) ) : $userCountry;
+$wfpDefaultCountry = isset( $_GET['country'] ) && strlen( sanitize_text_field( wp_unslash( $_GET['country'] ) ) ) > 1 ? sanitize_text_field( wp_unslash( $_GET['country'] ) ) : $wfpUserCountry;
 
 // form content data
-$formContentData    = isset( $getMetaData->form_content ) ? $getMetaData->form_content : (object) array(
+$wfpFormContentData    = isset( $wfpGetMetaData->form_content ) ? $wfpGetMetaData->form_content : (object) array(
 	'enable'           => 'No',
 	'content_position' => 'after-form',
 );
-$gateCampaignData   = 'woocommerce';
-$enableDisplayField = '';
+$wfpGateCampaignData   = 'woocommerce';
+$wfpEnableDisplayField = '';
 
 // general option data
-$metaGeneralKey     = 'wfp_general_options_data';
-$getMetaGeneralOp   = get_option( \WfpFundraising\Apps\Settings::OK_GENERAL_DATA );
-$getMetaGeneral     = isset( $getMetaGeneralOp['options'] ) ? $getMetaGeneralOp['options'] : array();
-$getMetaGeneralPage = \WfpFundraising\Apps\Settings::instance()->get_mapped_page_slug( $getMetaGeneralOp );
-$checkoutPage       = \WfpFundraising\Apps\Settings::instance()->get_mapped_checkout_page_slug( $getMetaGeneralOp );
+$wfpMetaGeneralKey     = 'wfp_general_options_data';
+$wfpGetMetaGeneralOp   = get_option( \WfpFundraising\Apps\Settings::OK_GENERAL_DATA );
+$wfpGetMetaGeneral     = isset( $wfpGetMetaGeneralOp['options'] ) ? $wfpGetMetaGeneralOp['options'] : array();
+$wfpGetMetaGeneralPage = \WfpFundraising\Apps\Settings::instance()->get_mapped_page_slug( $wfpGetMetaGeneralOp );
+$wfpCheckoutPage       = \WfpFundraising\Apps\Settings::instance()->get_mapped_checkout_page_slug( $wfpGetMetaGeneralOp );
 
-$urlCheckout = get_site_url() . '/' . $checkoutPage . '?wfpout=true';
+$wfpUrlCheckout = get_site_url() . '/' . $wfpCheckoutPage . '?wfpout=true';
 
-$add_fees = isset( $getMetaData->donation->set_add_fees ) ? $getMetaData->donation->set_add_fees : (object) array(
+$wfpAdd_fees = isset( $wfpGetMetaData->donation->set_add_fees ) ? $wfpGetMetaData->donation->set_add_fees : (object) array(
 	'enable'      => 'No',
 	'fees_amount' => 0,
 );
 
 require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 
-$optionsData = isset( $gateWaysData['services'] ) ? $gateWaysData['services'] : array();
+$wfpOptionsData = isset( $wfpGateWaysData['services'] ) ? $wfpGateWaysData['services'] : array();
 
-$payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_payment_settings( $getPaymentId, $optionsData );
+$wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_payment_settings( $getPaymentId, $wfpOptionsData );
 
 
 ?>
@@ -53,7 +56,7 @@ $payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_paymen
 					  class="wfdp-donationForm ft1"
 					  id="wfdp-donationForm-<?php echo esc_attr( $post->ID ); ?>"
 					  data-wfp-id="<?php echo esc_attr( $post->ID ); ?>"
-					  wfp-data-url="<?php echo esc_url( $urlCheckout ); ?>"
+					  wfp-data-url="<?php echo esc_url( $wfpUrlCheckout ); ?>"
 					  data-wfp-payment_type="default" >
 
 					<div class="wfdp-donation-message"></div>
@@ -70,34 +73,34 @@ $payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_paymen
 							<?php
 							include \WFP_Fundraising::plugin_dir() . 'views/public/donation/include/content/filed-content.php';
 							?>
-							<div class="wfdp-donation-input-form wfp-input-field <?php echo esc_attr( $enableDisplayField ); ?>">
+							<div class="wfdp-donation-input-form wfp-input-field <?php echo esc_attr( $wfpEnableDisplayField ); ?>">
 								<label for="xs_donate_country_pledge"></label>
 								<?php
 
 								echo esc_html( apply_filters( 'wfp_checkout_country_name', esc_html__( 'Country Destination:', 'wp-fundraising' ) ) );
 
-								$defultStreet   = get_user_meta( $author_id, '_wfp_street_address', true );
-								$defultCity     = get_user_meta( $author_id, '_wfp_city', true );
-								$defultPostcode = get_user_meta( $author_id, '_wfp_postcode', true );
+								$wfpDefultStreet   = get_user_meta( $wfp_author_id, '_wfp_street_address', true );
+								$wfpDefultCity     = get_user_meta( $wfp_author_id, '_wfp_city', true );
+								$wfpDefultPostcode = get_user_meta( $wfp_author_id, '_wfp_postcode', true );
 								?>
 								<select class="regular-text wfp-select2-country"
 										name="xs_donate_data_submit[additonal][country_destination]"
 										id="xs_donate_country_pledge">
 									<?php
-									if ( is_array( $countryList ) && sizeof( $countryList ) > 0 ) {
+									if ( is_array( $wfpCountryList ) && sizeof( $wfpCountryList ) > 0 ) {
 
-										foreach ( $countryList as $key => $value ) :
-											$name             = isset( $value['info']['name'] ) ? $value['info']['name'] : '';
-											$countryStateList = isset( $value['states'] ) ? $value['states'] : array();
-											if ( is_array( $countryStateList ) && sizeof( $countryStateList ) > 0 ) {
+										foreach ( $wfpCountryList as $wfp_key => $wfp_value ) :
+											$wfp_name             = isset( $wfp_value['info']['name'] ) ? $wfp_value['info']['name'] : '';
+											$wfpCountryStateList = isset( $wfp_value['states'] ) ? $wfp_value['states'] : array();
+											if ( is_array( $wfpCountryStateList ) && sizeof( $wfpCountryStateList ) > 0 ) {
 												?>
-												<optgroup label="<?php echo esc_html( $name ); ?>">
+												<optgroup label="<?php echo esc_html( $wfp_name ); ?>">
 													<?php
-													foreach ( $countryStateList as $keyState => $valueState ) :
+													foreach ( $wfpCountryStateList as $wfpKeyState => $valueState ) :
 														?>
-														<option value="<?php echo esc_attr( $valueState . ', ' . $name ); ?>"
-															<?php echo esc_attr( ( $defaultCountry == $key . '-' . $keyState ) ? 'selected' : '' ); ?>>
-															<?php echo esc_html( $name . ' -- ' . $valueState ); ?> </option>
+														<option value="<?php echo esc_attr( $valueState . ', ' . $wfp_name ); ?>"
+															<?php echo esc_attr( ( $wfpDefaultCountry == $wfp_key . '-' . $wfpKeyState ) ? 'selected' : '' ); ?>>
+															<?php echo esc_html( $wfp_name . ' -- ' . $valueState ); ?> </option>
 
 														<?php
 													endforeach;
@@ -106,9 +109,9 @@ $payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_paymen
 												<?php
 											} else {
 												?>
-												<option value="<?php echo esc_attr( $name ); ?>"
-													<?php echo esc_attr( ( $defaultCountry == $key ) ? 'selected' : '' ); ?>>
-													<?php echo esc_html( $name ); ?> </option>
+												<option value="<?php echo esc_attr( $wfp_name ); ?>"
+													<?php echo esc_attr( ( $wfpDefaultCountry == $wfp_key ) ? 'selected' : '' ); ?>>
+													<?php echo esc_html( $wfp_name ); ?> </option>
 												<?php
 											}
 										endforeach;
@@ -119,32 +122,32 @@ $payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_paymen
 
 							<?php
 
-							$fields = \WfpFundraising\Apps\Settings::get_mandatory_form_fields();
+							$wfp_fields = \WfpFundraising\Apps\Settings::get_mandatory_form_fields();
 
 
-							foreach ( $fields as $group => $field ) {
+							foreach ( $wfp_fields as $wfp_group => $field ) {
 
-								foreach ( $field as $fld_name => $fld_info ) {
+								foreach ( $field as $wfp_fld_name => $fld_info ) {
 
-									if ( $fld_name == 'country_destination' ) {
+									if ( $wfp_fld_name == 'country_destination' ) {
 										continue;
 									}
 
-									$required = $fld_info['required'] ? 'required' : '';
+									$wfp_required = $fld_info['required'] ? 'required' : '';
 
 									if ( $fld_info['type'] == 'text' ) :
 										?>
 
-										<div class="wfdp-donation-input-form wfp-input-field <?php echo esc_attr( $enableDisplayField ); ?>">
+										<div class="wfdp-donation-input-form wfp-input-field <?php echo esc_attr( $wfpEnableDisplayField ); ?>">
 											<label for="<?php echo esc_attr( $fld_info['id'] ); ?>">
 												<?php echo esc_html( $fld_info['label'] ); ?>
 											</label>
 											<input type="text"
 												   class="regular-text"
-												   name="xs_donate_data_submit[<?php echo esc_attr( $group ); ?>][<?php echo esc_attr( $fld_name ); ?>]"
+												   name="xs_donate_data_submit[<?php echo esc_attr( $wfp_group ); ?>][<?php echo esc_attr( $wfp_fld_name ); ?>]"
 												   id="<?php echo esc_attr( $fld_info['id'] ); ?>"
 												   value=""
-												<?php echo esc_attr( $required ); ?>>
+												<?php echo esc_attr( $wfp_required ); ?>>
 										</div>
 
 										<?php
@@ -177,38 +180,38 @@ $payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_paymen
 									</tr>
 									</thead>
 									<?php
-									$total_amount     = $getAmount;
-									$total_tax        = 0;
-									$total_amount_sub = $getAmount + $total_tax;
+									$wfp_total_amount     = $wfpGetAmount;
+									$wfp_total_tax        = 0;
+									$wfp_total_amount_sub = $wfpGetAmount + $wfp_total_tax;
 
-									$total_shiping     = 0;
-									$total_shiping_tax = 0;
-									$total_shiping_sub = $total_shiping + $total_shiping_tax;
+									$wfp_total_shiping     = 0;
+									$wfp_total_shiping_tax = 0;
+									$wfp_total_shiping_sub = $wfp_total_shiping + $wfp_total_shiping_tax;
 
-									$total_amount_sub_all = $total_amount_sub - $total_shiping_sub;
+									$wfp_total_amount_sub_all = $wfp_total_amount_sub - $wfp_total_shiping_sub;
 
-									$fees_data = 0;
-									$fees      = 0;
-									$fees_type = '';
-									if ( isset( $add_fees->enable ) && $add_fees->enable == 'Yes' ) {
-										$fees_type = isset( $add_fees->fees_type ) ? $add_fees->fees_type : 'percentage';
+									$wfp_fees_data = 0;
+									$wfp_fees      = 0;
+										$wfp_fees_type = '';
+										if ( isset( $wfpAdd_fees->enable ) && $wfpAdd_fees->enable == 'Yes' ) {
+											$wfp_fees_type = isset( $wfpAdd_fees->fees_type ) ? $wfpAdd_fees->fees_type : 'percentage';
 
-										$fees_data = isset( $add_fees->fees_amount ) ? $add_fees->fees_amount : '0';
-										if ( $fees_type == 'percentage' ) {
-											$fees = ( $total_amount * $fees_data ) / 100;
+											$wfp_fees_data = isset( $wfpAdd_fees->fees_amount ) ? $wfpAdd_fees->fees_amount : '0';
+											if ( $wfp_fees_type == 'percentage' ) {
+											$wfp_fees = ( $wfp_total_amount * $wfp_fees_data ) / 100;
 										} else {
-											$fees = $fees_data;
+											$wfp_fees = $wfp_fees_data;
 										}
 
-										$total_amount = $total_amount + $fees;
+										$wfp_total_amount = $wfp_total_amount + $wfp_fees;
 									}
 									?>
 									<tbody>
 									<tr>
 										<td><strong><?php echo esc_html( $post->post_title ); ?> × 1</strong></td>
 										<td>
-											<em><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?></em><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $total_amount_sub_all ) ); ?>
-											<em><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?></em>
+											<em><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?></em><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_total_amount_sub_all ) ); ?>
+											<em><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em>
 										</td>
 									</tr>
 									</tbody>
@@ -219,9 +222,9 @@ $payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_paymen
 										</td>
 										<td>
 											<em>
-												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?>
-												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $total_amount_sub ) ); ?>
-												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?>
+												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?>
+												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_total_amount_sub ) ); ?>
+												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?>
 											</em>
 										</td>
 									</tr>
@@ -231,30 +234,30 @@ $payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_paymen
 										</td>
 										<td>
 											<em>
-												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?>
-												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $total_shiping_sub ) ); ?>
-												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?>
+												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?>
+												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_total_shiping_sub ) ); ?>
+												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?>
 											</em>
 										</td>
 									</tr>
 									<?php
-									if ( isset( $add_fees->enable ) && $add_fees->enable == 'Yes' ) {
+									if ( isset( $wfpAdd_fees->enable ) && $wfpAdd_fees->enable == 'Yes' ) {
 										?>
 										<tr>
 											<td>
 												<strong>
 												<?php
-												$additext = isset( $add_fees->fees_label ) ? $add_fees->fees_label : 'Fees';
-													echo esc_html( apply_filters( 'wfp_donate_forms_additional_fees', __( $additext, 'wp-fundraising' ) ) );
-												if ( $fees_type == 'percentage' ) {
+											$wfp_additext = isset( $wfpAdd_fees->fees_label ) ? $wfpAdd_fees->fees_label : __( 'Fees', 'wp-fundraising' );
+												echo esc_html( apply_filters( 'wfp_donate_forms_additional_fees', $wfp_additext ) );
+												if ( $wfp_fees_type == 'percentage' ) {
 													?>
-														 (<strong><?php echo esc_html( $fees_data ); ?></strong>%) <?php } ?>
+														 (<strong><?php echo esc_html( $wfp_fees_data ); ?></strong>%) <?php } ?>
 												</strong></td>
 											<td>
 												<em>
-													<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?>
-													<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $fees ) ); ?>
-													<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?>
+													<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?>
+													<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_fees ) ); ?>
+													<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?>
 												</em>
 											</td>
 										</tr>
@@ -265,9 +268,9 @@ $payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_paymen
 										</td>
 										<td>
 											<em>
-												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?>
-												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $total_amount ) ); ?>
-												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?>
+												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?>
+												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_total_amount ) ); ?>
+												<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?>
 											</em>
 										</td>
 									</tr>
@@ -276,20 +279,20 @@ $payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_paymen
 							</div>
 							<div class="wfp-order-payment-section">
 								<input type="hidden" value="crowdfunding" name="xs_donate_data_submit[payment_type]">
-								<input type="hidden" value="<?php echo esc_attr( $getPledge ); ?>"
+								<input type="hidden" value="<?php echo esc_attr( $wfpGetPledge ); ?>"
 									   name="xs_donate_data_submit[pledge_id]">
-								<input type="hidden" value="<?php echo esc_attr( $pledgeUuid ); ?>"
+								<input type="hidden" value="<?php echo esc_attr( $wfpPledgeUuid ); ?>"
 									   name="xs_donate_data_submit[pledge_uid]">
-								<input type="hidden" value="<?php echo esc_attr( $getIndex ); ?>"
+								<input type="hidden" value="<?php echo esc_attr( $wfpGetIndex ); ?>"
 									   name="xs_donate_data_submit[index]">
-								<input type="hidden" value="<?php echo esc_attr( $fees_data ); ?>"
+								<input type="hidden" value="<?php echo esc_attr( $wfp_fees_data ); ?>"
 									   name="xs_donate_data_submit[addition_fees]">
 								<input type="hidden" id="xs_donate_amount_total_hidden"
 									   name="xs_donate_data_submit[donate_amount]"
-									   value="<?php echo esc_attr( $total_amount ); ?>">
-								<input type="hidden" value="<?php echo esc_attr( $fees ); ?>"
+									   value="<?php echo esc_attr( $wfp_total_amount ); ?>">
+								<input type="hidden" value="<?php echo esc_attr( $wfp_fees ); ?>"
 									   name="xs_donate_data_submit[addition_fees_amount]">
-								<input type="hidden" value="<?php echo esc_attr( $fees_type ); ?>"
+										<input type="hidden" value="<?php echo esc_attr( $wfp_fees_type ); ?>"
 									   name="xs_donate_data_submit[addition_fees_type]">
 								<?php
 								include \WFP_Fundraising::plugin_dir() . 'views/public/donation/include/content/payment-content.php';

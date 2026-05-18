@@ -1,5 +1,8 @@
 <?php
-function xs_payment_services() {
+
+defined( 'ABSPATH' ) || exit;
+
+function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: global helper uses plugin-prefixed name
 	$arrayPayment = array(
 
 		'offline_payment' => array(

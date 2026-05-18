@@ -159,6 +159,7 @@ class Menu {
 			);
 		} elseif ( $object_type == 'term' ) {
 			global $wpdb;
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared lookup for term and taxonomy data; intentional and validated.
 			$object = $wpdb->get_row( $wpdb->prepare( "SELECT t.*, tt.taxonomy, tt.parent FROM {$wpdb->terms} as t LEFT JOIN {$wpdb->term_taxonomy} as tt on tt.term_id = t.term_id WHERE t.term_id = %d", $object_ID ) );
 
 			if ( $object ) {

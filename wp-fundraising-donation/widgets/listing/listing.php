@@ -784,6 +784,7 @@ class Wfp_Fundraising_Listing extends Widget_Base {
 				'label'    => esc_html__( 'Background', 'wp-fundraising' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfp-list-campaign .campaign-blog',
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- "exclude" here is a control config option, not a WP_Query/post retrieval.
 				'exclude'  => array(
 					'image',
 				),
@@ -1154,6 +1155,7 @@ class Wfp_Fundraising_Listing extends Widget_Base {
 				'label'    => esc_html__( 'Background', 'wp-fundraising' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfp-list-campaign .campaign-blog .wfp-compaign-contents .wfp-campaign-content .number_donation_count, {{WRAPPER}} .number_donation_count_list',
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- "exclude" here is a control config option, not a WP_Query/post retrieval.
 				'exclude'  => array(
 					'image',
 				),
@@ -1209,6 +1211,7 @@ class Wfp_Fundraising_Listing extends Widget_Base {
 				'label'    => esc_html__( 'Visible Background', 'wp-fundraising' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfp-list-campaign .campaign-blog .wfdp-progress-bar .xs-progress-bar, {{WRAPPER}} .wfp-round-bar .wfp-round-bar-data',
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- "exclude" here is a control config option, not a WP_Query/post retrieval.
 				'exclude'  => array(
 					'image',
 				),
@@ -1230,6 +1233,7 @@ class Wfp_Fundraising_Listing extends Widget_Base {
 				'label'    => esc_html__( 'Disable Background', 'wp-fundraising' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfp-list-campaign .campaign-blog .wfdp-progress-bar .xs-progress',
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- "exclude" here is a control config option, not a WP_Query/post retrieval.
 				'exclude'  => array(
 					'image',
 				),
@@ -2110,9 +2114,9 @@ class Wfp_Fundraising_Listing extends Widget_Base {
 		$explCurr            = explode( '-', $defaultCurrencyInfo );
 		$currCode            = isset( $explCurr[1] ) ? $explCurr[1] : 'USD';
 		$countCode           = isset( $explCurr[0] ) ? $explCurr[0] : 'US';
-		$symbols             = isset( $countryList[ $countCode ]['currency']['symbol'] ) ? $countryList[ $countCode ]['currency']['symbol'] : '';
+		$symbols             = isset( $wfpCountryList[ $countCode ]['currency']['symbol'] ) ? $wfpCountryList[ $countCode ]['currency']['symbol'] : '';
 		$symbols             = strlen( $symbols ) > 0 ? $symbols : $currCode;
-		$symbols             = apply_filters( 'wfp_donate_amount_symbol', $symbols, $countryList, $countCode );
+		$symbols             = apply_filters( 'wfp_fundraising_donate_amount_symbol', $symbols, $wfpCountryList, $countCode ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Reason: compatibility filter for donate amount symbol
 
 		$defaultUse_space = isset( $getMetaGeneral['currency']['use_space'] ) ? $getMetaGeneral['currency']['use_space'] : 'off';
 

@@ -1,40 +1,44 @@
 <?php
-	$to_date = gmdate( 'Y-m-d' );
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+	$wfp_to_date = gmdate( 'Y-m-d' );
 
 	// Verify nonce
 if ( isset( $_GET['dashboard_report_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['dashboard_report_nonce'] ) ), 'filter_dashboard_report' ) ) {
-	$fromDate = isset( $_GET['donate_report_from_date'] ) ? sanitize_text_field( wp_unslash( $_GET['donate_report_from_date'] ) ) : gmdate( 'Y-m-' ) . '01';
-	$toDate   = isset( $_GET['donate_report_to_date'] ) ? sanitize_text_field( wp_unslash( $_GET['donate_report_to_date'] ) ) : gmdate( 'Y-m-d' );
+	$wfpFromDate = isset( $_GET['donate_report_from_date'] ) ? sanitize_text_field( wp_unslash( $_GET['donate_report_from_date'] ) ) : gmdate( 'Y-m-' ) . '01';
+	$wfpToDate   = isset( $_GET['donate_report_to_date'] ) ? sanitize_text_field( wp_unslash( $_GET['donate_report_to_date'] ) ) : gmdate( 'Y-m-d' );
 } else {
-	$fromDate = gmdate( 'Y-m-' ) . '01';
-	$toDate   = gmdate( 'Y-m-d' );
+	$wfpFromDate = gmdate( 'Y-m-' ) . '01';
+	$wfpToDate   = gmdate( 'Y-m-d' );
 }
 
-if ( empty( $fromDate ) ) {
-	$fromDate = $to_date;
+if ( empty( $wfpFromDate ) ) {
+	$wfpFromDate = $wfp_to_date;
 }
-if ( empty( $toDate ) || $to_date < $toDate ) {
-	$toDate = $to_date;
+if ( empty( $wfpToDate ) || $wfp_to_date < $wfpToDate ) {
+	$wfpToDate = $wfp_to_date;
 }
-	$exp_d    = explode( '-', $toDate );
-	$fromDate = $exp_d[0] . '-' . $exp_d[1] . '-01';
+	$wfp_exp_d    = explode( '-', $wfpToDate );
+	$wfpFromDate = $wfp_exp_d[0] . '-' . $wfp_exp_d[1] . '-01';
 
-	$date1      = date_create( $fromDate );
-	$date2      = date_create( $toDate );
-	$diff       = date_diff( $date1, $date2 );
-	$total_days = (int) $diff->format( '%R%a' );
+	$wfp_date1      = date_create( $wfpFromDate );
+	$wfp_date2      = date_create( $wfpToDate );
+	$wfp_diff       = date_diff( $wfp_date1, $wfp_date2 );
+	$wfp_total_days = (int) $wfp_diff->format( '%R%a' );
 
-// print_r($total_days);
+// print_r($wfp_total_days);
 ?>
 <div class="wfdp-income-report">
 	<div class="report-search">
 		<form action="" method="get">
-			<input type="hidden" name="page" value="<?php echo esc_attr( $getPage ); ?>">
+			<input type="hidden" name="page" value="<?php echo esc_attr( $wfpGetPage ); ?>">
 			<?php wp_nonce_field( 'filter_dashboard_report', 'dashboard_report_nonce' ); ?>
 			<div class="wfp-search-tab-wraper">
 				
 				<div class="search-tab">
-					<input type="text" value="<?php echo esc_attr( $toDate ); ?>" name="donate_report_to_date" class="datepicker-fundrasing" id="donate_report_to_date">
+					<input type="text" value="<?php echo esc_attr( $wfpToDate ); ?>" name="donate_report_to_date" class="datepicker-fundrasing" id="donate_report_to_date">
 				</div>
 				
 				<div class="search-tab">

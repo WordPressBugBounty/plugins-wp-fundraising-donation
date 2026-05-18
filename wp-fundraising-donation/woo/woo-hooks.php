@@ -2,6 +2,9 @@
 
 namespace WfpFundraising\Woo;
 
+defined( 'ABSPATH' ) || exit;
+
+
 use WfpFundraising\Traits\Singleton;
 
 class Woo_Hooks {
@@ -40,9 +43,9 @@ class Woo_Hooks {
 
 		foreach ( $cart_object->cart_contents as $key => &$item ) {
 
-			echo '<pre>';
-			print_r( $item );
-			die( 'died....!' );
+			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+				error_log( 'wfp cart item: ' . wp_json_encode( $item ) ); //phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- Debug-only block guarded by WP_DEBUG
+			}
 			// $cart_object->cart_contents[$key]['data']->set_price( (float)$item['custom_price'] );
 			// $cart_object->cart_contents[$key]['data']->save();
 		}

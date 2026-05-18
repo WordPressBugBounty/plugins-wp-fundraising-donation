@@ -2,6 +2,8 @@
 
 namespace WfpFundraising;
 
+defined( 'ABSPATH' ) || exit;
+
 use WfpFundraising\Core\Enqueue_Hook;
 
 class Engine {

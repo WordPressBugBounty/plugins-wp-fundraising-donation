@@ -1,33 +1,39 @@
+<?php 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="xs-dropdown_style_wraper">
-	<select name="" class="xs-dropdown_style" onchange="xs_donate_amount_set(this.value, <?php echo esc_attr( $postId ); ?>);">
+	<select name="" class="xs-dropdown_style" onchange="xs_donate_amount_set(this.value, <?php echo esc_attr( $wfpPostId ); ?>);">
 
 		<?php
 
-		foreach ( $multiData as $mul_level ) {
+		foreach ( $wfpMultiData as $mul_level ) {
 
-			$labelName   = $mul_level->lebel;
-			$priceData   = $mul_level->price;
-			$default_set = isset( $mul_level->default_set ) ? $mul_level->default_set : 'No';
+			$wfpLabelName   = $mul_level->lebel;
+			$wfpPriceData   = $mul_level->price;
+			$wfp_default_set = isset( $mul_level->default_set ) ? $mul_level->default_set : 'No';
 
-			if ( $default_set == 'Yes' ) {
-				$defaultData = $priceData;
+			if ( $wfp_default_set == 'Yes' ) {
+				$wfpDefaultData = $wfpPriceData;
 			}
 
 			?>
 
-			<option value="<?php echo esc_html( $priceData ); ?>" 
+			<option value="<?php echo esc_html( $wfpPriceData ); ?>" 
 									  <?php
-										if ( $default_set == 'Yes' ) {
+										if ( $wfp_default_set == 'Yes' ) {
 											echo 'selected';}
 										?>
-			 > <?php echo esc_html( $labelName ); ?></option>
+			 > <?php echo esc_html( $wfpLabelName ); ?></option>
 
 
 			<?php
 
 		}
 
-		if ( ! empty( $fixed_data->enable_custom_amount ) && $fixed_data->enable_custom_amount == 'Yes' ) :
+		if ( ! empty( $wfp_fixed_data->enable_custom_amount ) && $wfp_fixed_data->enable_custom_amount == 'Yes' ) :
 			?>
 
 		<option value=""> <?php echo esc_html__( 'Custom', 'wp-fundraising' ); ?></option>

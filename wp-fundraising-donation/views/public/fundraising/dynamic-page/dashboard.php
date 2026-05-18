@@ -1,3 +1,9 @@
+<?php 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="wfp-view wfp-view-public">
 	<section class="wfp-dashboard <?php echo esc_attr( $className ); ?>" id="<?php echo esc_attr( $idName ); ?>">
 		<div class="xs-row xs-no-gutters dashboard-content">
@@ -6,7 +12,7 @@
 					<i class="wfpf wfpf-close-outline wfp-mobile-close-btn--icon"></i>
 				</div>
 				<?php
-					$userId = get_current_user_id();
+					$wfpUserId = get_current_user_id();
 
 					require __DIR__ . '/dashboard/menu/short-profile.php';
 					require __DIR__ . '/dashboard/menu/left-menu.php';
@@ -19,32 +25,32 @@
 				<?php
 					require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 					/*currency information*/
-					$getMetaGeneralOp = get_option( \WfpFundraising\Apps\Settings::OK_GENERAL_DATA );
-					$getMetaGeneral   = isset( $getMetaGeneralOp['options'] ) ? $getMetaGeneralOp['options'] : array();
+					$wfpGetMetaGeneralOp = get_option( \WfpFundraising\Apps\Settings::OK_GENERAL_DATA );
+					$wfpGetMetaGeneral   = isset( $wfpGetMetaGeneralOp['options'] ) ? $wfpGetMetaGeneralOp['options'] : array();
 
-					$defaultCurrencyInfo = isset( $getMetaGeneral['currency']['name'] ) ? $getMetaGeneral['currency']['name'] : 'US-USD';
-					$explCurr            = explode( '-', $defaultCurrencyInfo );
-					$currCode            = isset( $explCurr[1] ) ? $explCurr[1] : 'USD';
-					$symbols             = isset( $countryList[ current( $explCurr ) ]['currency']['symbol'] ) ? $countryList[ current( $explCurr ) ]['currency']['symbol'] : '';
-					$symbols             = strlen( $symbols ) > 0 ? $symbols : $currCode;
+					$wfpDefaultCurrencyInfo = isset( $wfpGetMetaGeneral['currency']['name'] ) ? $wfpGetMetaGeneral['currency']['name'] : 'US-USD';
+					$wfpExplCurr            = explode( '-', $wfpDefaultCurrencyInfo );
+					$wfpCurrCode            = isset( $wfpExplCurr[1] ) ? $wfpExplCurr[1] : 'USD';
+					$wfpSymbols             = isset( $wfpCountryList[ current( $wfpExplCurr ) ]['currency']['symbol'] ) ? $wfpCountryList[ current( $wfpExplCurr ) ]['currency']['symbol'] : '';
+					$wfpSymbols             = strlen( $wfpSymbols ) > 0 ? $wfpSymbols : $wfpCurrCode;
 
-					$defaultUse_space = isset( $getMetaGeneral['currency']['use_space'] ) ? $getMetaGeneral['currency']['use_space'] : 'off';
+					$wfp_defaultUse_space = isset( $wfpGetMetaGeneral['currency']['use_space'] ) ? $wfpGetMetaGeneral['currency']['use_space'] : 'off';
 
-					$getPage = sanitize_file_name( $getPage );
+					$wfpGetPage = sanitize_file_name( $wfpGetPage );
 
 					// Dynamically find all allowed pages from existing `*-content.php` files
-					$allowed_pages = array_map(
+					$wfp_allowed_pages = array_map(
 						function( $file ) {
 							return basename( $file, '-content.php' );
 						},
 						glob( __DIR__ . '/dashboard/*-content.php' )
 					);
 
-					if ( in_array( $getPage, $allowed_pages, true ) ) {
-						$page_file = __DIR__ . '/dashboard/' . $getPage . '-content.php';
+					if ( in_array( $wfpGetPage, $wfp_allowed_pages, true ) ) {
+						$wfp_page_file = __DIR__ . '/dashboard/' . $wfpGetPage . '-content.php';
 
-						if ( file_exists( $page_file ) ) {
-							require $page_file;
+						if ( file_exists( $wfp_page_file ) ) {
+							require $wfp_page_file;
 						} else {
 							echo esc_html__( 'Dashboard page not found.', 'wp-fundraising' );
 						}

@@ -131,7 +131,7 @@ class Global_Settings {
 		 */
 		$currCode = $exp[1];
 
-		return empty( $countryList[ $cn ]['currency']['symbol'] ) ? $currCode : $countryList[ $cn ]['currency']['symbol'];
+		return empty( $wfpCountryList[ $cn ]['currency']['symbol'] ) ? $currCode : $wfpCountryList[ $cn ]['currency']['symbol'];
 	}
 
 	public function load_setup_data() {

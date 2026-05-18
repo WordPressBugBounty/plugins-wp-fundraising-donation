@@ -270,9 +270,11 @@ class WFP_Fundraising {
 
 	public function debug_log() {
 
-		echo '<pre>';
-		print_r( $this->debug );
-		echo '</pre>';
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			echo '<pre>';
+			echo esc_html( wp_json_encode( $this->debug, JSON_PRETTY_PRINT ) );
+			echo '</pre>';
+		}
 	}
 }
 

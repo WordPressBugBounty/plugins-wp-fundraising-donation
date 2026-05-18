@@ -1,3 +1,9 @@
+<?php 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="wfp-excerpt-section">
 	
 	<?php do_action( 'wfp_single_excerpt_before' ); ?>

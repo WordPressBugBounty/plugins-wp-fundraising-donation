@@ -1,23 +1,27 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
 // check login user information
-$firstName = $lastName = $currentEmail = '';
-$author_id = get_current_user_id();
+$wfpFirstName = $wfpLastName = $wfpCurrentEmail = '';
+$wfp_author_id = get_current_user_id();
 
 if ( is_user_logged_in() ) {
-	$current_user = wp_get_current_user();
+	$wfp_current_user = wp_get_current_user();
 
-	$firstName = ( isset( $current_user->first_name ) && strlen( $current_user->first_name ) > 0 ) ? $current_user->first_name : get_user_meta( $author_id, '_wfp_first_name', true );
+	$wfpFirstName = ( isset( $wfp_current_user->first_name ) && strlen( $wfp_current_user->first_name ) > 0 ) ? $wfp_current_user->first_name : get_user_meta( $wfp_author_id, '_wfp_first_name', true );
 
-	$lastName = ( isset( $current_user->last_name ) && strlen( $current_user->last_name ) > 0 ) ? $current_user->last_name : get_user_meta( $author_id, '_wfp_last_name', true );
+	$wfpLastName = ( isset( $wfp_current_user->last_name ) && strlen( $wfp_current_user->last_name ) > 0 ) ? $wfp_current_user->last_name : get_user_meta( $wfp_author_id, '_wfp_last_name', true );
 
-	$currentEmail = ( isset( $current_user->user_email ) && strlen( $current_user->user_email ) > 0 ) ? $current_user->user_email : get_user_meta( $author_id, '_wfp_email_address', true );
+	$wfpCurrentEmail = ( isset( $wfp_current_user->user_email ) && strlen( $wfp_current_user->user_email ) > 0 ) ? $wfp_current_user->user_email : get_user_meta( $wfp_author_id, '_wfp_email_address', true );
 }
 
 
-if ( isset( $formContentData->additional->enable ) && $formContentData->additional->enable == 'Yes' ) {
+if ( isset( $wfpFormContentData->additional->enable ) && $wfpFormContentData->additional->enable == 'Yes' ) {
 
-	$multiFiledData = ! empty( $formContentData->additional->dimentions ) ?
-		$formContentData->additional->dimentions :
+	$wfpMultiFiledData = ! empty( $wfpFormContentData->additional->dimentions ) ?
+		$wfpFormContentData->additional->dimentions :
 		array(
 			(object) array(
 				'type'     => 'text',
@@ -40,39 +44,39 @@ if ( isset( $formContentData->additional->enable ) && $formContentData->addition
 		);
 
 
-	foreach ( $multiFiledData as $multi ) :
+	foreach ( $wfpMultiFiledData as $multi ) :
 
-		$labelField = isset( $multi->lebel ) ? $multi->lebel : '';
+		$wfpLabelField = isset( $multi->lebel ) ? $multi->lebel : '';
 
-		if ( strlen( $labelField ) > 0 ) {
+		if ( strlen( $wfpLabelField ) > 0 ) {
 
-			$nameFiled = str_replace( array( '  ', '-', ' ', '.', ',', ':' ), '_', strtolower( trim( $labelField ) ) );
+			$wfpNameFiled = str_replace( array( '  ', '-', ' ', '.', ',', ':' ), '_', strtolower( trim( $wfpLabelField ) ) );
 
-			if ( preg_match_all( '/\b(first|full)\b/i', strtolower( $labelField ), $matches ) ) {
-				$value = $firstName;
+			if ( preg_match_all( '/\b(first|full)\b/i', strtolower( $wfpLabelField ), $matches ) ) {
+				$wfp_value = $wfpFirstName;
 
-			} elseif ( preg_match_all( '/\b(last|nick)\b/i', strtolower( $labelField ), $matches ) ) {
-				$value = $lastName;
+			} elseif ( preg_match_all( '/\b(last|nick)\b/i', strtolower( $wfpLabelField ), $matches ) ) {
+				$wfp_value = $wfpLastName;
 
-			} elseif ( preg_match_all( '/\b(email)\b/i', strtolower( $labelField ), $matches ) ) {
-				$value = $currentEmail;
+			} elseif ( preg_match_all( '/\b(email)\b/i', strtolower( $wfpLabelField ), $matches ) ) {
+				$wfp_value = $wfpCurrentEmail;
 			} else {
 
-				$value = get_user_meta( $author_id, '_wfp_' . $nameFiled, true );
+				$wfp_value = get_user_meta( $wfp_author_id, '_wfp_' . $wfpNameFiled, true );
 			}
 
 
-			$field_type = isset( $multi->type ) ? $multi->type : 'text';
-			$required   = isset( $multi->required ) ? $multi->required : '';
+			$wfp_field_type = isset( $multi->type ) ? $multi->type : 'text';
+			$wfp_required   = isset( $multi->required ) ? $multi->required : '';
 			?>
-			<div class="wfdp-donation-input-form wfp-input-field <?php echo esc_attr( $enableDisplayField ); ?> wfp-<?php echo esc_attr( $field_type ); ?> ">
-				<label for="xs-<?php echo esc_attr( $nameFiled ); ?>"> <?php echo esc_html( $labelField ); ?></label>
-				<?php if ( $field_type == 'text' ) { ?>
-					<input type="text" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_html( $nameFiled ); ?>]" value="<?php echo esc_html( $value ); ?>" id="xs-<?php echo esc_html( $nameFiled ); ?>" <?php echo ( $required == 'Yes' ) ? 'required' : ''; ?> />
-				<?php } elseif ( $field_type == 'textarea' ) { ?>
-					<textarea style="width:100%;" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_html( $nameFiled ); ?>]" id="xs-<?php echo esc_html( $nameFiled ); ?>" <?php echo ( $required == 'Yes' ) ? 'required' : ''; ?>><?php echo esc_html( $value ); ?></textarea>
-				<?php } elseif ( $field_type == 'number' ) { ?>
-					<input type="number" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_html( $nameFiled ); ?>]" value="<?php echo esc_html( $value ); ?>" id="xs-<?php echo esc_html( $nameFiled ); ?>" <?php echo ( $required == 'Yes' ) ? 'required' : ''; ?> />
+			<div class="wfdp-donation-input-form wfp-input-field <?php echo esc_attr( $wfpEnableDisplayField ); ?> wfp-<?php echo esc_attr( $wfp_field_type ); ?> ">
+				<label for="xs-<?php echo esc_attr( $wfpNameFiled ); ?>"> <?php echo esc_html( $wfpLabelField ); ?></label>
+				<?php if ( $wfp_field_type == 'text' ) { ?>
+					<input type="text" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_html( $wfpNameFiled ); ?>]" value="<?php echo esc_html( $wfp_value ); ?>" id="xs-<?php echo esc_html( $wfpNameFiled ); ?>" <?php echo ( $wfp_required == 'Yes' ) ? 'required' : ''; ?> />
+				<?php } elseif ( $wfp_field_type == 'textarea' ) { ?>
+					<textarea style="width:100%;" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_html( $wfpNameFiled ); ?>]" id="xs-<?php echo esc_html( $wfpNameFiled ); ?>" <?php echo ( $wfp_required == 'Yes' ) ? 'required' : ''; ?>><?php echo esc_html( $wfp_value ); ?></textarea>
+				<?php } elseif ( $wfp_field_type == 'number' ) { ?>
+					<input type="number" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_html( $wfpNameFiled ); ?>]" value="<?php echo esc_html( $wfp_value ); ?>" id="xs-<?php echo esc_html( $wfpNameFiled ); ?>" <?php echo ( $wfp_required == 'Yes' ) ? 'required' : ''; ?> />
 				<?php } ?>
 			</div>
 			<?php

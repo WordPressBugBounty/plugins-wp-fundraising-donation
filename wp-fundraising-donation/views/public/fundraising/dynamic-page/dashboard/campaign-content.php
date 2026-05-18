@@ -1,9 +1,13 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
 	// Verify nonce
 if ( isset( $_GET['nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['nonce'] ) ), 'wp_nonce' ) ) {
-	$getCamp = (int) isset( $_GET['camp'] ) ? intval( $_GET['camp'] ) : 0;
+	$wfpGetCamp = (int) isset( $_GET['camp'] ) ? intval( $_GET['camp'] ) : 0;
 } else {
-	$getCamp = 0;
+	$wfpGetCamp = 0;
 }
 ?>
 
@@ -12,21 +16,21 @@ if ( isset( $_GET['nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash
 	<form id="wfp_regForm" class="wfp_regForm" method="POST" enctype="multipart/form-data">
 
 		<?php
-		$post_data = array();
-		if ( $getCamp > 0 ) {
-			$post = get_post( $getCamp );
-			if ( isset( $post->post_author ) && $post->post_author == $userId ) {
+		$wfp_post_data = array();
+		if ( $wfpGetCamp > 0 ) {
+			$post = get_post( $wfpGetCamp );
+			if ( isset( $post->post_author ) && $post->post_author == $wfpUserId ) {
 				if ( in_array( $post->post_status, array( 'draft', 'publish', 'pending' ) ) ) {
-					$post_data = $post;
+					$wfp_post_data = $post;
 				}
 			}
 		}
 
-		$getMetaData = array();
-		$post_id     = isset( $post_data->ID ) ? $post_data->ID : 0;
-		if ( $post_id > 0 ) {
-			$get_meta_content = get_post_meta( $post_id, 'wfp_form_options_meta_data', false );
-			$getMetaData      = json_decode( json_encode( end( $get_meta_content ) ) );
+		$wfpGetMetaData = array();
+		$wfp_post_id     = isset( $wfp_post_data->ID ) ? $wfp_post_data->ID : 0;
+		if ( $wfp_post_id > 0 ) {
+			$wfp_get_meta_content = get_post_meta( $wfp_post_id, 'wfp_form_options_meta_data', false );
+			$wfpGetMetaData      = json_decode( json_encode( end( $wfp_get_meta_content ) ) );
 		}
 
 		?>

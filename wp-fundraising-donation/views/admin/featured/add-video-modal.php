@@ -1,3 +1,8 @@
+<?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+?>
 <div tabindex="0" id="wfp_featured_video_modal" class="featured-video-modal" style="position: relative; display:none;">
 	<div class="media-modal wp-core-ui">
 		<a class="media-modal-close" href="#" title="<?php esc_html_e( 'Close', 'wp-fundraising' ); ?>"><span class="media-modal-icon"></span></a>
@@ -20,14 +25,14 @@
 							
 							<h2><?php esc_html_e( 'Insert URL', 'wp-fundraising' ); ?></h2>	
 
-							<input type="text" value="<?php echo esc_url( $video ); ?>" id="_featured_video">
+							<input type="text" value="<?php echo esc_url( $wfp_video ); ?>" id="_featured_video">
 
 							<button id="wfp_get_video_data" class="button-primary"><?php esc_html_e( 'Check Video', 'wp-fundraising' ); ?></button>
 							
 							<div class="video-data">
 								<?php
-								if ( strlen( $video ) > 0 ) {
-									$this->ajax_render_video_data( false, $video );
+								if ( strlen( $wfp_video ) > 0 ) {
+									$this->ajax_render_video_data( false, $wfp_video );
 								}
 								?>
 							</div>

@@ -1,3 +1,9 @@
+<?php 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="password-content wfp-content-padding">
 	<form id="wfp_regForm_password_content" class="wfp_regForm" method="POST" >
 		<div class="message-password-status"></div>

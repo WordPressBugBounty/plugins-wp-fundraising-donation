@@ -5,9 +5,9 @@
  * Description: FundEngine - Fundraising Donation plugin and Crowdfunding Platform comes with Single donation and crowdfunding solution. This plugin gives the ability to anyone to create a crowdfunding and single donation site with WordPress.
  * Plugin URI: https://wpmet.com/
  * Author: Wpmet
- * Version: 1.7.6
+ * Version: 1.7.7
  * Author URI: https://wpmet.com/
- * Text Domain: wp-fundraising
+ * Text Domain: wp-fundraising-donation
  *
  * @package WpFundraising
  * @category Free
@@ -18,8 +18,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WFP_FUNDRAISING_VERSION', '1.7.6' );
-define( 'WFP_FUNDRAISING_PREVIOUS_STABLE_VERSION', '1.7.5' );
+define( 'WFP_FUNDRAISING_VERSION', '1.7.7' );
+define( 'WFP_FUNDRAISING_PREVIOUS_STABLE_VERSION', '1.7.6' );
 
 
 /**
@@ -92,12 +92,12 @@ class WFP_Fundraising {
 
 	public function init() {
 
-		do_action( 'wfp_fundraising/before_loaded' );
+		do_action( 'wfp_fundraising_before_loaded' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Reason: normalized prefix to `wfp_fundraising_`
 
 		\WfpFundraising\Engine::instance()->run();
 
-		do_action( 'wfp/fundraising/plugin_loaded' ); // legacy
-		do_action( 'wfp_fundraising/after_loaded' );
+		do_action( 'wfp_fundraising_plugin_loaded' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Reason: normalized prefix to `wfp_fundraising_`
+		do_action( 'wfp_fundraising_after_loaded' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Reason: normalized prefix to `wfp_fundraising_`
 	}
 }
 
@@ -110,12 +110,12 @@ add_action(
 
 		\WfpFundraising\Plugin::instance( __FILE__ )->init();
 
-		wfp_donate_load_plugin_textdomain();
+		wfp_fundraising_load_plugin_textdomain(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: using `wfp_fundraising_` prefix for global function
 
 		/**
 		 * Tell plugin is loaded
 		 */
-		do_action( 'wfp/fundraising/plugin_loaded' );
+		do_action( 'wfp_fundraising_plugin_loaded' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Reason: normalized prefix to `wfp_fundraising_`
 	},
 	0
 );
@@ -126,7 +126,7 @@ add_action(
  * @return void
  * @since 1.0.0
  */
-function wfp_donate_load_plugin_textdomain() {
+function wfp_fundraising_load_plugin_textdomain() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: global loader uses plugin-prefixed name
 
 	/**
 	 * Load Review Loader main page.
@@ -143,7 +143,7 @@ function wfp_donate_load_plugin_textdomain() {
 }
 
 
-function activate_fundraising() {
+function wfp_fundraising_activate() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: activation handler uses plugin-prefixed name
 
 	/**
 	 * Checking the tables on activation
@@ -156,7 +156,7 @@ function activate_fundraising() {
 	\WfpFundraising\Apps\Settings::instance()->wfp_create_page_setup();
 }
 
-function deactivate_fundraising() {}
+function wfp_fundraising_deactivate() {} // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: deactivation handler uses plugin-prefixed name
 
-register_activation_hook( __FILE__, 'activate_fundraising' );
-register_deactivation_hook( __FILE__, 'deactivate_fundraising' );
+register_activation_hook( __FILE__, 'wfp_fundraising_activate' );
+register_deactivation_hook( __FILE__, 'wfp_fundraising_deactivate' );

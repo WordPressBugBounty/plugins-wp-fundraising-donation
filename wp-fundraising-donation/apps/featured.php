@@ -101,7 +101,7 @@ class Featured {
 
 		if ( $meta_key == '_thumbnail_id' ) {
 
-			$only_single = apply_filters( 'wp_featured_video_singular_only', true );
+			$only_single = apply_filters( 'wfp_fundraising_featured_video_singular_only', true ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Reason: compatibility filter for featured video singular behavior
 
 			if ( $only_single ) {
 
@@ -118,13 +118,13 @@ class Featured {
 	}
 
 
-	public function wfp_featured_replace_thumbnail( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
+	public function wfp_featured_replace_thumbnail( $html, $wfp_post_id, $post_thumbnail_id, $size, $attr ) {
 
 		$isSingle = empty( $attr['from_sh_code'] ) ? is_single() : true;
 
-		if ( get_post_type( $post_id ) === self::post_type() && $isSingle ) {
+		if ( get_post_type( $wfp_post_id ) === self::post_type() && $isSingle ) {
 
-			if ( $this->has_featured_video( $post_id ) ) {
+			if ( $this->has_featured_video( $wfp_post_id ) ) {
 
 				if ( $size == 'post-thumbnail' ) {
 					$size = 'large';
@@ -138,8 +138,8 @@ class Featured {
 
 				$height = round( ( $width / 16 ) * 9 );
 
-				$video      = $this->get_video_id( $post_id );
-				$video_type = $this->get_video_type( $post_id );
+				$video      = $this->get_video_id( $wfp_post_id );
+				$video_type = $this->get_video_type( $wfp_post_id );
 
 				$attr = array();
 
@@ -149,7 +149,7 @@ class Featured {
 				}
 				$attr['class'] .= ' featured-video featured-video-type-' . $video_type . ' featured-video-' . ( $crop ? 'crop' : 'normal' );
 
-				$attr['id'] = 'featured-video-' . $post_id;
+				$attr['id'] = 'featured-video-' . $wfp_post_id;
 
 				$attr['style'] = 'width:' . $width . 'px;';
 
@@ -166,7 +166,7 @@ class Featured {
 
 					$youtube_query = array(
 						'autoplay' => 0,
-						'origin'   => get_permalink( $post_id ),
+						'origin'   => get_permalink( $wfp_post_id ),
 					);
 
 					$youtube_query = http_build_query( $youtube_query );
@@ -214,12 +214,12 @@ class Featured {
 	}
 
 
-	public function wfp_featured_video_iframe( $post_id ) {
+	public function wfp_featured_video_iframe( $wfp_post_id ) {
 
-		if ( $this->has_featured_video( $post_id ) ) {
+		if ( $this->has_featured_video( $wfp_post_id ) ) {
 
-			$video      = $this->get_video_id( $post_id );
-			$video_type = $this->get_video_type( $post_id );
+			$video      = $this->get_video_id( $wfp_post_id );
+			$video_type = $this->get_video_type( $wfp_post_id );
 
 			$width  = '500';
 			$height = '300';
@@ -230,7 +230,7 @@ class Featured {
 
 				$youtube_query = array(
 					'autoplay' => 0,
-					'origin'   => get_permalink( $post_id ),
+					'origin'   => get_permalink( $wfp_post_id ),
 				);
 
 				$youtube_query = http_build_query( $youtube_query );
@@ -316,16 +316,16 @@ class Featured {
 	}
 
 
-	public function wfp_featured_save( $post_id, $post ) {
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return $post_id;
+	public function wfp_featured_save( $wfp_post_id, $post ) {
+		if ( ! current_user_can( 'edit_post', $wfp_post_id ) ) {
+			return $wfp_post_id;
 		}
 		// check post id
-		if ( ! empty( $post_id ) and is_object( $post ) ) {
+		if ( ! empty( $wfp_post_id ) and is_object( $post ) ) {
 			$getPostTYpe = $post->post_type;
 			if ( $getPostTYpe == self::post_type() ) {
 				if ( isset( $_POST['wfp_featured_video_url'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Already checked by post
-					update_post_meta( $post_id, 'wfp_featured_video_url', sanitize_text_field( wp_unslash( $_POST['wfp_featured_video_url'] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Already checked by post
+					update_post_meta( $wfp_post_id, 'wfp_featured_video_url', sanitize_text_field( wp_unslash( $_POST['wfp_featured_video_url'] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Already checked by post
 				}
 			}
 		}
@@ -369,23 +369,23 @@ class Featured {
 
 		// check post type with current post type.
 		if ( $getPostTYpe == self::post_type() ) {
-			$post_id = $post->ID;
+			$wfp_post_id = $post->ID;
 			include \WFP_Fundraising::plugin_dir() . 'views/admin/featured/add-video.php';
 		}
 	}
 
 
-	private function get_video_url( $post_id ) {
+	private function get_video_url( $wfp_post_id ) {
 
-		$video = get_post_meta( $post_id, 'wfp_featured_video_url', true );
+		$video = get_post_meta( $wfp_post_id, 'wfp_featured_video_url', true );
 
 		return $video;
 	}
 
 
-	private function get_video_id( $post_id ) {
+	private function get_video_id( $wfp_post_id ) {
 
-		$video = $this->get_video_url( $post_id );
+		$video = $this->get_video_url( $wfp_post_id );
 
 		if ( empty( $video ) || ! $video ) {
 			return false;
@@ -397,9 +397,9 @@ class Featured {
 	}
 
 
-	private function get_video_type( $post_id ) {
+	private function get_video_type( $wfp_post_id ) {
 
-		$video = $this->get_video_url( $post_id );
+		$video = $this->get_video_url( $wfp_post_id );
 
 		if ( empty( $video ) || ! $video ) {
 			return false;
@@ -411,9 +411,9 @@ class Featured {
 	}
 
 
-	public function get_video_thumbnail( $post_id ) {
+	public function get_video_thumbnail( $wfp_post_id ) {
 
-		$video = $this->get_video_url( $post_id );
+		$video = $this->get_video_url( $wfp_post_id );
 
 		if ( empty( $video ) || ! $video ) {
 			return false;
@@ -425,9 +425,9 @@ class Featured {
 	}
 
 
-	public function has_featured_video( $post_id ) {
+	public function has_featured_video( $wfp_post_id ) {
 
-		$video = get_post_meta( $post_id, 'wfp_featured_video_url', true );
+		$video = get_post_meta( $wfp_post_id, 'wfp_featured_video_url', true );
 
 		if ( empty( $video ) || ! $video ) {
 			return false;
@@ -457,10 +457,10 @@ class Featured {
 		if ( $service == 'youtube' ) {
 			$data_url = sprintf( $youtube, $url );
 			if ( stripos( $url, 'youtu.be' ) !== false ) {
-				$id = substr( parse_url( $url, PHP_URL_PATH ), 1 );
+				$id = substr( wp_parse_url( $url, PHP_URL_PATH ), 1 );
 				$id = strlen( $id ) > 0 ? $id : time();
 			} elseif ( strpos( $url, 'youtube.com' ) !== false ) {
-				parse_str( parse_url( $url, PHP_URL_QUERY ), $query );
+				parse_str( wp_parse_url( $url, PHP_URL_QUERY ), $query );
 				if ( ! isset( $query['v'] ) ) {
 					return false;
 				}
@@ -486,7 +486,7 @@ class Featured {
 		}
 
 		if ( $service == 'vimeo' ) {
-			$id = substr( parse_url( $url, PHP_URL_PATH ), 1 );
+			$id = substr( wp_parse_url( $url, PHP_URL_PATH ), 1 );
 			if ( ! is_numeric( $id ) ) {
 				return false;
 			}
@@ -511,7 +511,7 @@ class Featured {
 		}
 
 		if ( $service == 'dailymotion' ) {
-			$id       = substr( parse_url( $url, PHP_URL_PATH ), 1 );
+			$id       = substr( wp_parse_url( $url, PHP_URL_PATH ), 1 );
 			$explode  = explode( '/', $id );
 			$id       = end( $explode );
 			$id       = strlen( $id ) > 0 ? $id : time();

@@ -1,24 +1,27 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-$enableSingleTitle = isset( $formSetting->single_title->enable ) ? $formSetting->single_title->enable : 'No';
+defined( 'ABSPATH' ) || exit;
 
-$categories = get_the_terms( $post->ID, 'wfp-categories' );
+$wfpEnableSingleTitle = isset( $wfpFormSetting->single_title->enable ) ? $wfpFormSetting->single_title->enable : 'No';
+
+$wfp_categories = get_the_terms( $post->ID, 'wfp-categories' );
 
 ?>
 
 <div class="wfp-title-section">
-	<?php if ( $enableSingleTitle == 'No' ) : ?>
+	<?php if ( $wfpEnableSingleTitle == 'No' ) : ?>
 		<header class="wfp-post-header">
 			<?php
-			if ( ! empty( $categories ) ) {
-				$separator  = ' - ';
-				$outputCate = '';
-				foreach ( $categories as $category ) {
-					$outputCate .= '<a class="wfp-header-cat--link" href="' . esc_url( get_category_link( $category->term_id ) ) . '" >' . esc_html( $category->name ) . '</a>' . $separator;
+			if ( ! empty( $wfp_categories ) ) {
+				$wfp_separator  = ' - ';
+				$wfpOutputCate = '';
+				foreach ( $wfp_categories as $category ) {
+					$wfpOutputCate .= '<a class="wfp-header-cat--link" href="' . esc_url( get_category_link( $category->term_id ) ) . '" >' . esc_html( $category->name ) . '</a>' . $wfp_separator;
 				}
-				$outputCate = trim( $outputCate, $separator );
+				$wfpOutputCate = trim( $wfpOutputCate, $wfp_separator );
 				?>
-				<div class="wfp-header-cat"> <?php echo wp_kses( $outputCate, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?> </div>
+				<div class="wfp-header-cat"> <?php echo wp_kses( $wfpOutputCate, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?> </div>
 				<?php
 			}
 			?>

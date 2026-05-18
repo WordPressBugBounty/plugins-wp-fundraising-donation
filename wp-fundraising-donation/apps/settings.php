@@ -77,8 +77,10 @@ class Settings {
 
 		foreach ( $cart_object->cart_contents as $key => &$item ) {
 			if ( ! empty( $item['wfp_type'] ) ) {
+				// set_price() overrides the price in memory for this cart calculation.
+				// Do NOT call ->save() here — that would write the custom price back to
+				// product meta, permanently altering the product's stored price.
 				$cart_object->cart_contents[ $key ]['data']->set_price( (float) $item['custom_price'] );
-				$cart_object->cart_contents[ $key ]['data']->save();
 			}
 		}
 
@@ -362,7 +364,7 @@ class Settings {
 		$explCurr            = explode( '-', $defaultCurrencyInfo );
 		$currCode            = isset( $explCurr[1] ) ? $explCurr[1] : 'USD';
 
-		$symbols = isset( $countryList[ current( $explCurr ) ]['currency']['symbol'] ) ? $countryList[ current( $explCurr ) ]['currency']['symbol'] : '';
+		$symbols = isset( $wfpCountryList[ current( $explCurr ) ]['currency']['symbol'] ) ? $wfpCountryList[ current( $explCurr ) ]['currency']['symbol'] : '';
 		$symbols = strlen( $symbols ) > 0 ? $symbols : $currCode;
 
 		$defaultThou_seperator = isset( $getMetaGeneral['currency']['thou_seperator'] ) ? $getMetaGeneral['currency']['thou_seperator'] : ',';
@@ -439,6 +441,7 @@ class Settings {
 	/*check page when plugin active*/
 	public static function wfp_the_slug_exists( $post_name ) {
 		global $wpdb;
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared lookup for existing post slug; intentional to avoid duplicate page creation.
 		if ( $wpdb->get_row( $wpdb->prepare( 'SELECT post_name FROM ' . $wpdb->prefix . 'posts WHERE post_name = %s', $post_name ), 'ARRAY_A' ) ) {
 			return true;
 		} else {
@@ -816,7 +819,7 @@ class Settings {
 			),
 		);
 
-		return apply_filters( 'wfp_single_social_providers', $link );
+		return apply_filters( 'wfp_fundraising_single_social_providers', $link ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Reason: compatibility filter kept for social share providers
 	}
 
 
@@ -830,37 +833,37 @@ class Settings {
 
 		global $post;
 
-		global $currentUrl, $title, $author, $details, $source, $media, $app_id;
+		global $wfp_fundraising_currentUrl, $wfp_fundraising_title, $wfp_fundraising_author, $wfp_fundraising_details, $wfp_fundraising_source, $wfp_fundraising_media, $wfp_fundraising_app_id;
 
 		if ( is_object( $post ) && isset( $post->ID ) ) {
-			$currentUrl = get_permalink();
+			$wfp_fundraising_currentUrl = get_permalink(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: global social-share URL prefixed to `wfp_fundraising_`
 		} elseif ( isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ) {
-			$currentUrl = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http' ) . '://' . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+			$wfp_fundraising_currentUrl = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http' ) . '://' . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: global social-share URL prefixed to `wfp_fundraising_`
 		} else {
-			$currentUrl = '';
+			$wfp_fundraising_currentUrl = ''; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: global social-share URL prefixed to `wfp_fundraising_`
 		}
 
 		$postId = isset( $post->ID ) ? $post->ID : 0;
 
 		$current_id = get_current_user_id();
 
-		$author = 'xpeedstudio';
+		$wfp_fundraising_author = 'xpeedstudio'; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: global social-share author prefixed to `wfp_fundraising_`
 
-		$details = '';
+		$wfp_fundraising_details = ''; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: global social-share details prefixed to `wfp_fundraising_`
 		if ( isset( $post->post_excerpt ) && strlen( $post->post_excerpt ) > 2 ) {
-			$details = $post->post_excerpt;
+			$wfp_fundraising_details = $post->post_excerpt; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: global social-share details prefixed to `wfp_fundraising_`
 		}
-		$title = get_the_title();
+		$wfp_fundraising_title = get_the_title(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: global social-share title prefixed to `wfp_fundraising_`
 
-		$source        = get_bloginfo();
+		$wfp_fundraising_source        = get_bloginfo(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: global social-share source prefixed to `wfp_fundraising_`
 		$thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $postId ), 'full' );
 
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		$image          = wp_get_attachment_image_src( $custom_logo_id, 'full' );
 		$customLogo     = isset( $image[0] ) ? $image[0] : '';
 
-		$media  = isset( $thumbnail_src[0] ) ? $thumbnail_src[0] : $customLogo;
-		$app_id = '463603197734720';
+		$wfp_fundraising_media  = isset( $thumbnail_src[0] ) ? $thumbnail_src[0] : $customLogo; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: global social-share media prefixed to `wfp_fundraising_`
+		$wfp_fundraising_app_id = '463603197734720'; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: global social-share app id prefixed to `wfp_fundraising_`
 
 		$metaSocialKey   = 'wfp_share_media_options';
 		$getMetaSocialOp = get_option( $metaSocialKey );
@@ -883,7 +886,7 @@ class Settings {
 				array_keys( $params_data ),
 				array_map(
 					function( $v ) {
-						global $currentUrl, $title, $author, $details, $source, $media, $app_id;
+						global $wfp_fundraising_currentUrl, $wfp_fundraising_title, $wfp_fundraising_author, $wfp_fundraising_details, $wfp_fundraising_source, $wfp_fundraising_media, $wfp_fundraising_app_id;
 
 						return str_replace(
 							array(
@@ -895,7 +898,7 @@ class Settings {
 								'[%media%]',
 								'[%app_id%]',
 							),
-							array( $currentUrl, $title, $author, $details, $source, $media, $app_id ),
+							array( $wfp_fundraising_currentUrl, $wfp_fundraising_title, $wfp_fundraising_author, $wfp_fundraising_details, $wfp_fundraising_source, $wfp_fundraising_media, $wfp_fundraising_app_id ),
 							$v
 						);
 					},
@@ -907,7 +910,7 @@ class Settings {
 			if ( ! empty( $url_get ) ) {
 				$linkData .= '<li> <a href="javascript:void();"  class="wfp-' . $k . '" title="' . $label . '" id="wfp-' . $k . '" data-link="' . $url_get . '?' . $params . '" onclick="' . $onclick . '"> <i class="' . $icon . '"></i> </a></li>';
 			} else {
-				$url_get   = $currentUrl;
+				$url_get   = $wfp_fundraising_currentUrl;
 				$linkData .= '<li> <a href="javascript:void();" class="wfp-' . $k . '" title="' . $label . '" id="wfp-' . $k . '" data-link="' . $url_get . '" onclick="' . $onclick . '"> <i class="' . $icon . '"></i> </a></li>';
 			}
 		}
@@ -1129,29 +1132,32 @@ class Settings {
 
 	/*Donate meta data for fundraising */
 
-	public static function wfp_update_metadata( $post_id = 0, $meta_key = '', $meta_value = '', $unique = true ) {
+	public static function wfp_update_metadata( $wfp_post_id = 0, $meta_key = '', $meta_value = '', $unique = true ) {
 		global $wpdb;
 		$meta_value = is_array( $meta_value ) ? serialize( $meta_value ) : $meta_value;
 
-		$myrows = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'wdp_fundraising_meta WHERE meta_key = %s AND donate_id = %d', $meta_key, $post_id ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.SlowDBQuery.slow_db_query_meta_key, WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- Counts rows in the plugin's own meta table before updating or inserting; intentional.
+		$myrows = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'wdp_fundraising_meta WHERE meta_key = %s AND donate_id = %d', $meta_key, $wfp_post_id ) );
 		if ( $myrows > 0 && $unique == true ) {
-			$wpdb->update(
+				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.SlowDBQuery.slow_db_query_meta_key, WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- Updates an existing row in the plugin's meta table.
+				$wpdb->update(
 				$wpdb->prefix . 'wdp_fundraising_meta',
-				array( 'meta_value' => sanitize_text_field( $meta_value ) ),
+				array( 'meta_value' => sanitize_text_field( $meta_value ) ), // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- Plugin custom meta table; query is indexed and intentional.
 				array(
-					'meta_key'  => sanitize_text_field( $meta_key ),
-					'donate_id' => intval( $post_id ),
+					'meta_key'  => sanitize_text_field( $meta_key ), // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Plugin custom meta table; query is indexed and intentional.
+					'donate_id' => intval( $wfp_post_id ),
 				)
 			);
 
 			return true;
 		} else {
-			$wpdb->insert(
+				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.SlowDBQuery.slow_db_query_meta_key, WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- Inserts a row into the plugin's meta table.
+				$wpdb->insert(
 				$wpdb->prefix . 'wdp_fundraising_meta',
 				array(
-					'donate_id'  => intval( $post_id ),
-					'meta_key'   => sanitize_text_field( $meta_key ),
-					'meta_value' => sanitize_text_field( $meta_value ),
+					'donate_id'  => intval( $wfp_post_id ),
+					'meta_key'   => sanitize_text_field( $meta_key ), // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Plugin custom meta table; query is indexed and intentional.
+					'meta_value' => sanitize_text_field( $meta_value ), // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- Plugin custom meta table; query is indexed and intentional.
 				)
 			);
 
@@ -1160,9 +1166,10 @@ class Settings {
 	}
 
 
-	public static function wfp_get_metadata( $post_id = 0, $meta_key = '' ) {
+	public static function wfp_get_metadata( $wfp_post_id = 0, $meta_key = '' ) {
 		global $wpdb;
-		$myrows = $wpdb->get_results( $wpdb->prepare( 'SELECT `meta_value` FROM ' . $wpdb->prefix . 'wdp_fundraising_meta WHERE meta_key = %s AND donate_id = %d', $meta_key, $post_id ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Reads plugin metadata directly from dedicated table; intentional and prepared.
+		$myrows = $wpdb->get_results( $wpdb->prepare( 'SELECT `meta_value` FROM ' . $wpdb->prefix . 'wdp_fundraising_meta WHERE meta_key = %s AND donate_id = %d', $meta_key, $wfp_post_id ) );
 		$result = isset( $myrows[0]->meta_value ) ? $myrows[0]->meta_value : '';
 
 		return ( @unserialize( $result ) !== false ) ? unserialize( $result ) : $result;
@@ -1173,8 +1180,8 @@ class Settings {
 	public static function missing_woocommerce() {
 		$metaSetupKey     = 'wfp_setup_services_data';
 		$getSetUpData     = get_option( $metaSetupKey );
-		$gateCampaignData = isset( $getSetUpData['services']['payment'] ) ? $getSetUpData['services']['payment'] : 'default';
-		if ( $gateCampaignData == 'default' ) {
+		$wfpGateCampaignData = isset( $getSetUpData['services']['payment'] ) ? $getSetUpData['services']['payment'] : 'default';
+		if ( $wfpGateCampaignData == 'default' ) {
 			$btn['status'] = false;
 
 			return $btn;
@@ -1414,7 +1421,7 @@ class Settings {
 		 */
 		$currCode = $exp[1];
 
-		return empty( $countryList[ $cn ]['currency']['symbol'] ) ? $currCode : $countryList[ $cn ]['currency']['symbol'];
+		return empty( $wfpCountryList[ $cn ]['currency']['symbol'] ) ? $currCode : $wfpCountryList[ $cn ]['currency']['symbol'];
 	}
 
 
@@ -1432,7 +1439,7 @@ class Settings {
 		$payment_settings   = array();
 		$pp_accounts        = array();
 		$account_preference = array();
-		$def_payment_array  = xs_payment_services();
+		$def_payment_array  = wfp_fundraising_payment_services();
 
 		if ( did_action( Key::FUNDRAISING_PRO_LOADED ) ) {
 

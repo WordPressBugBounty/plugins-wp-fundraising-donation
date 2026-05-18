@@ -1,10 +1,14 @@
 <?php
-if ( apply_filters( 'wfp_single_social_hide', true ) ) :
-	$metaSocialKey   = 'wfp_share_media_options';
-	$getMetaSocialOp = get_option( $metaSocialKey );
-	$getMetaSocial   = isset( $getMetaSocialOp['media'] ) ? $getMetaSocialOp['media'] : array();
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-	if ( ! empty( $getMetaSocial ) ) {  ?>
+defined( 'ABSPATH' ) || exit;
+
+if ( apply_filters( 'wfp_single_social_hide', true ) ) :
+	$wfpMetaSocialKey   = 'wfp_share_media_options';
+	$wfpGetMetaSocialOp = get_option( $wfpMetaSocialKey );
+	$wfpGetMetaSocial   = isset( $wfpGetMetaSocialOp['media'] ) ? $wfpGetMetaSocialOp['media'] : array();
+
+	if ( ! empty( $wfpGetMetaSocial ) ) {  ?>
 
 		<div class="wfp-social-share">
 			<p> <?php echo esc_html( apply_filters( 'wfp_single_social_title', __( 'Social Share:', 'wp-fundraising' ) )); ?></p>

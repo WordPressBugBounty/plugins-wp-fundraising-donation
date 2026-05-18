@@ -6,7 +6,7 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 
 	session_start();
 
-	class Woc_Conf {
+	class Woc_Conf { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound -- WooCommerce integration class; name follows WC conventions.
 
 		const MK_DONATION  = '_wfp_donation';
 		const MK_PLEDGE_ID = '_wfp_pledge_id';
@@ -97,7 +97,7 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 	/**
 	 * Skipping for now, later we will do it with thorough clean way
 	 */
-	class WC_Product_Donation2 extends WC_Product {
+	class WC_Product_Donation2 extends WC_Product { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound -- Extends WC_Product; name follows WooCommerce class naming convention.
 
 		protected $post_type = 'wp-fundraising';
 
@@ -114,7 +114,7 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 		}
 	}
 
-	class Wfp_Product_Data_Store_CPT extends WC_Product_Data_Store_CPT {
+	class Wfp_Product_Data_Store_CPT extends WC_Product_Data_Store_CPT { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound -- Extends WC_Product_Data_Store_CPT; name follows WooCommerce data store naming convention.
 
 		const post_type = 'wp-fundraising';
 
@@ -133,7 +133,7 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 				)
 			)
 			) {
-				throw new Exception( __( 'Invalid product.', 'wp-fundraising' ) );
+				throw new Exception( esc_html__( 'Invalid product.', 'wp-fundraising' ) );
 			}
 
 			$product->set_props(
@@ -193,7 +193,7 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 	/**
 	 * overwrite woocommerce store and make our custom post as a product
 	 */
-	function wfp_woocommerce_data_stores( $stores ) {
+	function wfp_fundraising_woocommerce_data_stores( $stores ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: WooCommerce integration callback uses plugin-prefixed name
 		$stores['product'] = 'Wfp_Product_Data_Store_CPT';
 
 		return $stores;
@@ -201,12 +201,12 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 
 
 
-	function wfp_woocommerce_product_get_price( $price, $product ) {
+	function wfp_fundraising_woocommerce_product_get_price( $price, $product ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: WooCommerce integration callback uses plugin-prefixed name
 
 		$prd_id    = $product->get_id();
 		$post_type = get_post_type( $prd_id );
 
-		if ( $post_type == 'wp-fundraising' ) {
+		if ( $post_type == 'wp-fundraising-donation' ) {
 			if ( ! empty( $_SESSION['wfp_donation_conf'][ $prd_id ]['_wfp_donation_am'] ) ) {
 				$price = floatval( $_SESSION['wfp_donation_conf'][ $prd_id ]['_wfp_donation_am'] );
 			}
@@ -217,14 +217,14 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 
 
 
-	function wfp_checkout_create_order_line_item( $item, $cart_item_key, $values, $order ) {
+	function wfp_fundraising_checkout_create_order_line_item( $item, $cart_item_key, $values, $order ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: WooCommerce integration callback uses plugin-prefixed name
 
 		$prd_id    = $values['data']->get_id();
 		$post_type = get_post_type( $prd_id );
 
-		if ( $post_type == 'wp-fundraising' ) {
+		if ( $post_type == 'wp-fundraising-donation' ) {
 
-			$ssn = map_deep( $_SESSION['wfp_donation_conf'][ $prd_id ], 'sanitize_text_field' ) ;
+			$ssn = map_deep( isset( $_SESSION['wfp_donation_conf'][ $prd_id ] ) ? $_SESSION['wfp_donation_conf'][ $prd_id ] : array(), 'sanitize_text_field' );
 
 			$item->update_meta_data( '_wfp_donation_id', $ssn['_wfp_donation_id'] );
 			$item->update_meta_data( '_wfp_donation_am', $ssn['_wfp_donation_am'] );  // amount the donar want to donate
@@ -247,18 +247,18 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 	/**
 	 * This invokes when clicked on checkout button...........
 	 */
-	add_action( 'woocommerce_checkout_create_order_line_item', 'wfp_checkout_create_order_line_item', 20, 4 );
-	add_filter( 'woocommerce_data_stores', 'wfp_woocommerce_data_stores', 20 );
-	add_filter( 'woocommerce_product_get_price', 'wfp_woocommerce_product_get_price', 10, 2 );
-	add_action( 'woocommerce_thankyou', 'wfp_woo_callback', 10, 1 );
-	add_filter( 'woocommerce_add_to_cart_redirect', 'redirect_checkout_add_cart' );
+	add_action( 'woocommerce_checkout_create_order_line_item', 'wfp_fundraising_checkout_create_order_line_item', 20, 4 );
+	add_filter( 'woocommerce_data_stores', 'wfp_fundraising_woocommerce_data_stores', 20 );
+	add_filter( 'woocommerce_product_get_price', 'wfp_fundraising_woocommerce_product_get_price', 10, 2 );
+	add_action( 'woocommerce_thankyou', 'wfp_fundraising_woo_callback', 10, 1 );
+	add_filter( 'woocommerce_add_to_cart_redirect', 'wfp_fundraising_redirect_checkout_add_cart' );
 
 
 
 	/**
 	 * After checkout completed page
 	 */
-	function wfp_woo_callback( $order_id ) {
+	function wfp_fundraising_woo_callback( $order_id ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: WooCommerce integration callback uses plugin-prefixed name
 
 		$order        = new WC_Order( $order_id );
 		$order_status = $order->get_status();
@@ -358,6 +358,7 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 					'status'           => $donation_status,
 				);
 
+				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Inserts a donation record into the plugin's dedicated table for WooCommerce payments.
 				if ( $wpdb->insert( $tbl_name, $wpIns ) ) {
 
 					$id_insert = $wpdb->insert_id;
@@ -405,7 +406,7 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 	}
 
 
-	function redirect_checkout_add_cart( $cart ) {
+	function wfp_fundraising_redirect_checkout_add_cart( $cart ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: redirect callback uses plugin-prefixed name
 
 		return wc_get_cart_url();
 		// return wc_get_checkout_url();
@@ -413,15 +414,15 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 
 
 	// after checkout form
-	// add_action( 'woocommerce_after_checkout_form', 'wfp_action_woocommerce_after_checkout_form', 10, 1 );
-	function wfp_action_woocommerce_after_checkout_form( $wccm_after_checkout ) {
+	// add_action( 'woocommerce_after_checkout_form', 'wfp_fundraising_action_woocommerce_after_checkout_form', 10, 1 );
+	function wfp_fundraising_action_woocommerce_after_checkout_form( $wccm_after_checkout ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: optional WooCommerce hook callback uses plugin-prefixed name
 		// echo '<pre>'; print_r($wccm_after_checkout); echo '</pre>';
 	}
 
 
 	// after order completed
-	// add_action( 'woocommerce_order_status_completed', 'wfp_call_order_status_completed', 10, 1);
-	function wfp_call_order_status_completed( $array ) {
+	// add_action( 'woocommerce_order_status_completed', 'wfp_fundraising_call_order_status_completed', 10, 1);
+	function wfp_fundraising_call_order_status_completed( $array ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: optional WooCommerce hook callback uses plugin-prefixed name
 		// echo '<pre>'; print_r($array); echo '</pre>';
 		// Write your code here
 	}

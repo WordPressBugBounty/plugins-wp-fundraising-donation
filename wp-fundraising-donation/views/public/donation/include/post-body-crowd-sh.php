@@ -1,12 +1,15 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-$enableSingleExcerpt = isset( $formSetting->single_excerpt->enable ) ? $formSetting->single_excerpt->enable : 'No';
-$enableSingleExcerpt = apply_filters( 'wfp_single_excerpt_hide', $enableSingleExcerpt );
+defined( 'ABSPATH' ) || exit;
+
+$wfpEnableSingleExcerpt = isset( $wfpFormSetting->single_excerpt->enable ) ? $wfpFormSetting->single_excerpt->enable : 'No';
+$wfpEnableSingleExcerpt = apply_filters( 'wfp_single_excerpt_hide', $wfpEnableSingleExcerpt );
 
 ?>
 <div class="wfp-post-body">
 	<!-- Article header -->
-	<?php if ( $enableSingleExcerpt == 'No' && strlen( get_the_excerpt( $post ) ) > 2 ) : ?>
+	<?php if ( $wfpEnableSingleExcerpt == 'No' && strlen( get_the_excerpt( $post ) ) > 2 ) : ?>
 		<div class="wfp-excerpt-section">
 			<h3 class="wfp-short-berif-title"><?php echo esc_html( apply_filters( 'wfp_single_excerpt_title', __( 'Short Brief', 'wp-fundraising' ) ) ); ?></h3>
 			<?php do_action( 'wfp_single_excerpt_before' ); ?>

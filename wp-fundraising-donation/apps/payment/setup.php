@@ -1,57 +1,58 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
 // load autoload
 require_once __DIR__ . '/autoload.php';
 
 // Payment Setup Data
-$setup['method'] = array( 'paypal', 'stripe' );
+$wfp_fundraising_setup['method'] = array( 'paypal', 'stripe' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: setup data prefixed to `wfp_fundraising_`
 
 // paypal setup
-$setup['paypal'] = array(
+$wfp_fundraising_setup['paypal'] = array( // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: setup data prefixed to `wfp_fundraising_`
 	'_sandbox' => true,
 	'_token'   => null,
 );
 
 // stripe
-$setup['stripe'] = array(
+$wfp_fundraising_setup['stripe'] = array( // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Reason: setup data prefixed to `wfp_fundraising_`
 	'stripe_secret_key_test' => 'pk_test_sbxBoppU6hqfE6bmRYS5Wczd002Ze8bdUS',
 	'stripe_secret_key'      => 'pk_live_sbxBoppU6hqfE6bmRYS5Wczd002Ze8bdUS',
 	'_sandbox'               => true,
 );
 
-// \WPF_Payment\Application\Init::instance()->setup($setup);
+// \WPF_Payment\Application\Init::instance()->setup( $wfp_fundraising_setup );
 
 
 // custom function
-if ( ! function_exists( 'WFP_Paypal' ) ) {
-	function WFP_Paypal() {
+if ( ! function_exists( 'wfp_fundraising_paypal' ) ) {
+	function wfp_fundraising_paypal() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: payment gateway helper uses plugin-prefixed name
 		return \WPF_Payment\Application\Paypal\Setup::instance();
 	}
 }
 
-if ( ! function_exists( 'WFP_Stripe' ) ) {
-	function WFP_Stripe() {
+if ( ! function_exists( 'wfp_fundraising_stripe' ) ) {
+	function wfp_fundraising_stripe() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: payment gateway helper uses plugin-prefixed name
 		return \WPF_Payment\Application\Stripe\Setup::instance();
 	}
 
 	// load script
-	WFP_Stripe()->_load_script();
+	wfp_fundraising_stripe()->_load_script();
 }
 
 
 
 // Actionn for IPN Paypal Method
-add_action( 'wp_ajax_ipn-ajax-wfp', 'ipn_ajax_wfp_callback' );
-add_action( 'wp_ajax_nopriv_ipn-ajax-wfp', 'ipn_ajax_wfp_callback' );
+add_action( 'wp_ajax_ipn-ajax-wfp', 'wfp_fundraising_ipn_ajax_wfp_callback' );
+add_action( 'wp_ajax_nopriv_ipn-ajax-wfp', 'wfp_fundraising_ipn_ajax_wfp_callback' );
 
-function ipn_ajax_wfp_callback() {
+function wfp_fundraising_ipn_ajax_wfp_callback() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: AJAX callback uses plugin-prefixed name
 	\WfpFundraising\Apps\Content::instance()->ipn_ajax_wfp_callback();
 	return;
 }
 
 // Stripe Payment
-add_action( 'init', '__rest_stripe_init_rest' );
-function __rest_stripe_init_rest() {
+add_action( 'init', 'wfp_fundraising_rest_stripe_init_rest' );
+function wfp_fundraising_rest_stripe_init_rest() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Reason: REST bootstrap callback uses plugin-prefixed name
 	add_action(
 		'rest_api_init',
 		function () {

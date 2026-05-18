@@ -14,8 +14,8 @@
 		?>
 	
 	Symbol set:
-		Filters: wfp_donate_amount_symbol
-		Uses: <?php add_filter('wfp_donate_amount_symbol', function( $symbol, $country, $code){
+		Filters: wfp_fundraising_donate_amount_symbol
+		Uses: <?php add_filter('wfp_fundraising_donate_amount_symbol', function( $symbol, $country, $code){
 			
 			return $symbol;
 		}, 10, 3);

@@ -31,6 +31,7 @@ class Wfp_Fundraising_Donate extends Widget_Base {
 
 		$args['post_status'] = 'publish';
 		$args['post_type']   = \WfpFundraising\Apps\Content::post_type();
+		// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- meta query is required here to select donation-type forms; acceptable for this admin control list.
 		$args['meta_query']  = array(
 			'relation' => 'AND',
 			array(
@@ -348,6 +349,7 @@ class Wfp_Fundraising_Donate extends Widget_Base {
 				'label'    => esc_html__( 'Visible Background', 'wp-fundraising' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfdp-donation-form .wfdp-progress-bar .xs-progress-bar, {{WRAPPER}} .wfp-round-bar .wfp-round-bar-data',
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- "exclude" is a control config option (exclude background properties), not a WP_Query/post retrieval.
 				'exclude'  => array(
 					'image',
 				),
@@ -369,6 +371,7 @@ class Wfp_Fundraising_Donate extends Widget_Base {
 				'label'    => esc_html__( 'Disable Background', 'wp-fundraising' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfdp-donation-form .wfdp-progress-bar .xs-progress',
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- "exclude" is a control config option (exclude background properties), not a WP_Query/post retrieval.
 				'exclude'  => array(
 					'image',
 				),
@@ -529,6 +532,7 @@ class Wfp_Fundraising_Donate extends Widget_Base {
 				'label'    => esc_html__( 'Background', 'wp-fundraising' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfdp-donation-form  .xs-btn.submit-btn',
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- "exclude" is a control config option (exclude background properties), not a WP_Query/post retrieval.
 				'exclude'  => array(
 					'image',
 				),
@@ -799,7 +803,7 @@ class Wfp_Fundraising_Donate extends Widget_Base {
 			$show_in_modal     = $wfp_fundraising_donate_content__modal_status;
 			$wfp_form_fields   = $wfp_fundraising_donate_content__form_style;  // all_fields, Only_button
 
-			$arrayPayment = xs_payment_services();
+			$arrayPayment = wfp_fundraising_payment_services();
 
 			include \WFP_Fundraising::plugin_dir() . 'views/public/fundraising/single-page/donation-form.php';
 

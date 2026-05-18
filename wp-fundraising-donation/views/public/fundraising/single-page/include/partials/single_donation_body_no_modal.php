@@ -1,11 +1,16 @@
+<?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="wfp-modal-header"><?php
 
 	require __DIR__ . '/_check_category_markup.php';
 
 	require __DIR__ . '/_check_featured_markup.php';
 
-if ( $title_enable === \WfpFundraising\Apps\Key::WFP_YES ) :
+if ( $wfp_title_enable === \WfpFundraising\Apps\Key::WFP_YES ) :
 
 	// We know for sure in this template modal is no
 
@@ -26,7 +31,7 @@ if ( $title_enable === \WfpFundraising\Apps\Key::WFP_YES ) :
 /**
  * before content data, if there any
  */
-if ( isset( $formContentData->enable ) ) {
+if ( isset( $wfpFormContentData->enable ) ) {
 
 	require __DIR__ . '/form_content_before.php';
 }
@@ -35,7 +40,7 @@ if ( isset( $formContentData->enable ) ) {
 /**
  * Show goal data
  */
-if ( $enable_goal == 'Yes' ) {
+if ( $wfp_enable_goal == 'Yes' ) {
 
 	require __DIR__ . '/goal_content.php';
 }
@@ -47,7 +52,7 @@ if ( $enable_goal == 'Yes' ) {
 require __DIR__ . '/amount-content.php';
 
 
-if ( $paymentType == 'default' ) {
+if ( $wfpPaymentType == 'default' ) {
 
 	require __DIR__ . '/form_content_fields.php';
 
@@ -58,7 +63,7 @@ if ( $paymentType == 'default' ) {
 /**
  * After content data, if there any
  */
-if ( isset( $formContentData->enable ) ) {
+if ( isset( $wfpFormContentData->enable ) ) {
 
 	require __DIR__ . '/form_content_after.php';
 }

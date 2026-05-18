@@ -1,4 +1,7 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Hook for putting anything before donation content
@@ -7,16 +10,16 @@ do_action( 'wfp_campaign_content_before' );
 
 ?>
 
-<div class="wfp-container xs-wfp-donation" style="<?php echo esc_attr( $page_width ) <= 0 ? '' : 'max-width:' . esc_attr( $page_width ) . 'px;'; ?>">
+<div class="wfp-container xs-wfp-donation" style="<?php echo esc_attr( $wfpPage_width ) <= 0 ? '' : 'max-width:' . esc_attr( $wfpPage_width ) . 'px;'; ?>">
 
 	<div class="wfp-view wfp-view-public">
-		<div class="wfdp-donation-form <?php echo esc_html( $customClass ); ?>" <?php echo esc_attr( empty( $customIdData ) ? '' : 'id=".' . $customIdData . '."' ); ?>>
+		<div class="wfdp-donation-form <?php echo esc_html( $wfpCustomClass ); ?>" <?php echo esc_attr( empty( $wfpCustomIdData ) ? '' : 'id=".' . $wfpCustomIdData . '."' ); ?>>
 			<form method="post"
 				  class="wfdp-donationForm ft7"
-				  id="wfdp-donationForm-<?php echo esc_attr( $postId ); ?>"
-				  data-wfp-id="<?php echo esc_attr( $postId ); ?>"
-				  data-wfp-payment_type="<?php echo esc_attr( $paymentType ); ?>"
-				  wfp-data-url="<?php echo esc_url( $urlCheckout ); ?>" >
+				  id="wfdp-donationForm-<?php echo esc_attr( $wfpPostId ); ?>"
+				  data-wfp-id="<?php echo esc_attr( $wfpPostId ); ?>"
+				  data-wfp-payment_type="<?php echo esc_attr( $wfpPaymentType ); ?>"
+				  wfp-data-url="<?php echo esc_url( $wfpUrlCheckout ); ?>" >
 				  <?php wp_nonce_field( 'wpf_checkout_nonce_field', 'wpf_checkout' ); ?>
 
 				<div class="xs-modal-body wfp-donation-form-wraper">
@@ -28,15 +31,15 @@ do_action( 'wfp_campaign_content_before' );
 				if ( $wfp_form_fields == \WfpFundraising\Apps\Key::WFP_FORM_FIELDS_ONLY_BTN ) {
 					?>
 
-					<div class="wfdp-donation-input-form wfdp-donation-continue-btn  <?php echo esc_attr( $enableDisplayField ); ?> xs-donate-visible">
+					<div class="wfdp-donation-input-form wfdp-donation-continue-btn  <?php echo esc_attr( $wfpEnableDisplayField ); ?> xs-donate-visible">
 						<button type="button"
 								class="xs-btn btn-special submit-btn"
-								onclick="xs_show_hide_donate_font('.xs-show-div-only-button__<?php echo esc_attr( $postId ); ?>');">
-							<?php echo esc_html( $formDesignData->continue_button ? $formDesignData->continue_button : 'Continue' ); ?>
+								onclick="xs_show_hide_donate_font('.xs-show-div-only-button__<?php echo esc_attr( $wfpPostId ); ?>');">
+							<?php echo esc_html( $wfpFormDesignData->continue_button ? $wfpFormDesignData->continue_button : 'Continue' ); ?>
 						</button>
 					</div>
 
-					<div class="wfp-donate-form-footer <?php echo esc_attr( $enableDisplayField ); ?>">
+					<div class="wfp-donate-form-footer <?php echo esc_attr( $wfpEnableDisplayField ); ?>">
 
 						<?php require __DIR__ . '/partials/_donation_button.php'; ?>
 
@@ -63,7 +66,7 @@ do_action( 'wfp_campaign_content_before' );
 
 			if ( \WfpFundraising\Utilities\Helper::is_woocom_payment() ) {
 
-				\WfpFundraising\Utilities\Helper::add_2_cart_form( $postId );
+				\WfpFundraising\Utilities\Helper::add_2_cart_form( $wfpPostId );
 			}
 
 			?>
@@ -72,7 +75,7 @@ do_action( 'wfp_campaign_content_before' );
 	</div>
 
 	<script type='text/javascript'>
-		xs_donate_amount_set(<?php echo esc_attr( $defaultData ); ?>,<?php echo esc_attr( $postId ); ?>);
+		xs_donate_amount_set(<?php echo esc_attr( $wfpDefaultData ); ?>,<?php echo esc_attr( $wfpPostId ); ?>);
 	</script>
 
 </div>

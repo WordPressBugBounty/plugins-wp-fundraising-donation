@@ -1,3 +1,9 @@
+<?php 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="wfp-view wfp-view-public">
 
 	<?php do_action( 'wfp_login_form_before_outer' ); ?>

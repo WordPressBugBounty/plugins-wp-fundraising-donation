@@ -1,6 +1,9 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-$uuid = \WfpFundraising\Utilities\Helper::get_html_unique_id();
+defined( 'ABSPATH' ) || exit;
+
+$wfp_uuid = \WfpFundraising\Utilities\Helper::get_html_unique_id();
 
 ?>
 
@@ -22,19 +25,19 @@ $uuid = \WfpFundraising\Utilities\Helper::get_html_unique_id();
 	<button class="xs-btn btn-special wfp-auth-btn <?php echo esc_attr( $classes ); ?>"
 			data-type="modal-trigger"
 			<?php
-			if ( ! empty( $atts['id'] ) ) :
+			if ( ! empty( $wfp_atts['id'] ) ) :
 				?>
-				 id="<?php echo esc_attr( $atts['id'] ); ?>" <?php endif; ?>
+				 id="<?php echo esc_attr( $wfp_atts['id'] ); ?>" <?php endif; ?>
 			<?php
-			if ( ! empty( $atts['style'] ) ) :
+			if ( ! empty( $wfp_atts['style'] ) ) :
 				?>
-				 style="<?php echo esc_attr( $atts['style'] ); ?>" <?php endif; ?>
-			data-target="<?php echo esc_attr( $uuid ); ?>">
+				 style="<?php echo esc_attr( $wfp_atts['style'] ); ?>" <?php endif; ?>
+			data-target="<?php echo esc_attr( $wfp_uuid ); ?>">
 		<?php echo esc_html( $mdl_btn_txt ); ?>
 	</button>
 
 
-	<div class="xs-modal-popup login-register-pup-up-wrapper " id="<?php echo esc_attr( $uuid ); ?>">
+	<div class="xs-modal-popup login-register-pup-up-wrapper " id="<?php echo esc_attr( $wfp_uuid ); ?>">
 
 		<div class="login-register-pup-up-inner wfp-login">
 			<div class="xs-modal-header">

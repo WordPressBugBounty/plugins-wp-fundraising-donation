@@ -1,0 +1,3479 @@
+# Copyright (C) 2026 Wpmet
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: FundEngine – Donation and Crowdfunding Platform 1.7.7\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/wp-fundraising-donation\n"
+"POT-Creation-Date: 2026-05-18 07:05:33+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: apps/content.php:431 apps/content.php:562
+msgid "Sorry wrong campaign."
+msgstr ""
+
+#: apps/content.php:435
+msgid "Invalid payment method."
+msgstr ""
+
+#: apps/content.php:443 apps/content.php:584
+msgid "Invalid payment."
+msgstr ""
+
+#: apps/content.php:448 apps/content.php:594
+#. translators: %s: payment status code (e.g. Active, Delete, ReFunded).
+msgid "Your payment already processed. [Code: %s]"
+msgstr ""
+
+#: apps/content.php:570
+msgid "Sorry Stripe Method not Active."
+msgstr ""
+
+#: apps/content.php:652
+msgid "Thanks for your payment"
+msgstr ""
+
+#: apps/content.php:659
+msgid "System error!"
+msgstr ""
+
+#: apps/content.php:747
+msgid "Sorry invalid form of Donation."
+msgstr ""
+
+#: apps/content.php:845
+msgid "Enter select payment method"
+msgstr ""
+
+#: apps/content.php:855
+msgid "Enter donate amount"
+msgstr ""
+
+#: apps/content.php:867
+msgid "Sorry! minimum donate amount: "
+msgstr ""
+
+#: apps/content.php:871
+msgid "Sorry! max donate amount: "
+msgstr ""
+
+#: apps/content.php:1108
+msgid "Successfully donation. "
+msgstr ""
+
+#: apps/content.php:1114
+msgid "Something is wrong"
+msgstr ""
+
+#: apps/content.php:1177 apps/content.php:1512
+msgid "Something error."
+msgstr ""
+
+#: apps/content.php:1182 apps/content.php:1503
+msgid "Invalid request."
+msgstr ""
+
+#: apps/content.php:1202
+msgid "Sorry could't update this campaign"
+msgstr ""
+
+#: apps/content.php:1440
+msgid "Successfully Update this Campaign."
+msgstr ""
+
+#: apps/content.php:1442
+msgid "Successfully Submitted Campaign for Review."
+msgstr ""
+
+#: apps/content.php:1462
+msgid "Invalid Campaign."
+msgstr ""
+
+#: apps/content.php:1559
+msgid "Successfully Update your Information."
+msgstr ""
+
+#: apps/content.php:1581
+msgid "Sorry you could not able to update password."
+msgstr ""
+
+#: apps/content.php:1603
+msgid "Successfully set new password."
+msgstr ""
+
+#: apps/content.php:1606
+msgid "Sorry don't match new password"
+msgstr ""
+
+#: apps/content.php:1609
+msgid "Sorry current don't match password"
+msgstr ""
+
+#: apps/content.php:1612
+msgid "Please enter current password."
+msgstr ""
+
+#: apps/content.php:1640 apps/content.php:2945
+msgid "Please enter email or username"
+msgstr ""
+
+#: apps/content.php:1647 apps/content.php:2952
+msgid "Please enter password"
+msgstr ""
+
+#: apps/content.php:1686 apps/content.php:2993
+msgid "System Error"
+msgstr ""
+
+#: apps/content.php:1688 apps/content.php:3003
+msgid "New user registration option is turned off"
+msgstr ""
+
+#: apps/content.php:1696
+msgid "Already used this email"
+msgstr ""
+
+#: apps/content.php:1699 apps/content.php:1779
+msgid "Please enter email address"
+msgstr ""
+
+#: apps/content.php:1704
+msgid "Please enter your user name"
+msgstr ""
+
+#: apps/content.php:1710 apps/content.php:3035
+msgid "Please set your password"
+msgstr ""
+
+#: apps/content.php:1724
+msgid "Sorry system error. Try again."
+msgstr ""
+
+#: apps/content.php:1737
+msgid "Please enter your valid email address"
+msgstr ""
+
+#: apps/content.php:1764 apps/content.php:2055
+msgid "Sorry invalid campaign."
+msgstr ""
+
+#: apps/content.php:1784
+msgid "Please enter your name"
+msgstr ""
+
+#: apps/content.php:1790
+msgid "Please give your ratting"
+msgstr ""
+
+#: apps/content.php:1808 apps/content.php:1938 apps/content.php:1999
+msgid "Sorry invalid review."
+msgstr ""
+
+#: apps/content.php:1819 apps/content.php:1951 apps/content.php:2012
+msgid "Sorry you are not valid user."
+msgstr ""
+
+#: apps/content.php:1825 apps/content.php:1957 apps/content.php:2018
+msgid "Invalid Review."
+msgstr ""
+
+#: apps/content.php:1848
+msgid "Successfully updated review"
+msgstr ""
+
+#: apps/content.php:1853
+msgid "Sorry system error."
+msgstr ""
+
+#: apps/content.php:1863
+msgid "Sorry already submitted review"
+msgstr ""
+
+#: apps/content.php:1892
+msgid "Successfully submitted review"
+msgstr ""
+
+#: apps/content.php:1897 apps/content.php:2093
+msgid "System error"
+msgstr ""
+
+#: apps/content.php:1902
+msgid "Please sign in first"
+msgstr ""
+
+#: apps/content.php:1925 apps/content.php:1986
+msgid "Sorry you are not valid author for delete review."
+msgstr ""
+
+#: apps/content.php:1963
+msgid "Successfully remove your review."
+msgstr ""
+
+#: apps/content.php:1965
+msgid "System error."
+msgstr ""
+
+#: apps/content.php:2070
+msgid "Please enter your update details."
+msgstr ""
+
+#: apps/content.php:2089
+msgid "Successfully submitted update"
+msgstr ""
+
+#: apps/content.php:2098
+msgid "Sorry invalid user for post campaign update."
+msgstr ""
+
+#: apps/content.php:2335 apps/content.php:2840 views/public/auth/form.php:144
+#: views/public/fundraising/single-page/include/page/review.php:178
+#: views/public/fundraising/single-page/include/page/review.php:179
+msgid "Login"
+msgstr ""
+
+#: apps/content.php:2336 apps/content.php:2841 views/public/auth/form.php:124
+#: views/public/auth/form.php:145 views/public/auth/modal.php:145
+#: views/public/fundraising/dynamic-page/login.php:101
+msgid "Register"
+msgstr ""
+
+#: apps/content.php:2337 views/public/auth/form.php:69
+#: views/public/auth/modal.php:90
+#: views/public/fundraising/dynamic-page/login.php:51
+msgid "Login Now"
+msgstr ""
+
+#: apps/content.php:2836
+msgid "Dahsboard"
+msgstr ""
+
+#: apps/content.php:2838
+msgid "Sign Out"
+msgstr ""
+
+#: apps/content.php:3012
+msgid "This email is already used"
+msgstr ""
+
+#: apps/content.php:3019
+msgid "Please enter a valid email address"
+msgstr ""
+
+#: apps/content.php:3028
+msgid "Please enter valid username"
+msgstr ""
+
+#: apps/content.php:3064
+msgid "Sorry system error. Try again"
+msgstr ""
+
+#: apps/content.php:3104 apps/wfpwoocommerce.php:136
+msgid "Invalid product."
+msgstr ""
+
+#: apps/content.php:3114
+msgid "Invalid price."
+msgstr ""
+
+#: apps/donation-cpt.php:29
+msgid "Donation Archives"
+msgstr ""
+
+#: apps/donation-cpt.php:30
+msgid "Donation Attributes"
+msgstr ""
+
+#: apps/donation-cpt.php:31
+msgid "Parent Donation:"
+msgstr ""
+
+#: apps/donation-cpt.php:32
+msgid "All Donations"
+msgstr ""
+
+#: apps/donation-cpt.php:33
+msgid "Add New Donation"
+msgstr ""
+
+#: apps/donation-cpt.php:34
+msgid "Add New"
+msgstr ""
+
+#: apps/donation-cpt.php:35
+msgid "New Donation"
+msgstr ""
+
+#: apps/donation-cpt.php:36
+msgid "Edit Donation"
+msgstr ""
+
+#: apps/donation-cpt.php:37
+msgid "Update Donation"
+msgstr ""
+
+#: apps/donation-cpt.php:38
+msgid "View Donation"
+msgstr ""
+
+#: apps/donation-cpt.php:39
+msgid "View Donations"
+msgstr ""
+
+#: apps/donation-cpt.php:40
+msgid "Search Donation"
+msgstr ""
+
+#: apps/donation-cpt.php:41
+msgid "Not found"
+msgstr ""
+
+#: apps/donation-cpt.php:42
+msgid "Not found in Trash"
+msgstr ""
+
+#: apps/donation-cpt.php:43
+msgid "Featured Image"
+msgstr ""
+
+#: apps/donation-cpt.php:44
+msgid "Set featured image"
+msgstr ""
+
+#: apps/donation-cpt.php:45
+msgid "Remove featured image"
+msgstr ""
+
+#: apps/donation-cpt.php:46
+msgid "Use as featured image"
+msgstr ""
+
+#: apps/donation-cpt.php:47
+msgid "Insert into Donation"
+msgstr ""
+
+#: apps/donation-cpt.php:48
+msgid "Uploaded to this Donation"
+msgstr ""
+
+#: apps/donation-cpt.php:49
+msgid "Donations list"
+msgstr ""
+
+#: apps/donation-cpt.php:50
+msgid "Donations list navigation"
+msgstr ""
+
+#: apps/donation-cpt.php:51
+msgid "Filter Donations list"
+msgstr ""
+
+#: apps/donation-cpt.php:55
+msgid "Donation"
+msgstr ""
+
+#: apps/donation-cpt.php:56
+msgid "Donation post type for managing fundraising campaigns."
+msgstr ""
+
+#: apps/elementor/elements.php:44 apps/fundraising-cpt.php:26
+#: apps/fundraising-cpt.php:27 apps/fundraising.php:160
+#: apps/fundraising.php:161 widgets/manifest.php:69
+msgid "FundEngine"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:29 widgets/donate/donate.php:18
+#: widgets/manifest.php:28
+msgid "Donate Button"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:75 apps/elementor/widgets/listing.php:221
+#: widgets/donate/donate.php:63 widgets/listing/listing.php:213
+msgid "Content"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:83 apps/elementor/widgets/listing.php:363
+#: widgets/donate/donate.php:71 widgets/listing/listing.php:355
+msgid "Query Options"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:91 widgets/donate/donate.php:79
+msgid "Select Donate"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:103 apps/elementor/widgets/listing.php:463
+#: widgets/donate/donate.php:91 widgets/listing/listing.php:455
+msgid "Display Options"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:112 widgets/donate/donate.php:100
+msgid "From Style"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:116
+#: views/admin/fundraising/include/donations-general.php:316
+#: widgets/donate/donate.php:104
+msgid "All Fields"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:117
+#: views/admin/fundraising/include/donations-general.php:321
+#: widgets/donate/donate.php:105
+msgid "Only Button"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:125 widgets/donate/donate.php:113
+msgid "Show Modal"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:129 apps/elementor/widgets/listing.php:354
+#: widgets/donate/donate.php:117 widgets/listing/listing.php:346
+msgid "Yes"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:130 apps/elementor/widgets/listing.php:355
+#: widgets/donate/donate.php:118 widgets/listing/listing.php:347
+msgid "No"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:139 apps/elementor/widgets/listing.php:518
+#: widgets/donate/donate.php:127 widgets/listing/listing.php:510
+msgid "Show Title"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:141 apps/elementor/widgets/donate.php:153
+#: apps/elementor/widgets/donate.php:164 apps/elementor/widgets/donate.php:176
+#: apps/elementor/widgets/listing.php:473
+#: apps/elementor/widgets/listing.php:484
+#: apps/elementor/widgets/listing.php:495
+#: apps/elementor/widgets/listing.php:506
+#: apps/elementor/widgets/listing.php:520
+#: apps/elementor/widgets/listing.php:544
+#: apps/elementor/widgets/listing.php:567
+#: apps/elementor/widgets/listing.php:578
+#: apps/elementor/widgets/listing.php:589 widgets/donate/donate.php:129
+#: widgets/donate/donate.php:141 widgets/donate/donate.php:152
+#: widgets/donate/donate.php:164 widgets/listing/listing.php:465
+#: widgets/listing/listing.php:476 widgets/listing/listing.php:487
+#: widgets/listing/listing.php:498 widgets/listing/listing.php:512
+#: widgets/listing/listing.php:536 widgets/listing/listing.php:559
+#: widgets/listing/listing.php:570 widgets/listing/listing.php:581
+msgid "Show"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:142 apps/elementor/widgets/donate.php:154
+#: apps/elementor/widgets/donate.php:165 apps/elementor/widgets/donate.php:177
+#: apps/elementor/widgets/listing.php:474
+#: apps/elementor/widgets/listing.php:485
+#: apps/elementor/widgets/listing.php:496
+#: apps/elementor/widgets/listing.php:507
+#: apps/elementor/widgets/listing.php:521
+#: apps/elementor/widgets/listing.php:545
+#: apps/elementor/widgets/listing.php:568
+#: apps/elementor/widgets/listing.php:579
+#: apps/elementor/widgets/listing.php:590 widgets/donate/donate.php:130
+#: widgets/donate/donate.php:142 widgets/donate/donate.php:153
+#: widgets/donate/donate.php:165 widgets/listing/listing.php:466
+#: widgets/listing/listing.php:477 widgets/listing/listing.php:488
+#: widgets/listing/listing.php:499 widgets/listing/listing.php:513
+#: widgets/listing/listing.php:537 widgets/listing/listing.php:560
+#: widgets/listing/listing.php:571 widgets/listing/listing.php:582
+msgid "Hide"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:151 apps/elementor/widgets/listing.php:493
+#: widgets/donate/donate.php:139 widgets/listing/listing.php:485
+msgid "Show Featured"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:162 apps/elementor/widgets/listing.php:565
+#: widgets/donate/donate.php:150 widgets/listing/listing.php:557
+msgid "Show Category"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:174 apps/elementor/widgets/listing.php:576
+#: widgets/donate/donate.php:162 widgets/listing/listing.php:568
+msgid "Show Goal"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:188 apps/elementor/widgets/listing.php:884
+#: apps/elementor/widgets/listing.php:1406 widgets/donate/donate.php:176
+#: widgets/listing/listing.php:876 widgets/listing/listing.php:1398
+msgid "Title"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:207 apps/elementor/widgets/donate.php:249
+#: apps/elementor/widgets/donate.php:300 apps/elementor/widgets/donate.php:331
+#: apps/elementor/widgets/donate.php:475 apps/elementor/widgets/donate.php:532
+#: apps/elementor/widgets/donate.php:613 apps/elementor/widgets/donate.php:741
+#: apps/elementor/widgets/donate.php:779 apps/elementor/widgets/listing.php:903
+#: apps/elementor/widgets/listing.php:958
+#: apps/elementor/widgets/listing.php:1013
+#: apps/elementor/widgets/listing.php:1077
+#: apps/elementor/widgets/listing.php:1108
+#: apps/elementor/widgets/listing.php:1139
+#: apps/elementor/widgets/listing.php:1333
+#: apps/elementor/widgets/listing.php:1424
+#: apps/elementor/widgets/listing.php:1454
+#: apps/elementor/widgets/listing.php:2050
+#: apps/elementor/widgets/listing.php:2081
+#: views/admin/fundraising/settings/include/display-settings.php:83
+#: widgets/donate/donate.php:195 widgets/donate/donate.php:237
+#: widgets/donate/donate.php:288 widgets/donate/donate.php:319
+#: widgets/donate/donate.php:463 widgets/donate/donate.php:520
+#: widgets/donate/donate.php:601 widgets/donate/donate.php:729
+#: widgets/donate/donate.php:767 widgets/listing/listing.php:895
+#: widgets/listing/listing.php:950 widgets/listing/listing.php:1005
+#: widgets/listing/listing.php:1069 widgets/listing/listing.php:1100
+#: widgets/listing/listing.php:1131 widgets/listing/listing.php:1325
+#: widgets/listing/listing.php:1416 widgets/listing/listing.php:1446
+#: widgets/listing/listing.php:2042 widgets/listing/listing.php:2073
+msgid "Color"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:230 apps/elementor/widgets/listing.php:994
+#: widgets/donate/donate.php:218 widgets/listing/listing.php:986
+msgid "Categories "
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:272
+#: apps/elementor/widgets/listing.php:1049 widgets/donate/donate.php:260
+#: widgets/listing/listing.php:1041
+msgid "Goal "
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:281
+#: apps/elementor/widgets/listing.php:1058
+#: views/admin/fundraising/include/_partial_input_type_selector.php:38
+#: widgets/donate/donate.php:269 widgets/listing/listing.php:1050
+msgid "Text"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:312
+#: apps/elementor/widgets/listing.php:1089
+#: views/admin/fundraising/include/_partial_input_type_selector.php:40
+#: widgets/donate/donate.php:300 widgets/listing/listing.php:1081
+msgid "Number"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:343
+#: apps/elementor/widgets/listing.php:1201 widgets/donate/donate.php:331
+#: widgets/listing/listing.php:1193
+msgid "Bar"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:352
+#: apps/elementor/widgets/listing.php:1210 widgets/donate/donate.php:340
+#: widgets/listing/listing.php:1202
+msgid "Visible Bar"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:361
+#: apps/elementor/widgets/listing.php:1219 widgets/donate/donate.php:349
+#: widgets/listing/listing.php:1211
+msgid "Visible Background"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:374
+#: apps/elementor/widgets/listing.php:1232 widgets/donate/donate.php:362
+#: widgets/listing/listing.php:1224
+msgid "Disable Bar"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:383
+#: apps/elementor/widgets/listing.php:1241 widgets/donate/donate.php:371
+#: widgets/listing/listing.php:1233
+msgid "Disable Background"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:396
+#: apps/elementor/widgets/listing.php:1254 widgets/donate/donate.php:384
+#: widgets/listing/listing.php:1246
+msgid "Global Bar"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:404 apps/elementor/widgets/donate.php:565
+#: apps/elementor/widgets/donate.php:669 apps/elementor/widgets/listing.php:748
+#: apps/elementor/widgets/listing.php:1262
+#: apps/elementor/widgets/listing.php:1366 widgets/donate/donate.php:392
+#: widgets/donate/donate.php:553 widgets/donate/donate.php:657
+#: widgets/listing/listing.php:740 widgets/listing/listing.php:1254
+#: widgets/listing/listing.php:1358
+msgid "Border radius"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:416
+#: apps/elementor/widgets/listing.php:1274 widgets/donate/donate.php:404
+#: widgets/listing/listing.php:1266
+msgid "Bar Height"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:440
+#: apps/elementor/widgets/listing.php:1298 widgets/donate/donate.php:428
+#: widgets/listing/listing.php:1290
+msgid "Bar Count Size"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:467
+#: apps/elementor/widgets/listing.php:1325 widgets/donate/donate.php:455
+#: widgets/listing/listing.php:1317
+msgid "Bar Count Typography"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:490 widgets/donate/donate.php:478
+msgid "Button "
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:507 apps/elementor/widgets/donate.php:635
+#: apps/elementor/widgets/listing.php:768
+#: apps/elementor/widgets/listing.php:841
+#: apps/elementor/widgets/listing.php:1176
+#: apps/elementor/widgets/listing.php:1480
+#: apps/elementor/widgets/listing.php:1810
+#: apps/elementor/widgets/listing.php:1978 widgets/donate/donate.php:495
+#: widgets/donate/donate.php:623 widgets/listing/listing.php:760
+#: widgets/listing/listing.php:833 widgets/listing/listing.php:1168
+#: widgets/listing/listing.php:1472 widgets/listing/listing.php:1802
+#: widgets/listing/listing.php:1970
+msgid "Padding"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:519 apps/elementor/widgets/donate.php:647
+#: apps/elementor/widgets/listing.php:779
+#: apps/elementor/widgets/listing.php:1691
+#: apps/elementor/widgets/listing.php:1822
+#: apps/elementor/widgets/listing.php:1990 widgets/donate/donate.php:507
+#: widgets/donate/donate.php:635 widgets/listing/listing.php:771
+#: widgets/listing/listing.php:1683 widgets/listing/listing.php:1814
+#: widgets/listing/listing.php:1982
+msgid "Margin"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:544 apps/elementor/widgets/listing.php:792
+#: apps/elementor/widgets/listing.php:1163
+#: apps/elementor/widgets/listing.php:2063
+#: apps/elementor/widgets/listing.php:2094 widgets/donate/donate.php:532
+#: widgets/listing/listing.php:784 widgets/listing/listing.php:1155
+#: widgets/listing/listing.php:2055 widgets/listing/listing.php:2086
+msgid "Background"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:557 apps/elementor/widgets/donate.php:660
+#: apps/elementor/widgets/listing.php:740
+#: apps/elementor/widgets/listing.php:866 widgets/donate/donate.php:545
+#: widgets/donate/donate.php:648 widgets/listing/listing.php:732
+#: widgets/listing/listing.php:858
+msgid "Border"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:588 widgets/donate/donate.php:576
+msgid "Input "
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:596 widgets/donate/donate.php:584
+msgid "Input"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:626 widgets/donate/donate.php:614
+msgid "Background Color"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:689 widgets/donate/donate.php:677
+msgid "Radio Input"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:698 widgets/donate/donate.php:686
+msgid "Radio Normal Color"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:710 widgets/donate/donate.php:698
+msgid "Radio Active Color"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:723
+#: views/admin/fundraising/include/_partial_input_type_selector.php:57
+#: views/admin/fundraising/include/donations-pledge-setup.php:59
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:69
+#: widgets/donate/donate.php:711
+msgid "Label"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:761 widgets/donate/donate.php:749
+msgid "Headding"
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:805 widgets/donate/donate.php:792
+msgid "Select any Donation from Dropdown."
+msgstr ""
+
+#: apps/elementor/widgets/donate.php:824 widgets/donate/donate.php:811
+msgid "Please select any donate."
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:34 widgets/listing/listing.php:23
+#: widgets/manifest.php:35
+msgid "Campaign List"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:47 apps/elementor/widgets/listing.php:62
+#: widgets/listing/listing.php:36 widgets/listing/listing.php:51
+msgid "Top Left"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:48 apps/elementor/widgets/listing.php:63
+#: widgets/listing/listing.php:37 widgets/listing/listing.php:52
+msgid "Top Center"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:49 apps/elementor/widgets/listing.php:64
+#: widgets/listing/listing.php:38 widgets/listing/listing.php:53
+msgid "Top Right"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:50 apps/elementor/widgets/listing.php:813
+#: apps/elementor/widgets/listing.php:1864
+#: apps/elementor/widgets/listing.php:2023 widgets/listing/listing.php:39
+#: widgets/listing/listing.php:805 widgets/listing/listing.php:1856
+#: widgets/listing/listing.php:2015
+msgid "Center"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:51 apps/elementor/widgets/listing.php:65
+#: widgets/listing/listing.php:40 widgets/listing/listing.php:54
+msgid "Bottom Left"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:52 apps/elementor/widgets/listing.php:66
+#: widgets/listing/listing.php:41 widgets/listing/listing.php:55
+msgid "Bottom Center"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:53 apps/elementor/widgets/listing.php:67
+#: widgets/listing/listing.php:42 widgets/listing/listing.php:56
+msgid "Bottom Right"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:123
+#: apps/elementor/widgets/listing.php:678 widgets/listing/listing.php:112
+#: widgets/listing/listing.php:670
+msgid "None"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:229 widgets/listing/listing.php:221
+msgid "Layout Options"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:237 widgets/listing/listing.php:229
+msgid "Layout Style"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:241 widgets/listing/listing.php:233
+msgid "List"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:242 widgets/listing/listing.php:234
+msgid "Grid"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:243 widgets/listing/listing.php:235
+msgid "Masonary"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:251 widgets/listing/listing.php:243
+msgid "Enable Button"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:264 widgets/listing/listing.php:256
+msgid "Label One"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:266
+#: apps/elementor/widgets/listing.php:267 widgets/listing/listing.php:258
+#: widgets/listing/listing.php:259
+msgid "Learn more "
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:280 widgets/listing/listing.php:272
+msgid "URL One"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:300 widgets/listing/listing.php:292
+msgid "Label Two"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:314 widgets/listing/listing.php:306
+msgid "URL Two"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:330 widgets/listing/listing.php:322
+msgid "Columns Grid"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:334 widgets/listing/listing.php:326
+msgid "1 Columns"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:335 widgets/listing/listing.php:327
+msgid "2 Columns"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:336 widgets/listing/listing.php:328
+msgid "3 Columns"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:337 widgets/listing/listing.php:329
+msgid "4 Columns"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:351 widgets/listing/listing.php:343
+msgid "Enable Carousel? "
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:372 widgets/listing/listing.php:364
+msgid "Show Campaign by:"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:376 apps/fundraising-cpt.php:63
+#: apps/fundraising-cpt.php:64 apps/fundraising-cpt.php:73
+#: apps/fundraising.php:197 apps/fundraising.php:198 apps/fundraising.php:207
+#: widgets/listing/listing.php:368
+msgid "Categories"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:377 widgets/listing/listing.php:369
+msgid "Selected Campaign"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:378 widgets/listing/listing.php:370
+msgid "Recent Campaign"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:387 widgets/listing/listing.php:379
+msgid "Select Categories"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:404 widgets/listing/listing.php:396
+msgid "Select Campaign"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:421 widgets/listing/listing.php:413
+msgid "Order By"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:425
+#: apps/elementor/widgets/listing.php:1436 apps/fundraising.php:477
+#: views/admin/fundraising/reports/include/donors-reports.php:42
+#: widgets/listing/listing.php:417 widgets/listing/listing.php:1428
+msgid "Name"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:426
+#: views/admin/fundraising/meta-content/recent-donate.php:64
+#: views/admin/fundraising/reports/include/income-reports.php:53
+#: views/admin/view-payments.php:374
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:295
+#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:36
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:57
+#: widgets/listing/listing.php:418
+msgid "Date"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:437 widgets/listing/listing.php:429
+msgid "Show Per Page"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:450 widgets/listing/listing.php:442
+msgid "Order"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:454 widgets/listing/listing.php:446
+msgid "ASC"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:455 widgets/listing/listing.php:447
+msgid "DESC"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:471 widgets/listing/listing.php:463
+msgid "Flip Content"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:482 widgets/listing/listing.php:474
+msgid "Show Filter"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:504 widgets/listing/listing.php:496
+msgid "Show Time Left"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:529 widgets/listing/listing.php:521
+msgid "Title Limit"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:542 widgets/listing/listing.php:534
+msgid "Show Excerpt"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:553 widgets/listing/listing.php:545
+msgid "Excerpt Limit"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:587 widgets/listing/listing.php:579
+msgid "Show Author Info"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:601 widgets/listing/listing.php:593
+msgid "Carousel Settings"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:611 widgets/listing/listing.php:603
+msgid "Autoplay"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:621 widgets/listing/listing.php:613
+msgid "Autoplay Speed"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:633 widgets/listing/listing.php:625
+msgid "Loop"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:643 widgets/listing/listing.php:635
+msgid "Animation Speed"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:661
+#: apps/elementor/widgets/listing.php:671
+#: apps/elementor/widgets/listing.php:1576 widgets/listing/listing.php:653
+#: widgets/listing/listing.php:663 widgets/listing/listing.php:1568
+msgid "Navigation"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:675 widgets/listing/listing.php:667
+msgid "Arrows and Dots"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:676 widgets/listing/listing.php:668
+msgid "Arrows"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:677
+#: apps/elementor/widgets/listing.php:1754 widgets/listing/listing.php:669
+#: widgets/listing/listing.php:1746
+msgid "Dots"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:688 widgets/listing/listing.php:680
+msgid "Arrows and Dots Position"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:701 widgets/listing/listing.php:693
+msgid "Arrows Position"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:714 widgets/listing/listing.php:706
+msgid "Dots Position"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:731 widgets/listing/listing.php:723
+msgid "Global"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:805
+#: apps/elementor/widgets/listing.php:1855
+#: apps/elementor/widgets/listing.php:2014 widgets/listing/listing.php:797
+#: widgets/listing/listing.php:1847 widgets/listing/listing.php:2006
+msgid "Alignment"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:809
+#: apps/elementor/widgets/listing.php:1860
+#: apps/elementor/widgets/listing.php:2019
+#: views/admin/fundraising/settings/include/general-options.php:62
+#: widgets/listing/listing.php:801 widgets/listing/listing.php:1852
+#: widgets/listing/listing.php:2011
+msgid "Left"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:817
+#: apps/elementor/widgets/listing.php:1868
+#: apps/elementor/widgets/listing.php:2027
+#: views/admin/fundraising/settings/include/general-options.php:63
+#: widgets/listing/listing.php:809 widgets/listing/listing.php:1860
+#: widgets/listing/listing.php:2019
+msgid "Right"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:833 widgets/listing/listing.php:825
+msgid "Content Wrapper"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:857 widgets/listing/listing.php:849
+msgid "Featured "
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:924
+#: apps/elementor/widgets/listing.php:979
+#: apps/elementor/widgets/listing.php:1034 widgets/listing/listing.php:916
+#: widgets/listing/listing.php:971 widgets/listing/listing.php:1026
+msgid "Spacing"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:939 widgets/listing/listing.php:931
+msgid "Excerpt "
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1120 widgets/listing/listing.php:1112
+msgid "Time Left"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1150 widgets/listing/listing.php:1142
+msgid "Icon Color"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1188
+#: apps/elementor/widgets/listing.php:1834
+#: apps/elementor/widgets/listing.php:2002 widgets/listing/listing.php:1180
+#: widgets/listing/listing.php:1826 widgets/listing/listing.php:1994
+msgid "Border Radius"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1348 widgets/listing/listing.php:1340
+msgid "Author "
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1357 widgets/listing/listing.php:1349
+msgid "Photos"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1378 widgets/listing/listing.php:1370
+msgid "Size"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1469 widgets/listing/listing.php:1461
+msgid "Button"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1493 widgets/listing/listing.php:1485
+msgid "Typography"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1511
+#: apps/elementor/widgets/listing.php:1704
+#: apps/elementor/widgets/listing.php:1882
+#: apps/elementor/widgets/listing.php:2043 widgets/listing/listing.php:1503
+#: widgets/listing/listing.php:1696 widgets/listing/listing.php:1874
+#: widgets/listing/listing.php:2035
+msgid "Normal"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1518
+#: apps/elementor/widgets/listing.php:1548 widgets/listing/listing.php:1510
+#: widgets/listing/listing.php:1540
+msgid "Text Color"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1541
+#: apps/elementor/widgets/listing.php:1727
+#: apps/elementor/widgets/listing.php:1906 widgets/listing/listing.php:1533
+#: widgets/listing/listing.php:1719 widgets/listing/listing.php:1898
+msgid "Hover"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1588
+#: views/public/fundraising/dynamic-page/dashboard/campaign-content.php:60
+#: widgets/listing/listing.php:1580
+msgid "Previous"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1595
+#: apps/elementor/widgets/listing.php:1620 widgets/listing/listing.php:1587
+#: widgets/listing/listing.php:1612
+msgid "Icon"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1613
+#: views/public/fundraising/dynamic-page/dashboard/campaign-content.php:64
+#: widgets/listing/listing.php:1605
+msgid "Next"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1639 widgets/listing/listing.php:1631
+msgid "Arrows Size"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1660 widgets/listing/listing.php:1652
+msgid "Space"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1710 widgets/listing/listing.php:1702
+msgid "Arrows Color"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1734 widgets/listing/listing.php:1726
+msgid "Arrows Hover Color"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1765 widgets/listing/listing.php:1757
+msgid "Dots Size"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1786 widgets/listing/listing.php:1778
+msgid "Dots Space"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1889
+#: apps/elementor/widgets/listing.php:1913 widgets/listing/listing.php:1881
+#: widgets/listing/listing.php:1905
+msgid "Dots Color"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1930
+#: apps/elementor/widgets/listing.php:2074 widgets/listing/listing.php:1922
+#: widgets/listing/listing.php:2066
+msgid "Active"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1937 widgets/listing/listing.php:1929
+msgid "Active Dots Color"
+msgstr ""
+
+#: apps/elementor/widgets/listing.php:1960 widgets/listing/listing.php:1952
+msgid "Filter"
+msgstr ""
+
+#: apps/featured.php:70
+msgid "Featured Video"
+msgstr ""
+
+#: apps/featured.php:348 views/admin/featured/add-video.php:17
+msgid "Set featured video"
+msgstr ""
+
+#: apps/featured.php:349 views/admin/featured/add-video.php:19
+msgid "Remove featured video"
+msgstr ""
+
+#: apps/featured.php:574
+msgid "This is not a valid video URL. Please try another URL."
+msgstr ""
+
+#: apps/fundraising-cpt.php:28 apps/fundraising.php:162
+msgid "All Campaigns"
+msgstr ""
+
+#: apps/fundraising-cpt.php:29 apps/fundraising.php:163
+msgid "Add Campaign"
+msgstr ""
+
+#: apps/fundraising-cpt.php:30 apps/fundraising.php:164
+msgid "Campaign Name"
+msgstr ""
+
+#: apps/fundraising-cpt.php:31 apps/fundraising.php:165
+msgid "Edit Campaign"
+msgstr ""
+
+#: apps/fundraising-cpt.php:32 apps/fundraising.php:166
+msgid "View Campaign"
+msgstr ""
+
+#: apps/fundraising-cpt.php:33 apps/fundraising.php:167
+msgid "View Campaigns"
+msgstr ""
+
+#: apps/fundraising-cpt.php:34 apps/fundraising.php:168
+msgid "Search Campaign"
+msgstr ""
+
+#: apps/fundraising-cpt.php:65 apps/fundraising.php:199
+msgid "Search Categories"
+msgstr ""
+
+#: apps/fundraising-cpt.php:66 apps/fundraising.php:200
+msgid "All Categories"
+msgstr ""
+
+#: apps/fundraising-cpt.php:67 apps/fundraising.php:201
+msgid "Parent Categories"
+msgstr ""
+
+#: apps/fundraising-cpt.php:68 apps/fundraising.php:202
+msgid "Parent Categories:"
+msgstr ""
+
+#: apps/fundraising-cpt.php:69 apps/fundraising.php:203
+msgid "Edit Categories"
+msgstr ""
+
+#: apps/fundraising-cpt.php:70 apps/fundraising.php:204
+msgid "Update Categories"
+msgstr ""
+
+#: apps/fundraising-cpt.php:71 apps/fundraising.php:205
+msgid "Add New Categories"
+msgstr ""
+
+#: apps/fundraising-cpt.php:72 apps/fundraising.php:206
+msgid "New Categories"
+msgstr ""
+
+#: apps/fundraising-cpt.php:88 apps/fundraising-cpt.php:89
+#: apps/fundraising-cpt.php:98 apps/fundraising.php:225
+#: apps/fundraising.php:226 apps/fundraising.php:235
+msgid "Tags"
+msgstr ""
+
+#: apps/fundraising-cpt.php:90 apps/fundraising.php:227
+msgid "Search Tags"
+msgstr ""
+
+#: apps/fundraising-cpt.php:91 apps/fundraising.php:228
+msgid "All Tags"
+msgstr ""
+
+#: apps/fundraising-cpt.php:92 apps/fundraising.php:229
+msgid "Parent Tags"
+msgstr ""
+
+#: apps/fundraising-cpt.php:93 apps/fundraising.php:230
+msgid "Parent Tags:"
+msgstr ""
+
+#: apps/fundraising-cpt.php:94 apps/fundraising.php:231
+msgid "Edit Tags"
+msgstr ""
+
+#: apps/fundraising-cpt.php:95 apps/fundraising.php:232
+msgid "Update Tags"
+msgstr ""
+
+#: apps/fundraising-cpt.php:96 apps/fundraising.php:233
+msgid "Add New Tags"
+msgstr ""
+
+#: apps/fundraising-cpt.php:97 apps/fundraising.php:234
+msgid "New Tags"
+msgstr ""
+
+#: apps/fundraising.php:256 apps/fundraising.php:257
+#: views/admin/fundraising/reports/donation-reports.php:30
+#: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:19
+msgid "Reports"
+msgstr ""
+
+#: apps/fundraising.php:265 apps/fundraising.php:266 apps/fundraising.php:483
+#: plugin.php:100 views/admin/fundraising/donation-meta-box.php:124
+#: views/admin/fundraising/settings/donation-settings.php:14
+msgid "Settings"
+msgstr ""
+
+#: apps/fundraising.php:286
+msgid "Campaign Form"
+msgstr ""
+
+#: apps/fundraising.php:479
+#. translators: %s: currency symbol or code (e.g. $, EUR).
+msgid "Amount (%s)"
+msgstr ""
+
+#: apps/fundraising.php:480
+#: views/public/fundraising/single-page/include/page/backers.php:65
+#: views/public/fundraising/single-page/include/partials/goal_content.php:180
+msgid "Goal"
+msgstr ""
+
+#: apps/fundraising.php:482
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:222
+#. translators: %s: currency symbol or code (e.g. $, EUR).
+#. translators: %s: currency symbol.
+msgid "Raised Amount (%s)"
+msgstr ""
+
+#: apps/fundraising.php:484
+msgid "Author"
+msgstr ""
+
+#: apps/fundraising.php:485
+msgid "Donate Date"
+msgstr ""
+
+#: apps/fundraising.php:1060
+msgid "Unsuccess"
+msgstr ""
+
+#: apps/fundraising.php:1087
+msgid "Failed to validate"
+msgstr ""
+
+#: apps/fundraising.php:1091
+msgid "Failed"
+msgstr ""
+
+#: apps/settings.php:193
+msgid "Fundraising Dashboard"
+msgstr ""
+
+#: apps/settings.php:1192
+msgid "Activate Woocommerce"
+msgstr ""
+
+#: apps/settings.php:1200
+msgid "Install Woocommerce"
+msgstr ""
+
+#: apps/settings.php:1531 utilities/helper.php:106
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:195
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:16
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:181
+msgid "First Name"
+msgstr ""
+
+#: apps/settings.php:1539 utilities/helper.php:112
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:207
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:28
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:195
+msgid "Last Name"
+msgstr ""
+
+#: apps/settings.php:1547 utilities/helper.php:118
+msgid "Email Address"
+msgstr ""
+
+#: apps/settings.php:1555 utilities/helper.php:124
+msgid "Country Destination"
+msgstr ""
+
+#: apps/settings.php:1563 utilities/helper.php:130
+msgid "Street Address"
+msgstr ""
+
+#: apps/settings.php:1571
+msgid "City :"
+msgstr ""
+
+#: apps/settings.php:1579
+msgid "Postcode / ZIP :"
+msgstr ""
+
+#: core/donation-report.php:34 core/donation-report.php:35 plugin.php:138
+msgid "Donations"
+msgstr ""
+
+#: core/rest-route.php:37
+msgid "Product id not found."
+msgstr ""
+
+#: payment-module/payment.php:9
+msgid "Cash Payment"
+msgstr ""
+
+#: payment-module/payment.php:19
+msgid "Paypal Payment"
+msgstr ""
+
+#: payment-module/payment.php:41
+msgid "Direct bank transfer"
+msgstr ""
+
+#: payment-module/payment.php:60
+msgid "Check payments"
+msgstr ""
+
+#: payment-module/payment.php:70
+msgid "Stripe payments"
+msgstr ""
+
+#: payment-module/views/include/payment-popup-box.php:99
+msgid "+ Add"
+msgstr ""
+
+#: payment-module/views/include/payment-popup-box.php:123
+msgid "Select page"
+msgstr ""
+
+#: payment-module/views/include/payment-popup-box.php:157
+#: payment-module/views/payment-setup.php:73
+#: views/admin/fundraising/settings/include/display-settings.php:274
+#: views/admin/fundraising/settings/include/general-options.php:237
+#: views/admin/fundraising/settings/include/global-options.php:38
+#: views/admin/fundraising/settings/include/page-options.php:99
+#: views/admin/fundraising/settings/include/share-settings.php:31
+#: views/admin/fundraising/settings/include/terms-settings.php:94
+msgid "Save"
+msgstr ""
+
+#: payment-module/views/payment-setup.php:6
+msgid "Setup Payment Gateways"
+msgstr ""
+
+#: payment-module/views/payment-setup.php:18
+msgid "Gateways"
+msgstr ""
+
+#: payment-module/views/payment-setup.php:19
+msgid "Enable"
+msgstr ""
+
+#: payment-module/views/payment-setup.php:20
+#: views/public/donation/donation-page-short-code.php:348
+#: views/public/fundraising/single-page/include/content-header-crowdfund.php:147
+#: views/public/fundraising/single-page/include/content-header-donation.php:134
+#: views/public/fundraising/single-page/include/crowd_donation_body.php:217
+msgid "Description"
+msgstr ""
+
+#: payment-module/views/payment-setup.php:59
+msgid "Manage"
+msgstr ""
+
+#: payment-module/views/payment-setup.php:59 views/welcome/welcome.php:23
+msgid "Setup"
+msgstr ""
+
+#: plugin.php:101
+#: views/admin/fundraising/include/donations-form-content.php:142
+#: views/admin/fundraising/include/donations-general-backup.php:100
+#: views/admin/fundraising/include/donations-general.php:114
+msgid "Add"
+msgstr ""
+
+#: plugin.php:166
+msgid "ElementsKit"
+msgstr ""
+
+#: plugin.php:169
+msgid ""
+"All-in-one Elementor addon trusted by 1 Million+ users, makes your website "
+"builder process easier with ultimate freedom."
+msgstr ""
+
+#: plugin.php:173
+msgid "GetGenie"
+msgstr ""
+
+#: plugin.php:176
+msgid ""
+"Your personal AI assistant for content and SEO. Write content that ranks on "
+"Google with NLP keywords and SERP analysis data."
+msgstr ""
+
+#: plugin.php:180
+msgid "GutenKit"
+msgstr ""
+
+#: plugin.php:183
+msgid ""
+"Gutenberg blocks, patterns, and templates that extend the page-building "
+"experience using the WordPress block editor."
+msgstr ""
+
+#: plugin.php:187
+msgid "Shopengine"
+msgstr ""
+
+#: plugin.php:190
+msgid ""
+"Complete WooCommerce solution for Elementor to fully customize any pages "
+"including cart, checkout, shop page, and so on."
+msgstr ""
+
+#: plugin.php:194
+msgid "MetForm"
+msgstr ""
+
+#: plugin.php:197
+msgid ""
+"Drag & drop form builder for Elementor to create contact forms, multi-step "
+"forms, and more — smoother, faster, and better!"
+msgstr ""
+
+#: plugin.php:201
+msgid "EmailKit"
+msgstr ""
+
+#: plugin.php:204
+msgid ""
+"Advanced email customizer for WooCommerce and WordPress. Build, customize, "
+"and send emails from WordPress to boost your sales!"
+msgstr ""
+
+#: plugin.php:208
+msgid "WP Social"
+msgstr ""
+
+#: plugin.php:211
+msgid ""
+"Add social share, login, and engagement counter — unified solution for all "
+"social media with tons of different styles for your website."
+msgstr ""
+
+#: plugin.php:215
+msgid "WP Ultimate Review"
+msgstr ""
+
+#: plugin.php:218
+msgid ""
+"Collect and showcase reviews on your website to build brand credibility and "
+"social proof with the easiest solution."
+msgstr ""
+
+#: plugin.php:222
+msgid "Blocks for ShopEngine"
+msgstr ""
+
+#: plugin.php:225
+msgid ""
+"All in one WooCommerce solution for Gutenberg! Build your WooCommerce pages "
+"in a block editor with full customization."
+msgstr ""
+
+#: plugin.php:229
+msgid "Genie Image"
+msgstr ""
+
+#: plugin.php:232
+msgid ""
+"AI-powered text-to-image generator for WordPress with OpenAI’s DALL-E 2 "
+"technology to generate high-quality images in one click."
+msgstr ""
+
+#: utilities/helper.php:136
+#: views/admin/fundraising/settings/include/general-options.php:171
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:71
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:237
+msgid "City"
+msgstr ""
+
+#: utilities/helper.php:142
+#: views/admin/fundraising/settings/include/general-options.php:224
+msgid "Postcode / ZIP"
+msgstr ""
+
+#: utilities/plugins/plugins.php:371
+msgid "Activated"
+msgstr ""
+
+#: utilities/plugins/plugins.php:374
+msgid "Activate Now"
+msgstr ""
+
+#: utilities/plugins/plugins.php:379
+msgid "Install Now"
+msgstr ""
+
+#: utilities/plugins/plugins.php:424
+msgid "Activate"
+msgstr ""
+
+#: utilities/plugins/plugins.php:441
+msgid "Read Docs"
+msgstr ""
+
+#: views/admin/featured/add-video-modal.php:8
+msgid "Close"
+msgstr ""
+
+#: views/admin/featured/add-video-modal.php:13
+#: views/admin/featured/add-video-modal.php:17
+msgid "Set Featured Video"
+msgstr ""
+
+#: views/admin/featured/add-video-modal.php:19
+msgid ""
+"You can type any Vimeo or YouTube URL to get the metadata for the video and "
+"insert as a featured video."
+msgstr ""
+
+#: views/admin/featured/add-video-modal.php:26
+msgid "Insert URL"
+msgstr ""
+
+#: views/admin/featured/add-video-modal.php:30
+msgid "Check Video"
+msgstr ""
+
+#: views/admin/featured/preview-video.php:16
+msgid "Set Video"
+msgstr ""
+
+#: views/admin/fundraising/donation-meta-box.php:58
+msgid "General"
+msgstr ""
+
+#: views/admin/fundraising/donation-meta-box.php:59
+#: views/admin/fundraising/donation-meta-box.php:76
+#: views/admin/fundraising/donation-meta-box.php:96
+#: views/admin/fundraising/donation-meta-box.php:106
+#: views/admin/fundraising/donation-meta-box.php:116
+#: views/admin/fundraising/donation-meta-box.php:125
+msgid "Features or Elements"
+msgstr ""
+
+#: views/admin/fundraising/donation-meta-box.php:75
+msgid "Goal Setup"
+msgstr ""
+
+#: views/admin/fundraising/donation-meta-box.php:95
+msgid "Pledge Setup"
+msgstr ""
+
+#: views/admin/fundraising/donation-meta-box.php:105
+#: views/admin/fundraising/settings/settings-tab-menu.php:44
+msgid "Terms & Condition"
+msgstr ""
+
+#: views/admin/fundraising/donation-meta-box.php:115
+msgid "Form Content"
+msgstr ""
+
+#: views/admin/fundraising/donation-meta-box.php:139
+msgid "Payment accounts"
+msgstr ""
+
+#: views/admin/fundraising/donation-meta-box.php:140
+msgid "Account settings to receive donation"
+msgstr ""
+
+#: views/admin/fundraising/include/_partial_input_type_selector.php:28
+msgid "Type"
+msgstr ""
+
+#: views/admin/fundraising/include/_partial_input_type_selector.php:39
+#: views/admin/fundraising/meta-content/recent-donate.php:59
+#: views/admin/fundraising/reports/include/donors-reports.php:41
+#: views/admin/view-payments.php:371 views/public/auth/form.php:107
+#: views/public/auth/modal.php:128
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:220
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:159
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:322
+msgid "Email"
+msgstr ""
+
+#: views/admin/fundraising/include/_partial_input_type_selector.php:45
+msgid "Selection"
+msgstr ""
+
+#: views/admin/fundraising/include/_partial_input_type_selector.php:78
+msgid "Required"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-form-content.php:15
+#: views/admin/fundraising/include/donations-form-content.php:16
+msgid "Enable Content"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-form-content.php:30
+msgid "Display additional content about Campaign."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-form-content.php:39
+msgid "Content Position"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-form-content.php:48
+msgid "After Form"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-form-content.php:56
+msgid "Before Form"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-form-content.php:64
+msgid "Content Details"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-form-content.php:94
+msgid "Custom Fields"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-form-content.php:110
+msgid "Add new custom filed in forms."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:8
+#: views/admin/fundraising/include/donations-general.php:8
+msgid "Campaign Format"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:13
+#: views/admin/fundraising/include/donations-general.php:17
+#: views/welcome/include/setup-campaign.php:14
+msgid "Single Donation"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:18
+#: views/admin/fundraising/include/donations-general.php:26
+#: views/welcome/include/setup-campaign.php:23
+msgid "Crowdfunding"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:22
+#: views/admin/fundraising/include/donations-general.php:30
+msgid "Set format of Campaign for Donation or Crowdfunding"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:32
+#: views/admin/fundraising/include/donations-general.php:44
+msgid "Pricing Labels"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:37
+#: views/admin/fundraising/include/donations-general.php:50
+#: views/public/donation/donation-pop-up.php:61
+msgid "Multi Price"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:42
+#: views/admin/fundraising/include/donations-general.php:54
+msgid "Fixed Price"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:46
+#: views/admin/fundraising/include/donations-general.php:58
+msgid ""
+"Do you want this form to have one Campaign price or multiple price (for "
+"example, $10, $20, $50)?"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:60
+#. translators: %s: donation level label.
+msgid "Donation Level:  %s"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:69
+#: views/admin/fundraising/include/donations-general-backup.php:109
+#: views/admin/fundraising/include/donations-general-backup.php:232
+#: views/admin/fundraising/include/donations-general.php:80
+#: views/admin/fundraising/include/donations-general.php:124
+#: views/admin/fundraising/include/donations-general.php:267
+#: views/admin/fundraising/include/donations-pledge-setup.php:43
+#: views/admin/fundraising/reports/include/income-reports.php:49
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:49
+#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:32
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:53
+msgid "Amount"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:74
+#: views/admin/fundraising/include/donations-general-backup.php:114
+#: views/admin/fundraising/include/donations-general-backup.php:248
+#: views/admin/fundraising/include/donations-general.php:88
+#: views/admin/fundraising/include/donations-general.php:133
+#: views/admin/fundraising/include/donations-general.php:283
+msgid "Label Name"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:81
+#: views/admin/fundraising/include/donations-general.php:95
+msgid "Set Default"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:122
+msgid "Enable Custom"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:129
+msgid "Fixed Amount modify"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:136
+#: views/admin/fundraising/include/donations-general.php:161
+msgid "Display Label"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:141
+#: views/admin/fundraising/include/donations-general.php:166
+msgid "Boxed"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:146
+#: views/admin/fundraising/include/donations-general.php:171
+msgid "Radio Button"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:151
+#: views/admin/fundraising/include/donations-general.php:176
+msgid "Dropdown"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:154
+#: views/admin/fundraising/include/donations-general.php:180
+msgid "Set how the Campaign levels will display on the form."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:168
+#: views/admin/fundraising/include/donations-general.php:193
+msgid "Limit Setup"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:178
+#: views/admin/fundraising/include/donations-general.php:203
+msgid "Set  min, max amount for Campaign."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:184
+#: views/admin/fundraising/include/donations-general.php:209
+msgid "Min Amount"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:189
+#: views/admin/fundraising/include/donations-general.php:218
+msgid "Max Amount"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:196
+#: views/admin/fundraising/include/donations-general.php:229
+#: views/admin/fundraising/reports/include/income-reports.php:54
+msgid "Details"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:199
+#: views/admin/fundraising/include/donations-general.php:233
+msgid "This text will be display in Campaign form."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:216
+#: views/admin/fundraising/include/donations-general.php:251
+msgid "Additional Fees"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:226
+#: views/admin/fundraising/include/donations-general.php:261
+msgid "Set Additional Fees (% or Fixed) of give amount."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:240
+#: views/admin/fundraising/include/donations-general.php:275
+msgid "Percentage"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general-backup.php:241
+#: views/admin/fundraising/include/donations-general.php:276
+msgid "Fixed"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general.php:71
+msgid "Donation Level: "
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general.php:145
+msgid "Custom amount"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general.php:309
+#: views/admin/fundraising/include/donations-general.php:310
+msgid "Form Styles"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general.php:325
+msgid "Set donation form style for donation information"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general.php:329
+msgid "Continue Text"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general.php:333
+msgid "Continue button only apply for design(Only Button, Modal Style)"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general.php:340
+msgid "Submit Text"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general.php:344
+msgid "Set submit button text."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general.php:350
+msgid "Form show in Modal(Popup)"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-general.php:357
+msgid "Click continue button after show form in popup."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:8
+msgid "Enable Goal"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:18
+msgid "Display goal terget."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:22
+#: views/admin/fundraising/settings/include/display-settings.php:26
+msgid "Style : "
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:25
+#: views/admin/fundraising/settings/include/display-settings.php:29
+msgid "Progress "
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:30
+#: views/admin/fundraising/settings/include/display-settings.php:34
+msgid "Pie"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:37
+#: views/admin/fundraising/settings/include/display-settings.php:62
+msgid "Display As : "
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:40
+#: views/admin/fundraising/settings/include/display-settings.php:65
+msgid "Percentage "
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:45
+#: views/admin/fundraising/settings/include/display-settings.php:70
+msgid "Flat"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:50
+#: views/admin/fundraising/settings/include/display-settings.php:75
+msgid "Both"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:56
+#: views/admin/fundraising/settings/include/display-settings.php:86
+msgid "Color : "
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:64
+#: views/admin/fundraising/settings/include/display-settings.php:94
+msgid "Goal Type"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:72
+#: views/admin/fundraising/settings/include/display-settings.php:100
+msgid "Target Goal "
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:77
+#: views/admin/fundraising/include/donations-goal-setup.php:112
+#: views/admin/fundraising/settings/include/display-settings.php:105
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:210
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:230
+msgid "Target Date"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:82
+#: views/admin/fundraising/settings/include/display-settings.php:110
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:211
+msgid "Target Goal & Date"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:87
+#: views/admin/fundraising/settings/include/display-settings.php:115
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:212
+msgid "Campaign Never Ends"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:93
+msgid "Raised Amount"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:125
+msgid "After Goal Raised"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:135
+msgid "Enable after goal target."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-goal-setup.php:138
+msgid "Message:"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:8
+msgid "Enable Pledge"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:17
+msgid "Display Pledge or Rewards."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:22
+msgid "Pledge Label"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:53
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:58
+msgid "Quantity"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:63
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:80
+msgid "Label Description"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:67
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:89
+msgid "Additional Data : "
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:69
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:93
+msgid "Includes"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:73
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:98
+msgid "Multiple Value Seperate by comma(,)"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:79
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:106
+msgid "Estimated Delivery"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:89
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:119
+msgid "Ships To"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-pledge-setup.php:106
+msgid "Add Pledge"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:3
+msgid "Short-code"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:8
+msgid ""
+"This is sortcode of form. Tag: form-style (all_fields, only_button) & Are "
+"you show form in modal popup, then use(Yes, No)."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:14
+#: views/admin/fundraising/settings/include/display-settings.php:128
+msgid "Enable Sidebar"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:23
+msgid "Enable Sidebar Content in single page for this Campaign"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:31
+msgid "Hide Campaign author"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:41
+msgid "Show or hide campaign author name in campaign"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:50
+#: views/admin/fundraising/settings/include/display-settings.php:144
+msgid "Hide Featured Info"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:60
+msgid ""
+"Disable Featured like as Image, Video, Gallery in single page for this "
+"Campaign"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:69
+#: views/admin/fundraising/settings/include/display-settings.php:160
+msgid "Hide Campaign Title"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:79
+msgid "Disable Campaign Title in single page for this Campaign"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:88
+#: views/admin/fundraising/settings/include/display-settings.php:176
+msgid "Hide Short Brief"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:98
+msgid "Disable Short Brief in single page for this Campaign"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:107
+#: views/admin/fundraising/settings/include/display-settings.php:192
+msgid "Hide Campaign Description"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:117
+msgid "Disable Campaign Content in single page for this Campaign"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:126
+#: views/admin/fundraising/settings/include/display-settings.php:208
+msgid "Hide Campaign Reviews"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:136
+msgid "Disable Campaign Review in single page for this Campaign"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:146
+#: views/admin/fundraising/settings/include/display-settings.php:224
+msgid "Hide Updates"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:156
+msgid "Disable Campaign Updates in single page."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:166
+#: views/admin/fundraising/settings/include/display-settings.php:240
+msgid "Hide Recent Funds"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:176
+msgid "Disable Donor list in single page."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:186
+#: views/admin/fundraising/settings/include/display-settings.php:256
+msgid "Show Contributor Email"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:196
+msgid "Show contributors Email in single page."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:204
+msgid "Page Width"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:209
+msgid ""
+"Set what is the campaign page width. Value will be in px unit, 0 means it "
+"will inherit default"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:215
+msgid "Custom Form Class"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:218
+msgid "This class for custom design."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:223
+msgid "Custom Form Id"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-settings.php:226
+msgid "Declare form id."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-terms-condition.php:8
+msgid "Enable Terms"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-terms-condition.php:17
+msgid "Display Terms & condition enable."
+msgstr ""
+
+#: views/admin/fundraising/include/donations-terms-condition.php:22
+msgid "Position Checkbox"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-terms-condition.php:28
+#: views/admin/fundraising/settings/include/terms-settings.php:41
+msgid "After Submit Button"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-terms-condition.php:33
+#: views/admin/fundraising/settings/include/terms-settings.php:49
+msgid "Before Submit Button"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-terms-condition.php:41
+msgid "Agreement Label"
+msgstr ""
+
+#: views/admin/fundraising/include/donations-terms-condition.php:45
+msgid "Agreement Details"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:35
+#: views/admin/view-payments.php:336
+msgid "Recent Donation List"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:37
+#: views/admin/view-payments.php:339
+msgid "Period : "
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:43
+#: views/admin/fundraising/reports/donation-reports.php:100
+#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:24
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:72
+msgid "All"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:44
+#: views/admin/fundraising/meta-content/recent-donate.php:106
+#: views/admin/fundraising/reports/donation-reports.php:102
+#: views/admin/view-payments.php:351 views/admin/view-payments.php:413
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:74
+msgid "In Review"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:45
+#: views/admin/fundraising/meta-content/recent-donate.php:103
+#: views/admin/fundraising/reports/donation-reports.php:101
+#: views/admin/view-payments.php:354 views/admin/view-payments.php:412
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:73
+msgid "In Process"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:50
+#: views/admin/view-payments.php:362
+#. translators: %s: number of items per page.
+msgid "Show %s (per page) in total "
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:58
+#: views/admin/view-payments.php:370
+msgid "S.L."
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:62
+#. translators: %s: currency symbol.
+msgid "Amount [%s]"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:63
+#: views/admin/fundraising/settings/settings-tab-menu.php:32
+#: views/admin/view-payments.php:373
+msgid "Payment Method"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:65
+#: views/admin/view-payments.php:375
+msgid "Action"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:109
+#: views/admin/fundraising/reports/donation-reports.php:103
+#: views/admin/view-payments.php:348 views/admin/view-payments.php:405
+#: views/admin/view-payments.php:414
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:75
+msgid "Success"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:112
+#: views/admin/fundraising/reports/donation-reports.php:104
+#: views/admin/view-payments.php:406
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:76
+msgid "Refund"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:115
+#: views/admin/fundraising/reports/donation-reports.php:105
+#: views/admin/view-payments.php:415
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:77
+msgid "Cancel"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:128
+#: views/admin/fundraising/reports/include/donors-reports.php:96
+#: views/admin/fundraising/reports/include/income-reports.php:96
+#: views/admin/view-payments.php:449
+#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:66
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:94
+msgid "Total Amount : "
+msgstr ""
+
+#: views/admin/fundraising/meta-content/short-details.php:9
+#: views/admin/view-payments.php:134
+msgid "Payment Details"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/short-details.php:22
+msgid ""
+"We have moved this part under new menu item \"Donations\". Please click to "
+"view"
+msgstr ""
+
+#: views/admin/fundraising/meta-content/short-details.php:22
+msgid "Recent donation"
+msgstr ""
+
+#: views/admin/fundraising/reports/donation-reports.php:77
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:48
+msgid "Select Form"
+msgstr ""
+
+#: views/admin/fundraising/reports/donation-reports.php:79
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:50
+msgid "All Forms"
+msgstr ""
+
+#: views/admin/fundraising/reports/donation-reports.php:88
+#: views/admin/view-payments.php:72
+#: views/public/fundraising/dynamic-page/dashboard/report-search/donate-report-search.php:32
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:62
+msgid "From Date"
+msgstr ""
+
+#: views/admin/fundraising/reports/donation-reports.php:93
+#: views/admin/view-payments.php:77
+#: views/public/fundraising/dynamic-page/dashboard/report-search/donate-report-search.php:36
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:66
+msgid "To Date"
+msgstr ""
+
+#: views/admin/fundraising/reports/donation-reports.php:98
+#: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:70
+msgid "Status"
+msgstr ""
+
+#: views/admin/fundraising/reports/include/donors-reports.php:9
+msgid "Donors History"
+msgstr ""
+
+#: views/admin/fundraising/reports/include/donors-reports.php:10
+#: views/admin/fundraising/reports/include/goal-reports.php:10
+#: views/admin/fundraising/reports/include/income-reports.php:10
+#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:15
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:15
+msgid "Reporting Period : "
+msgstr ""
+
+#: views/admin/fundraising/reports/include/donors-reports.php:43
+msgid "Total Amount"
+msgstr ""
+
+#: views/admin/fundraising/reports/include/goal-reports.php:9
+msgid "Goal Statements"
+msgstr ""
+
+#: views/admin/fundraising/reports/include/goal-reports.php:36
+#: views/admin/fundraising/reports/include/income-reports.php:105
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:103
+msgid "Not found any reports"
+msgstr ""
+
+#: views/admin/fundraising/reports/include/income-reports.php:9
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:14
+msgid "Income Statements"
+msgstr ""
+
+#: views/admin/fundraising/reports/include/income-reports.php:44
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:48
+msgid "Invoice"
+msgstr ""
+
+#: views/admin/fundraising/reports/include/income-reports.php:45
+msgid "Contributor’s Name"
+msgstr ""
+
+#: views/admin/fundraising/reports/include/income-reports.php:46
+msgid "Contributor’s Mail"
+msgstr ""
+
+#: views/admin/fundraising/reports/include/income-reports.php:87
+msgid "View"
+msgstr ""
+
+#: views/admin/fundraising/reports/reports-tab-menu.php:14
+#: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:21
+msgid "Income"
+msgstr ""
+
+#: views/admin/fundraising/reports/reports-tab-menu.php:22
+msgid "Donors"
+msgstr ""
+
+#: views/admin/fundraising/reports/reports-tab-menu.php:30
+msgid "Purge"
+msgstr ""
+
+#: views/admin/fundraising/settings/donation-settings.php:8
+msgid "You are not allowed to save data."
+msgstr ""
+
+#: views/admin/fundraising/settings/donation-settings.php:22
+msgid "Dismiss this notice."
+msgstr ""
+
+#: views/admin/fundraising/settings/include/display-settings.php:11
+#: views/admin/fundraising/settings/settings-tab-menu.php:26
+msgid "Display Settings"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/display-settings.php:19
+msgid "Goal options (Default Set for All Campaign)"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/display-settings.php:22
+msgid "Goal Style"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/display-settings.php:42
+msgid "Display  Backers"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/display-settings.php:58
+msgid "Display As"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/display-settings.php:125
+msgid "Single Page Options(Default Set for All Campaign)"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:11
+msgid "Setup General Settings"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:18
+msgid "Currency options"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:21
+msgid "Currency"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:54
+msgid "Symbol Position"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:69
+msgid "Thousand separator"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:77
+msgid "Use Thousand Seperator in Display Currency."
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:83
+msgid "Decimal separator"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:92
+msgid "Use Decimal Seperator in Display Currency."
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:98
+msgid "Number of decimals"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:108
+msgid "Show Decimal Number in Display Currency."
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:134
+msgid "Use space with symbol"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:148
+msgid "Use space in display currency."
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:155
+msgid "Location"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:159
+msgid "Address Line"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/general-options.php:183
+msgid "Country / State"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/global-options.php:9
+msgid "Setup Global Options"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/page-options.php:9
+msgid "Page Setup of Woocommerce"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/page-options.php:15
+msgid "Setup Page Settings"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/page-options.php:23
+msgid "Page options"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/payment-method.php:9
+msgid "Payment Getways Setup of Woocommerce "
+msgstr ""
+
+#: views/admin/fundraising/settings/include/payment-method.php:13
+msgid "Payment Type"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/payment-method.php:22
+#: views/welcome/include/setup-payment-type.php:14
+msgid "Default"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/payment-method.php:23
+#: views/welcome/include/setup-payment-type.php:15
+msgid "Cash on delivery, Direct bank transfer, Check payments, PayPal, Stripe etc."
+msgstr ""
+
+#: views/admin/fundraising/settings/include/payment-method.php:31
+#: views/welcome/include/setup-payment-type.php:23
+msgid "Woocommerce"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/payment-method.php:32
+#: views/welcome/include/setup-payment-type.php:24
+msgid "Woocommerce all payment getway."
+msgstr ""
+
+#: views/admin/fundraising/settings/include/share-settings.php:9
+msgid "Social Share Options"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/terms-settings.php:9
+msgid "Setup Terms & Condition"
+msgstr ""
+
+#: views/admin/fundraising/settings/include/terms-settings.php:18
+msgid "Enable Terms "
+msgstr ""
+
+#: views/admin/fundraising/settings/include/terms-settings.php:32
+msgid "Position Checkbox "
+msgstr ""
+
+#: views/admin/fundraising/settings/include/terms-settings.php:58
+msgid "Agreement Label "
+msgstr ""
+
+#: views/admin/fundraising/settings/include/terms-settings.php:72
+msgid "Agreement Details "
+msgstr ""
+
+#: views/admin/fundraising/settings/settings-tab-menu.php:14
+msgid "General Settings"
+msgstr ""
+
+#: views/admin/fundraising/settings/settings-tab-menu.php:20
+msgid "Global Options"
+msgstr ""
+
+#: views/admin/fundraising/settings/settings-tab-menu.php:38
+msgid "Share Options"
+msgstr ""
+
+#: views/admin/fundraising/settings/settings-tab-menu.php:50
+msgid "Page Options"
+msgstr ""
+
+#: views/admin/fundraising/settings/settings-tab-menu.php:62
+msgid "Email settings"
+msgstr ""
+
+#: views/admin/fundraising/settings/settings-tab-menu.php:69
+msgid "Personal payment"
+msgstr ""
+
+#: views/admin/view-invoice.php:7
+msgid "You are not allowed to view the page"
+msgstr ""
+
+#: views/admin/view-invoice.php:179
+msgid "To view invoice details you have to be either"
+msgstr ""
+
+#: views/admin/view-invoice.php:189
+msgid "To view invoice details please"
+msgstr ""
+
+#: views/admin/view-invoice.php:190
+msgid "Log in"
+msgstr ""
+
+#: views/admin/view-payments.php:52
+msgid "Select campaign"
+msgstr ""
+
+#: views/admin/view-payments.php:56
+msgid "Select a campaign"
+msgstr ""
+
+#: views/admin/view-payments.php:148
+msgid "Paypal"
+msgstr ""
+
+#: views/admin/view-payments.php:161
+msgid "Cash"
+msgstr ""
+
+#: views/admin/view-payments.php:174
+msgid "Check"
+msgstr ""
+
+#: views/admin/view-payments.php:187
+msgid "Bank"
+msgstr ""
+
+#: views/admin/view-payments.php:200
+msgid "Stripe"
+msgstr ""
+
+#: views/admin/view-payments.php:212
+msgid "2Checkout"
+msgstr ""
+
+#: views/admin/view-payments.php:227
+#. translators: %s: currency symbol.
+msgid "Success Amount (%s)"
+msgstr ""
+
+#: views/admin/view-payments.php:237
+msgid "Payment Types"
+msgstr ""
+
+#: views/admin/view-payments.php:251
+#. translators: %s: currency symbol.
+msgid "Default (%s)"
+msgstr ""
+
+#: views/admin/view-payments.php:261
+#. translators: %s: currency symbol.
+msgid "Woocommerce (%s)"
+msgstr ""
+
+#: views/admin/view-payments.php:285
+msgid "In Process :"
+msgstr ""
+
+#: views/admin/view-payments.php:292
+msgid "In Review :"
+msgstr ""
+
+#: views/admin/view-payments.php:301
+#. translators: %s: currency symbol.
+msgid "Total Amount (%s)"
+msgstr ""
+
+#: views/public/auth/form.php:19
+#: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:30
+msgid "Logout"
+msgstr ""
+
+#: views/public/auth/form.php:21
+#: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:10
+msgid "Dashboard"
+msgstr ""
+
+#: views/public/auth/form.php:48 views/public/auth/modal.php:69
+msgid "Username"
+msgstr ""
+
+#: views/public/auth/form.php:56 views/public/auth/form.php:115
+#: views/public/auth/modal.php:77 views/public/auth/modal.php:136
+#: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:15
+msgid "Password"
+msgstr ""
+
+#: views/public/auth/form.php:64 views/public/auth/modal.php:85
+#: views/public/fundraising/dynamic-page/login.php:48
+msgid "Remember me"
+msgstr ""
+
+#: views/public/auth/form.php:73 views/public/auth/modal.php:94
+#: views/public/fundraising/dynamic-page/login.php:54
+msgid "Lost your password?"
+msgstr ""
+
+#: views/public/auth/form.php:100 views/public/auth/modal.php:121
+msgid "User Name"
+msgstr ""
+
+#: views/public/auth/form.php:128 views/public/auth/modal.php:149
+#: views/public/fundraising/dynamic-page/login.php:104
+msgid "Do you have an account?"
+msgstr ""
+
+#: views/public/donation/donation-display-form-sm-all.php:27
+#: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:22
+#: views/public/fundraising/single-page/include/single_donation_modal_all_fields.php:29
+msgid "Donate"
+msgstr ""
+
+#: views/public/donation/donation-display-form-sm-all.php:65
+#: views/public/donation/donation-display-form-sm-btn.php:65
+#: views/public/donation/donation-display-form-sm-btn.php:118
+#: views/public/donation/donation-display-form-sn.php:60
+#: views/public/donation/donation-display-form-sn.php:101
+#: views/public/donation/donation-display-form.php:378
+#: views/public/donation/donation-pop-up.php:78
+#: views/public/fundraising/single-page/include/partials/_donation_button.php:23
+msgid "Donate Now"
+msgstr ""
+
+#: views/public/donation/donation-display-form-sn.php:39
+#: views/public/donation/donation-display-form.php:262
+#: views/public/donation/donation-display-form.php:270
+#: views/public/fundraising/single-page/include/page/backers-crowd-sh.php:111
+#: views/public/fundraising/single-page/include/page/pledge.php:137
+msgid "Continue"
+msgstr ""
+
+#: views/public/donation/donation-page-short-code.php:332
+#: views/public/fundraising/single-page/include/content-header-crowdfund.php:132
+#: views/public/fundraising/single-page/include/content-header-donation.php:119
+#: views/public/fundraising/single-page/include/crowd_donation_body.php:197
+msgid "Recent Funds"
+msgstr ""
+
+#: views/public/donation/donation-page-short-code.php:355
+#: views/public/fundraising/single-page/include/content-header-crowdfund.php:154
+#: views/public/fundraising/single-page/include/content-header-donation.php:141
+#: views/public/fundraising/single-page/include/crowd_donation_body.php:225
+msgid "Reviews"
+msgstr ""
+
+#: views/public/donation/donation-page-short-code.php:362
+#: views/public/fundraising/single-page/include/content-header-crowdfund.php:161
+#: views/public/fundraising/single-page/include/content-header-donation.php:148
+#: views/public/fundraising/single-page/include/crowd_donation_body.php:234
+msgid "Updates"
+msgstr ""
+
+#: views/public/donation/donation-pop-up.php:10
+msgid "Make a donation"
+msgstr ""
+
+#: views/public/donation/donation-pop-up.php:13
+msgid ""
+"To learn more about make donate charity with our visit our Contact us site. "
+"By calling +44(0)8008838450"
+msgstr ""
+
+#: views/public/donation/donation-pop-up.php:20
+msgid "List Of Donation"
+msgstr ""
+
+#: views/public/donation/donation-pop-up.php:22
+msgid "-- Select One --"
+msgstr ""
+
+#: views/public/donation/donation-pop-up.php:71
+#: views/public/donation/include/content/amount-in-boxed.php:29
+#: views/public/donation/include/content/amount-in-dropdown.php:39
+#: views/public/donation/include/content/amount-in-radio.php:43
+#: views/public/fundraising/single-page/include/partials/amount-in-boxed.php:31
+#: views/public/fundraising/single-page/include/partials/amount-in-dropdown.php:39
+#: views/public/fundraising/single-page/include/partials/amount-in-radio.php:43
+msgid "Custom"
+msgstr ""
+
+#: views/public/donation/include/content/_partials/backers.php:8
+#: views/public/fundraising/single-page/include/partials/backers.php:8
+msgid "Donor"
+msgstr ""
+
+#: views/public/donation/include/content/fees-content.php:43
+msgid "Total charge :"
+msgstr ""
+
+#: views/public/donation/include/content/goal-content.php:72
+#: views/public/fundraising/single-page/include/partials/goal_content.php:147
+msgid "Raised"
+msgstr ""
+
+#: views/public/donation/include/content/goal-content.php:89
+msgid "raised"
+msgstr ""
+
+#: views/public/donation/include/content/goal-content.php:118
+msgid "of"
+msgstr ""
+
+#: views/public/donation/include/content/goal-content.php:174
+#: views/public/fundraising/dynamic-page/campaign-elementor.php:277
+#: views/public/fundraising/single-page/include/partials/goal_content.php:228
+msgid "days left"
+msgstr ""
+
+#: views/public/donation/include/content/payment-content.php:10
+#: views/public/fundraising/single-page/include/partials/payment_options_content.php:10
+msgid "Select Payment Method:"
+msgstr ""
+
+#: views/public/donation/include/content/payment-content.php:17
+msgid "No payment method is set up."
+msgstr ""
+
+#: views/public/donation/include/content/payment-content.php:64
+#: views/public/fundraising/single-page/include/partials/payment_options_content.php:64
+msgid "Account Details:"
+msgstr ""
+
+#: views/public/donation/include/content/payment-content.php:123
+#: views/public/fundraising/single-page/include/partials/payment_options_content.php:113
+msgid "Details:"
+msgstr ""
+
+#: views/public/donation/include/content/payment-content.php:133
+#: views/public/fundraising/single-page/include/partials/payment_options_content.php:120
+msgid "Instructions:"
+msgstr ""
+
+#: views/public/donation/include/doantion-form-include.php:44
+#: views/public/donation/include/doantion-form-partial-first.php:29
+#: views/public/fundraising/single-page/include/partials/_check_category_markup.php:26
+#. translators: %s: category name.
+msgid "View all posts in %s"
+msgstr ""
+
+#: views/public/donation/include/post-body-crowd-sh.php:14
+#: views/public/fundraising/single-page/include/content-header-crowdfund.php:82
+#: views/public/fundraising/single-page/include/crowd_donation_body.php:132
+msgid "Short Brief"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/campaign_listing.php:254
+#: views/public/fundraising/dynamic-page/campaign.php:240
+msgid "28 Days Left"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/campaign_listing.php:329
+#: views/public/fundraising/dynamic-page/campaign-elementor.php:350
+#: views/public/fundraising/dynamic-page/campaign.php:312
+msgid "Created by"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/campaign_listing.php:337
+#: views/public/fundraising/dynamic-page/campaign.php:318
+msgid "Back Project"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/campaign_listing.php:360
+#: views/public/fundraising/dynamic-page/campaign-elementor.php:397
+#: views/public/fundraising/dynamic-page/campaign.php:340
+#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:87
+msgid "Sorry, not found any campaign."
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:7
+msgid "Security check failed"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:69
+msgid "Billing details:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:80
+msgid "Country Destination:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:166
+msgid "Checkout Details"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:175
+#: views/public/fundraising/dynamic-page/order-confirm.php:63
+msgid "Product"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:178
+#: views/public/fundraising/dynamic-page/order-confirm.php:64
+msgid "Total"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:221
+#: views/public/fundraising/dynamic-page/order-confirm.php:89
+msgid "Subtotal:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:233
+#: views/public/fundraising/dynamic-page/order-confirm.php:98
+msgid "Shipping:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:250
+msgid "Fees"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:267
+#: views/public/fundraising/dynamic-page/order-confirm.php:31
+#: views/public/fundraising/dynamic-page/order-confirm.php:115
+msgid "Total:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:302
+msgid "Checkout"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/checkout.php:309
+msgid "Invalid Payment"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:11
+msgid "Campaign Categories"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:62
+msgid "TAGs"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:83
+msgid "Campaign Featured Type"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:98
+msgid "image"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:99
+msgid "Video"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:106
+msgid "Campaign Image"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:112
+msgid "Upload"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:142
+msgid "Campaign Video URL"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:164
+#. translators: %s: currency symbol.
+msgid "Minimum Amount (%s)"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:174
+#. translators: %s: currency symbol.
+msgid "Maximum Amount (%s)"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:184
+#. translators: %s: currency symbol.
+msgid "Recomended Amount (%s)"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:206
+msgid "End Method"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:209
+msgid "Target Goal"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:240
+msgid "After Goal Raised Message"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:9
+msgid "Enable Rewards"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:19
+msgid "Setup rewards for campaign."
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:73
+msgid "Basic"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:140
+msgid "Add Rewards"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/campaign-intro.php:9
+msgid "Campaign Title"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/campaign-intro.php:16
+msgid "Short Description"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/campaign-intro.php:24
+msgid "Campaign Description"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/finish.php:9
+msgid "Select your Country"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/finish.php:49
+msgid "Campaign Location"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/finish.php:58
+msgid "Contributor Email"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/finish.php:69
+msgid "Show contributor email on campaign the single page. "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/finish.php:74
+msgid "Disable Review"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/finish.php:80
+msgid "Disable user review list on campaign the single page."
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/finish.php:85
+msgid "Disable Updates"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/finish.php:91
+msgid "Disable update info on campaign the single page."
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/back-report.php:34
+#: views/public/fundraising/dynamic-page/order-confirm.php:25
+#: views/public/fundraising/single-page/include/page/recent.php:61
+msgid "Date:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/campaign-content.php:39
+msgid "1. Campaign Intro"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/campaign-content.php:40
+msgid "2. Add Details"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/campaign-content.php:41
+msgid "3. Add Rewards"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/campaign-content.php:42
+msgid "4. Submit Now"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:31
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:296
+msgid "Fund Raised"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:51
+msgid "Total Backed"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:70
+msgid "Pledge Received"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:78
+msgid "Income Data"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:167
+msgid "My Information "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:171
+msgid "Username "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:183
+msgid "Phone "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:233
+msgid "Bio"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:248
+msgid "My Balance "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:262
+msgid "Current Balance"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:275
+msgid "My Campaign List"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:294
+msgid "Campaigns"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:9
+msgid "Donate Reports "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:14
+msgid "Donate Statements"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:15
+msgid "to"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:29
+msgid "Campaign"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:75
+msgid "No data Found"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:8
+msgid "Income Reports "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:49
+msgid "Contributor`s Name"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:50
+msgid "Contributor`s Mail"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:11
+msgid "My Campaigns"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:12
+msgid "My Accounts"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:14
+msgid "Profile"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:16
+#: views/public/fundraising/single-page/include/page/pledge.php:18
+msgid "Rewards"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/menu/short-profile.php:9
+msgid "+ New Campaign"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:7
+msgid "My campaigns "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:25
+msgid "Publish"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:26
+msgid "Review"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:27
+msgid "Draft"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:66
+msgid "Raised Amount : "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:74
+msgid "Publish Date : "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/my-campaign-content.php:79
+msgid "Edit : "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/password-content.php:14
+msgid "Change your Password "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/password-content.php:18
+msgid "Current Password"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/password-content.php:26
+msgid "New Password"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/password-content.php:34
+msgid "Confirm Password"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/password-content.php:42
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:173
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:336
+msgid "Update"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:12
+msgid "Billing Info "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:42
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:209
+msgid "Company"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:56
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:223
+msgid "Address"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:86
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:251
+msgid "Postcode"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:100
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:264
+msgid "Country"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:145
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:308
+msgid "Telephone"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:178
+msgid "Shipping Info "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/rewards-content.php:8
+msgid "Rewards Info "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/rewards-content.php:38
+#: views/public/fundraising/single-page/include/page/pledge.php:35
+msgid "Reward Amount:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/rewards-content.php:46
+#: views/public/fundraising/single-page/include/page/pledge.php:86
+msgid "Estimated Delivery:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/rewards-content.php:55
+#: views/public/fundraising/single-page/include/page/pledge.php:96
+msgid "Ships To:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard.php:55
+msgid "Dashboard page not found."
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard.php:58
+msgid "Invalid dashboard page requested."
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/login.php:20
+#: views/public/fundraising/dynamic-page/login.php:66
+msgid "Welcome to "
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/login.php:21
+msgid "Login your account"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/login.php:67
+msgid "Create your account today!"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/order-confirm.php:13
+msgid "Order received"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/order-confirm.php:17
+msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/order-confirm.php:19
+msgid "Order number:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/order-confirm.php:22
+msgid "Invoice:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/order-confirm.php:28
+msgid "Email:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/order-confirm.php:35
+#: views/public/fundraising/dynamic-page/order-confirm.php:107
+msgid "Payment method:"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/order-confirm.php:56
+msgid "Order details"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/order-confirm.php:127
+msgid "Billing address"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/order-confirm.php:154
+msgid "Invalid Order"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/content-header-crowdfund.php:132
+#: views/public/fundraising/single-page/include/content-header-donation.php:119
+#: views/public/fundraising/single-page/include/crowd_donation_body.php:197
+msgid "Recent Donations"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/backers-crowd-sh.php:8
+#: views/public/fundraising/single-page/include/page/backers.php:20
+msgid "Campaign closed"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/backers-crowd-sh.php:31
+#: views/public/fundraising/single-page/include/page/backers.php:78
+msgid "Backers"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/backers-crowd-sh.php:41
+#: views/public/fundraising/single-page/include/page/backers.php:52
+msgid "Pledged"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/backers.php:153
+msgid "Continue!"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/pledge.php:26
+msgid "Select this reward"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/pledge.php:60
+msgid "Item Left:"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/pledge.php:61
+msgid "out of"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/pledge.php:61
+msgid "claimed"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/pledge.php:72
+msgid "Includes:"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/pledge.php:107
+msgid "Pledge amount:"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/recent.php:52
+msgid "Unknown"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/review.php:112
+msgid "Write a Review"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/review.php:113
+msgid "Your email address will not be published. Required fields are marked *"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/review.php:118
+msgid "Ratting"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/review.php:138
+msgid "Name *"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/review.php:143
+msgid "Email *"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/review.php:152
+msgid "Your Review *"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/review.php:157
+#: views/public/fundraising/single-page/include/page/updates.php:77
+msgid "Submit"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/review.php:168
+msgid "As a author of this campaign you can not give review!"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/review.php:177
+msgid "To give review you need to"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/social.php:14
+msgid "Social Share:"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/page/updates.php:72
+msgid "Write Update *"
+msgstr ""
+
+#: views/public/fundraising/single-page/include/partials/payment_options_content.php:38
+msgid "Set Payment Method"
+msgstr ""
+
+#: views/welcome/include/setup-campaign.php:15
+msgid "Only for Donation system."
+msgstr ""
+
+#: views/welcome/include/setup-campaign.php:24
+msgid "Fundraising System with Donate."
+msgstr ""
+
+#: views/welcome/welcome.php:16
+msgid "Welcome FundEngine"
+msgstr ""
+
+#: views/welcome/welcome.php:33
+msgid "Setup Process"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "FundEngine – Donation and Crowdfunding Platform"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://wpmet.com/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"FundEngine - Fundraising Donation plugin and Crowdfunding Platform comes "
+"with Single donation and crowdfunding solution. This plugin gives the "
+"ability to anyone to create a crowdfunding and single donation site with "
+"WordPress."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Wpmet"
+msgstr ""
+
+#: apps/donation-cpt.php:25
+msgctxt "Post Type General Name"
+msgid "Donations"
+msgstr ""
+
+#: apps/donation-cpt.php:26
+msgctxt "Post Type Singular Name"
+msgid "Donation"
+msgstr ""
+
+#: apps/donation-cpt.php:27
+msgctxt "Admin Menu text"
+msgid "Donations"
+msgstr ""
+
+#: apps/donation-cpt.php:28
+msgctxt "Add New on Toolbar"
+msgid "Donation"
+msgstr ""

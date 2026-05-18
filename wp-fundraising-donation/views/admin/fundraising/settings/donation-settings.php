@@ -1,4 +1,8 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
 if ( isset( $_POST['wpf_settings_nonce'] ) ) {
 	if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wpf_settings_nonce'] ) ), 'wpf_save_settings' ) ) {
 		esc_html_e( 'You are not allowed to save data.', 'wp-fundraising' );
@@ -23,43 +27,43 @@ if ( isset( $_POST['wpf_settings_nonce'] ) ) {
 			<?php
 		}
 
-		$gateCampaignData   = isset( $setupData['payment'] ) ? $setupData['payment'] : 'default';
-		$woc_selected_class = $gateCampaignData == 'woocommerce' ? 'wfp-disabled' : '';
-		$active_tab         = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : 'general';
+		$wfpGateCampaignData   = isset( $wfpSetupData['payment'] ) ? $wfpSetupData['payment'] : 'default';
+		$wfp_woc_selected_class = $wfpGateCampaignData == 'woocommerce' ? 'wfp-disabled' : '';
+		$wfp_active_tab         = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : 'general';
 
 		require __DIR__ . '/settings-tab-menu.php';
 
-		if ( $active_tab == 'global' ) {
+		if ( $wfp_active_tab == 'global' ) {
 			include __DIR__ . '/include/global-options.php';
 
-		} elseif ( $active_tab == 'general' ) {
+		} elseif ( $wfp_active_tab == 'general' ) {
 			include __DIR__ . '/include/general-options.php';
 
-		} elseif ( $active_tab == 'page' ) {
+		} elseif ( $wfp_active_tab == 'page' ) {
 			include __DIR__ . '/include/page-options.php';
 
-		} elseif ( $active_tab == 'gateway' ) {
+		} elseif ( $wfp_active_tab == 'gateway' ) {
 			include __DIR__ . '/include/payment-method.php';
 			include \WFP_Fundraising::plugin_dir() . 'payment-module/views/payment-setup.php';
 
-		} elseif ( $active_tab == 'email' ) {
+		} elseif ( $wfp_active_tab == 'email' ) {
 			include __DIR__ . '/include/email-settings.php';
 
-		} elseif ( $active_tab == 'display' ) {
+		} elseif ( $wfp_active_tab == 'display' ) {
 			include __DIR__ . '/include/display-settings.php';
 
-		} elseif ( $active_tab == 'share' ) {
+		} elseif ( $wfp_active_tab == 'share' ) {
 			include __DIR__ . '/include/share-settings.php';
 
-		} elseif ( $active_tab == 'terms' ) {
+		} elseif ( $wfp_active_tab == 'terms' ) {
 			include __DIR__ . '/include/terms-settings.php';
 
-		} elseif ( $active_tab == 'email_options' ) {
+		} elseif ( $wfp_active_tab == 'email_options' ) {
 
 			if ( did_action( \WfpFundraising\Apps\Key::FUNDRAISING_PRO_LOADED ) ) {
 				include \WFP_Fundraising::plugin_parent_dir() . 'wp-fundraising-donation-pro/views/admin/settings/auth-settings.php';
 			}
-		} elseif ( $active_tab == 'pp_gateway' ) {
+		} elseif ( $wfp_active_tab == 'pp_gateway' ) {
 
 			if ( did_action( \WfpFundraising\Apps\Key::FUNDRAISING_PRO_LOADED ) ) {
 				include \WFP_Fundraising::plugin_parent_dir() . 'wp-fundraising-donation-pro/views/admin/settings/pp-settings.php';

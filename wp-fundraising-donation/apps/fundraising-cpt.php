@@ -2,6 +2,8 @@
 
 namespace WfpFundraising\Apps;
 
+defined( 'ABSPATH' ) || exit;
+
 use WfpFundraising\Traits\Singleton;
 
 

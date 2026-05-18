@@ -1,10 +1,14 @@
 <?php
-$feature = new \WfpFundraising\Apps\Featured( false );
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-$title_enable    = isset( $atts['title'] ) ? $atts['title'] : 'Yes';
-$featured_enable = isset( $atts['featured'] ) ? $atts['featured'] : 'Yes';
-$categori_enable = isset( $atts['category'] ) ? $atts['category'] : 'Yes';
-$goal_enable     = isset( $atts['goal'] ) ? $atts['goal'] : 'Yes';
+defined( 'ABSPATH' ) || exit;
+
+$wfp_feature = new \WfpFundraising\Apps\Featured( false );
+
+$wfp_title_enable    = isset( $wfp_atts['title'] ) ? $wfp_atts['title'] : 'Yes';
+$wfp_featured_enable = isset( $wfp_atts['featured'] ) ? $wfp_atts['featured'] : 'Yes';
+$wfp_categori_enable = isset( $wfp_atts['category'] ) ? $wfp_atts['category'] : 'Yes';
+$wfp_goal_enable     = isset( $wfp_atts['goal'] ) ? $wfp_atts['goal'] : 'Yes';
 ?>
 
 
@@ -12,24 +16,24 @@ $goal_enable     = isset( $atts['goal'] ) ? $atts['goal'] : 'Yes';
 
 <?php
 // before content data
-if ( isset( $formContentData->enable ) && $formContentData->content_position == 'before-form' ) {
+if ( isset( $wfpFormContentData->enable ) && $wfpFormContentData->content_position == 'before-form' ) {
 	?>
 <div class="wfdp-donation-content-data before-form">
-	<?php echo wp_kses( $formContentData->content, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
+	<?php echo wp_kses( $wfpFormContentData->content, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
 </div>
 	<?php
 }
 
 // goal data show
-if ( $goal_enable == 'Yes' ) :
+if ( $wfp_goal_enable == 'Yes' ) :
 	include __DIR__ . '/content/goal-content.php';
 endif;
 
 
-$enableDisplayField = ( $form_styles == 'only_button' && $modal_status == 'No' ) ? 'xs-show-div-only-button__' . $post->ID . ' xs-donate-hidden' : '';
+$wfpEnableDisplayField = ( $wfp_form_styles == 'only_button' && $wfp_modal_status == 'No' ) ? 'xs-show-div-only-button__' . $post->ID . ' xs-donate-hidden' : '';
 
 
-if ( $gateCampaignData == 'default' ) {
+if ( $wfpGateCampaignData == 'default' ) {
 	// addition al filed content
 	include __DIR__ . '/content/filed-content.php';
 	// payment content
@@ -37,11 +41,11 @@ if ( $gateCampaignData == 'default' ) {
 }
 
 
-if ( isset( $formContentData->enable ) && $formContentData->content_position == 'after-form' ) {
+if ( isset( $wfpFormContentData->enable ) && $wfpFormContentData->content_position == 'after-form' ) {
 	?>
 
 	<div class="wfdp-donation-content-data before-form">
-		<?php echo wp_kses( $formContentData->content, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
+		<?php echo wp_kses( $wfpFormContentData->content, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
 	</div>
 	<?php
 }

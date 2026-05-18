@@ -1,10 +1,16 @@
-<div class="wfp-woocommerce-message xs-donate-hidden <?php echo ( $gateCampaignData == 'woocommerce' ) ? 'xs-donate-visible' : ''; ?>">
+<?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
+<div class="wfp-woocommerce-message xs-donate-hidden <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'xs-donate-visible' : ''; ?>">
 	<p>
 		<a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=advanced' ) ); ?>"> <?php echo esc_html__( 'Page Setup of Woocommerce', 'wp-fundraising' ); ?> </a>
 	</p>
 </div>
 
-<div class="wfdp-payment-section wfdp-payment-section-page-option wfp-disabled-div <?php echo ( $gateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
+<div class="wfdp-payment-section wfdp-payment-section-page-option wfp-disabled-div <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
 	<div class="wfdp-payment-headding">
 		<h2><?php echo esc_html__( 'Setup Page Settings', 'wp-fundraising' ); ?></h2>
 	</div>
@@ -17,10 +23,10 @@
 					<h3><?php echo esc_html__( 'Page options', 'wp-fundraising' ); ?></h3>
 				</li>
 				<?php
-				$pgOptions = \WfpFundraising\Apps\Settings::default_custom_page();
-				$pages     = get_pages();
+				$wfpPgOptions = \WfpFundraising\Apps\Settings::default_custom_page();
+				$wfp_pages     = get_pages();
 
-				foreach ( $pgOptions as $key => $arr ) :
+				foreach ( $wfpPgOptions as $wfp_key => $arr ) :
 					?>
 
 					<li class="wfdp-social-input-container">
@@ -32,21 +38,21 @@
 								<div class="wfdp-social-input--content">
 									<?php
 
-									$def_page_id = isset( $getMetaGeneral['pages'][ $key ] ) ? $getMetaGeneral['pages'][ $key ] : 0;
+									$wfp_def_page_id = isset( $wfpGetMetaGeneral['pages'][ $wfp_key ] ) ? $wfpGetMetaGeneral['pages'][ $wfp_key ] : 0;
 									?>
 
 									<select class="regular-text wfp-select2-country"
-											name="xs_submit_settings_data_general[options][pages][<?php echo esc_attr( $key ); ?>]">
+											name="xs_submit_settings_data_general[options][pages][<?php echo esc_attr( $wfp_key ); ?>]">
 																											 <?php
 
-																												if ( ! empty( $pages ) && is_array( $pages ) ) {
+																												if ( ! empty( $wfp_pages ) && is_array( $wfp_pages ) ) {
 
-																													foreach ( $pages as $page ) {
+																													foreach ( $wfp_pages as $page ) {
 
-																														$selected = $def_page_id == $page->ID ? 'selected' : '';
+																														$wfp_selected = $wfp_def_page_id == $page->ID ? 'selected' : '';
 
 																														?>
-												<option <?php echo esc_attr( $selected ); ?>
+												<option <?php echo esc_attr( $wfp_selected ); ?>
 												value="<?php echo esc_attr( $page->ID ); ?>"><?php echo esc_html( $page->post_title ); ?></option>
 																														<?php
 																													}
@@ -63,11 +69,11 @@
 										<div class="xs-donate-field-short-code">
 											<input class="donate_text_filed donate_shortcode_wp"
 												   type="text"
-												   id="wp_doante_shortcode_<?php echo esc_attr( $key ); ?>"
+												   id="wp_doante_shortcode_<?php echo esc_attr( $wfp_key ); ?>"
 												   value='[<?php echo esc_attr( $arr['short_code'] ); ?>]'
 												   readonly="readonly" />
 											<button type="button"
-													onclick="wdp_copyTextData('wp_doante_shortcode_<?php echo esc_attr( $key ); ?>');"
+													onclick="wdp_copyTextData('wp_doante_shortcode_<?php echo esc_attr( $wfp_key ); ?>');"
 													class="xs_copy_button">
 												<span class="dashicons dashicons-admin-page"></span>
 											</button>

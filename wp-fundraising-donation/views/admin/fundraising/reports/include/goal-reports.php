@@ -1,7 +1,13 @@
+<?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="wfdp-income-report">
 	<div class="wfp-report-headding">
 		<h2><?php echo esc_html__( 'Goal Statements', 'wp-fundraising' ); ?></h2>
-		<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $fromDate ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $toDate ) ) ); ?></datetime></p>
+		<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpFromDate ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpToDate ) ) ); ?></datetime></p>
 	</div>
 	<div class="report-body">
 	<?php
@@ -9,19 +15,20 @@
 
 		global $wpdb;
 
-		$whereQuery = 'SELECT * FROM ' . $wpdb->prefix . 'wdp_fundraising WHERE 1 = 1';
+		$wfpWhereQuery = 'SELECT * FROM ' . $wpdb->prefix . 'wdp_fundraising WHERE 1 = 1';
 
-	if ( $searchForm != 'all' ) {
-		$whereQuery .= $wpdb->prepare( ' AND form_id = %d', $searchForm );
+	if ( $wfpSearchForm != 'all' ) {
+		$wfpWhereQuery .= $wpdb->prepare( ' AND form_id = %d', $wfpSearchForm );
 	}
-	if ( $statusDonate != 'all' ) {
-		$whereQuery .= $wpdb->prepare( ' AND status = %s', $statusDonate );
+	if ( $wfpStatusDonate != 'all' ) {
+		$wfpWhereQuery .= $wpdb->prepare( ' AND status = %s', $wfpStatusDonate );
 	}
 
-		$whereQuery      .= $wpdb->prepare( ' AND (date_time BETWEEN %s AND %s) ORDER BY date_time DESC', $fromDate, $toDate );
-		$donateDonateList = $wpdb->get_results( $whereQuery ); //phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Already prepared in $whereQuery above.
+		$wfpWhereQuery      .= $wpdb->prepare( ' AND (date_time BETWEEN %s AND %s) ORDER BY date_time DESC', $wfpFromDate, $wfpToDate );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Query is assembled above for this report read.
+		$wfpDonateDonateList = $wpdb->get_results( $wfpWhereQuery );
 
-	if ( ! empty( $donateDonateList ) ) {
+	if ( ! empty( $wfpDonateDonateList ) ) {
 		?>
 		
 		<?php

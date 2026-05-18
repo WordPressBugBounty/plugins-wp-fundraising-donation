@@ -1,23 +1,29 @@
+<?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
 <ul class="wfp-bdage-list">
 
 	<?php
-	foreach ( $multiData as $mul_level ) {
+	foreach ( $wfpMultiData as $mul_level ) {
 
-		$lebelName   = $mul_level->lebel;
-		$priceData   = $mul_level->price;
-		$default_set = isset( $mul_level->default_set ) ? $mul_level->default_set : 'No';
+		$wfpLebelName   = $mul_level->lebel;
+		$wfpPriceData   = $mul_level->price;
+		$wfp_default_set = isset( $mul_level->default_set ) ? $mul_level->default_set : 'No';
 
-		if ( $default_set == 'Yes' ) {
-			$defaultData = $priceData;
+		if ( $wfp_default_set == 'Yes' ) {
+			$wfpDefaultData = $wfpPriceData;
 		}
 		?>
-		<li class="wfp-bdage <?php echo esc_attr( ( $default_set == 'Yes' ) ? 'donate-active' : '' ); ?>" onclick="xs_donate_amount_set(<?php echo esc_html( $priceData ); ?>, <?php echo esc_attr( $post->ID ); ?>);" data-value="<?php echo esc_attr( $priceData ); ?>" ><?php echo esc_html( $lebelName ); ?></li>
+		<li class="wfp-bdage <?php echo esc_attr( ( $wfp_default_set == 'Yes' ) ? 'donate-active' : '' ); ?>" onclick="xs_donate_amount_set(<?php echo esc_html( $wfpPriceData ); ?>, <?php echo esc_attr( $post->ID ); ?>);" data-value="<?php echo esc_attr( $wfpPriceData ); ?>" ><?php echo esc_html( $wfpLebelName ); ?></li>
 
 		<?php
 
 	}
 
-	if ( ! empty( $fixed_data->enable_custom_amount ) && $fixed_data->enable_custom_amount == 'Yes' ) :
+	if ( ! empty( $wfp_fixed_data->enable_custom_amount ) && $wfp_fixed_data->enable_custom_amount == 'Yes' ) :
 		?>
 	
 	<li class="wfp-bdage" onclick="xs_donate_amount_set(0, <?php echo esc_html( $post->ID ); ?>);" data-value="0" class=""><?php echo esc_html__( 'Custom', 'wp-fundraising' ); ?></li>

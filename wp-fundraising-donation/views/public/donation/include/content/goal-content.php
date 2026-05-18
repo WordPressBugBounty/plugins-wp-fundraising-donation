@@ -1,62 +1,65 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-if ( isset( $formGoalData->enable ) ) {
+defined( 'ABSPATH' ) || exit;
 
-	$width_per = $persentange;
+if ( isset( $wfpFormGoalData->enable ) ) {
 
-	if ( $persentange > 100 ) {
-		$width_per = 100;
+	$wfp_width_per = $wfp_persentange;
+
+	if ( $wfp_persentange > 100 ) {
+		$wfp_width_per = 100;
 	}
 
-	$chart_style  = $formGoalData->bar_style;        // pie_bar | line_bar
-	$displayStyle = $formGoalData->bar_display_sty;  // amount_show | percentage | both_show
+	$wfp_chart_style  = $wfpFormGoalData->bar_style;        // pie_bar | line_bar
+	$wfpDisplayStyle = $wfpFormGoalData->bar_display_sty;  // amount_show | percentage | both_show
 
-	if ( apply_filters( 'wfp_single_goal_style', $chart_style ) == 'pie_bar' ) {
+	if ( apply_filters( 'wfp_single_goal_style', $wfp_chart_style ) == 'pie_bar' ) {
 
-		$attr = array(
+		$wfp_attr = array(
 			'data-size'      => '100',
 			'data-linewidth' => 20,
-			'data-percent'   => round( $width_per, 2 ),
+			'data-percent'   => round( $wfp_width_per, 2 ),
 			'class'          => 'xs_donate_chart',
 		);
 
-		$pie_data = apply_filters( 'wfp_pie_bar_attr', $attr );
-		$data     = '';
+		$wfp_pie_data = apply_filters( 'wfp_pie_bar_attr', $wfp_attr );
+		$wfp_data     = '';
 
-		foreach ( $pie_data as $k => $v ) {
-			$data .= $k . '="' . $v . '" ';
+		foreach ( $wfp_pie_data as $wfp_k => $v ) {
+			$wfp_data .= $wfp_k . '="' . $v . '" ';
 		}
 
-		$progress_bar = '<div ' . $data . '><div class="pie-counter"> <span class="pie-percent-number">' . round( $width_per ) . '</span><span class="pie-percent">%</span></div></div>';
+		$wfp_progress_bar = '<div ' . $wfp_data . '><div class="pie-counter"> <span class="pie-percent-number">' . round( $wfp_width_per ) . '</span><span class="pie-percent">%</span></div></div>';
 
 	} else {
 
 		// line_bar - for percentage and both there will be circle in progress bar
-		$roundClass = ( $displayStyle == 'amount_show' ) ? '' : 'wfp-round-bar';
-		$barColor   = empty( $formGoalData->bar_color ) ? '' : ' background-color:' . $formGoalData->bar_color;
+		$wfpRoundClass = ( $wfpDisplayStyle == 'amount_show' ) ? '' : 'wfp-round-bar';
+		$wfpBarColor   = empty( $wfpFormGoalData->bar_color ) ? '' : ' background-color:' . $wfpFormGoalData->bar_color;
 
-		$progress_bar = '<div class="wfdp-progress-bar ' . $roundClass . '" >
+		$wfp_progress_bar = '<div class="wfdp-progress-bar ' . $wfpRoundClass . '" >
 								<div class="xs-progress">
-									<div class="xs-progress-bar" role="progressbar" data-counter="' . round( $width_per ) . '%" style="width: ' . round( $width_per, 2 ) . '%; ' . $barColor . '" aria-valuemin="0" aria-valuemax="100">
-									<div  style="left: calc(' . round( $width_per ) . '% - 15px); ' . $barColor . '" class="wfp-round-bar-data">' . round( $width_per ) . '%</div>
+									<div class="xs-progress-bar" role="progressbar" data-counter="' . round( $wfp_width_per ) . '%" style="width: ' . round( $wfp_width_per, 2 ) . '%; ' . $wfpBarColor . '" aria-valuemin="0" aria-valuemax="100">
+									<div  style="left: calc(' . round( $wfp_width_per ) . '% - 15px); ' . $wfpBarColor . '" class="wfp-round-bar-data">' . round( $wfp_width_per ) . '%</div>
 									</div>
 								</div>
 							</div>';
 	}
 
-	$metaDisplayKey   = 'wfp_display_options_data';
-	$getMetaDisplayOp = get_option( $metaDisplayKey );
-	$formDisplayData  = isset( $getMetaDisplayOp['goal_setup'] ) ? $getMetaDisplayOp['goal_setup'] : array();
-	$defaultBackres   = ! isset( $getMetaDisplayOp['goal_setup'] ) ? 'Yes' : 'No';
-	$displayBackers   = isset( $formDisplayData['backers'] ) ? 'Yes' : $defaultBackres;
+	$wfpMetaDisplayKey   = 'wfp_display_options_data';
+	$wfpGetMetaDisplayOp = get_option( $wfpMetaDisplayKey );
+	$wfpFormDisplayData  = isset( $wfpGetMetaDisplayOp['goal_setup'] ) ? $wfpGetMetaDisplayOp['goal_setup'] : array();
+	$wfpDefaultBackres   = ! isset( $wfpGetMetaDisplayOp['goal_setup'] ) ? 'Yes' : 'No';
+	$wfpDisplayBackers   = isset( $wfpFormDisplayData['backers'] ) ? 'Yes' : $wfpDefaultBackres;
 
 	?>
-	<div class="wfdp-donate-goal-progress <?php echo esc_attr( $displayStyle ); ?>">
+	<div class="wfdp-donate-goal-progress <?php echo esc_attr( $wfpDisplayStyle ); ?>">
 													 <?php
 
-														if ( in_array( $goal_type, array( 'terget_goal', 'terget_goal_date', 'campaign_never_end', 'terget_date' ) ) ) {
+														if ( in_array( $wfp_goal_type, array( 'terget_goal', 'terget_goal_date', 'campaign_never_end', 'terget_date' ) ) ) {
 															?>
-																<?php if ( ! is_single() || ( $chart_style != 'pie_bar' ) ) : ?>
+																<?php if ( ! is_single() || ( $wfp_chart_style != 'pie_bar' ) ) : ?>
 				<div class="raised">
 																	<?php
 
@@ -66,21 +69,21 @@ if ( isset( $formGoalData->enable ) ) {
 						<div class="target-date-goal raised-amount"> 
 																			<?php
 
-																			$def_cont = ' ' . __( 'Raised', 'wp-fundraising' );
+																			$wfp_def_cont = ' ' . __( 'Raised', 'wp-fundraising' );
 
 																			echo esc_html(
-																				( $displayStyle != 'amount_show' && $displayStyle != 'both_show' ) ? apply_filters( 'wfp_single_raisedamount_title', $def_cont ) : ''
+																				( $wfpDisplayStyle != 'amount_show' && $wfpDisplayStyle != 'both_show' ) ? apply_filters( 'wfp_single_raisedamount_title', $wfp_def_cont ) : ''
 																			);
 
-																			if ( $displayStyle == 'percentage' ) :
+																			if ( $wfpDisplayStyle == 'percentage' ) :
 																				?>
 
 								<div class="wfp-inner-data">
-									<span class="donate-percentage"><?php echo esc_html( round( $persentange ) ); ?>%</span>
+									<span class="donate-percentage"><?php echo esc_html( round( $wfp_persentange ) ); ?>%</span>
 								</div> 
 																				<?php
 
-																				elseif ( $displayStyle == 'amount_show' || $displayStyle == 'both_show' ) :
+																				elseif ( $wfpDisplayStyle == 'amount_show' || $wfpDisplayStyle == 'both_show' ) :
 
 																					require __DIR__ . '/_partials/amount-to-raise.php';
 																					printf( "<span class='wfp-raised-text'>%s</span>", esc_html__( 'raised', 'wp-fundraising' ) );
@@ -105,24 +108,24 @@ if ( isset( $formGoalData->enable ) ) {
 
 																				<?php
 																				echo esc_html(
-																					( $displayStyle != 'amount_show' && $displayStyle != 'both_show' ) ? apply_filters( 'wfp_single_goalcounter_title', 'Goal' ) : ''
+																					( $wfpDisplayStyle != 'amount_show' && $wfpDisplayStyle != 'both_show' ) ? apply_filters( 'wfp_single_goalcounter_title', 'Goal' ) : ''
 																				);
 																				?>
 
 							<div class="wfp-inner-data">
 																		<?php
-																		if ( $displayStyle == 'amount_show' || $displayStyle == 'both_show' ) {
+																		if ( $wfpDisplayStyle == 'amount_show' || $wfpDisplayStyle == 'both_show' ) {
 																			echo wp_kses( '<span class="wfp-of">' . __( 'of', 'wp-fundraising' ) . '</span>', \WfpFundraising\Utilities\Utils::get_kses_array() );
 																		}
 																		?>
 								<span class="wfp-currency-symbol">
-																		<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $defaultUse_space ) ); ?>
+																		<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?>
 								</span>
 								<strong>
-																		<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $target_amount ) ); ?>
+																		<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_target_amount ) ); ?>
 								</strong>
 								<span class="wfp-currency-symbol">
-																		<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $defaultUse_space ) ); ?>
+																		<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?>
 								</span>
 							</div>
 						</div>
@@ -130,8 +133,8 @@ if ( isset( $formGoalData->enable ) ) {
 																			<?php
 					endif;
 
-																	if ( apply_filters( 'wfp_single_display_backers_hide', $displayBackers ) ) :
-																		if ( ! is_single() && $displayStyle != 'amount_show' && $displayStyle != 'both_show' ) {
+																	if ( apply_filters( 'wfp_single_display_backers_hide', $wfpDisplayBackers ) ) :
+																		if ( ! is_single() && $wfpDisplayStyle != 'amount_show' && $wfpDisplayStyle != 'both_show' ) {
 																			require __DIR__ . '/_partials/backers.php';
 																		}
 					endif;
@@ -143,32 +146,32 @@ if ( isset( $formGoalData->enable ) ) {
 
 																<?php
 																if ( apply_filters( 'wfp_single_goalbar_hide', true ) ) :
-																	echo wp_kses( $progress_bar, \WfpFundraising\Utilities\Utils::get_kses_array() );
+																	echo wp_kses( $wfp_progress_bar, \WfpFundraising\Utilities\Utils::get_kses_array() );
 																endif;
 
 
 																if ( apply_filters( 'wfp_single_date_left_hide', true ) ) :
 
-																	if ( in_array( $goal_type, array( 'terget_goal_date', 'terget_date' ) ) ) :
+																	if ( in_array( $wfp_goal_type, array( 'terget_goal_date', 'terget_date' ) ) ) :
 
-																		$date1         = date_create( $to_date );
-																		$date2         = date_create( $target_date );
-																		$formattedDate = '';
+																		$wfp_date1         = date_create( $wfp_to_date );
+																		$wfp_date2         = date_create( $wfp_target_date );
+																		$wfpFormattedDate = '';
 
-																		if ( $date1 != false && $date2 != false ) {
+																		if ( $wfp_date1 != false && $wfp_date2 != false ) {
 
-																			$diff          = date_diff( $date1, $date2 );
-																			$formattedDate = $diff->format( '%R%a' );
+																			$wfp_diff          = date_diff( $wfp_date1, $wfp_date2 );
+																			$wfpFormattedDate = $wfp_diff->format( '%R%a' );
 																		}
 
-																		if ( ! empty( $formattedDate ) ) :
+																		if ( ! empty( $wfpFormattedDate ) ) :
 																			?>
 
 						<span class="number_donation_count">
 
 							<span class="wfp-icon wfpf wfpf-time"></span>
 
-																			<?php echo esc_html( $formattedDate ); ?> <?php echo esc_html( apply_filters( 'wfp_single_date_left_title', __( 'days left', 'wp-fundraising' ) ) ); ?>
+																			<?php echo esc_html( $wfpFormattedDate ); ?> <?php echo esc_html( apply_filters( 'wfp_single_date_left_title', __( 'days left', 'wp-fundraising' ) ) ); ?>
 						</span>
 																			<?php
 																		endif;

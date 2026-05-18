@@ -1,23 +1,33 @@
+<?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="wdp-form-information xs_shadow_card">
 	<?php
-	$typeReport = isset( $_GET['type_status'] ) ? sanitize_text_field( wp_unslash( $_GET['type_status'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This file is currently unused.
+	$wfpTypeReport = isset( $_GET['type_status'] ) ? sanitize_text_field( wp_unslash( $_GET['type_status'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This file is currently unused.
 
-	$paged  = empty( $_GET['donate_page'] ) ? 0 : intval( $_GET['donate_page'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This file is currently unused.
-	$limit  = empty( $_GET['xs_page_limit'] ) ? 10 : ( $_GET['xs_page_limit'] > 20 ? 20 : intval( $_GET['xs_page_limit'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This file is currently unused.
-	$offset = $limit * $paged;
+	$wfp_paged  = empty( $_GET['donate_page'] ) ? 0 : intval( $_GET['donate_page'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This file is currently unused.
+	$wfp_limit  = empty( $_GET['xs_page_limit'] ) ? 10 : ( $_GET['xs_page_limit'] > 20 ? 20 : intval( $_GET['xs_page_limit'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This file is currently unused.
+	$wfp_offset = $wfp_limit * $wfp_paged;
 
-	$todayDate  = gmdate( 'Y-m-d' );
-	$days_10ago = gmdate( 'Y-m-d', strtotime( '-10 days', strtotime( $todayDate ) ) );
+	$wfpTodayDate  = gmdate( 'Y-m-d' );
+	$wfp_days_10ago = gmdate( 'Y-m-d', strtotime( '-10 days', strtotime( $wfpTodayDate ) ) );
 
 	global $wpdb;
 
-	if ( ! empty( $typeReport ) ) {
-		$penddingDonateList = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . $wpdb->prefix . 'wdp_fundraising WHERE form_id = %d AND status IN (%s) ORDER BY date_time DESC LIMIT %d, %d', $post->ID, $typeReport, $offset, $limit ) );
-		$penddingCount      = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(form_id) FROM ' . $wpdb->prefix . 'wdp_fundraising WHERE form_id = %d AND status IN (%s) ORDER BY date_time DESC', $post->ID, $typeReport ) );
+	if ( ! empty( $wfpTypeReport ) ) {
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared read from the plugin's donation table for recent donations list; paginated display.
+		$wfpPenddingDonateList = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . $wpdb->prefix . 'wdp_fundraising WHERE form_id = %d AND status IN (%s) ORDER BY date_time DESC LIMIT %d, %d', $post->ID, $wfpTypeReport, $wfp_offset, $wfp_limit ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared count query from the plugin's donation table for pagination.
+		$wfpPenddingCount      = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(form_id) FROM ' . $wpdb->prefix . 'wdp_fundraising WHERE form_id = %d AND status IN (%s) ORDER BY date_time DESC', $post->ID, $wfpTypeReport ) );
 
 	} else {
-		$penddingDonateList = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . $wpdb->prefix . "wdp_fundraising WHERE form_id = %d AND status IN ('Active') ORDER BY date_time DESC LIMIT %d, %d", $post->ID, $offset, $limit ) );
-		$penddingCount      = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(form_id) FROM ' . $wpdb->prefix . "wdp_fundraising WHERE form_id = %d AND status IN ('Active') ORDER BY date_time DESC", $post->ID ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared read from the plugin's donation table for active donations list; paginated display.
+		$wfpPenddingDonateList = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . $wpdb->prefix . "wdp_fundraising WHERE form_id = %d AND status IN ('Active') ORDER BY date_time DESC LIMIT %d, %d", $post->ID, $wfp_offset, $wfp_limit ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared count query from the plugin's donation table for pagination.
+		$wfpPenddingCount      = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(form_id) FROM ' . $wpdb->prefix . "wdp_fundraising WHERE form_id = %d AND status IN ('Active') ORDER BY date_time DESC", $post->ID ) );
 	}
 
 	?>
@@ -25,27 +35,31 @@
 		<h3 class="xs-fundrising-title"><?php echo esc_html__( 'Recent Donation List', 'wp-fundraising' ); ?>  </h3>
 		<div class="xs_period_wraper xs_text_center">
 			<?php echo esc_html__( 'Period : ', 'wp-fundraising' ); ?>
-			<datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $days_10ago ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $todayDate ) ) ); ?></datetime>
+			<datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfp_days_10ago ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpTodayDate ) ) ); ?></datetime>
 		</div>
 
 		<div class="report-heading">
 			<ul class="xs_fundrising_filter xs_text_center">
-				<li> <a class="<?php echo ( $typeReport == '' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit"> <?php echo esc_html__( strtoupper( 'All' ), 'wp-fundraising' ); ?> </a></li>
-				<li> <a class="<?php echo ( $typeReport == 'Review' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit&type_status=Review"> <?php echo esc_html__( strtoupper( 'In Review ' ), 'wp-fundraising' ); ?></a></li>
-				<li> <a class="<?php echo ( $typeReport == 'Pending' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit&type_status=Pending"><?php echo esc_html__( strtoupper( ' In Process ' ), 'wp-fundraising' ); ?></a></li>
+				<li> <a class="<?php echo ( $wfpTypeReport == '' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit"> <?php echo esc_html( strtoupper( __( 'All', 'wp-fundraising' ) ) ); ?> </a></li>
+				<li> <a class="<?php echo ( $wfpTypeReport == 'Review' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit&type_status=Review"> <?php echo esc_html( strtoupper( __( 'In Review', 'wp-fundraising' ) ) ); ?></a></li>
+				<li> <a class="<?php echo ( $wfpTypeReport == 'Pending' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit&type_status=Pending"><?php echo esc_html( strtoupper( __( 'In Process', 'wp-fundraising' ) ) ); ?></a></li>
 			</ul>
 		</div>
-		<div><span><?php echo sprintf( esc_html__( 'Show %s (per page) in total ', 'wp-fundraising' ), esc_html( $limit ) ); ?> <?php echo esc_html( $penddingCount ); ?></span></div>
+		<div><span><?php
+		// translators: %s: number of items per page.
+		echo sprintf( esc_html__( 'Show %s (per page) in total ', 'wp-fundraising' ), esc_html( $wfp_limit ) ); ?> <?php echo esc_html( $wfpPenddingCount ); ?></span></div>
 	</div>
 
-	<?php if ( ! empty( $penddingDonateList ) ) : ?>
+	<?php if ( ! empty( $wfpPenddingDonateList ) ) : ?>
 		<div class="xs_payment_review_table_wraper">
 			<table class="form-table xs_payment_review_table">
 				<thead>
 				<tr>
 					<th class="sort"><?php echo esc_html__( 'S.L.', 'wp-fundraising' ); ?></th>
 					<th class="name"> <?php echo esc_html__( 'Email', 'wp-fundraising' ); ?></th>
-					<th class="enable"> <?php echo sprintf( esc_html__( 'Amount [%s]', 'wp-fundraising' ), $symbols ); ?></th>
+					<th class="enable"> <?php
+					// translators: %s: currency symbol.
+					echo sprintf( esc_html__( 'Amount [%s]', 'wp-fundraising' ), esc_html( $wfpSymbols ) ); ?></th>
 					<th class="" > <?php echo esc_html__( 'Payment Method', 'wp-fundraising' ); ?> </th>
 					<th class="" > <?php echo esc_html__( 'Date', 'wp-fundraising' ); ?> </th>
 					<th class="info"> <?php echo esc_html__( 'Action', 'wp-fundraising' ); ?></th>
@@ -53,38 +67,38 @@
 				</thead>
 				<tbody>
 				<?php
-				$m           = 1;
-				$totalAmount = 0;
-				foreach ( $penddingDonateList as $pendingData ) :
+				$wfp_m           = 1;
+				$wfpTotalAmount = 0;
+				foreach ( $wfpPenddingDonateList as $pendingData ) :
 					if ( $pendingData->payment_gateway == 'online_payment' ) {
-						$payment_gateway = 'Paypal';
+						$wfp_payment_gateway = 'Paypal';
 					} elseif ( $pendingData->payment_gateway == 'stripe_payment' ) {
-						$payment_gateway = 'Stripe';
+						$wfp_payment_gateway = 'Stripe';
 					} elseif ( $pendingData->payment_gateway == 'bank_payment' ) {
-						$payment_gateway = 'Bank';
+						$wfp_payment_gateway = 'Bank';
 					} elseif ( $pendingData->payment_gateway == 'check_payment' ) {
-						$payment_gateway = 'Check';
+						$wfp_payment_gateway = 'Check';
 					} elseif ( $pendingData->payment_gateway == 'offline_payment' ) {
-						$payment_gateway = 'Cash';
+						$wfp_payment_gateway = 'Cash';
 					} elseif ( $pendingData->payment_gateway == '2checkout' ) {
-						$payment_gateway = '2Checkout';
+						$wfp_payment_gateway = '2Checkout';
 					}
-					$totalAmount += $pendingData->donate_amount;
+					$wfpTotalAmount += $pendingData->donate_amount;
 					?>
 					<tr id="donate_tr__<?php echo esc_attr( $pendingData->donate_id ); ?>">
-						<td class="icon"> <strong><?php echo esc_html( $m ); ?> </strong></td>
+						<td class="icon"> <strong><?php echo esc_html( $wfp_m ); ?> </strong></td>
 						<td class="name"> <?php echo esc_html( $pendingData->email ); ?></td>
 						<td class="enable"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $pendingData->donate_amount ) ); ?> </td>
-						<td><?php echo esc_html( $payment_gateway ); ?> </td>
+						<td><?php echo esc_html( $wfp_payment_gateway ); ?> </td>
 						<td><?php echo esc_html( gmdate( 'F d, Y', strtotime( $pendingData->date_time ) ) ); ?> </td>
 						<td>
 							<?php
-							$classNameStatus = strtolower( $pendingData->status );
+							$wfpClassNameStatus = strtolower( $pendingData->status );
 							if ( $pendingData->status == 'Pending' ) {
-								// $classNameStatus = 'process';
+								// $wfpClassNameStatus = 'process';
 							}
 							?>
-							<select class="<?php echo esc_attr( $classNameStatus ); ?>" name="status_modify" id="<?php echo esc_attr( $pendingData->donate_id ); ?>" onchange="wdp_status_modify_report(this)">
+							<select class="<?php echo esc_attr( $wfpClassNameStatus ); ?>" name="status_modify" id="<?php echo esc_attr( $pendingData->donate_id ); ?>" onchange="wdp_status_modify_report(this)">
 								<?php if ( in_array( $pendingData->status, array( 'Pending' ) ) ) : ?>
 									<option value="0" <?php echo isset( $pendingData->status ) && $pendingData->status == 'Pending' ? 'selected' : ''; ?> ><?php echo esc_html__( 'In Process', 'wp-fundraising' ); ?>  </option>
 								<?php endif; ?>
@@ -104,17 +118,17 @@
 						</td>
 					</tr>
 					<?php
-					$m++;
+					$wfp_m++;
 				endforeach;
 				?>
 				</tbody>
 				<tfoot>
 				<tr>
 					<th colspan="2">
-						<?php echo esc_html__( 'Total Amount : ', 'wp-fundraising' ); ?> [<?php echo esc_html( $symbols ); ?>]
+						<?php echo esc_html__( 'Total Amount : ', 'wp-fundraising' ); ?> [<?php echo esc_html( $wfpSymbols ); ?>]
 					</th>
 					<th>
-						<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $totalAmount ) ); ?>
+						<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpTotalAmount ) ); ?>
 					</th>
 					<th colspan="3">&nbsp;</th>
 				</tr>

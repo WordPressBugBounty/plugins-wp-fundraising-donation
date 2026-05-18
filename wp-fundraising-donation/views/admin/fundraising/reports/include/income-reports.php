@@ -1,33 +1,41 @@
+<?php 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+defined( 'ABSPATH' ) || exit;
+
+?>
 <div class="wfdp-income-report-table-wraper">
 	<div class="wfp-report-headding">
 		<h2><?php echo esc_html__( 'Income Statements', 'wp-fundraising' ); ?></h2>
-		<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $fromDate ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $toDate ) ) ); ?></datetime></p>
+		<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpFromDate ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpToDate ) ) ); ?></datetime></p>
 	</div>
 	<div class="report-body">
 	<?php
 
 	global $wpdb;
 
-	$whereQuery = $wpdb->prefix . 'wdp_fundraising WHERE 1 = 1';
+	$wfpWhereQuery = $wpdb->prefix . 'wdp_fundraising WHERE 1 = 1';
 
-	if ( $searchForm != 'all' ) {
-		$whereQuery .= $wpdb->prepare( ' AND form_id = %d', $searchForm );
+	if ( $wfpSearchForm != 'all' ) {
+		$wfpWhereQuery .= $wpdb->prepare( ' AND form_id = %d', $wfpSearchForm );
 	}
-	if ( $statusDonate != 'all' ) {
-		$whereQuery .= $wpdb->prepare( ' AND status = %s', $statusDonate );
+	if ( $wfpStatusDonate != 'all' ) {
+		$wfpWhereQuery .= $wpdb->prepare( ' AND status = %s', $wfpStatusDonate );
 	}
 
-	$whereQuery .= $wpdb->prepare( ' AND (date_time BETWEEN %s AND %s) ORDER BY date_time DESC', $fromDate, $toDate );
+	$wfpWhereQuery .= $wpdb->prepare( ' AND (date_time BETWEEN %s AND %s) ORDER BY date_time DESC', $wfpFromDate, $wfpToDate );
 
-	$donationWhereQuery = 'SELECT * FROM ' . $whereQuery;
-	$sumWhereQuery      = 'SELECT SUM(donate_amount) FROM ' . $whereQuery;
+	$wfpDonationWhereQuery = 'SELECT * FROM ' . $wfpWhereQuery;
+	$wfpSumWhereQuery      = 'SELECT SUM(donate_amount) FROM ' . $wfpWhereQuery;
 
-	$donateDonateList = $wpdb->get_results( $donationWhereQuery ); //phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Already prepared in $donationWhereQuery above.
-	$donateSum        = $wpdb->get_var( $sumWhereQuery ); //phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Already prepared in $sumWhereQuery above.
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Query is assembled above for this report read.
+	$wfpDonateDonateList = $wpdb->get_results( $wfpDonationWhereQuery );
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Query is assembled above for this report read.
+	$wfpDonateSum        = $wpdb->get_var( $wfpSumWhereQuery );
 
-	$symbols = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_symbol();
+	$wfpSymbols = \WfpFundraising\Apps\Global_Settings::instance()->get_currency_symbol();
 
-	if ( sizeof( $donateDonateList ) > 0 ) {
+	if ( sizeof( $wfpDonateDonateList ) > 0 ) {
 		?>
 		<div class="wfp-report-table-wraper">
 			<table class="form-table wfdp-table-design wc_gateways widefat wfp-report-table">
@@ -39,7 +47,7 @@
 						<th class="name"> 
 						<?php
 						echo esc_html__( 'Amount', 'wp-fundraising' );
-						echo ' <strong>[' . esc_html( $symbols ) . ']</strong>';
+						echo ' <strong>[' . esc_html( $wfpSymbols ) . ']</strong>';
 						?>
 						</th>
 						<th class="" ><?php echo esc_html__( 'Date', 'wp-fundraising' ); ?> </th>
@@ -48,45 +56,45 @@
 				</thead>
 			<tbody>
 			<?php
-			$m           = 1;
-			$totalAmount = 0;
-			foreach ( $donateDonateList as $pendingData ) :
+			$wfp_m           = 1;
+			$wfpTotalAmount = 0;
+			foreach ( $wfpDonateDonateList as $pendingData ) :
 
-				$invoice_url = \WfpFundraising\Apps\Key::generate_invoice_link( $pendingData->form_id, $pendingData->invoice );
+				$wfp_invoice_url = \WfpFundraising\Apps\Key::generate_invoice_link( $pendingData->form_id, $pendingData->invoice );
 
-				$amount = (float) $pendingData->donate_amount;
+				$wfp_amount = (float) $pendingData->donate_amount;
 
-				$totalAmount += $amount;
-				$user_id      = ( property_exists( $pendingData, 'user_id' ) ) ? $pendingData->user_id : 0;
+				$wfpTotalAmount += $wfp_amount;
+				$wfp_user_id      = ( property_exists( $pendingData, 'user_id' ) ) ? $pendingData->user_id : 0;
 
-				$firstName = \WfpFundraising\Apps\Settings::wfp_get_metadata( $pendingData->donate_id, '_wfp_first_name' );
-				$lastName  = \WfpFundraising\Apps\Settings::wfp_get_metadata( $pendingData->donate_id, '_wfp_last_name' );
-				$email     = \WfpFundraising\Apps\Settings::wfp_get_metadata( $pendingData->donate_id, '_wfp_email_address' );
+				$wfpFirstName = \WfpFundraising\Apps\Settings::wfp_get_metadata( $pendingData->donate_id, '_wfp_first_name' );
+				$wfpLastName  = \WfpFundraising\Apps\Settings::wfp_get_metadata( $pendingData->donate_id, '_wfp_last_name' );
+				$wfp_email     = \WfpFundraising\Apps\Settings::wfp_get_metadata( $pendingData->donate_id, '_wfp_email_address' );
 
-				$date = $pendingData->date_time;
+				$wfp_date = $pendingData->date_time;
 
-				if ( empty( $email ) ) {
-					$email = $pendingData->email;
+				if ( empty( $wfp_email ) ) {
+					$wfp_email = $pendingData->email;
 				}
 
 				?>
 				<tr>
 					<td class="icon"> <?php echo esc_html( $pendingData->invoice ); ?></td>
-					<td class="name"> <?php echo esc_html( $firstName ) . ' ' . esc_html( $lastName ); ?></td>
-					<td class="name"> <a href="mailto:<?php echo esc_html( $email ); ?>"><?php echo esc_html( $email ); ?></a></td>
-					<td class="enable"> <?php echo esc_html( $symbols ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $amount ) ); ?></strong></td>
-					<td><datetime> <?php echo esc_html( gmdate( 'd M, Y', strtotime( $date ) ) ); ?></datetime></td>
-					<td class="invoice"> <a href="<?php echo esc_url( wp_nonce_url( $invoice_url, '_wpnonce' ) ); ?>" target="_blank"><?php esc_html_e( 'View', 'wp-fundraising' ); ?></a> </td>
+					<td class="name"> <?php echo esc_html( $wfpFirstName ) . ' ' . esc_html( $wfpLastName ); ?></td>
+					<td class="name"> <a href="mailto:<?php echo esc_html( $wfp_email ); ?>"><?php echo esc_html( $wfp_email ); ?></a></td>
+					<td class="enable"> <?php echo esc_html( $wfpSymbols ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_amount ) ); ?></strong></td>
+					<td><datetime> <?php echo esc_html( gmdate( 'd M, Y', strtotime( $wfp_date ) ) ); ?></datetime></td>
+					<td class="invoice"> <a href="<?php echo esc_url( wp_nonce_url( $wfp_invoice_url, '_wpnonce' ) ); ?>" target="_blank"><?php esc_html_e( 'View', 'wp-fundraising' ); ?></a> </td>
 				</tr>
 				<?php
-				$m++;
+				$wfp_m++;
 			endforeach;
 			?>
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="3" style="text-align: right"> <?php echo esc_html__( 'Total Amount : ', 'wp-fundraising' ); ?> [<?php echo esc_html( $symbols ); ?>] </th>
-					<th> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $totalAmount ) ); ?> </th>
+					<th colspan="3" style="text-align: right"> <?php echo esc_html__( 'Total Amount : ', 'wp-fundraising' ); ?> [<?php echo esc_html( $wfpSymbols ); ?>] </th>
+					<th> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpTotalAmount ) ); ?> </th>
 					<th>&nbsp; </th>
 				</tr>
 			</tfoot>

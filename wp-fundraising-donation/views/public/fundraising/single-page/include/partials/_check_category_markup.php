@@ -1,15 +1,18 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-if ( $enable_cat === \WfpFundraising\Apps\Key::WFP_YES && ! empty( $categories ) ) : ?>
+defined( 'ABSPATH' ) || exit;
+
+if ( $wfp_enable_cat === \WfpFundraising\Apps\Key::WFP_YES && ! empty( $wfp_categories ) ) : ?>
 
 	<div class="wfp-header-cat">
 	<?php
 
-		$separator = false;
+		$wfp_separator = false;
 
-	foreach ( $categories as $key => $category ) :
+	foreach ( $wfp_categories as $wfp_key => $category ) :
 
-		if ( $separator ) :
+		if ( $wfp_separator ) :
 			?>
 				<span class='wfp-header-cat--separator'>-</span>
 				<?php
@@ -18,14 +21,16 @@ if ( $enable_cat === \WfpFundraising\Apps\Key::WFP_YES && ! empty( $categories )
 
 		<a class="wfp-header-cat--link"
 		   href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>"
-		   title="<?php echo esc_attr( sprintf( __( 'View all posts in %s', 'wp-fundraising' ), $category->name ) ); ?>"
+		   title="<?php
+		   // translators: %s: category name.
+		   echo esc_attr( sprintf( __( 'View all posts in %s', 'wp-fundraising' ), $category->name ) ); ?>"
 		>
 			<?php echo esc_html( $category->name ); ?>
 
 			</a>
 			<?php
 
-			$separator = true;
+			$wfp_separator = true;
 
 		endforeach;
 	?>

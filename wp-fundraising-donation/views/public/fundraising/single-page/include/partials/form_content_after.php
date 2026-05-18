@@ -1,9 +1,12 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-if ( $formContentData->enable === \WfpFundraising\Apps\Key::WFP_YES && $formContentData->content_position == 'after-form' ) : ?>
+defined( 'ABSPATH' ) || exit;
+
+if ( $wfpFormContentData->enable === \WfpFundraising\Apps\Key::WFP_YES && $wfpFormContentData->content_position == 'after-form' ) : ?>
 
 	<div class="wfdp-donation-content-data before-form">
-		<?php echo esc_html( $formContentData->content ); ?>
+		<?php echo esc_html( $wfpFormContentData->content ); ?>
 	</div>
 
 	<?php

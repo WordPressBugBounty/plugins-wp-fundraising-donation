@@ -9,7 +9,7 @@ class Form_Settings {
 	private static $instance;
 
 	private $post;
-	private $post_id;
+	private $wfp_post_id;
 	private $meta;
 	private $options;
 
