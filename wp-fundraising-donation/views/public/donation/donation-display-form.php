@@ -259,7 +259,7 @@ $wfpBarProgressCOlor = isset( $wfpFormGoalData->bar_color ) ? $wfpFormGoalData->
 					<div class="wfdp-donation-input-form">
 						<button type="button" class="xs-btn btn-special submit-btn" name="submit-form-donation"
 								data-type="modal-trigger"
-								data-target="xs-donate-modal-popup"> <?php echo esc_html( $wfpFormDesignData->continue_button ? $wfpFormDesignData->continue_button : __( 'Continue', 'wp-fundraising' ) ); ?>
+								data-target="xs-donate-modal-popup"> <?php echo esc_html( $wfpFormDesignData->continue_button ? $wfpFormDesignData->continue_button : __( 'Continue', 'wp-fundraising-donation' ) ); ?>
 						</button>
 					</div>
 					<?php
@@ -267,7 +267,7 @@ $wfpBarProgressCOlor = isset( $wfpFormGoalData->bar_color ) ? $wfpFormGoalData->
 					?>
 					<div class="wfdp-donation-input-form wfdp-donation-continue-btn  <?php echo esc_attr( $wfpEnableDisplayField ); ?> xs-donate-visible">
 						<button type="button" class="xs-btn btn-special submit-btn"
-								onclick="xs_show_hide_donate_font('.xs-show-div-only-button__<?php echo esc_attr( $post->ID ); ?>');"> <?php echo esc_html( $wfpFormDesignData->continue_button ? $wfpFormDesignData->continue_button : __( 'Continue', 'wp-fundraising' ) ); ?>
+								onclick="xs_show_hide_donate_font('.xs-show-div-only-button__<?php echo esc_attr( $post->ID ); ?>');"> <?php echo esc_html( $wfpFormDesignData->continue_button ? $wfpFormDesignData->continue_button : __( 'Continue', 'wp-fundraising-donation' ) ); ?>
 						</button>
 					</div>
 
@@ -375,7 +375,7 @@ $wfpBarProgressCOlor = isset( $wfpFormGoalData->bar_color ) ? $wfpFormGoalData->
 								} else {
 									?>
 									<button type="submit" name="submit-form-donation"
-											class="xs-btn btn-special submit-btn"><?php echo esc_html( $wfpFormDesignData->submit_button ? $wfpFormDesignData->submit_button : __( 'Donate Now', 'wp-fundraising' ) ); ?></button>
+											class="xs-btn btn-special submit-btn"><?php echo esc_html( $wfpFormDesignData->submit_button ? $wfpFormDesignData->submit_button : __( 'Donate Now', 'wp-fundraising-donation' ) ); ?></button>
 									<?php
 								}
 								if ( isset( $wfpFormTermsData->enable ) && $wfpFormTermsData->content_position == 'after-submit-button' ) {

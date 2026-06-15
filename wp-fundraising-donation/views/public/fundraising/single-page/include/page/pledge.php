@@ -15,7 +15,7 @@ $wfpPostId      = empty( $post->ID ) ? get_the_ID() : $post->ID;
 ?>
 
 <div class="wfp-pledge-section" id="pledge_section__<?php echo esc_attr( $wfpPostId ); ?>">
-	<h2 class="wfp-pledge-section-title"><?php echo esc_html( apply_filters( 'wfp_single_content_rewards', __( 'Rewards', 'wp-fundraising' ) ) ); ?></h2>
+	<h2 class="wfp-pledge-section-title"><?php echo esc_html( apply_filters( 'wfp_single_content_rewards', __( 'Rewards', 'wp-fundraising-donation' ) ) ); ?></h2>
 	<?php
 	$wfp_m   = 0;
 	$wfp_opt = get_option( \WfpFundraising\Apps\Fundraising::WFP_OK_REWARD_DATA );
@@ -23,7 +23,7 @@ $wfpPostId      = empty( $post->ID ) ? get_the_ID() : $post->ID;
 		?>
 		<div class="wfp-pledge-block" id="wfp-pledge-block__<?php echo esc_attr( $wfp_m ); ?>" onclick="wfp_select_pledge(this);">
 			<div class="pledge__hover-content xs-text-center">
-				<p><?php echo esc_html( apply_filters( 'wfp_single_content_select_rewards', __( 'Select this reward', 'wp-fundraising' ) ) ); ?></p>
+				<p><?php echo esc_html( apply_filters( 'wfp_single_content_select_rewards', __( 'Select this reward', 'wp-fundraising-donation' ) ) ); ?></p>
 			</div>
 			<h3 class="wfp-pledge-title"><?php echo esc_html( '' . isset( $multi->lebel ) ? $multi->lebel : '' . ' ' ); ?></h3>
 
@@ -32,7 +32,7 @@ $wfpPostId      = empty( $post->ID ) ? get_the_ID() : $post->ID;
 			</div>
 
 			<div class="pledge__detail">
-				<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_amount', __( 'Reward Amount:', 'wp-fundraising' ) ) ); ?></span>
+				<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_amount', __( 'Reward Amount:', 'wp-fundraising-donation' ) ) ); ?></span>
 				<span class="pledge__detail-info">
 					<?php
 					$wfp_amount = isset( $multi->price ) ? $multi->price : '0';
@@ -57,8 +57,8 @@ $wfpPostId      = empty( $post->ID ) ? get_the_ID() : $post->ID;
 				?>
 
 				<div class="pledge__detail">
-					<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_left', __( 'Item Left:', 'wp-fundraising' ) ) ); ?></span>
-					<span class="pledge__detail-info"><?php echo wp_kses( $wfp_claimed, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?> <?php echo esc_html__( 'out of', 'wp-fundraising' ); ?> <?php echo esc_html( $wfpQuantityData ); ?> <?php echo esc_html__( 'claimed', 'wp-fundraising' ); ?> </span>
+					<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_left', __( 'Item Left:', 'wp-fundraising-donation' ) ) ); ?></span>
+					<span class="pledge__detail-info"><?php echo wp_kses( $wfp_claimed, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?> <?php echo esc_html__( 'out of', 'wp-fundraising-donation' ); ?> <?php echo esc_html( $wfpQuantityData ); ?> <?php echo esc_html__( 'claimed', 'wp-fundraising-donation' ); ?> </span>
 				</div>
 
 				<?php
@@ -69,7 +69,7 @@ $wfpPostId      = empty( $post->ID ) ? get_the_ID() : $post->ID;
 				?>
 				<div class="pledge__detail wfp-pledge-hide">
 					<?php if ( is_array( $wfpExplodeLi ) && ! empty( $wfpExplodeLi ) ) { ?>
-						<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_include', __( 'Includes:', 'wp-fundraising' ) ) ); ?></span>
+						<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_include', __( 'Includes:', 'wp-fundraising-donation' ) ) ); ?></span>
 						<ul class="pledge__detail-info-list">
 							<?php foreach ( $wfpExplodeLi as $listData ) : ?>
 								<li> <?php echo esc_html( $listData ); ?> </li>
@@ -83,7 +83,7 @@ $wfpPostId      = empty( $post->ID ) ? get_the_ID() : $post->ID;
 			if ( strlen( $wfpEstimatedData ) > 3 ) {
 				?>
 				<div class="pledge__detail">
-					<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_estimated', __( 'Estimated Delivery:', 'wp-fundraising' ) ) ); ?></span>
+					<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_estimated', __( 'Estimated Delivery:', 'wp-fundraising-donation' ) ) ); ?></span>
 					<span class="pledge__detail-info"> <?php echo esc_html( gmdate( 'M Y', strtotime( $wfpEstimatedData ) ) ); ?></span>
 				</div>
 				<?php
@@ -93,7 +93,7 @@ $wfpPostId      = empty( $post->ID ) ? get_the_ID() : $post->ID;
 			if ( strlen( $wfpShipsdData ) > 3 ) {
 				?>
 				<div class="pledge__detail">
-					<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_ships', __( 'Ships To:', 'wp-fundraising' ) ) ); ?></span>
+					<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_ships', __( 'Ships To:', 'wp-fundraising-donation' ) ) ); ?></span>
 					<span class="pledge__detail-info"> <?php echo esc_html( $wfpShipsdData ); ?></span>
 				</div>
 			<?php } ?>
@@ -104,7 +104,7 @@ $wfpPostId      = empty( $post->ID ) ? get_the_ID() : $post->ID;
 
 				if ( $wfp_campaign_status == 'Publish' ) {
 					?>
-					<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_pledge_amount', __( 'Pledge amount:', 'wp-fundraising' ) ) ); ?></span>
+					<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_pledge_amount', __( 'Pledge amount:', 'wp-fundraising-donation' ) ) ); ?></span>
 					<div class="wfp-additional-data">
 						<div class="wfdp-input-payment-field xs-fixed-lebel">
 							<div class="pledge__detail-info">
@@ -134,7 +134,7 @@ $wfpPostId      = empty( $post->ID ) ? get_the_ID() : $post->ID;
 								wfp-pledge="<?php echo esc_attr( strlen( $wfp_amount ) > 0 ? $wfp_amount : 0 ); ?>"
 								id="wfp_pledge_button"
 								class="xs-btn btn-special submit-btn">
-							<?php echo esc_html( apply_filters( 'wfp_single_content_rewards_continue_button', __( 'Continue', 'wp-fundraising' ) ) ); ?>
+							<?php echo esc_html( apply_filters( 'wfp_single_content_rewards_continue_button', __( 'Continue', 'wp-fundraising-donation' ) ) ); ?>
 						</button>
 
 						<?php // only if woocommerce payment enabled then below ?>

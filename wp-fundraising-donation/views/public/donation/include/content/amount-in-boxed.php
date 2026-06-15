@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 	if ( ! empty( $wfp_fixed_data->enable_custom_amount ) && $wfp_fixed_data->enable_custom_amount == 'Yes' ) :
 		?>
 	
-	<li class="wfp-bdage" onclick="xs_donate_amount_set(0, <?php echo esc_html( $post->ID ); ?>);" data-value="0" class=""><?php echo esc_html__( 'Custom', 'wp-fundraising' ); ?></li>
+	<li class="wfp-bdage" onclick="xs_donate_amount_set(0, <?php echo esc_html( $post->ID ); ?>);" data-value="0" class=""><?php echo esc_html__( 'Custom', 'wp-fundraising-donation' ); ?></li>
 																	  <?php
 	endif;
 	?>

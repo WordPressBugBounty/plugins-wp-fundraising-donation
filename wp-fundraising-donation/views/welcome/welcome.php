@@ -13,14 +13,14 @@ $wfpCheckStep    = isset( $wfpGetSetUpData['services']['finish'] ) ? $wfpGetSetU
 ?>
 <div class="wfp-welcome-contrainer">
 	<div class="wfp-welcome-header">
-		<h1><?php echo esc_html__( 'Welcome FundEngine', 'wp-fundraising' ); ?></h1>
+		<h1><?php echo esc_html__( 'Welcome FundEngine', 'wp-fundraising-donation' ); ?></h1>
 	</div>
 	<div class="wfp-welcome-body">
 		<div class="wlecome-image">
 			<img src="<?php echo esc_url( \WFP_Fundraising::plugin_url() . 'views/welcome/' ); ?>image/welcome.jpg">
 		</div>
 		<div class="welcome-button">
-			<button type="button" class="xs-btn btn-special continue-bt welcome wfdp-btn" data-type="modal-trigger" data-target="xs-donate-modal-popup__welcome"><?php echo esc_html__( 'Setup', 'wp-fundraising' ); ?> </button>
+			<button type="button" class="xs-btn btn-special continue-bt welcome wfdp-btn" data-type="modal-trigger" data-target="xs-donate-modal-popup__welcome"><?php echo esc_html__( 'Setup', 'wp-fundraising-donation' ); ?> </button>
 		</div>
 	</div>
 </div>
@@ -30,7 +30,7 @@ $wfpCheckStep    = isset( $wfpGetSetUpData['services']['finish'] ) ? $wfpGetSetU
 		<form method="post" class="wfdp-welcomeForm" id="wfdp-welcomeForm-19">
 			<div class="xs-modal-header">
 				<div class="tabHeader">
-					<h4><?php echo esc_html__( 'Setup Process', 'wp-fundraising' ); ?></h4>
+					<h4><?php echo esc_html__( 'Setup Process', 'wp-fundraising-donation' ); ?></h4>
 				</div>
 				<button type="button" class="xs-btn xs-btn-close danger" data-modal-dismiss="modal">X</button>
 			</div>

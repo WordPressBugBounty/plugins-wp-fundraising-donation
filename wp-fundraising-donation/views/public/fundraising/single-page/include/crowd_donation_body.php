@@ -129,7 +129,7 @@ if ( $wfpHideTitle == 'No' ) : ?>
 					?>
 
 					<div class="wfp-excerpt-section">
-						<h3 class="wfp-short-berif-title"><?php echo wp_kses( apply_filters( 'wfp_single_excerpt_title', esc_html__( 'Short Brief', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></h3>
+						<h3 class="wfp-short-berif-title"><?php echo wp_kses( apply_filters( 'wfp_single_excerpt_title', esc_html__( 'Short Brief', 'wp-fundraising-donation' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></h3>
 						<?php do_action( 'wfp_single_excerpt_before' ); ?>
 						<div class="wfp-post-excerpt"><?php echo wp_kses( $wfp_brief, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></div>
 						<?php do_action( 'wfp_single_excerpt_after' ); ?>
@@ -194,7 +194,7 @@ if ( $wfpHideTitle == 'No' ) : ?>
 </div>
 <div class="xs-row">
 	<?php
-	$wfpRecentTitle = ( $wfp_donation_format == 'donation' ) ? __( 'Recent Donations', 'wp-fundraising' ) : __( 'Recent Funds', 'wp-fundraising' );
+	$wfpRecentTitle = ( $wfp_donation_format == 'donation' ) ? __( 'Recent Donations', 'wp-fundraising-donation' ) : __( 'Recent Funds', 'wp-fundraising-donation' );
 
 	$wfpArgsTotal = array(
 		'post_type'   => 'wfp-review',
@@ -214,7 +214,7 @@ if ( $wfpHideTitle == 'No' ) : ?>
 		if ( $wfpEnableSingleContent == 'No' ) :
 			?>
 				<li class="wfp_tab_li active">
-					<a href="#wfp_tab_content_decription"><?php echo wp_kses( apply_filters( 'wfp_single_content_decription', esc_html__( 'Description', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></a>
+					<a href="#wfp_tab_content_decription"><?php echo wp_kses( apply_filters( 'wfp_single_content_decription', esc_html__( 'Description', 'wp-fundraising-donation' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></a>
 				</li> 
 				<?php
 			endif;
@@ -222,7 +222,7 @@ if ( $wfpHideTitle == 'No' ) : ?>
 		if ( $wfpEnableSingleReview == 'No' ) :
 			?>
 				<li class="wfp_tab_li ">
-					<a href="#wfp_tab_content_review"><?php echo wp_kses( apply_filters( 'wfp_single_content_review', esc_html__( 'Reviews', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
+					<a href="#wfp_tab_content_review"><?php echo wp_kses( apply_filters( 'wfp_single_content_review', esc_html__( 'Reviews', 'wp-fundraising-donation' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
 						(<?php echo esc_attr( $wfp_count ); ?>)</a>
 				</li> 
 				<?php
@@ -231,7 +231,7 @@ if ( $wfpHideTitle == 'No' ) : ?>
 		if ( $wfpEnableSingleUpdates == 'No' && $wfp_donation_format == 'crowdfunding' ) :
 			?>
 				<li class="wfp_tab_li ">
-					<a href="#wfp_tab_content_updates"><?php echo wp_kses( apply_filters( 'wfp_single_content_updates', esc_html__( 'Updates', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></a>
+					<a href="#wfp_tab_content_updates"><?php echo wp_kses( apply_filters( 'wfp_single_content_updates', esc_html__( 'Updates', 'wp-fundraising-donation' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></a>
 				</li> 
 				<?php
 			endif;

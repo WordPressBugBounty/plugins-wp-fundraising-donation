@@ -11,8 +11,8 @@ $wfpGateCampaignData = isset( $wfpGateWaysData['payment'] ) ? $wfpGateWaysData['
 			<label class="welcome-default-check donation-target-welcome <?php echo ( $wfpGateCampaignData == 'default' ) ? 'xs-donate-visible' : ''; ?>" onclick="xs_show_hide_donate_multiple('.welcome-default-check', '.donation-target-welcome')">
 				<input name="xs_welcome_data_submit[services][payment]" <?php echo ( $wfpGateCampaignData == 'default' ) ? 'checked' : ''; ?> value="default" type="radio"> 
 				<div class="wfdp-paymant-method-data">
-					<h3><?php echo esc_html__( 'Default', 'wp-fundraising' ); ?></h3>
-					<p><?php echo esc_html__( 'Cash on delivery, Direct bank transfer, Check payments, PayPal, Stripe etc.', 'wp-fundraising' ); ?></p>	
+					<h3><?php echo esc_html__( 'Default', 'wp-fundraising-donation' ); ?></h3>
+					<p><?php echo esc_html__( 'Cash on delivery, Direct bank transfer, Check payments, PayPal, Stripe etc.', 'wp-fundraising-donation' ); ?></p>	
 				</div>			
 			</label>
 		</li>
@@ -20,8 +20,8 @@ $wfpGateCampaignData = isset( $wfpGateWaysData['payment'] ) ? $wfpGateWaysData['
 			<label class="welcome-default-check crowdfunding-target-welcome <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'xs-donate-visible' : ''; ?>" onclick="xs_show_hide_donate_multiple('.welcome-default-check', '.crowdfunding-target-welcome')">
 				<input name="xs_welcome_data_submit[services][payment]" <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'checked' : ''; ?> value="woocommerce" type="radio"> 
 				<div class="wfdp-paymant-method-data">	
-					<h3><?php echo esc_html__( 'Woocommerce', 'wp-fundraising' ); ?></h3>
-					<p><?php echo esc_html__( 'Woocommerce all payment getway.', 'wp-fundraising' ); ?></p>	
+					<h3><?php echo esc_html__( 'Woocommerce', 'wp-fundraising-donation' ); ?></h3>
+					<p><?php echo esc_html__( 'Woocommerce all payment getway.', 'wp-fundraising-donation' ); ?></p>	
 				</div>			
 			</label>
 		</li>

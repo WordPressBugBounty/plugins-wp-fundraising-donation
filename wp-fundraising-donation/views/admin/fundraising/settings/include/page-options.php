@@ -6,13 +6,13 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <div class="wfp-woocommerce-message xs-donate-hidden <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'xs-donate-visible' : ''; ?>">
 	<p>
-		<a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=advanced' ) ); ?>"> <?php echo esc_html__( 'Page Setup of Woocommerce', 'wp-fundraising' ); ?> </a>
+		<a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=advanced' ) ); ?>"> <?php echo esc_html__( 'Page Setup of Woocommerce', 'wp-fundraising-donation' ); ?> </a>
 	</p>
 </div>
 
 <div class="wfdp-payment-section wfdp-payment-section-page-option wfp-disabled-div <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>">
 	<div class="wfdp-payment-headding">
-		<h2><?php echo esc_html__( 'Setup Page Settings', 'wp-fundraising' ); ?></h2>
+		<h2><?php echo esc_html__( 'Setup Page Settings', 'wp-fundraising-donation' ); ?></h2>
 	</div>
 	<div class="wfdp-payment-gateway">
 		<form action="<?php echo esc_url( admin_url() . 'edit.php?post_type=' . self::post_type() . '&page=settings&tab=page' ); ?>"
@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 			  <?php wp_nonce_field( 'wpf_save_settings', 'wpf_settings_nonce' ); ?>
 			<ul class="wfdp-social_share">
 				<li class="wfdp-social_share-section-title">
-					<h3><?php echo esc_html__( 'Page options', 'wp-fundraising' ); ?></h3>
+					<h3><?php echo esc_html__( 'Page options', 'wp-fundraising-donation' ); ?></h3>
 				</li>
 				<?php
 				$wfpPgOptions = \WfpFundraising\Apps\Settings::default_custom_page();
@@ -96,7 +96,7 @@ defined( 'ABSPATH' ) || exit;
 			</ul>
 
 			<button type="submit" name="submit_donate_page_setting"
-					class="button button-primary button-large"><?php echo esc_html__( 'Save', 'wp-fundraising' ); ?></button>
+					class="button button-primary button-large"><?php echo esc_html__( 'Save', 'wp-fundraising-donation' ); ?></button>
 		</form>
 	</div>
 </div>

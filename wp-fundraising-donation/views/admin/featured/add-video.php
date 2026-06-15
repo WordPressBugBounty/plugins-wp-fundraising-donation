@@ -14,9 +14,9 @@ defined( 'ABSPATH' ) || exit;
 	<div id="thumbnail-change-toggle">
 		<?php
 		if ( ! $this->has_featured_video( $wfp_post_id ) ) {
-			echo wp_kses( '<p class="hide-if-no-js"><a href="#" id="wfp-set-featured-video">' . __( 'Set featured video', 'wp-fundraising' ) . '</a></p>', \WfpFundraising\Utilities\Utils::get_kses_array() );
+			echo wp_kses( '<p class="hide-if-no-js"><a href="#" id="wfp-set-featured-video">' . __( 'Set featured video', 'wp-fundraising-donation' ) . '</a></p>', \WfpFundraising\Utilities\Utils::get_kses_array() );
 		} else {
-			echo wp_kses( '<p class="hide-if-no-js"><a href="#" id="wfp-remove-featured-video">' . __( 'Remove featured video', 'wp-fundraising' ) . '</a></p>', \WfpFundraising\Utilities\Utils::get_kses_array() );
+			echo wp_kses( '<p class="hide-if-no-js"><a href="#" id="wfp-remove-featured-video">' . __( 'Remove featured video', 'wp-fundraising-donation' ) . '</a></p>', \WfpFundraising\Utilities\Utils::get_kses_array() );
 		}
 		?>
 	</div>

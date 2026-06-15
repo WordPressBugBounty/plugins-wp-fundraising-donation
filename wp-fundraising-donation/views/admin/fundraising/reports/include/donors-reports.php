@@ -6,8 +6,8 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <div class="wfdp-income-report">
 	<div class="wfp-report-headding">
-		<h2><?php echo esc_html__( 'Donors History', 'wp-fundraising' ); ?></h2>
-		<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpFromDate ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpToDate ) ) ); ?></datetime></p>
+		<h2><?php echo esc_html__( 'Donors History', 'wp-fundraising-donation' ); ?></h2>
+		<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising-donation' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpFromDate ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpToDate ) ) ); ?></datetime></p>
 	</div>
 	<div class="report-body">
 	<?php
@@ -38,9 +38,9 @@ defined( 'ABSPATH' ) || exit;
 		<table class="form-table wfdp-table-design wc_gateways widefat wfp-report-table">
 			<thead>
 				<tr>
-					<th class="name"> <?php echo esc_html__( 'Email', 'wp-fundraising' ); ?></th>
-					<th> <?php echo esc_html__( 'Name', 'wp-fundraising' ); ?></th>
-					<th> <?php echo esc_html__( 'Total Amount', 'wp-fundraising' ); ?></th>
+					<th class="name"> <?php echo esc_html__( 'Email', 'wp-fundraising-donation' ); ?></th>
+					<th> <?php echo esc_html__( 'Name', 'wp-fundraising-donation' ); ?></th>
+					<th> <?php echo esc_html__( 'Total Amount', 'wp-fundraising-donation' ); ?></th>
 					
 				</tr>
 			</thead>
@@ -93,7 +93,7 @@ defined( 'ABSPATH' ) || exit;
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="2" style="text-align: right"> <?php echo esc_html__( 'Total Amount : ', 'wp-fundraising' ); ?> [<?php echo esc_html( $wfpSymbols ); ?>] </th>
+					<th colspan="2" style="text-align: right"> <?php echo esc_html__( 'Total Amount : ', 'wp-fundraising-donation' ); ?> [<?php echo esc_html( $wfpSymbols ); ?>] </th>
 					<th> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpTotalAmount ) ); ?> </th>
 				</tr>
 			</tfoot>

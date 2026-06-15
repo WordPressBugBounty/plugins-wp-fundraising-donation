@@ -34,7 +34,7 @@ class Rest_Route extends Api {
 
 		return array(
 			'status'  => 'failed',
-			'message' => esc_html__( 'Product id not found.', 'wp-fundraising' ),
+			'message' => esc_html__( 'Product id not found.', 'wp-fundraising-donation' ),
 		);
 	}
 

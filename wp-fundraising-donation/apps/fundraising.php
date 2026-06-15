@@ -157,15 +157,15 @@ class Fundraising {
 			self::post_type(),
 			array(
 				'labels'             => array(
-					'name'          => esc_html__( 'FundEngine', 'wp-fundraising' ),
-					'singular_name' => esc_html__( 'FundEngine', 'wp-fundraising' ),
-					'all_items'     => esc_html__( 'All Campaigns', 'wp-fundraising' ),
-					'add_new'       => esc_html__( 'Add Campaign', 'wp-fundraising' ),
-					'add_new_item'  => esc_html__( 'Campaign Name', 'wp-fundraising' ),
-					'edit_item'     => esc_html__( 'Edit Campaign', 'wp-fundraising' ),
-					'view_item'     => esc_html__( 'View Campaign', 'wp-fundraising' ),
-					'view_items'    => esc_html__( 'View Campaigns', 'wp-fundraising' ),
-					'search_items'  => esc_html__( 'Search Campaign', 'wp-fundraising' ),
+					'name'          => esc_html__( 'FundEngine', 'wp-fundraising-donation' ),
+					'singular_name' => esc_html__( 'FundEngine', 'wp-fundraising-donation' ),
+					'all_items'     => esc_html__( 'All Campaigns', 'wp-fundraising-donation' ),
+					'add_new'       => esc_html__( 'Add Campaign', 'wp-fundraising-donation' ),
+					'add_new_item'  => esc_html__( 'Campaign Name', 'wp-fundraising-donation' ),
+					'edit_item'     => esc_html__( 'Edit Campaign', 'wp-fundraising-donation' ),
+					'view_item'     => esc_html__( 'View Campaign', 'wp-fundraising-donation' ),
+					'view_items'    => esc_html__( 'View Campaigns', 'wp-fundraising-donation' ),
+					'search_items'  => esc_html__( 'Search Campaign', 'wp-fundraising-donation' ),
 
 				),
 				'supports'           => array( 'title', 'thumbnail', 'editor', 'excerpt' ),
@@ -194,17 +194,17 @@ class Fundraising {
 			array(
 				'hierarchical'      => true,
 				'labels'            => array(
-					'name'              => __( 'Categories', 'wp-fundraising' ),
-					'singular_name'     => __( 'Categories', 'wp-fundraising' ),
-					'search_items'      => __( 'Search Categories', 'wp-fundraising' ),
-					'all_items'         => __( 'All Categories', 'wp-fundraising' ),
-					'parent_item'       => __( 'Parent Categories', 'wp-fundraising' ),
-					'parent_item_colon' => __( 'Parent Categories:', 'wp-fundraising' ),
-					'edit_item'         => __( 'Edit Categories', 'wp-fundraising' ),
-					'update_item'       => __( 'Update Categories', 'wp-fundraising' ),
-					'add_new_item'      => __( 'Add New Categories', 'wp-fundraising' ),
-					'new_item_name'     => __( 'New Categories', 'wp-fundraising' ),
-					'menu_name'         => __( 'Categories', 'wp-fundraising' ),
+					'name'              => __( 'Categories', 'wp-fundraising-donation' ),
+					'singular_name'     => __( 'Categories', 'wp-fundraising-donation' ),
+					'search_items'      => __( 'Search Categories', 'wp-fundraising-donation' ),
+					'all_items'         => __( 'All Categories', 'wp-fundraising-donation' ),
+					'parent_item'       => __( 'Parent Categories', 'wp-fundraising-donation' ),
+					'parent_item_colon' => __( 'Parent Categories:', 'wp-fundraising-donation' ),
+					'edit_item'         => __( 'Edit Categories', 'wp-fundraising-donation' ),
+					'update_item'       => __( 'Update Categories', 'wp-fundraising-donation' ),
+					'add_new_item'      => __( 'Add New Categories', 'wp-fundraising-donation' ),
+					'new_item_name'     => __( 'New Categories', 'wp-fundraising-donation' ),
+					'menu_name'         => __( 'Categories', 'wp-fundraising-donation' ),
 				),
 				'show_ui'           => true,
 				'show_admin_column' => true,
@@ -222,17 +222,17 @@ class Fundraising {
 			array(
 				'hierarchical'      => false,
 				'labels'            => array(
-					'name'              => __( 'Tags', 'wp-fundraising' ),
-					'singular_name'     => __( 'Tags', 'wp-fundraising' ),
-					'search_items'      => __( 'Search Tags', 'wp-fundraising' ),
-					'all_items'         => __( 'All Tags', 'wp-fundraising' ),
-					'parent_item'       => __( 'Parent Tags', 'wp-fundraising' ),
-					'parent_item_colon' => __( 'Parent Tags:', 'wp-fundraising' ),
-					'edit_item'         => __( 'Edit Tags', 'wp-fundraising' ),
-					'update_item'       => __( 'Update Tags', 'wp-fundraising' ),
-					'add_new_item'      => __( 'Add New Tags', 'wp-fundraising' ),
-					'new_item_name'     => __( 'New Tags', 'wp-fundraising' ),
-					'menu_name'         => __( 'Tags', 'wp-fundraising' ),
+					'name'              => __( 'Tags', 'wp-fundraising-donation' ),
+					'singular_name'     => __( 'Tags', 'wp-fundraising-donation' ),
+					'search_items'      => __( 'Search Tags', 'wp-fundraising-donation' ),
+					'all_items'         => __( 'All Tags', 'wp-fundraising-donation' ),
+					'parent_item'       => __( 'Parent Tags', 'wp-fundraising-donation' ),
+					'parent_item_colon' => __( 'Parent Tags:', 'wp-fundraising-donation' ),
+					'edit_item'         => __( 'Edit Tags', 'wp-fundraising-donation' ),
+					'update_item'       => __( 'Update Tags', 'wp-fundraising-donation' ),
+					'add_new_item'      => __( 'Add New Tags', 'wp-fundraising-donation' ),
+					'new_item_name'     => __( 'New Tags', 'wp-fundraising-donation' ),
+					'menu_name'         => __( 'Tags', 'wp-fundraising-donation' ),
 				),
 				'show_ui'           => true,
 				'show_admin_column' => true,
@@ -253,8 +253,8 @@ class Fundraising {
 	public function wfp_add_admin_menu_donate() {
 		add_submenu_page(
 			'edit.php?post_type=' . self::post_type() . '',
-			esc_html__( 'Reports', 'wp-fundraising' ),
-			esc_html__( 'Reports', 'wp-fundraising' ),
+			esc_html__( 'Reports', 'wp-fundraising-donation' ),
+			esc_html__( 'Reports', 'wp-fundraising-donation' ),
 			'manage_options',
 			'report',
 			array( $this, 'wfp_donate_reports' )
@@ -262,8 +262,8 @@ class Fundraising {
 
 		add_submenu_page(
 			'edit.php?post_type=' . self::post_type() . '',
-			esc_html__( 'Settings', 'wp-fundraising' ),
-			esc_html__( 'Settings', 'wp-fundraising' ),
+			esc_html__( 'Settings', 'wp-fundraising-donation' ),
+			esc_html__( 'Settings', 'wp-fundraising-donation' ),
 			'manage_options',
 			'settings',
 			array( $this, 'wfp_donate_settings' )
@@ -283,7 +283,7 @@ class Fundraising {
 		if ( $post->post_type == self::post_type() ) :
 			add_meta_box(
 				'wp_fundraising_meta',
-				esc_html__( 'Campaign Form', 'wp-fundraising' ),
+				esc_html__( 'Campaign Form', 'wp-fundraising-donation' ),
 				array( $this, 'wfp_meta_box_html_for_donate' ),
 				self::post_type(),
 				'normal',
@@ -474,15 +474,15 @@ class Fundraising {
 
 		$columns = array(
 			'cb'        => '<input type="checkbox" />',
-			'title'     => esc_html__( 'Name', 'wp-fundraising' ),
+			'title'     => esc_html__( 'Name', 'wp-fundraising-donation' ),
 			// translators: %s: currency symbol or code (e.g. $, EUR).
-			'amount'    => sprintf( esc_html__( 'Amount (%s)', 'wp-fundraising' ), $symbols ),
-			'goal_info' => esc_html__( 'Goal', 'wp-fundraising' ),
+			'amount'    => sprintf( esc_html__( 'Amount (%s)', 'wp-fundraising-donation' ), $symbols ),
+			'goal_info' => esc_html__( 'Goal', 'wp-fundraising-donation' ),
 			// translators: %s: currency symbol or code (e.g. $, EUR).
-			'raised'    => sprintf( esc_html__( 'Raised Amount (%s)', 'wp-fundraising' ), $symbols ),
-			'settings'  => esc_html__( 'Settings', 'wp-fundraising' ),
-			'author'    => esc_html__( 'Author', 'wp-fundraising' ),
-			'date'      => esc_html__( 'Donate Date', 'wp-fundraising' ),
+			'raised'    => sprintf( esc_html__( 'Raised Amount (%s)', 'wp-fundraising-donation' ), $symbols ),
+			'settings'  => esc_html__( 'Settings', 'wp-fundraising-donation' ),
+			'author'    => esc_html__( 'Author', 'wp-fundraising-donation' ),
+			'date'      => esc_html__( 'Donate Date', 'wp-fundraising-donation' ),
 		);
 
 		return $columns;
@@ -1057,7 +1057,7 @@ class Fundraising {
 
 				$return['success'] = $donateFront;
 			} else {
-				$return['error'] = esc_html__( 'Unsuccess', 'wp-fundraising' );
+				$return['error'] = esc_html__( 'Unsuccess', 'wp-fundraising-donation' );
 			}
 		}
 
@@ -1084,11 +1084,11 @@ class Fundraising {
 
 		$tableName = self::wfp_donate_table( '' );
 
-		$return['error'] = esc_html__( 'Failed to validate', 'wp-fundraising' );
+		$return['error'] = esc_html__( 'Failed to validate', 'wp-fundraising-donation' );
 
 		if ( $idd > 0 && in_array( $status, Global_Settings::$all_donation_status ) ) {
 
-			$return['error'] = esc_html__( 'Failed', 'wp-fundraising' );
+			$return['error'] = esc_html__( 'Failed', 'wp-fundraising-donation' );
 
 			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Intentionally updating donation status in the plugin's dedicated table.
 			if ( $wpdb->update( $tableName, array( 'status' => $status ), array( 'donate_id' => $idd ) ) ) {

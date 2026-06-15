@@ -329,7 +329,7 @@ $wfpPage_width = isset( $wfpGetMetaData->donation->page_width ) ? $wfpGetMetaDat
 									<div class="xs-row">
 										<?php
 
-										$wfpRecentTitle = __( 'Recent Funds', 'wp-fundraising' );
+										$wfpRecentTitle = __( 'Recent Funds', 'wp-fundraising-donation' );
 
 										$wfpArgsTotal = array(
 											'post_type'   => 'wfp-review',
@@ -345,21 +345,21 @@ $wfpPage_width = isset( $wfpGetMetaData->donation->page_width ) ? $wfpGetMetaDat
 											<ul class="wfp-tab" id="wfp_menu_fixed">
 												<?php if ( $wfpEnableSingleContent == 'No' ) : ?>
 													<li class="wfp_tab_li active"><a
-																href="#wfp_tab_content_decription"><?php echo esc_html( apply_filters( 'wfp_single_content_decription', esc_html__( 'Description', 'wp-fundraising' ) ) ); ?></a>
+																href="#wfp_tab_content_decription"><?php echo esc_html( apply_filters( 'wfp_single_content_decription', esc_html__( 'Description', 'wp-fundraising-donation' ) ) ); ?></a>
 													</li>
 													<?php
 												endif;
 												if ( $wfpEnableSingleReview == 'No' ) :
 													?>
 													<li class="wfp_tab_li "><a
-																href="#wfp_tab_content_review"><?php echo esc_html( apply_filters( 'wfp_single_content_review', esc_html__( 'Reviews', 'wp-fundraising' ) ) ); ?>
+																href="#wfp_tab_content_review"><?php echo esc_html( apply_filters( 'wfp_single_content_review', esc_html__( 'Reviews', 'wp-fundraising-donation' ) ) ); ?>
 															(<?php echo esc_html( $wfp_count ); ?>)</a></li>
 													<?php
 												endif;
 												if ( $wfpEnableSingleUpdates == 'No' ) :
 													?>
 													<li class="wfp_tab_li "><a
-																href="#wfp_tab_content_updates"><?php echo esc_html( apply_filters( 'wfp_single_content_updates', esc_html__( 'Updates', 'wp-fundraising' ) ) ); ?></a>
+																href="#wfp_tab_content_updates"><?php echo esc_html( apply_filters( 'wfp_single_content_updates', esc_html__( 'Updates', 'wp-fundraising-donation' ) ) ); ?></a>
 													</li>
 													<?php
 												endif;

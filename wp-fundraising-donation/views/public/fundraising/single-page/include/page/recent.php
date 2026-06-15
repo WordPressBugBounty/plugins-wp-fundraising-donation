@@ -49,7 +49,7 @@ if ( is_array( $recentDonation ) && sizeof( $recentDonation ) > 0 ) : ?>
 							</div>
 						</div>
 					<?php } else { ?>
-						<p> <?php echo esc_html__( 'Unknown', 'wp-fundraising' ); ?> </p>
+						<p> <?php echo esc_html__( 'Unknown', 'wp-fundraising-donation' ); ?> </p>
 					<?php } ?>
 				</div>
 				<div class="price-report">
@@ -58,7 +58,7 @@ if ( is_array( $recentDonation ) && sizeof( $recentDonation ) > 0 ) : ?>
 					<em class="price-report--symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em>
 				</div>
 
-				<div class="report-date"><?php echo esc_html__( 'Date:', 'wp-fundraising' ); ?><?php echo esc_html( gmdate( 'M Y', strtotime( $wfp_date ) ) ); ?></div>
+				<div class="report-date"><?php echo esc_html__( 'Date:', 'wp-fundraising-donation' ); ?><?php echo esc_html( gmdate( 'M Y', strtotime( $wfp_date ) ) ); ?></div>
 			</div>
 		<?php endforeach; ?>
 	</div>

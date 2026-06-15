@@ -6,11 +6,11 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <div class="wfdp-payment-method-container">
 	<div class="wfp-woocommerce-message xs-donate-hidden <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'xs-donate-visible' : ''; ?>">
-		<p> <a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ); ?>"> <?php echo esc_html__( 'Payment Getways Setup of Woocommerce ', 'wp-fundraising' ); ?> </a> </p>
+		<p> <a href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ); ?>"> <?php echo esc_html__( 'Payment Getways Setup of Woocommerce ', 'wp-fundraising-donation' ); ?> </a> </p>
 	</div>
 	<div class="wfdp-payment-section" >
 		<div class="wfdp-payment-headding">
-			<h2><?php echo esc_html__( 'Payment Type', 'wp-fundraising' ); ?></h2>
+			<h2><?php echo esc_html__( 'Payment Type', 'wp-fundraising-donation' ); ?></h2>
 		</div>
 		
 		<div class="welcome-campaign">
@@ -19,8 +19,8 @@ defined( 'ABSPATH' ) || exit;
 					<label class="welcome-default-check default-target-welcome <?php echo ( $wfpGateCampaignData == 'default' ) ? 'xs-donate-visible' : ''; ?>" onclick="wdp_payment_modify_report(this);">
 						<input name="paymenttype" <?php echo ( $wfpGateCampaignData == 'default' ) ? 'checked' : ''; ?> value="default" type="radio"> 
 						<div class="wfdp-paymant-method-data">
-							<h3><?php echo esc_html__( 'Default', 'wp-fundraising' ); ?></h3>
-							<p><?php echo esc_html__( 'Cash on delivery, Direct bank transfer, Check payments, PayPal, Stripe etc.', 'wp-fundraising' ); ?></p>
+							<h3><?php echo esc_html__( 'Default', 'wp-fundraising-donation' ); ?></h3>
+							<p><?php echo esc_html__( 'Cash on delivery, Direct bank transfer, Check payments, PayPal, Stripe etc.', 'wp-fundraising-donation' ); ?></p>
 						</div>				
 					</label>
 				</li>
@@ -28,8 +28,8 @@ defined( 'ABSPATH' ) || exit;
 					<label class="welcome-default-check woocommerce-target-welcome <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'xs-donate-visible' : ''; ?>" onclick="wdp_payment_modify_report(this);">
 						<input name="paymenttype" <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'checked' : ''; ?> value="woocommerce" type="radio"> 
 						<div class="wfdp-paymant-method-data">	
-							<h3><?php echo esc_html__( 'Woocommerce', 'wp-fundraising' ); ?></h3>
-							<p><?php echo esc_html__( 'Woocommerce all payment getway.', 'wp-fundraising' ); ?></p>	
+							<h3><?php echo esc_html__( 'Woocommerce', 'wp-fundraising-donation' ); ?></h3>
+							<p><?php echo esc_html__( 'Woocommerce all payment getway.', 'wp-fundraising-donation' ); ?></p>	
 						</div>			
 					</label>
 				</li>

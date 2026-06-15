@@ -26,7 +26,7 @@ do_action( 'wfp_campaign_content_before' );
 								class="xs-btn btn-special submit-btn"
 								name="submit-form-donation"
 								data-type="modal-trigger"
-								data-target="xs-donate-modal-popup"> <?php echo esc_html__( 'Donate', 'wp-fundraising' ); ?>
+								data-target="xs-donate-modal-popup"> <?php echo esc_html__( 'Donate', 'wp-fundraising-donation' ); ?>
 						</button>
 					</div>
 

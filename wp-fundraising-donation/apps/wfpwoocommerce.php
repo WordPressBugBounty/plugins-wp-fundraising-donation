@@ -133,7 +133,7 @@ if ( class_exists( 'WC_Product_Data_Store_CPT' ) ) {
 				)
 			)
 			) {
-				throw new Exception( esc_html__( 'Invalid product.', 'wp-fundraising' ) );
+				throw new Exception( esc_html__( 'Invalid product.', 'wp-fundraising-donation' ) );
 			}
 
 			$product->set_props(

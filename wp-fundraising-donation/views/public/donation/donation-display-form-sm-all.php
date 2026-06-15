@@ -24,7 +24,7 @@ require __DIR__ . '/donation-display-form-common.php';
 							class="xs-btn btn-special submit-btn"
 							name="submit-form-donation"
 							data-type="modal-trigger"
-							data-target="xs-donate-modal-popup-<?php echo esc_attr($post->ID) ?>"> <?php echo esc_html__( 'Donate', 'wp-fundraising' ); ?>
+							data-target="xs-donate-modal-popup-<?php echo esc_attr($post->ID) ?>"> <?php echo esc_html__( 'Donate', 'wp-fundraising-donation' ); ?>
 					</button>
 				</div>
 				<?php
@@ -62,7 +62,7 @@ require __DIR__ . '/donation-display-form-common.php';
 									} else {
 										?>
 										<button type="submit" name="submit-form-donation"
-												class="xs-btn btn-special submit-btn" <?php echo esc_html(isset($wfpFormTermsData->enable) && $wfpFormTermsData->enable ? 'disabled' : ''); ?> ><?php echo esc_html($wfpFormDesignData->submit_button ? $wfpFormDesignData->submit_button : __('Donate Now', 'wp-fundraising')); ?></button>
+												class="xs-btn btn-special submit-btn" <?php echo esc_html(isset($wfpFormTermsData->enable) && $wfpFormTermsData->enable ? 'disabled' : ''); ?> ><?php echo esc_html($wfpFormDesignData->submit_button ? $wfpFormDesignData->submit_button : __('Donate Now', 'wp-fundraising-donation')); ?></button>
 										<?php
 									}
 									if ( isset( $wfpFormTermsData->enable ) && $wfpFormTermsData->content_position == 'after-submit-button' ) {

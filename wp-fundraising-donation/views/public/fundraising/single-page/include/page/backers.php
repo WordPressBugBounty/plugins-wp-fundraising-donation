@@ -17,7 +17,7 @@ do_action( 'wfp_single_backers_before', $wfp_data );
 
 $wfpGoalMessageEmable = isset( $wfpFormGoalData->terget->enable ) ? $wfpFormGoalData->terget->enable : 'No';
 $wfpGoalMessage       = isset( $wfpFormGoalData->terget->message ) ? $wfpFormGoalData->terget->message : '';
-$wfpGoalMessage       = strlen( $wfpGoalMessage ) > 2 ? $wfpGoalMessage : __( 'Campaign closed', 'wp-fundraising' );
+$wfpGoalMessage       = strlen( $wfpGoalMessage ) > 2 ? $wfpGoalMessage : __( 'Campaign closed', 'wp-fundraising-donation' );
 $wfp_chart_style       = $wfpFormGoalData->bar_style;
 
 if ( $wfp_donation_format == 'donation' ) { ?>
@@ -49,7 +49,7 @@ if ( $wfp_donation_format == 'crowdfunding' ) {
 	if ( apply_filters( 'wfp_single_target_pledged_hide', true ) ) :
 		?>
 		<div class="wfp-total-pledge-count">
-			<p class="wfp-pledge-title"><?php echo esc_html( apply_filters( 'wfp_single_target_pledged', __( 'Pledged', 'wp-fundraising' ) ) ); ?></p>
+			<p class="wfp-pledge-title"><?php echo esc_html( apply_filters( 'wfp_single_target_pledged', __( 'Pledged', 'wp-fundraising-donation' ) ) ); ?></p>
 			<p class="wfp-pledge-count">
 				<em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?></em>
 				<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_total_rasied_amount ) ); ?>
@@ -62,7 +62,7 @@ if ( $wfp_donation_format == 'crowdfunding' ) {
 	if ( isset( $wfp_chart_style ) && $wfp_chart_style == 'pie_bar' ) :
 		?>
 	<div class="wfp-total-pledge-count target-gaol">
-		<p class="wfp-pledge-title"><?php echo esc_html( apply_filters( 'wfp_single_target_pledged', __( 'Goal', 'wp-fundraising' ) ) ); ?></p>
+		<p class="wfp-pledge-title"><?php echo esc_html( apply_filters( 'wfp_single_target_pledged', __( 'Goal', 'wp-fundraising-donation' ) ) ); ?></p>
 		<p class="wfp-pledge-count">
 			<em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?></em>
 			<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_target_amount ) ); ?>
@@ -75,7 +75,7 @@ if ( $wfp_donation_format == 'crowdfunding' ) {
 	if ( apply_filters( 'wfp_single_backers_title_hide', true ) ) :
 		?>
 		<div class="wfp-total-backers-count trace4">
-			<p class="wfp-backers-title"><?php echo esc_html( apply_filters( 'wfp_single_backers_title', esc_html__( 'Backers', 'wp-fundraising' ) ) ); ?></p>
+			<p class="wfp-backers-title"><?php echo esc_html( apply_filters( 'wfp_single_backers_title', esc_html__( 'Backers', 'wp-fundraising-donation' ) ) ); ?></p>
 			<p class="wfp-backers-count"> <?php echo esc_html( $wfp_total_rasied_count ); ?></p>
 		</div>
 		<?php
@@ -150,7 +150,7 @@ if ( $wfp_donation_format == 'crowdfunding' ) {
 
 									?>
 									class="xs-btn btn-special submit-btn">
-								<?php echo esc_html( apply_filters( 'wfp_single_continue_title', __( 'Continue!', 'wp-fundraising' ) ) ); ?>
+								<?php echo esc_html( apply_filters( 'wfp_single_continue_title', __( 'Continue!', 'wp-fundraising-donation' ) ) ); ?>
 							</button>
 						</div>
 					</div>

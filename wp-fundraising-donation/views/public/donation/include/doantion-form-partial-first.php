@@ -26,7 +26,7 @@ $wfp_categories = get_the_terms( $post->ID, 'wfp-categories' );
 				$wfp_last_key   = end( $wfp_array_keys );
 				foreach ( $wfp_categories as $wfp_key => $category ) {
 					// translators: %s: category name.
-					$wfpOutputCate .= '<a class="wfp-header-cat--link" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-fundraising' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>';
+					$wfpOutputCate .= '<a class="wfp-header-cat--link" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'wp-fundraising-donation' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>';
 
 					if ( $wfp_key !== $wfp_last_key ) {
 						$wfpOutputCate .= $wfp_separator;

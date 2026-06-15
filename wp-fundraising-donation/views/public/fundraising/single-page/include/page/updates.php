@@ -69,12 +69,12 @@ if ( is_user_logged_in() && $wfpUserId == $wfp_author_id ) {
 
 				<div class="wfp-review-filed wfp-review-message">
 					<textarea type="text" rows="4" name="updates_post[details]" class="wfp-input wfp-textarea"
-							  placeholder="<?php echo esc_attr__( 'Write Update *', 'wp-fundraising' ); ?>"></textarea>
+							  placeholder="<?php echo esc_attr__( 'Write Update *', 'wp-fundraising-donation' ); ?>"></textarea>
 				</div>
 
 				<div class="wfp-review-submit">
 					<button type="submit" class="wfp-form-button xs-btn xs-btn-primary xs-btn-lg xs-float-right"
-							name="post_review_submit"><?php echo esc_html( apply_filters( 'wfp_single_content_update_submit', __( 'Submit', 'wp-fundraising' ) ) ); ?></button>
+							name="post_review_submit"><?php echo esc_html( apply_filters( 'wfp_single_content_update_submit', __( 'Submit', 'wp-fundraising-donation' ) ) ); ?></button>
 				</div>
 			</form>
 		</div>

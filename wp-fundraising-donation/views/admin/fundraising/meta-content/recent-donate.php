@@ -32,22 +32,22 @@ defined( 'ABSPATH' ) || exit;
 
 	?>
 	<div class="xs_recent_donation_title_wraper">
-		<h3 class="xs-fundrising-title"><?php echo esc_html__( 'Recent Donation List', 'wp-fundraising' ); ?>  </h3>
+		<h3 class="xs-fundrising-title"><?php echo esc_html__( 'Recent Donation List', 'wp-fundraising-donation' ); ?>  </h3>
 		<div class="xs_period_wraper xs_text_center">
-			<?php echo esc_html__( 'Period : ', 'wp-fundraising' ); ?>
+			<?php echo esc_html__( 'Period : ', 'wp-fundraising-donation' ); ?>
 			<datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfp_days_10ago ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpTodayDate ) ) ); ?></datetime>
 		</div>
 
 		<div class="report-heading">
 			<ul class="xs_fundrising_filter xs_text_center">
-				<li> <a class="<?php echo ( $wfpTypeReport == '' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit"> <?php echo esc_html( strtoupper( __( 'All', 'wp-fundraising' ) ) ); ?> </a></li>
-				<li> <a class="<?php echo ( $wfpTypeReport == 'Review' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit&type_status=Review"> <?php echo esc_html( strtoupper( __( 'In Review', 'wp-fundraising' ) ) ); ?></a></li>
-				<li> <a class="<?php echo ( $wfpTypeReport == 'Pending' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit&type_status=Pending"><?php echo esc_html( strtoupper( __( 'In Process', 'wp-fundraising' ) ) ); ?></a></li>
+				<li> <a class="<?php echo ( $wfpTypeReport == '' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit"> <?php echo esc_html( strtoupper( __( 'All', 'wp-fundraising-donation' ) ) ); ?> </a></li>
+				<li> <a class="<?php echo ( $wfpTypeReport == 'Review' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit&type_status=Review"> <?php echo esc_html( strtoupper( __( 'In Review', 'wp-fundraising-donation' ) ) ); ?></a></li>
+				<li> <a class="<?php echo ( $wfpTypeReport == 'Pending' ) ? 'active' : ''; ?>" href="<?php echo esc_url( admin_url() ); ?>post.php?post=<?php echo esc_attr( $post->ID ); ?>&action=edit&type_status=Pending"><?php echo esc_html( strtoupper( __( 'In Process', 'wp-fundraising-donation' ) ) ); ?></a></li>
 			</ul>
 		</div>
 		<div><span><?php
 		// translators: %s: number of items per page.
-		echo sprintf( esc_html__( 'Show %s (per page) in total ', 'wp-fundraising' ), esc_html( $wfp_limit ) ); ?> <?php echo esc_html( $wfpPenddingCount ); ?></span></div>
+		echo sprintf( esc_html__( 'Show %s (per page) in total ', 'wp-fundraising-donation' ), esc_html( $wfp_limit ) ); ?> <?php echo esc_html( $wfpPenddingCount ); ?></span></div>
 	</div>
 
 	<?php if ( ! empty( $wfpPenddingDonateList ) ) : ?>
@@ -55,14 +55,14 @@ defined( 'ABSPATH' ) || exit;
 			<table class="form-table xs_payment_review_table">
 				<thead>
 				<tr>
-					<th class="sort"><?php echo esc_html__( 'S.L.', 'wp-fundraising' ); ?></th>
-					<th class="name"> <?php echo esc_html__( 'Email', 'wp-fundraising' ); ?></th>
+					<th class="sort"><?php echo esc_html__( 'S.L.', 'wp-fundraising-donation' ); ?></th>
+					<th class="name"> <?php echo esc_html__( 'Email', 'wp-fundraising-donation' ); ?></th>
 					<th class="enable"> <?php
 					// translators: %s: currency symbol.
-					echo sprintf( esc_html__( 'Amount [%s]', 'wp-fundraising' ), esc_html( $wfpSymbols ) ); ?></th>
-					<th class="" > <?php echo esc_html__( 'Payment Method', 'wp-fundraising' ); ?> </th>
-					<th class="" > <?php echo esc_html__( 'Date', 'wp-fundraising' ); ?> </th>
-					<th class="info"> <?php echo esc_html__( 'Action', 'wp-fundraising' ); ?></th>
+					echo sprintf( esc_html__( 'Amount [%s]', 'wp-fundraising-donation' ), esc_html( $wfpSymbols ) ); ?></th>
+					<th class="" > <?php echo esc_html__( 'Payment Method', 'wp-fundraising-donation' ); ?> </th>
+					<th class="" > <?php echo esc_html__( 'Date', 'wp-fundraising-donation' ); ?> </th>
+					<th class="info"> <?php echo esc_html__( 'Action', 'wp-fundraising-donation' ); ?></th>
 				</tr>
 				</thead>
 				<tbody>
@@ -100,19 +100,19 @@ defined( 'ABSPATH' ) || exit;
 							?>
 							<select class="<?php echo esc_attr( $wfpClassNameStatus ); ?>" name="status_modify" id="<?php echo esc_attr( $pendingData->donate_id ); ?>" onchange="wdp_status_modify_report(this)">
 								<?php if ( in_array( $pendingData->status, array( 'Pending' ) ) ) : ?>
-									<option value="0" <?php echo isset( $pendingData->status ) && $pendingData->status == 'Pending' ? 'selected' : ''; ?> ><?php echo esc_html__( 'In Process', 'wp-fundraising' ); ?>  </option>
+									<option value="0" <?php echo isset( $pendingData->status ) && $pendingData->status == 'Pending' ? 'selected' : ''; ?> ><?php echo esc_html__( 'In Process', 'wp-fundraising-donation' ); ?>  </option>
 								<?php endif; ?>
 								<?php if ( in_array( $pendingData->status, array( 'Review' ) ) ) : ?>
-									<option value="1" <?php echo isset( $pendingData->status ) && $pendingData->status == 'Review' ? 'selected' : ''; ?>> <?php echo esc_html__( 'In Review', 'wp-fundraising' ); ?> </option>
+									<option value="1" <?php echo isset( $pendingData->status ) && $pendingData->status == 'Review' ? 'selected' : ''; ?>> <?php echo esc_html__( 'In Review', 'wp-fundraising-donation' ); ?> </option>
 								<?php endif; ?>
 								<?php if ( in_array( $pendingData->status, array( 'Active', 'Pending', 'Review' ) ) ) : ?>
-									<option value="2" <?php echo isset( $pendingData->status ) && $pendingData->status == 'Active' ? 'selected' : ''; ?>> <?php echo esc_html__( 'Success', 'wp-fundraising' ); ?> </option>
+									<option value="2" <?php echo isset( $pendingData->status ) && $pendingData->status == 'Active' ? 'selected' : ''; ?>> <?php echo esc_html__( 'Success', 'wp-fundraising-donation' ); ?> </option>
 								<?php endif; ?>
 								<?php if ( in_array( $pendingData->status, array( 'Active' ) ) ) : ?>
-									<option value="4" <?php echo isset( $pendingData->status ) && $pendingData->status == 'Refunded' ? 'selected' : ''; ?>> <?php echo esc_html__( 'Refund', 'wp-fundraising' ); ?> </option>
+									<option value="4" <?php echo isset( $pendingData->status ) && $pendingData->status == 'Refunded' ? 'selected' : ''; ?>> <?php echo esc_html__( 'Refund', 'wp-fundraising-donation' ); ?> </option>
 								<?php endif; ?>
 								<?php if ( in_array( $pendingData->status, array( 'Pending', 'Review' ) ) ) : ?>
-									<option value="3" <?php echo isset( $pendingData->status ) && $pendingData->status == 'DeActive' ? 'selected' : ''; ?>> <?php echo esc_html__( 'Cancel', 'wp-fundraising' ); ?> </option>
+									<option value="3" <?php echo isset( $pendingData->status ) && $pendingData->status == 'DeActive' ? 'selected' : ''; ?>> <?php echo esc_html__( 'Cancel', 'wp-fundraising-donation' ); ?> </option>
 								<?php endif; ?>
 							</select>
 						</td>
@@ -125,7 +125,7 @@ defined( 'ABSPATH' ) || exit;
 				<tfoot>
 				<tr>
 					<th colspan="2">
-						<?php echo esc_html__( 'Total Amount : ', 'wp-fundraising' ); ?> [<?php echo esc_html( $wfpSymbols ); ?>]
+						<?php echo esc_html__( 'Total Amount : ', 'wp-fundraising-donation' ); ?> [<?php echo esc_html( $wfpSymbols ); ?>]
 					</th>
 					<th>
 						<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpTotalAmount ) ); ?>

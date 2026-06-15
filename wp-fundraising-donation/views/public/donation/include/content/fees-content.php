@@ -40,7 +40,7 @@ if ( isset( $wfpAdd_fees->enable ) && $wfpAdd_fees->enable == 'Yes' ) {
 	<input type="hidden" id="xs_donate_amount_total_hidden" name="xs_donate_data_submit[donate_amount]" value="<?php echo esc_attr( $wfp_total_fees ); ?>">
 	<p>
 		<?php echo wp_kses( do_action( 'wfp_donate_forms_total_charge_before' ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
-		<?php echo esc_html( apply_filters( 'wfp_donate_forms_total_charge', esc_html__( 'Total charge :', 'wp-fundraising' ) ) ); ?>
+		<?php echo esc_html( apply_filters( 'wfp_donate_forms_total_charge', esc_html__( 'Total charge :', 'wp-fundraising-donation' ) ) ); ?>
 		 <small class="wfp-currency-symbol"><?php echo wp_kses( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></small><span id="xs_donate_amount_total"><strong><?php echo wp_kses( \WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_total_fees ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></strong></span><span><small class="wfp-currency-symbol"><?php echo wp_kses( \WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></small></span>
 		 <?php echo wp_kses( do_action( 'wfp_donate_forms_total_charge_after' ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
 	</p>

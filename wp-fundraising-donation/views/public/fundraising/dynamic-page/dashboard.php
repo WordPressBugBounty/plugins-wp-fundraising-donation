@@ -52,10 +52,10 @@ defined( 'ABSPATH' ) || exit;
 						if ( file_exists( $wfp_page_file ) ) {
 							require $wfp_page_file;
 						} else {
-							echo esc_html__( 'Dashboard page not found.', 'wp-fundraising' );
+							echo esc_html__( 'Dashboard page not found.', 'wp-fundraising-donation' );
 						}
 					} else {
-						echo esc_html__( 'Invalid dashboard page requested.', 'wp-fundraising' );
+						echo esc_html__( 'Invalid dashboard page requested.', 'wp-fundraising-donation' );
 					}
 				?>
 			</div>

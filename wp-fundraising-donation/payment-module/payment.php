@@ -6,7 +6,7 @@ function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingCo
 	$arrayPayment = array(
 
 		'offline_payment' => array(
-			'name'        => __( 'Cash Payment', 'wp-fundraising' ),
+			'name'        => __( 'Cash Payment', 'wp-fundraising-donation' ),
 			'setup'       => array(
 				'title'                     => 'input',
 				'description'               => 'textarea',
@@ -16,7 +16,7 @@ function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingCo
 			'description' => 'Have your customers pay with cash (or by other means) upon delivery.',
 		),
 		'online_payment'  => array(
-			'name'        => __( 'Paypal Payment', 'wp-fundraising' ),
+			'name'        => __( 'Paypal Payment', 'wp-fundraising-donation' ),
 			'setup'       => array(
 				'basic_information'     => 'headding',
 				'title'                 => 'input',
@@ -38,7 +38,7 @@ function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingCo
 		),
 
 		'bank_payment'    => array(
-			'name'        => __( 'Direct bank transfer', 'wp-fundraising' ),
+			'name'        => __( 'Direct bank transfer', 'wp-fundraising-donation' ),
 			'setup'       => array(
 				'title'                    => 'input',
 				'description'              => 'textarea',
@@ -57,7 +57,7 @@ function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingCo
 		),
 		'check_payment'   =>
 			array(
-				'name'        => __( 'Check payments', 'wp-fundraising' ),
+				'name'        => __( 'Check payments', 'wp-fundraising-donation' ),
 				'setup'       => array(
 					'title'        => 'input',
 					'description'  => 'textarea',
@@ -67,7 +67,7 @@ function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingCo
 			),
 		'stripe_payment'  =>
 			array(
-				'name'        => __( 'Stripe payments', 'wp-fundraising' ),
+				'name'        => __( 'Stripe payments', 'wp-fundraising-donation' ),
 				'setup'       => array(
 					'basic_information'    => 'headding',
 					'title'                => 'input',

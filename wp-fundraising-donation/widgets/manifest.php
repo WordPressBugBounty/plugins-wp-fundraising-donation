@@ -25,14 +25,14 @@ class Manifest {
 
 			'wfp-fundraising-donate'  => array(
 				'slug'       => 'wfp-fundraising-donate',
-				'title'      => esc_html__( 'Donate Button', 'wp-fundraising' ),
+				'title'      => esc_html__( 'Donate Button', 'wp-fundraising-donation' ),
 				'base_class' => '\Elementor\Wfp_Donate',
 				'package'    => 'free',
 			),
 
 			'wfp-fundraising-listing' => array(
 				'slug'       => 'wfp-fundraising-listing',
-				'title'      => esc_html__( 'Campaign List', 'wp-fundraising' ),
+				'title'      => esc_html__( 'Campaign List', 'wp-fundraising-donation' ),
 				'base_class' => '\Elementor\Wfp_Listing',
 				'package'    => 'free',
 			),
@@ -66,7 +66,7 @@ class Manifest {
 		$elements_manager->add_category(
 			'wfp-fundraising',
 			array(
-				'title' => esc_html__( 'FundEngine', 'wp-fundraising' ),
+				'title' => esc_html__( 'FundEngine', 'wp-fundraising-donation' ),
 				'icon'  => 'fa fa-plug',
 			)
 		);

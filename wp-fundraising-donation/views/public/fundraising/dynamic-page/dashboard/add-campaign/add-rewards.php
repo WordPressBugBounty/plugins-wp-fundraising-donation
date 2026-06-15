@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <div class="intro-info">
 	<label for="camapign_post_enable_rewards">
-		<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_enable_rewards', __( 'Enable Rewards', 'wp-fundraising' ) ) ); ?>
+		<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_enable_rewards', __( 'Enable Rewards', 'wp-fundraising-donation' ) ) ); ?>
 	</label>
 	<div class="xs-switch-button_wraper">
 		<?php
@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 		<input class="xs_donate_switch_button" type="checkbox" <?php echo esc_attr( ( isset( $wfpFormPledgeData->enable ) && $wfpFormPledgeData->enable == 'Yes' ) ? 'checked' : '' ); ?> id="donation_form_pledge_enable" name="campaign_meta_post[pledge_setup][enable]" onchange="xs_show_hide_donate_font('.xs-donate-pledge-content-section');" value="Yes" >
 		<label for="donation_form_pledge_enable" class="xs_donate_switch_button_label small xs-round"></label>
 	</div>
-	<span class="label-info"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_enable_rewards_message', __( 'Setup rewards for campaign.', 'wp-fundraising' ) ) ); ?></span>
+	<span class="label-info"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_enable_rewards_message', __( 'Setup rewards for campaign.', 'wp-fundraising-donation' ) ) ); ?></span>
 </div>
 <div class="intro-info xs-donate-pledge-content-section xs-donate-hidden xs-donate-hidden <?php echo esc_attr( ( isset( $wfpFormPledgeData->enable ) && $wfpFormPledgeData->enable == 'Yes' ) ? 'xs-donate-visible' : '' ); ?>">
 	<div class="repater_pledge_item ui-sortable fd" id="wfdp-pledge-sortable-sub" >
@@ -46,7 +46,7 @@ defined( 'ABSPATH' ) || exit;
 			<div class="xs-row-body xs-donate-hidden xs-donate-visible">
 				<div class="xs-form-group xs-row xs-donate-field-wrap">
 					<div class="xs-col-sm-4">
-						<label class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_amount" data-pattern-for="xs_pledge_++_amount"> <?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_amount', __( 'Amount', 'wp-fundraising' ) ) ); ?></label>
+						<label class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_amount" data-pattern-for="xs_pledge_++_amount"> <?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_amount', __( 'Amount', 'wp-fundraising-donation' ) ) ); ?></label>
 					</div>
 					<div class="xs-col-sm-8">
 						<span class="xs-money-symbol xs-money-symbol-before"><?php echo esc_html( $wfpSymbols ); ?></span>
@@ -55,7 +55,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="xs-form-group xs-row xs-donate-field-wrap ">
 					<div class="xs-col-sm-4">
-						<label  class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_quantity" data-pattern-for="xs_pledge_++_quantity"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_quantity', __( 'Quantity', 'wp-fundraising' ) ) ); ?></label>
+						<label  class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_quantity" data-pattern-for="xs_pledge_++_quantity"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_quantity', __( 'Quantity', 'wp-fundraising-donation' ) ) ); ?></label>
 					</div>
 					
 					<div class="xs-col-sm-8">
@@ -66,18 +66,18 @@ defined( 'ABSPATH' ) || exit;
 				<div class="xs-form-group xs-row xs-donate-field-wrap ">
 
 					<div class="xs-col-sm-4">
-						<label  class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_name" data-pattern-for="xs_pledge_++_lebel_name"> <?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_lebel', __( 'Label', 'wp-fundraising' ) ) ); ?></label>
+						<label  class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_name" data-pattern-for="xs_pledge_++_lebel_name"> <?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_lebel', __( 'Label', 'wp-fundraising-donation' ) ) ); ?></label>
 					</div>
 					
 					<div class="xs-col-sm-8">
-						<input type="text" style="" name="campaign_meta_post[pledge_setup][multi][dimentions][<?php echo esc_attr( $wfp_m ); ?>][lebel]" data-pattern-name="campaign_meta_post[pledge_setup][multi][dimentions][++][lebel]" id="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_name" data-pattern-id="xs_pledge_++_lebel_name" onkeyup="xs_modify_lebel_name_dash(this);" value="<?php echo esc_attr( isset( $multi->lebel ) ? $multi->lebel : '' ); ?>" placeholder="<?php esc_html_e( 'Basic', 'wp-fundraising' ); ?>" class="xs-field xs-money-field wfp-input">
+						<input type="text" style="" name="campaign_meta_post[pledge_setup][multi][dimentions][<?php echo esc_attr( $wfp_m ); ?>][lebel]" data-pattern-name="campaign_meta_post[pledge_setup][multi][dimentions][++][lebel]" id="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_name" data-pattern-id="xs_pledge_++_lebel_name" onkeyup="xs_modify_lebel_name_dash(this);" value="<?php echo esc_attr( isset( $multi->lebel ) ? $multi->lebel : '' ); ?>" placeholder="<?php esc_html_e( 'Basic', 'wp-fundraising-donation' ); ?>" class="xs-field xs-money-field wfp-input">
 					</div>
 				</div>
 
 				<div class="xs-form-group xs-row xs-donate-field-wrap ">
 
 					<div class="xs-col-sm-4">
-						<label class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_description" data-pattern-for="xs_pledge_++_lebel_description"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_lebel_description', __( 'Label Description', 'wp-fundraising' ) ) ); ?></label>
+						<label class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_description" data-pattern-for="xs_pledge_++_lebel_description"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_lebel_description', __( 'Label Description', 'wp-fundraising-donation' ) ) ); ?></label>
 					</div>
 
 					<div class="xs-col-sm-8">
@@ -86,16 +86,16 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 
 				<div class="xs-donate-field-wrap repater_pledge_item_additional">
-					<div class="wfp-section-title"><?php echo esc_html__( 'Additional Data : ', 'wp-fundraising' ); ?></div>
+					<div class="wfp-section-title"><?php echo esc_html__( 'Additional Data : ', 'wp-fundraising-donation' ); ?></div>
 					<div class="xs-form-group xs-row xs-donate-field-wrap padding-left" >
 
 						<div class="xs-col-sm-4">
-							<label class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_includes" data-pattern-for="xs_pledge_++_lebel_includes"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_includes', __( 'Includes', 'wp-fundraising' ) ) ); ?></label>
+							<label class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_includes" data-pattern-for="xs_pledge_++_lebel_includes"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_includes', __( 'Includes', 'wp-fundraising-donation' ) ) ); ?></label>
 						</div>
 						
 						<div class="xs-col-sm-8">
 							<input type="text" style="" name="campaign_meta_post[pledge_setup][multi][dimentions][<?php echo esc_attr( $wfp_m ); ?>][includes]" data-pattern-name="campaign_meta_post[pledge_setup][multi][dimentions][++][includes]" id="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_includes" data-pattern-id="xs_pledge_++_lebel_includes" value="<?php echo esc_attr( isset( $multi->includes ) ? $multi->includes : '' ); ?>" placeholder="value 1, value 2" class="xs-field xs-money-field wfp-input">
-							<span class="xs-donetion-field-description"><?php echo esc_html( esc_html__( 'Multiple Value Seperate by comma(,)', 'wp-fundraising' ) ); ?></span>
+							<span class="xs-donetion-field-description"><?php echo esc_html( esc_html__( 'Multiple Value Seperate by comma(,)', 'wp-fundraising-donation' ) ); ?></span>
 						</div>
 						
 					</div>
@@ -103,7 +103,7 @@ defined( 'ABSPATH' ) || exit;
 					<div class="xs-form-group xs-row xs-donate-field-wrap padding-left" >
 
 						<div class="xs-col-sm-4">
-							<label class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_estimated" data-pattern-for="xs_pledge_++_lebel_estimated"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_estimated_delivery', __( 'Estimated Delivery', 'wp-fundraising' ) ) ); ?></label>
+							<label class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_estimated" data-pattern-for="xs_pledge_++_lebel_estimated"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_estimated_delivery', __( 'Estimated Delivery', 'wp-fundraising-donation' ) ) ); ?></label>
 						</div>
 						
 						<div class="xs-col-sm-8">
@@ -116,7 +116,7 @@ defined( 'ABSPATH' ) || exit;
 					<div class="xs-form-group xs-row xs-donate-field-wrap padding-left" >
 
 						<div class="xs-col-sm-4">
-							<label class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_ships" data-pattern-for="xs_pledge_++_lebel_ships"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_ships_to', __( 'Ships To', 'wp-fundraising' ) ) ); ?></label>
+							<label class="xs-col-form-label" for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_ships" data-pattern-for="xs_pledge_++_lebel_ships"><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_rewards_ships_to', __( 'Ships To', 'wp-fundraising-donation' ) ) ); ?></label>
 						</div>
 
 						<div class="xs-col-sm-8">
@@ -137,7 +137,7 @@ defined( 'ABSPATH' ) || exit;
 	?>
 		
 		<div class="add_button_sections">
-			<button type="button" class="xs-pledge-btnAdd xs-review-add-button"><?php echo esc_html__( 'Add Rewards', 'wp-fundraising' ); ?></button>
+			<button type="button" class="xs-pledge-btnAdd xs-review-add-button"><?php echo esc_html__( 'Add Rewards', 'wp-fundraising-donation' ); ?></button>
 		</div>
 	</div>
 </div>

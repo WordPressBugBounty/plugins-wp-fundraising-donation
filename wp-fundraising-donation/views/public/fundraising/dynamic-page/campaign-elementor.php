@@ -274,7 +274,7 @@ if ( $wfp_layout_style == 'wfp-layout-list' ) {
 											<?php if ( isset( $wfp_fundraising_content__time_left ) && $wfp_fundraising_content__time_left == 'Yes' && $wfp_show_days_left === true ) : ?>
 												<div class="number_donation_count_list">
 													<span class="wfp-icon wfpf wfpf-time"></span>
-													<?php echo esc_html( $wfp_days_left ); ?> <?php echo esc_html( apply_filters( 'wfp_single_date_left_title', __( 'days left', 'wp-fundraising' ) ) ); ?>
+													<?php echo esc_html( $wfp_days_left ); ?> <?php echo esc_html( apply_filters( 'wfp_single_date_left_title', __( 'days left', 'wp-fundraising-donation' ) ) ); ?>
 												</div>
 											<?php endif; ?>
 
@@ -347,7 +347,7 @@ if ( $wfp_layout_style == 'wfp-layout-list' ) {
 												</div>
 
 												<div class="profile-info">
-													<span class="display-name"><?php esc_html_e( 'Created by', 'wp-fundraising' ); ?> <strong class="display-name__author"><?php the_author_meta( 'display_name', $wfp_author_id ); ?></strong></span>
+													<span class="display-name"><?php esc_html_e( 'Created by', 'wp-fundraising-donation' ); ?> <strong class="display-name__author"><?php the_author_meta( 'display_name', $wfp_author_id ); ?></strong></span>
 												</div>
 											</div>
 										<?php endif; ?>
@@ -394,7 +394,7 @@ if ( $wfp_layout_style == 'wfp-layout-list' ) {
 					<?php endif; ?>
 					</div>
 					<?php else : ?>
-						<p class="xs-alert xs-alert-danger"><?php esc_html_e( 'Sorry, not found any campaign.', 'wp-fundraising' ); ?></p>
+						<p class="xs-alert xs-alert-danger"><?php esc_html_e( 'Sorry, not found any campaign.', 'wp-fundraising-donation' ); ?></p>
 					<?php endif; ?>
 				</div>
 			</div>

@@ -11,7 +11,7 @@ if ( apply_filters( 'wfp_single_social_hide', true ) ) :
 	if ( ! empty( $wfpGetMetaSocial ) ) {  ?>
 
 		<div class="wfp-social-share">
-			<p> <?php echo esc_html( apply_filters( 'wfp_single_social_title', __( 'Social Share:', 'wp-fundraising' ) )); ?></p>
+			<p> <?php echo esc_html( apply_filters( 'wfp_single_social_title', __( 'Social Share:', 'wp-fundraising-donation' ) )); ?></p>
 			<?php echo wp_kses( \WfpFundraising\Apps\Settings::generate_social(), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
 		</div>
 

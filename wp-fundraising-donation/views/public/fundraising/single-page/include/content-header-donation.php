@@ -116,7 +116,7 @@ defined( 'ABSPATH' ) || exit;
 <div class="xs-row">
 	<?php
 
-	$wfpRecentTitle = ( $wfp_donation_format == 'donation' ) ? __( 'Recent Donations', 'wp-fundraising' ) : __( 'Recent Funds', 'wp-fundraising' );
+	$wfpRecentTitle = ( $wfp_donation_format == 'donation' ) ? __( 'Recent Donations', 'wp-fundraising-donation' ) : __( 'Recent Funds', 'wp-fundraising-donation' );
 
 	$wfpArgsTotal      = array(
 		'post_type'   => 'wfp-review',
@@ -131,21 +131,21 @@ defined( 'ABSPATH' ) || exit;
 		<ul class="wfp-tab" id="wfp_menu_fixed">
 			<?php if ( $wfpEnableSingleContent == 'No' ) : ?>
 				<li class="wfp_tab_li active"><a
-							href="#wfp_tab_content_decription"><?php echo esc_html( apply_filters( 'wfp_single_content_decription', __( 'Description', 'wp-fundraising' ) ) ); ?></a>
+							href="#wfp_tab_content_decription"><?php echo esc_html( apply_filters( 'wfp_single_content_decription', __( 'Description', 'wp-fundraising-donation' ) ) ); ?></a>
 				</li>
 				<?php
 			endif;
 			if ( $wfpEnableSingleReview == 'No' ) :
 				?>
 				<li class="wfp_tab_li "><a
-							href="#wfp_tab_content_review"><?php echo esc_html( apply_filters( 'wfp_single_content_review', __( 'Reviews', 'wp-fundraising' ) ) ); ?>
+							href="#wfp_tab_content_review"><?php echo esc_html( apply_filters( 'wfp_single_content_review', __( 'Reviews', 'wp-fundraising-donation' ) ) ); ?>
 						(<?php echo esc_attr( $wfp_count ); ?>)</a></li>
 				<?php
 			endif;
 			if ( $wfpEnableSingleUpdates == 'No' && $wfp_donation_format == 'crowdfunding' ) :
 				?>
 				<li class="wfp_tab_li "><a
-							href="#wfp_tab_content_updates"><?php echo esc_html( apply_filters( 'wfp_single_content_updates', __( 'Updates', 'wp-fundraising' ) ) ); ?></a>
+							href="#wfp_tab_content_updates"><?php echo esc_html( apply_filters( 'wfp_single_content_updates', __( 'Updates', 'wp-fundraising-donation' ) ) ); ?></a>
 				</li>
 				<?php
 			endif;

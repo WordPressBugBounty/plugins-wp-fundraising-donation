@@ -428,11 +428,11 @@ class Content {
 
 		$check_post = get_post( $formId );
 		if ( ! is_object( $check_post ) && ! property_exists( $check_post, 'ID' ) ) {
-			return esc_html__( 'Sorry wrong campaign.', 'wp-fundraising' );
+			return esc_html__( 'Sorry wrong campaign.', 'wp-fundraising-donation' );
 		}
 
 		if ( $type != 'online_payment' ) {
-			return esc_html__( 'Invalid payment method.', 'wp-fundraising' );
+			return esc_html__( 'Invalid payment method.', 'wp-fundraising-donation' );
 		}
 
 		global $wpdb;
@@ -440,12 +440,12 @@ class Content {
 		$forms = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . $wpdb->prefix . 'wdp_fundraising WHERE donate_id = %d', $id ) );
 
 		if ( ! isset( $forms[0]->status ) ) {
-			return esc_html__( 'Invalid payment.', 'wp-fundraising' );
+			return esc_html__( 'Invalid payment.', 'wp-fundraising-donation' );
 		}
 
 		if ( isset( $forms[0]->status ) && in_array( $forms[0]->status, array( 'Active', 'Delete', 'ReFunded' ) ) ) {
 			// translators: %s: payment status code (e.g. Active, Delete, ReFunded).
-			return sprintf( esc_html__( 'Your payment already processed. [Code: %s]', 'wp-fundraising' ), $forms[0]->status );
+			return sprintf( esc_html__( 'Your payment already processed. [Code: %s]', 'wp-fundraising-donation' ), $forms[0]->status );
 		}
 
 		// get payment Getway information
@@ -559,7 +559,7 @@ class Content {
 		if ( ! in_array( $status, array( 'Pending', 'Review' ) ) ) {
 			$return = array(
 				'status'  => 'error',
-				'message' => esc_html__( 'Sorry wrong campaign.', 'wp-fundraising' ),
+				'message' => esc_html__( 'Sorry wrong campaign.', 'wp-fundraising-donation' ),
 			);
 
 			return $return;
@@ -567,7 +567,7 @@ class Content {
 		if ( ! function_exists( 'wfp_fundraising_stripe' ) ) {
 			$return = array(
 				'status'  => 'error',
-				'message' => esc_html__( 'Sorry Stripe Method not Active.', 'wp-fundraising' ),
+				'message' => esc_html__( 'Sorry Stripe Method not Active.', 'wp-fundraising-donation' ),
 			);
 
 			return $return;
@@ -581,7 +581,7 @@ class Content {
 		if ( ! isset( $forms[0]->status ) ) {
 			$return = array(
 				'status'  => 'error',
-				'message' => esc_html__( 'Invalid payment.', 'wp-fundraising' ),
+				'message' => esc_html__( 'Invalid payment.', 'wp-fundraising-donation' ),
 			);
 
 			return $return;
@@ -591,7 +591,7 @@ class Content {
 			$return = array(
 				'status'  => 'error',
 				// translators: %s: payment status code (e.g. Active, Delete, ReFunded).
-				'message' => sprintf( esc_html__( 'Your payment already processed. [Code: %s]', 'wp-fundraising' ), $forms[0]->status ),
+				'message' => sprintf( esc_html__( 'Your payment already processed. [Code: %s]', 'wp-fundraising-donation' ), $forms[0]->status ),
 			);
 
 			return $return;
@@ -649,14 +649,14 @@ class Content {
 			}
 			$return = array(
 				'status'  => 'success',
-				'message' => esc_html__( 'Thanks for your payment', 'wp-fundraising' ),
+				'message' => esc_html__( 'Thanks for your payment', 'wp-fundraising-donation' ),
 			);
 
 			return $return;
 		}
 		$return = array(
 			'status'  => 'error',
-			'message' => esc_html__( 'System error!', 'wp-fundraising' ),
+			'message' => esc_html__( 'System error!', 'wp-fundraising-donation' ),
 		);
 
 		return $return;
@@ -744,7 +744,7 @@ class Content {
 		$check_post = get_post( $formId );
 
 		if ( ! is_object( $check_post ) && ! property_exists( $check_post, 'ID' ) ) {
-			$return['error'] = esc_html__( 'Sorry invalid form of Donation.', 'wp-fundraising' );
+			$return['error'] = esc_html__( 'Sorry invalid form of Donation.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -842,7 +842,7 @@ class Content {
 
 		// check payment method
 		if ( strlen( $xs_payment_method ) <= 0 ) :
-			$return['error'] = esc_html__( 'Enter select payment method', 'wp-fundraising' );
+			$return['error'] = esc_html__( 'Enter select payment method', 'wp-fundraising-donation' );
 			$error           = true;
 		endif;
 
@@ -852,7 +852,7 @@ class Content {
 		$addition_fees_amount = isset( $data['addition_fees_amount'] ) ? $data['addition_fees_amount'] : 0;
 		$addition_fees_type   = isset( $data['addition_fees_type'] ) ? $data['addition_fees_type'] : '';
 		if ( strlen( $donate_amount ) <= 0 ) :
-			$return['error'] = esc_html__( 'Enter donate amount', 'wp-fundraising' );
+			$return['error'] = esc_html__( 'Enter donate amount', 'wp-fundraising-donation' );
 			$error           = true;
 		endif;
 
@@ -864,11 +864,11 @@ class Content {
 			$maxPrice = isset( $formDonation->set_limit->max_amt ) ? $formDonation->set_limit->max_amt : 0;
 
 			if ( $donate_amount < $minPrice ) {
-				$return['error'] = esc_html__( 'Sorry! minimum donate amount: ', 'wp-fundraising' ) . $minPrice;
+				$return['error'] = esc_html__( 'Sorry! minimum donate amount: ', 'wp-fundraising-donation' ) . $minPrice;
 				$error           = true;
 			}
 			if ( $donate_amount > $maxPrice && $maxPrice != 0 ) {
-				$return['error'] = esc_html__( 'Sorry! max donate amount: ', 'wp-fundraising' ) . $maxPrice;
+				$return['error'] = esc_html__( 'Sorry! max donate amount: ', 'wp-fundraising-donation' ) . $maxPrice;
 				$error           = true;
 			}
 		}
@@ -1105,13 +1105,13 @@ class Content {
 					$rest_url = get_rest_url( null, 'xs-donate-form/payment-redirect/' . $id_insert . '/?type=' . $xs_payment_method . '&formid=' . $formId . '&nonce=' . wp_create_nonce( 'wp_rest' ) );
 				}
 
-				$return['success']['message']    = esc_html__( 'Successfully donation. ', 'wp-fundraising' );
+				$return['success']['message']    = esc_html__( 'Successfully donation. ', 'wp-fundraising-donation' );
 				$return['success']['type']       = $xs_payment_method;
 				$return['success']['url']        = $rest_url;
 				$return['success']['check_id']   = $invoiceToken;
 				$return['success']['order_page'] = $otder_page;
 			else :
-				$return['error'] = esc_html__( 'Something is wrong', 'wp-fundraising' );
+				$return['error'] = esc_html__( 'Something is wrong', 'wp-fundraising-donation' );
 			endif;
 		}
 
@@ -1174,12 +1174,12 @@ class Content {
 		$notify_admin = false;
 
 		if ( empty( $userId ) ) {
-			$return['error'] = __( 'Something error.', 'wp-fundraising' );
+			$return['error'] = __( 'Something error.', 'wp-fundraising-donation' );
 			return $return;
 		}
 
 		if ( empty( $request['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $request['nonce'] ) ), 'wp_rest' ) ) {
-			$return['error'] = __( 'Invalid request.', 'wp-fundraising' );
+			$return['error'] = __( 'Invalid request.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -1199,7 +1199,7 @@ class Content {
 
 				if ( ! in_array( $upd->post_status, array( 'draft', 'publish', 'pending' ) ) ) {
 
-					$return['error'] = __( 'Sorry could\'t update this campaign', 'wp-fundraising' );
+					$return['error'] = __( 'Sorry could\'t update this campaign', 'wp-fundraising-donation' );
 
 					return $return;
 				}
@@ -1437,9 +1437,9 @@ class Content {
 			}
 
 			if ( $update_post > 0 ) {
-				$return['success'] = esc_html__( 'Successfully Update this Campaign.', 'wp-fundraising' );
+				$return['success'] = esc_html__( 'Successfully Update this Campaign.', 'wp-fundraising-donation' );
 			} else {
-				$return['success'] = esc_html__( 'Successfully Submitted Campaign for Review.', 'wp-fundraising' );
+				$return['success'] = esc_html__( 'Successfully Submitted Campaign for Review.', 'wp-fundraising-donation' );
 			}
 
 			/**
@@ -1459,7 +1459,7 @@ class Content {
 			return $return;
 		}
 
-		$return['error'] = __( 'Invalid Campaign.', 'wp-fundraising' );
+		$return['error'] = __( 'Invalid Campaign.', 'wp-fundraising-donation' );
 
 		return $return;
 	}
@@ -1500,7 +1500,7 @@ class Content {
 		$formId = isset( $request['formid'] ) ? intval( $request['formid'] ) : 0;
 
 		if ( empty( $request['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $request['nonce'] ) ), 'wp_rest' ) ) {
-			$return['error'] = __( 'Invalid request.', 'wp-fundraising' );
+			$return['error'] = __( 'Invalid request.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -1509,7 +1509,7 @@ class Content {
 
 		$userId = get_current_user_id();
 		if ( empty( $userId ) || $userId == 0 ) {
-			$return['error'] = __( 'Something error.', 'wp-fundraising' );
+			$return['error'] = __( 'Something error.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -1556,7 +1556,7 @@ class Content {
 			}
 		}
 
-		$return['success'] = __( 'Successfully Update your Information.', 'wp-fundraising' );
+		$return['success'] = __( 'Successfully Update your Information.', 'wp-fundraising-donation' );
 
 		return $return;
 	}
@@ -1578,7 +1578,7 @@ class Content {
 		$userId = get_current_user_id();
 
 		if ( $userId == 0 || $userId == '' ) {
-			$return['error'] = __( 'Sorry you could not able to update password.', 'wp-fundraising' );
+			$return['error'] = __( 'Sorry you could not able to update password.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -1600,16 +1600,16 @@ class Content {
 
 					wp_set_password( $new, $userId );
 
-					$return['success'] = __( 'Successfully set new password.', 'wp-fundraising' );
+					$return['success'] = __( 'Successfully set new password.', 'wp-fundraising-donation' );
 
 				} else {
-					$return['error'] = __( 'Sorry don\'t match new password', 'wp-fundraising' );
+					$return['error'] = __( 'Sorry don\'t match new password', 'wp-fundraising-donation' );
 				}
 			} else {
-				$return['error'] = __( 'Sorry current don\'t match password', 'wp-fundraising' );
+				$return['error'] = __( 'Sorry current don\'t match password', 'wp-fundraising-donation' );
 			}
 		} else {
-			$return['error'] = __( 'Please enter current password.', 'wp-fundraising' );
+			$return['error'] = __( 'Please enter current password.', 'wp-fundraising-donation' );
 		}
 
 		return $return;
@@ -1637,14 +1637,14 @@ class Content {
 		} else {
 			$username = isset( $wfp_login['username'] ) ? $wfp_login['username'] : '';
 			if ( empty( trim( $username ) ) ) {
-				$return['error'] = __( 'Please enter email or username', 'wp-fundraising' );
+				$return['error'] = __( 'Please enter email or username', 'wp-fundraising-donation' );
 
 				return $return;
 			}
 
 			$password = isset( $wfp_login['username'] ) ? $wfp_login['password'] : '';
 			if ( empty( trim( $password ) ) ) {
-				$return['error'] = __( 'Please enter password', 'wp-fundraising' );
+				$return['error'] = __( 'Please enter password', 'wp-fundraising-donation' );
 
 				return $return;
 			}
@@ -1683,9 +1683,9 @@ class Content {
 		$userId       = 0;
 
 		if ( is_user_logged_in() ) {
-			$return['error'] = esc_html__( 'System Error', 'wp-fundraising' );
+			$return['error'] = esc_html__( 'System Error', 'wp-fundraising-donation' );
 		} elseif ( ! get_option( 'users_can_register', false ) && ! current_user_can( 'create_users' ) ) {
-			$return['error'] = esc_html__( 'New user registration option is turned off', 'wp-fundraising' );
+			$return['error'] = esc_html__( 'New user registration option is turned off', 'wp-fundraising-donation' );
 		} else {
 			$email_address = isset( $wfp_register['email'] ) ? $wfp_register['email'] : '';
 			$username      = isset( $wfp_register['username'] ) ? $wfp_register['username'] : '';
@@ -1693,21 +1693,21 @@ class Content {
 
 			if ( email_exists( $email_address ) ) {
 				$userId          = email_exists( $email_address );
-				$return['error'] = esc_html__( 'Already used this email', 'wp-fundraising' );
+				$return['error'] = esc_html__( 'Already used this email', 'wp-fundraising-donation' );
 			} else {
 				if ( empty( trim( $email_address ) ) ) {
-					$return['error'] = esc_html__( 'Please enter email address', 'wp-fundraising' );
+					$return['error'] = esc_html__( 'Please enter email address', 'wp-fundraising-donation' );
 
 					return $return;
 				}
 				if ( empty( trim( $username ) ) ) {
-					$return['error'] = esc_html__( 'Please enter your user name', 'wp-fundraising' );
+					$return['error'] = esc_html__( 'Please enter your user name', 'wp-fundraising-donation' );
 
 					return $return;
 				}
 
 				if ( empty( trim( $password ) ) ) {
-					$return['error'] = esc_html__( 'Please set your password', 'wp-fundraising' );
+					$return['error'] = esc_html__( 'Please set your password', 'wp-fundraising-donation' );
 
 					return $return;
 				}
@@ -1721,7 +1721,7 @@ class Content {
 				if ( strlen( $email_address ) > 8 && \WfpFundraising\Apps\Settings::valid_email( $email_address ) ) {
 					$userId = wp_insert_user( $userdata );
 					if ( is_wp_error( $userId ) ) {
-						$return['error'] = esc_html__( 'Sorry system error. Try again.', 'wp-fundraising' );
+						$return['error'] = esc_html__( 'Sorry system error. Try again.', 'wp-fundraising-donation' );
 					} else {
 
 						$creds = array(
@@ -1734,7 +1734,7 @@ class Content {
 						$return['success'] = true;
 					}
 				} else {
-					$return['error'] = esc_html__( 'Please enter your valid email address', 'wp-fundraising' );
+					$return['error'] = esc_html__( 'Please enter your valid email address', 'wp-fundraising-donation' );
 				}
 			}
 		}
@@ -1761,7 +1761,7 @@ class Content {
 		$post = get_post( $formId );
 
 		if ( ! property_exists( $post, 'ID' ) ) {
-			$return['error'] = __( 'Sorry invalid campaign.', 'wp-fundraising' );
+			$return['error'] = __( 'Sorry invalid campaign.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -1776,18 +1776,18 @@ class Content {
 			$parent_id  = isset( $wfp_review['parent'] ) ? (int) $wfp_review['parent'] : 0;
 
 			if ( empty( trim( $email ) ) ) {
-				$return['error'] = __( 'Please enter email address', 'wp-fundraising' );
+				$return['error'] = __( 'Please enter email address', 'wp-fundraising-donation' );
 
 				return $return;
 			}
 			if ( empty( trim( $name ) ) ) {
-				$return['error'] = __( 'Please enter your name', 'wp-fundraising' );
+				$return['error'] = __( 'Please enter your name', 'wp-fundraising-donation' );
 
 				return $return;
 			}
 
 			if ( empty( trim( $ratting ) ) ) {
-				$return['error'] = __( 'Please give your ratting', 'wp-fundraising' );
+				$return['error'] = __( 'Please give your ratting', 'wp-fundraising-donation' );
 
 				return $return;
 			}
@@ -1805,7 +1805,7 @@ class Content {
 				$post_p = get_post( $parent_id );
 
 				if ( ! property_exists( $post_p, 'ID' ) ) {
-					$return['error'] = __( 'Sorry invalid review.', 'wp-fundraising' );
+					$return['error'] = __( 'Sorry invalid review.', 'wp-fundraising-donation' );
 
 					return $return;
 				}
@@ -1816,13 +1816,13 @@ class Content {
 				$author_id_parent = ( property_exists( $post, 'post_author' ) ) ? $post->post_author : 0;
 
 				if ( $author_id != $userId and $userId != $author_id_parent ) {
-					$return['error'] = __( 'Sorry you are not valid user.', 'wp-fundraising' );
+					$return['error'] = __( 'Sorry you are not valid user.', 'wp-fundraising-donation' );
 
 					return $return;
 				}
 				// return $post_type;
 				if ( $post_type != 'wfp-review' ) {
-					$return['error'] = __( 'Invalid Review.', 'wp-fundraising' );
+					$return['error'] = __( 'Invalid Review.', 'wp-fundraising-donation' );
 
 					return $return;
 				}
@@ -1845,12 +1845,12 @@ class Content {
 					$meta_pa['status']        = 'Publish';
 
 					if ( update_post_meta( $parent_id, $metaKey, json_encode( $meta_pa, JSON_UNESCAPED_UNICODE ) ) ) {
-						$return['success'] = __( 'Successfully updated review', 'wp-fundraising' );
+						$return['success'] = __( 'Successfully updated review', 'wp-fundraising-donation' );
 
 						return $return;
 					}
 				} else {
-					$return['error'] = __( 'Sorry system error.', 'wp-fundraising' );
+					$return['error'] = __( 'Sorry system error.', 'wp-fundraising-donation' );
 
 					return $return;
 				}
@@ -1860,7 +1860,7 @@ class Content {
 			$wpdb->query( $wpdb->prepare( 'SELECT ID FROM ' . $wpdb->posts . ' WHERE post_author = %d AND post_parent = %d AND post_type = \'wfp-review\'', $userId, $formId ) );
 
 			if ( $wpdb->num_rows ) {
-				$return['error'] = __( 'Sorry already submitted review', 'wp-fundraising' );
+				$return['error'] = __( 'Sorry already submitted review', 'wp-fundraising-donation' );
 
 				return $return;
 			}
@@ -1889,17 +1889,17 @@ class Content {
 				$meta_dat['status']        = 'Publish';
 
 				if ( update_post_meta( $getPostId, $metaKey, json_encode( $meta_dat, JSON_UNESCAPED_UNICODE ) ) ) {
-					$return['success'] = __( 'Successfully submitted review', 'wp-fundraising' );
+					$return['success'] = __( 'Successfully submitted review', 'wp-fundraising-donation' );
 
 					return $return;
 				}
 			} else {
-				$return['error'] = __( 'System error', 'wp-fundraising' );
+				$return['error'] = __( 'System error', 'wp-fundraising-donation' );
 
 				return $return;
 			}
 		} else {
-			$return['error'] = __( 'Please sign in first', 'wp-fundraising' );
+			$return['error'] = __( 'Please sign in first', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -1922,7 +1922,7 @@ class Content {
 		);
 
 		if ( ! is_user_logged_in() ) {
-			$return['error'] = __( 'Sorry you are not valid author for delete review.', 'wp-fundraising' );
+			$return['error'] = __( 'Sorry you are not valid author for delete review.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -1935,7 +1935,7 @@ class Content {
 		$post = get_post( $formId );
 
 		if ( ! property_exists( $post, 'ID' ) ) {
-			$return['error'] = __( 'Sorry invalid review.', 'wp-fundraising' );
+			$return['error'] = __( 'Sorry invalid review.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -1948,21 +1948,21 @@ class Content {
 		$author_id_parent = ( property_exists( $post_parent, 'post_author' ) ) ? (int) $post_parent->post_author : 0;
 
 		if ( $author_id != $user_id and $user_id != $author_id_parent ) {
-			$return['error'] = __( 'Sorry you are not valid user.', 'wp-fundraising' );
+			$return['error'] = __( 'Sorry you are not valid user.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
 
 		if ( $post_type != 'wfp-review' ) {
-			$return['error'] = __( 'Invalid Review.', 'wp-fundraising' );
+			$return['error'] = __( 'Invalid Review.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
 
 		if ( wp_delete_post( $formId, true ) ) {
-			$return['success'] = __( 'Successfully remove your review.', 'wp-fundraising' );
+			$return['success'] = __( 'Successfully remove your review.', 'wp-fundraising-donation' );
 		} else {
-			$return['error'] = __( 'System error.', 'wp-fundraising' );
+			$return['error'] = __( 'System error.', 'wp-fundraising-donation' );
 		}
 
 		return $return;
@@ -1983,7 +1983,7 @@ class Content {
 		);
 
 		if ( ! is_user_logged_in() ) {
-			$return['error'] = __( 'Sorry you are not valid author for delete review.', 'wp-fundraising' );
+			$return['error'] = __( 'Sorry you are not valid author for delete review.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -1996,7 +1996,7 @@ class Content {
 		$post = get_post( $formId );
 
 		if ( ! property_exists( $post, 'ID' ) ) {
-			$return['error'] = __( 'Sorry invalid review.', 'wp-fundraising' );
+			$return['error'] = __( 'Sorry invalid review.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -2009,13 +2009,13 @@ class Content {
 		$author_id_parent = ( property_exists( $post_parent, 'post_author' ) ) ? (int) $post_parent->post_author : 0;
 
 		if ( $author_id != $user_id and $user_id != $author_id_parent ) {
-			$return['error'] = __( 'Sorry you are not valid user.', 'wp-fundraising' );
+			$return['error'] = __( 'Sorry you are not valid user.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
 
 		if ( $post_type != 'wfp-review' ) {
-			$return['error'] = __( 'Invalid Review.', 'wp-fundraising' );
+			$return['error'] = __( 'Invalid Review.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -2052,7 +2052,7 @@ class Content {
 		$post = get_post( $formId );
 
 		if ( ! property_exists( $post, 'ID' ) ) {
-			$return['error'] = __( 'Sorry invalid campaign.', 'wp-fundraising' );
+			$return['error'] = __( 'Sorry invalid campaign.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -2067,7 +2067,7 @@ class Content {
 			$update     = isset( $wfp_review['details'] ) ? $wfp_review['details'] : '';
 
 			if ( empty( trim( $update ) ) ) {
-				$return['error'] = __( 'Please enter your update details.', 'wp-fundraising' );
+				$return['error'] = __( 'Please enter your update details.', 'wp-fundraising-donation' );
 
 				return $return;
 			}
@@ -2086,16 +2086,16 @@ class Content {
 			$getPostId = (int) wp_insert_post( $postarr );
 
 			if ( ! empty( $getPostId ) ) {
-				$return['success'] = __( 'Successfully submitted update', 'wp-fundraising' );
+				$return['success'] = __( 'Successfully submitted update', 'wp-fundraising-donation' );
 
 				return $return;
 			} else {
-				$return['error'] = __( 'System error', 'wp-fundraising' );
+				$return['error'] = __( 'System error', 'wp-fundraising-donation' );
 
 				return $return;
 			}
 		} else {
-			$return['error'] = __( 'Sorry invalid user for post campaign update.', 'wp-fundraising' );
+			$return['error'] = __( 'Sorry invalid user for post campaign update.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
@@ -2332,9 +2332,9 @@ class Content {
 				'class'          => '',
 				'id'             => '',
 				'style'          => '',
-				'btn_text'       => __( 'Login', 'wp-fundraising' ),
-				'reg_btn_text'   => __( 'Register', 'wp-fundraising' ),
-				'login_btn_text' => __( 'Login Now', 'wp-fundraising' ),
+				'btn_text'       => __( 'Login', 'wp-fundraising-donation' ),
+				'reg_btn_text'   => __( 'Register', 'wp-fundraising-donation' ),
+				'login_btn_text' => __( 'Login Now', 'wp-fundraising-donation' ),
 			),
 			$atts,
 			'wfp_fundraising_form'
@@ -2833,12 +2833,12 @@ class Content {
 
 				$dashboardPage = isset( $getMetaGeneralPage['dashboard'] ) ? $getMetaGeneralPage['dashboard'] : 'wfp-dashboard';
 
-				$items .= '<li class="menu-item wfp-main-manu" id="wfp-dashboard-menu"><a href="' . home_url( '/' ) . $dashboardPage . '/"> ' . __( 'Dahsboard', 'wp-fundraising' ) . '</a></li>';
+				$items .= '<li class="menu-item wfp-main-manu" id="wfp-dashboard-menu"><a href="' . home_url( '/' ) . $dashboardPage . '/"> ' . __( 'Dahsboard', 'wp-fundraising-donation' ) . '</a></li>';
 
-				$items .= '<li class="menu-item wfp-main-manu" id="wfp-sign-out-menu"><a href="' . wp_logout_url() . '">' . __( 'Sign Out', 'wp-fundraising' ) . '</a></li>';
+				$items .= '<li class="menu-item wfp-main-manu" id="wfp-sign-out-menu"><a href="' . wp_logout_url() . '">' . __( 'Sign Out', 'wp-fundraising-donation' ) . '</a></li>';
 			} else {
-				$items .= '<li class="menu-item wfp-main-manu" id="wfp-login-menu"><a href="' . wp_login_url() . '">' . __( 'Login', 'wp-fundraising' ) . '</a></li>';
-				$items .= '<li class="menu-item wfp-main-manu" id="wfp-register-menu"><a href="' . wp_registration_url() . '">' . __( 'Register', 'wp-fundraising' ) . '</a></li>';
+				$items .= '<li class="menu-item wfp-main-manu" id="wfp-login-menu"><a href="' . wp_login_url() . '">' . __( 'Login', 'wp-fundraising-donation' ) . '</a></li>';
+				$items .= '<li class="menu-item wfp-main-manu" id="wfp-register-menu"><a href="' . wp_registration_url() . '">' . __( 'Register', 'wp-fundraising-donation' ) . '</a></li>';
 			}
 		}
 
@@ -2942,14 +2942,14 @@ class Content {
 		if ( empty( $wfp_login['user_name'] ) ) {
 
 			return array(
-				'error' => __( 'Please enter email or username', 'wp-fundraising' ),
+				'error' => __( 'Please enter email or username', 'wp-fundraising-donation' ),
 			);
 		}
 
 		if ( empty( $wfp_login['user_password'] ) ) {
 
 			return array(
-				'error' => __( 'Please enter password', 'wp-fundraising' ),
+				'error' => __( 'Please enter password', 'wp-fundraising-donation' ),
 			);
 		}
 
@@ -2990,7 +2990,7 @@ class Content {
 		if ( is_user_logged_in() ) {
 
 			return array(
-				'error' => __( 'System Error', 'wp-fundraising' ),
+				'error' => __( 'System Error', 'wp-fundraising-donation' ),
 			);
 		}
 
@@ -3000,7 +3000,7 @@ class Content {
 		if ( ! get_option( 'users_can_register', false ) ) {
 
 			return array(
-				'error' => __( 'New user registration option is turned off', 'wp-fundraising' ),
+				'error' => __( 'New user registration option is turned off', 'wp-fundraising-donation' ),
 			);
 		}
 
@@ -3009,14 +3009,14 @@ class Content {
 		if ( email_exists( $wfp_register['user_email'] ) ) {
 
 			return array(
-				'error' => __( 'This email is already used', 'wp-fundraising' ),
+				'error' => __( 'This email is already used', 'wp-fundraising-donation' ),
 			);
 		}
 
 		if ( empty( $wfp_register['user_email'] ) || ! Settings::valid_email( $wfp_register['user_email'] ) ) {
 
 			return array(
-				'error' => __( 'Please enter a valid email address', 'wp-fundraising' ),
+				'error' => __( 'Please enter a valid email address', 'wp-fundraising-donation' ),
 			);
 		}
 
@@ -3025,14 +3025,14 @@ class Content {
 		if ( empty( $user_name ) ) {
 
 			return array(
-				'error' => __( 'Please enter valid username', 'wp-fundraising' ),
+				'error' => __( 'Please enter valid username', 'wp-fundraising-donation' ),
 			);
 		}
 
 		if ( empty( $wfp_register['user_password'] ) ) {
 
 			return array(
-				'error' => __( 'Please set your password', 'wp-fundraising' ),
+				'error' => __( 'Please set your password', 'wp-fundraising-donation' ),
 			);
 		}
 
@@ -3061,7 +3061,7 @@ class Content {
 		if ( is_wp_error( $userId ) ) {
 
 			return array(
-				'error' => __( 'Sorry system error. Try again', 'wp-fundraising' ),
+				'error' => __( 'Sorry system error. Try again', 'wp-fundraising-donation' ),
 			);
 		}
 
@@ -3101,7 +3101,7 @@ class Content {
 			session_write_close();
 			return new \WP_Error(
 				'invalid_product',
-				esc_html__( 'Invalid product.', 'wp-fundraising' ),
+				esc_html__( 'Invalid product.', 'wp-fundraising-donation' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -3111,7 +3111,7 @@ class Content {
 			session_write_close();
 			return new \WP_Error(
 				'invalid_price',
-				esc_html__( 'Invalid price.', 'wp-fundraising' ),
+				esc_html__( 'Invalid price.', 'wp-fundraising-donation' ),
 				array( 'status' => 400 )
 			);
 		}

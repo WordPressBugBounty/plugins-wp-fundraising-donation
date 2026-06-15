@@ -29,11 +29,11 @@ if ( empty( $wfpToDate ) ) {
 			<?php wp_nonce_field( 'filter_donate_report', 'donate_report_nonce' ); ?>
 			<div class="wfp-search-tab-wraper">
 				<div class="search-tab">
-					<label for="wfdp-forms-search"> <?php echo esc_html__( 'From Date', 'wp-fundraising' ); ?> </label>
+					<label for="wfdp-forms-search"> <?php echo esc_html__( 'From Date', 'wp-fundraising-donation' ); ?> </label>
 					<input type="text" value="<?php echo esc_attr( $wfpFromDate ); ?>" name="donate_report_from_date" class="datepicker-fundrasing" id="donate_report_from_date">
 				</div>
 				<div class="search-tab">
-					<label for="wfdp-forms-search"> <?php echo esc_html__( 'To Date', 'wp-fundraising' ); ?> </label>
+					<label for="wfdp-forms-search"> <?php echo esc_html__( 'To Date', 'wp-fundraising-donation' ); ?> </label>
 					<input type="text" value="<?php echo esc_attr( $wfpToDate ); ?>" name="donate_report_to_date" class="datepicker-fundrasing" id="donate_report_to_date">
 				</div>
 				

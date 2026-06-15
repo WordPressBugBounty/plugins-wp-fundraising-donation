@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 					)
 				); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for dashboard fund raised total.
 				?>
-			<p class="intro-info--title"> <?php echo esc_html__( 'Fund Raised', 'wp-fundraising' ); ?></p>
+			<p class="intro-info--title"> <?php echo esc_html__( 'Fund Raised', 'wp-fundraising-donation' ); ?></p>
 			<p class="intro-info--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpFundAmount ) ); ?></strong><span class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></span></p>
 		</div>
 		<div class="intro-info rewards-block">
@@ -48,7 +48,7 @@ defined( 'ABSPATH' ) || exit;
 					)
 				); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for dashboard backed total.
 				?>
-			<p class="intro-info--title"> <?php echo esc_html__( 'Total Backed', 'wp-fundraising' ); ?></p>
+			<p class="intro-info--title"> <?php echo esc_html__( 'Total Backed', 'wp-fundraising-donation' ); ?></p>
 			<p class="intro-info--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpBackendAmount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em></p>
 		</div>
 		<div class="intro-info rewards-block">
@@ -67,7 +67,7 @@ defined( 'ABSPATH' ) || exit;
 					)
 				); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for dashboard pledge total.
 				?>
-			<p class="intro-info--title"> <?php echo esc_html__( 'Pledge Received', 'wp-fundraising' ); ?></p>
+			<p class="intro-info--title"> <?php echo esc_html__( 'Pledge Received', 'wp-fundraising-donation' ); ?></p>
 			<p class="intro-info--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpPledgeAmount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em></p>
 		</div>
 	</div>
@@ -75,7 +75,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="profile-content wfp-my-campaign-full-width">
 		<div class="my-campaign-chart profile-section">
 			<div class="my-campaign-chart-inner profile-block">
-				<h3> <i class="wfpf wfpf-cog"></i> <?php echo esc_html( apply_filters( 'wfp_dashboard_dashboard_heading', __( 'Income Data', 'wp-fundraising' ) ) ); ?></h3>
+				<h3> <i class="wfpf wfpf-cog"></i> <?php echo esc_html( apply_filters( 'wfp_dashboard_dashboard_heading', __( 'Income Data', 'wp-fundraising-donation' ) ) ); ?></h3>
 				<?php
 					$wfpDataChartArray = array();
 					$wfpDataChart      = array();
@@ -164,11 +164,11 @@ defined( 'ABSPATH' ) || exit;
 			</div>-->
 			
 			<div class="profile-block left-profile">
-				<h3><i class="wfpf wfpf-user-add"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_information_headding', __( 'My Information ', 'wp-fundraising' ) ) ); ?></h3>
+				<h3><i class="wfpf wfpf-user-add"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_information_headding', __( 'My Information ', 'wp-fundraising-donation' ) ) ); ?></h3>
 				<div class="wfp-my-profile-data xs-donate-hidden xs-donate-visible">
 					<div class="xs-form-group xs-row intro-info">
 						<label for="user_first_name"  class="xs-col-4 xs-col-md-4 xs-col-form-label">
-							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_username', __( 'Username ', 'wp-fundraising' ) ) ); ?>
+							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_username', __( 'Username ', 'wp-fundraising-donation' ) ) ); ?>
 						</label>
 						<div class="xs-col-1 xs-col-md-1 wfp-separator">
 							<span>:</span>
@@ -180,7 +180,7 @@ defined( 'ABSPATH' ) || exit;
 					</div>
 					<div class="xs-form-group xs-row intro-info">
 						<label for="user_first_name"  class="xs-col-4 xs-col-sm-4 xs-col-form-label">
-							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_telephone', __( 'Phone ', 'wp-fundraising' ) ) ); ?>
+							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_telephone', __( 'Phone ', 'wp-fundraising-donation' ) ) ); ?>
 						</label>
 						<div class="xs-col-1 xs-col-sm-1 wfp-separator">
 							<span> : </span>
@@ -192,7 +192,7 @@ defined( 'ABSPATH' ) || exit;
 					</div>
 					<div class="xs-form-group xs-row intro-info">
 						<label for="user_first_name"  class="xs-col-4 xs-col-sm-4 xs-col-form-label">
-							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_first_name', __( 'First Name', 'wp-fundraising' ) ) ); ?>
+							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_first_name', __( 'First Name', 'wp-fundraising-donation' ) ) ); ?>
 						</label>
 						<div class="xs-col-1 xs-col-sm-1 wfp-separator">
 							<span> : </span>
@@ -204,7 +204,7 @@ defined( 'ABSPATH' ) || exit;
 					</div>
 					<div class="xs-form-group xs-row intro-info">
 						<label for="user_last_name"  class="xs-col-4 xs-col-sm-4 xs-col-form-label">
-							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_last_name', __( 'Last Name', 'wp-fundraising' ) ) ); ?>
+							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_last_name', __( 'Last Name', 'wp-fundraising-donation' ) ) ); ?>
 
 						</label>
 						<div class="xs-col-1 xs-col-sm-1 wfp-separator">
@@ -217,7 +217,7 @@ defined( 'ABSPATH' ) || exit;
 					</div>
 					<div class="xs-form-group xs-row intro-info">
 						<label for="user_last_name"  class="xs-col-4 xs-col-sm-4 xs-col-form-label">
-							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_email', __( 'Email', 'wp-fundraising' ) ) ); ?>
+							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_email', __( 'Email', 'wp-fundraising-donation' ) ) ); ?>
 
 						</label>
 						<div class="xs-col-1 xs-col-sm-1 wfp-separator">
@@ -230,7 +230,7 @@ defined( 'ABSPATH' ) || exit;
 					</div>
 					<div class="xs-form-group xs-row intro-info">
 						<label for="user_last_name"  class="xs-col-4 xs-col-sm-4 xs-col-form-label">
-							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_bio', __( 'Bio', 'wp-fundraising' ) ) ); ?>
+							<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_bio', __( 'Bio', 'wp-fundraising-donation' ) ) ); ?>
 
 						</label>
 						<div class="xs-col-1 xs-col-sm-1 wfp-separator">
@@ -245,7 +245,7 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 
 			<div class="profile-block right-profile wfp-current-balance">
-				<h3><i class="wfpf wfpf-wallet"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_balance_headding', __( 'My Balance ', 'wp-fundraising' ) ) ); ?></h3>
+				<h3><i class="wfpf wfpf-wallet"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_balance_headding', __( 'My Balance ', 'wp-fundraising-donation' ) ) ); ?></h3>
 				<?php
 					// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 					$wfpBalanceAmount = $wpdb->get_var(
@@ -259,7 +259,7 @@ defined( 'ABSPATH' ) || exit;
 						)
 					); //phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Prepared aggregate read for dashboard balance total.
 					?>
-				<p class="wfp-current-balance--title"> <?php echo esc_html__( 'Current Balance', 'wp-fundraising' ); ?></p>
+				<p class="wfp-current-balance--title"> <?php echo esc_html__( 'Current Balance', 'wp-fundraising-donation' ); ?></p>
 				<p class="wfp-current-balance--price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpBalanceAmount ) ); ?></strong><span class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></span></p>
 			
 			</div>
@@ -272,7 +272,7 @@ defined( 'ABSPATH' ) || exit;
 		<div class="profile-section">
 			
 			<div class="profile-block">
-				<h3><i class="wfpf wfpf-sun-umbrella-1"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_my_campaign_headding', __( 'My Campaign List', 'wp-fundraising' ) ) ); ?></h3>
+				<h3><i class="wfpf wfpf-sun-umbrella-1"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_my_campaign_headding', __( 'My Campaign List', 'wp-fundraising-donation' ) ) ); ?></h3>
 				<div class="campaign-body">
 				<?php
 
@@ -291,9 +291,9 @@ defined( 'ABSPATH' ) || exit;
 					<table class="form-table wfdp-table-design wc_gateways widefat wfp-report-table">
 						<thead>
 							<tr>
-								<th class="name"> <?php echo esc_html__( 'Campaigns', 'wp-fundraising' ); ?></th>
-								<th class="name xs-text-center"> <?php echo esc_html__( 'Date', 'wp-fundraising' ); ?></th>
-								<th class="name"> <?php echo esc_html__( 'Fund Raised', 'wp-fundraising' ); ?></th>
+								<th class="name"> <?php echo esc_html__( 'Campaigns', 'wp-fundraising-donation' ); ?></th>
+								<th class="name xs-text-center"> <?php echo esc_html__( 'Date', 'wp-fundraising-donation' ); ?></th>
+								<th class="name"> <?php echo esc_html__( 'Fund Raised', 'wp-fundraising-donation' ); ?></th>
 							</tr>
 						</thead>
 					<tbody>

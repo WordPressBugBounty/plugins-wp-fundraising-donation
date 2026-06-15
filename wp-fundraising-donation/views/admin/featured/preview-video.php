@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 		<div class="video-information">
 			<h3><?php echo esc_html( $wfp_title ); ?></h3>
 			<div class="video-type"><?php echo esc_html( $wfp_data['type'] ); ?></div>
-			<button class="button-primary" id="insert-video"><?php esc_html_e( 'Set Video', 'wp-fundraising' ); ?></button>
+			<button class="button-primary" id="insert-video"><?php esc_html_e( 'Set Video', 'wp-fundraising-donation' ); ?></button>
 		</div>
 	</div>
 </div>

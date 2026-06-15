@@ -4,7 +4,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), '_wpnonce' ) ) {
-	esc_html_e( 'You are not allowed to view the page', 'wp-fundraising' );
+	esc_html_e( 'You are not allowed to view the page', 'wp-fundraising-donation' );
 }
 
 if ( empty( $_GET['invoice'] ) || empty( $_GET['campaign'] ) ) {
@@ -176,7 +176,7 @@ if ( is_user_logged_in() ) {
 
 		?>
 		<div>
-			<?php esc_html_e( 'To view invoice details you have to be either', 'wp-fundraising' ); ?>
+			<?php esc_html_e( 'To view invoice details you have to be either', 'wp-fundraising-donation' ); ?>
 		</div>
 		<?php
 	}
@@ -186,8 +186,8 @@ if ( is_user_logged_in() ) {
 	?>
 
 	<div>
-		<?php esc_html_e( 'To view invoice details please', 'wp-fundraising' ); ?> <a
-				href="<?php echo esc_url( wp_login_url( $wfp_current_url ) ); ?>"><?php esc_html_e( 'Log in', 'wp-fundraising' ); ?></a>
+		<?php esc_html_e( 'To view invoice details please', 'wp-fundraising-donation' ); ?> <a
+				href="<?php echo esc_url( wp_login_url( $wfp_current_url ) ); ?>"><?php esc_html_e( 'Log in', 'wp-fundraising-donation' ); ?></a>
 	</div>
 
 	<?php

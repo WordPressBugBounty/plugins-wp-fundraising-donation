@@ -12,8 +12,8 @@ endif;
 ?>
 	<fieldset
 			class="xs-donate-field-wrap donation_target_type_filed pledge_setup_target1 xs-donate-hidden <?php echo esc_attr( $wfp_forms_content_class ); ?>">
-		<span class="xs-donate-field-label"><?php echo esc_html__( 'Enable Content', 'wp-fundraising' ); ?></span>
-		<legend class="screen-reader-text"><?php echo esc_html__( 'Enable Content', 'wp-fundraising' ); ?></legend>
+		<span class="xs-donate-field-label"><?php echo esc_html__( 'Enable Content', 'wp-fundraising-donation' ); ?></span>
+		<legend class="screen-reader-text"><?php echo esc_html__( 'Enable Content', 'wp-fundraising-donation' ); ?></legend>
 
 
 		<div class="xs-field-body">
@@ -27,7 +27,7 @@ endif;
 						<label for="donation_form_content_enable"
 							   class="xs_donate_switch_button_label small xs-round"></label>
 					</div>
-					<span class="xs-donetion-field-description"><?php echo esc_html__( 'Display additional content about Campaign.', 'wp-fundraising' ); ?></span>
+					<span class="xs-donetion-field-description"><?php echo esc_html__( 'Display additional content about Campaign.', 'wp-fundraising-donation' ); ?></span>
 				</div>
 
 			</div>
@@ -36,7 +36,7 @@ endif;
 			<div class="xs-donate-form-content-section xs-repeater-field-wrap xs-donate-hidden <?php echo ( isset( $wfpFormContentData->enable ) && $wfpFormContentData->enable == 'Yes' ) ? 'xs-donate-visible' : ''; ?>">
 				<!--Company Title options-->
 				<div class="xs-donate-field-wrap">
-					<label for="xs_donate_forms_company_name_title"> <?php echo esc_html__( 'Content Position', 'wp-fundraising' ); ?></label>
+					<label for="xs_donate_forms_company_name_title"> <?php echo esc_html__( 'Content Position', 'wp-fundraising-donation' ); ?></label>
 
 					<div class="xs-donate-field-wrap-amount">
 						<ul class="xs-donate-option">
@@ -45,7 +45,7 @@ endif;
 									<input class="xs_radio_filed"
 										   name="xs_submit_donation_data[form_content][content_position]"
 										   value="after-form"
-										   type="radio" <?php echo ( isset( $wfpFormContentData->content_position ) && $wfpFormContentData->content_position == 'after-form' ) ? 'checked' : 'checked'; ?> > <?php echo esc_html__( 'After Form', 'wp-fundraising' ); ?>
+										   type="radio" <?php echo ( isset( $wfpFormContentData->content_position ) && $wfpFormContentData->content_position == 'after-form' ) ? 'checked' : 'checked'; ?> > <?php echo esc_html__( 'After Form', 'wp-fundraising-donation' ); ?>
 								</label>
 							</li>
 							<li>
@@ -53,7 +53,7 @@ endif;
 									<input class="xs_radio_filed"
 										   name="xs_submit_donation_data[form_content][content_position]"
 										   value="before-form"
-										   type="radio" <?php echo ( isset( $wfpFormContentData->content_position ) && $wfpFormContentData->content_position == 'before-form' ) ? 'checked' : ''; ?> > <?php echo esc_html__( 'Before Form', 'wp-fundraising' ); ?>
+										   type="radio" <?php echo ( isset( $wfpFormContentData->content_position ) && $wfpFormContentData->content_position == 'before-form' ) ? 'checked' : ''; ?> > <?php echo esc_html__( 'Before Form', 'wp-fundraising-donation' ); ?>
 								</label>
 							</li>
 						</ul>
@@ -61,7 +61,7 @@ endif;
 				</div>
 
 				<p class="">
-					<label for="xs_donate_forms_company_name_title"> <?php echo esc_html__( 'Content Details', 'wp-fundraising' ); ?></label>
+					<label for="xs_donate_forms_company_name_title"> <?php echo esc_html__( 'Content Details', 'wp-fundraising-donation' ); ?></label>
 					<?php
 					$wfp_content   = isset( $wfpFormContentData->content ) ? $wfpFormContentData->content : '';
 					$wfp_editor_id = 'form_content_editor';
@@ -91,7 +91,7 @@ if ( ! isset( $getGlobalOptionsGlo['options'] ) ) {
 if ( $wfpGetCustomGlobalOptions == 'Yes' ) :
 	?>
 	<fieldset class="xs-donate-field-wrap ">
-		<span class="xs-donate-field-label"><?php echo esc_html__( 'Custom Fields', 'wp-fundraising' ); ?></span>
+		<span class="xs-donate-field-label"><?php echo esc_html__( 'Custom Fields', 'wp-fundraising-donation' ); ?></span>
 		<div class="xs-field-body">
 			<ul class="xs-donate-option">
 				<li>
@@ -107,7 +107,7 @@ if ( $wfpGetCustomGlobalOptions == 'Yes' ) :
 				</li>
 				<li>
 					<label for="donation_company_enable"
-						   class="xs-donetion-field-description"><?php echo esc_html__( 'Add new custom filed in forms.', 'wp-fundraising' ); ?></label>
+						   class="xs-donetion-field-description"><?php echo esc_html__( 'Add new custom filed in forms.', 'wp-fundraising-donation' ); ?></label>
 				</li>
 			</ul>
 			<div class="xs-donate-company-info-section xs-donate-hidden <?php echo esc_attr( $wfpAdditionalEnable == 'check' ? 'xs-donate-visible' : '' ); ?> ">
@@ -139,7 +139,7 @@ if ( $wfpGetCustomGlobalOptions == 'Yes' ) :
 							<div class="add_button_sections">
 								<button type="button"
 										class="xs-additional-btnAdd xs-review-add-button">
-									<?php echo esc_html__( 'Add', 'wp-fundraising' ); ?>
+									<?php echo esc_html__( 'Add', 'wp-fundraising-donation' ); ?>
 								</button>
 							</div>
 						</div>

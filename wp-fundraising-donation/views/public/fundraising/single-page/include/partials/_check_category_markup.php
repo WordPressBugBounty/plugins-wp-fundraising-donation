@@ -23,7 +23,7 @@ if ( $wfp_enable_cat === \WfpFundraising\Apps\Key::WFP_YES && ! empty( $wfp_cate
 		   href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>"
 		   title="<?php
 		   // translators: %s: category name.
-		   echo esc_attr( sprintf( __( 'View all posts in %s', 'wp-fundraising' ), $category->name ) ); ?>"
+		   echo esc_attr( sprintf( __( 'View all posts in %s', 'wp-fundraising-donation' ), $category->name ) ); ?>"
 		>
 			<?php echo esc_html( $category->name ); ?>
 

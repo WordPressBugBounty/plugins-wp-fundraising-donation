@@ -67,7 +67,7 @@ class Featured {
 		if ( $post->post_type == self::post_type() ) :
 			add_meta_box(
 				'wp_fundraising_meta_featured',
-				esc_html__( 'Featured Video', 'wp-fundraising' ),
+				esc_html__( 'Featured Video', 'wp-fundraising-donation' ),
 				array( $this, 'wfp_featured_add_button_video' ),
 				self::post_type(),
 				'side',
@@ -345,8 +345,8 @@ class Featured {
 			'wfp-featured-video-js',
 			'Featured_Video',
 			array(
-				'SetVideo'    => __( 'Set featured video', 'wp-fundraising' ),
-				'RemoveVideo' => __( 'Remove featured video', 'wp-fundraising' ),
+				'SetVideo'    => __( 'Set featured video', 'wp-fundraising-donation' ),
+				'RemoveVideo' => __( 'Remove featured video', 'wp-fundraising-donation' ),
 			)
 		);
 
@@ -571,7 +571,7 @@ class Featured {
 			$thumb = $data['thumbnail'];
 			include \WFP_Fundraising::plugin_dir() . 'views/admin/featured/preview-video.php';
 		} else {
-			esc_html_e( 'This is not a valid video URL. Please try another URL.', 'wp-fundraising' );
+			esc_html_e( 'This is not a valid video URL. Please try another URL.', 'wp-fundraising-donation' );
 		}
 
 		if ( $ajax || $ajax == '' ) {

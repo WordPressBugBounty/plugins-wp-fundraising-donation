@@ -190,7 +190,7 @@ class Settings {
 	* WP Fundraising Custom nav menu bar
 	*/
 	public function wfp_custom_nav_menu() {
-		register_nav_menu( 'wp-fundraising-dashboard', __( 'Fundraising Dashboard', 'wp-fundraising' ) );
+		register_nav_menu( 'wp-fundraising-dashboard', __( 'Fundraising Dashboard', 'wp-fundraising-donation' ) );
 		/*
 		 wp_nav_menu( array(
 		   'theme_location' => 'wp-fundraising-dashboard',
@@ -1189,7 +1189,7 @@ class Settings {
 
 		if ( file_exists( \WFP_Fundraising::plugin_parent_dir() . 'woocommerce/woocommerce.php' ) ) {
 			if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-				$btn['label'] = esc_html__( 'Activate Woocommerce', 'wp-fundraising' );
+				$btn['label'] = esc_html__( 'Activate Woocommerce', 'wp-fundraising-donation' );
 				$btn['url']   = wp_nonce_url( 'plugins.php?action=activate&plugin=woocommerce/woocommerce.php&plugin_status=all&paged=1', 'activate-plugin_woocommerce/woocommerce.php' );
 
 				$btn['status'] = true;
@@ -1197,7 +1197,7 @@ class Settings {
 				$btn['status'] = false;
 			}
 		} else {
-			$btn['label']  = esc_html__( 'Install Woocommerce', 'wp-fundraising' );
+			$btn['label']  = esc_html__( 'Install Woocommerce', 'wp-fundraising-donation' );
 			$btn['url']    = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=woocommerce' ), 'install-plugin_woocommerce' );
 			$btn['status'] = true;
 
@@ -1528,7 +1528,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_first_name',
-			'label'     => __( 'First Name', 'wp-fundraising' ),
+			'label'     => __( 'First Name', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['last_name'] = array(
@@ -1536,7 +1536,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_last_name',
-			'label'     => __( 'Last Name', 'wp-fundraising' ),
+			'label'     => __( 'Last Name', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['email_address'] = array(
@@ -1544,7 +1544,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_email_address',
-			'label'     => __( 'Email Address', 'wp-fundraising' ),
+			'label'     => __( 'Email Address', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['country_destination'] = array(
@@ -1552,7 +1552,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_country_pledge',
-			'label'     => __( 'Country Destination', 'wp-fundraising' ),
+			'label'     => __( 'Country Destination', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['street_address'] = array(
@@ -1560,7 +1560,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_street_pledge',
-			'label'     => __( 'Street Address', 'wp-fundraising' ),
+			'label'     => __( 'Street Address', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['city'] = array(
@@ -1568,7 +1568,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_city_pledge',
-			'label'     => __( 'City :', 'wp-fundraising' ),
+			'label'     => __( 'City :', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['postcode'] = array(
@@ -1576,7 +1576,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_post_pledge',
-			'label'     => __( 'Postcode / ZIP :', 'wp-fundraising' ),
+			'label'     => __( 'Postcode / ZIP :', 'wp-fundraising-donation' ),
 		);
 
 		return $fields;

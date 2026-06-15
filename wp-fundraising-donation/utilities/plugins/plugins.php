@@ -368,15 +368,15 @@ if( !class_exists('\WfpFundraising\Wpmet\Libs\Plugins') ) {
     
             if ( $this->check_installed_plugin( $name ) ) {
                 if ( $this->check_activated_plugin( $name ) ) {
-                    $data['title']  = __( 'Activated', 'wp-fundraising' );
+                    $data['title']  = __( 'Activated', 'wp-fundraising-donation' );
                     $data['status'] = "activated";
                 } else {
-                    $data['title']          = __( 'Activate Now', 'wp-fundraising' );
+                    $data['title']          = __( 'Activate Now', 'wp-fundraising-donation' );
                     $data['status']         = 'installed';
                     $data['activation_url'] = $this->activation_url( $name );
                 }
             } else {
-                $data['title']            = __( 'Install Now', 'wp-fundraising' );
+                $data['title']            = __( 'Install Now', 'wp-fundraising-donation' );
                 $data['status']           = 'not_installed';
                 $data['installation_url'] = $this->installation_url( $name );
                 $data['activation_url']   = $this->activation_url( $name );
@@ -421,7 +421,7 @@ if( !class_exists('\WfpFundraising\Wpmet\Libs\Plugins') ) {
                                     $plugin_activation_url = isset( $plugin_data['activation_url'] ) ? $plugin_data['activation_url'] : '';
                                     $plugin_installation_url = isset( $plugin_data['installation_url'] ) ? $plugin_data['installation_url'] : '';
                                     $plugin_status_label = isset( $plugin_data['status'] ) ? ( $plugin_data['status'] == 'activated' ? 'activated' : '' ) : '';
-                                    $plugin_status_title = isset( $plugin_data['title'] ) ? $plugin_data['title'] : esc_html__('Activate', 'wp-fundraising');
+                                    $plugin_status_title = isset( $plugin_data['title'] ) ? $plugin_data['title'] : esc_html__('Activate', 'wp-fundraising-donation');
                                     ?>
                                     <div class="wpmet-apps-footer">
                                         <?php
@@ -438,7 +438,7 @@ if( !class_exists('\WfpFundraising\Wpmet\Libs\Plugins') ) {
                                             echo sprintf(
                                                 '<a target="_blank" href="%1$s">%2$s</a>',
                                                 esc_url($plugin_docs),
-                                                esc_html__('Read Docs', 'wp-fundraising')
+                                                esc_html__('Read Docs', 'wp-fundraising-donation')
                                             );
                                         endif;
                                         ?>

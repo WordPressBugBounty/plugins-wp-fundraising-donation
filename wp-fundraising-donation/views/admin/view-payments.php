@@ -33,7 +33,7 @@ $wfp_p_type   = \WfpFundraising\Apps\Fundraising_Cpt::TYPE;
 				<?php wp_nonce_field( 'view_payment_nonce_field', 'view_payments_nonce' ); ?>
 				<input type="hidden"
 					   name="post_type"
-					   value="<?php echo esc_attr( $wfp_p_type ); ?>"/>
+					   value="<?php  esc_attr( $wfp_p_type ); ?>"/>
 
 				<input type="hidden" name="page" value="donations"/>
 
@@ -49,11 +49,11 @@ $wfp_p_type   = \WfpFundraising\Apps\Fundraising_Cpt::TYPE;
 							)
 						);
 						?>
-						<label for="wfdp-forms-search"> <?php echo esc_html__( 'Select campaign', 'wp-fundraising' ); ?> </label>
+						<label for="wfdp-forms-search"> <?php echo esc_html__( 'Select campaign', 'wp-fundraising-donation' ); ?> </label>
 
 						<select class="wfp-select2-country" name="donation_id" id="wfdp-forms-search" required>
 							<option value="" <?php echo empty( $wfp_camp_id ) ? 'selected' : ''; ?>>
-								<?php echo esc_html__( 'Select a campaign', 'wp-fundraising' ); ?>
+								<?php echo esc_html__( 'Select a campaign', 'wp-fundraising-donation' ); ?>
 							</option> 
 							<?php
 
@@ -69,12 +69,12 @@ $wfp_p_type   = \WfpFundraising\Apps\Fundraising_Cpt::TYPE;
 					</div>
 
 					<div class="search-tab">
-						<label for="wfdp-forms-search"> <?php echo esc_html__( 'From Date', 'wp-fundraising' ); ?> </label>
+						<label for="wfdp-forms-search"> <?php echo esc_html__( 'From Date', 'wp-fundraising-donation' ); ?> </label>
 						<input type="text" value="<?php echo esc_attr( $wfpFromDate ); ?>" name="rpt_f_date"
 							   class="datepicker-donate" id="donate_report_from_date">
 					</div>
 					<div class="search-tab">
-						<label for="wfdp-forms-search"> <?php echo esc_html__( 'To Date', 'wp-fundraising' ); ?> </label>
+						<label for="wfdp-forms-search"> <?php echo esc_html__( 'To Date', 'wp-fundraising-donation' ); ?> </label>
 						<input type="text" value="<?php echo esc_attr( $wfpToDate ); ?>" name="rpt_t_date"
 							   class="datepicker-donate" id="donate_report_to_date">
 					</div>
@@ -131,7 +131,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 
 		<div class="wdp-form-information xs_shadow_card">
 			<div class="xs-fundrising-title-wraper">
-				<h3 class="xs-fundrising-title"><?php esc_html_e( 'Payment Details', 'wp-fundraising' ); ?> </h3>
+				<h3 class="xs-fundrising-title"><?php esc_html_e( 'Payment Details', 'wp-fundraising-donation' ); ?> </h3>
 				<hr>
 			</div>
 			<div class="xs_payment_info_wraper">
@@ -145,7 +145,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 							$wfp_p_sum   = $wfp_camp_obj->sum_by_payment_gateway( 'online_payment' )->get_var();
 
 							?>
-							<strong> <?php echo esc_html__( 'Paypal', 'wp-fundraising' ); ?> : </strong>
+							<strong> <?php echo esc_html__( 'Paypal', 'wp-fundraising-donation' ); ?> : </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_p_sum ) ); ?>
 								(<?php echo esc_html( $wfp_p_count ); ?>)</span>
@@ -158,7 +158,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 							$wfp_ofline_sum   = $wfp_camp_obj->sum_by_payment_gateway( 'offline_payment' )->get_var();
 
 							?>
-							<strong> <?php echo esc_html__( 'Cash', 'wp-fundraising' ); ?> : </strong>
+							<strong> <?php echo esc_html__( 'Cash', 'wp-fundraising-donation' ); ?> : </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_ofline_sum ) ); ?>
 								(<?php echo esc_html( $wfp_ofline_count ); ?>)</span>
@@ -171,7 +171,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 							$wfp_check_sum   = $wfp_camp_obj->sum_by_payment_gateway( 'check_payment' )->get_var();
 
 							?>
-							<strong> <?php echo esc_html__( 'Check', 'wp-fundraising' ); ?> : </strong>
+							<strong> <?php echo esc_html__( 'Check', 'wp-fundraising-donation' ); ?> : </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_check_sum ) ); ?>
 								(<?php echo esc_html( $wfp_check_count ); ?>)</span>
@@ -184,7 +184,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 							$wfp_bank_sum   = $wfp_camp_obj->sum_by_payment_gateway( 'bank_payment' )->get_var();
 
 							?>
-							<strong> <?php echo esc_html__( 'Bank', 'wp-fundraising' ); ?> : </strong>
+							<strong> <?php echo esc_html__( 'Bank', 'wp-fundraising-donation' ); ?> : </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_bank_sum ) ); ?>
 								(<?php echo esc_html( $wfp_bank_count ); ?>)</span>
@@ -197,7 +197,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 							$wfp_stripe_sum   = $wfp_camp_obj->sum_by_payment_gateway( 'stripe_payment' )->get_var();
 
 							?>
-							<strong> <?php echo esc_html__( 'Stripe', 'wp-fundraising' ); ?> : </strong>
+							<strong> <?php echo esc_html__( 'Stripe', 'wp-fundraising-donation' ); ?> : </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_stripe_sum ) ); ?>
 								(<?php echo esc_html( $wfp_stripe_count ); ?>)</span>
@@ -209,7 +209,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 							$wfp_checkout_sum   = $wfp_camp_obj->sum_by_payment_gateway( '2checkout' )->get_var();
 
 							?>
-							<strong> <?php echo esc_html__( '2Checkout', 'wp-fundraising' ); ?> : </strong>
+							<strong> <?php echo esc_html__( '2Checkout', 'wp-fundraising-donation' ); ?> : </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_checkout_sum ) ); ?>
 								(<?php echo esc_html( $wfp_checkout_count ); ?>)</span>
@@ -224,7 +224,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 							?>
 							<strong> <?php
 							// translators: %s: currency symbol.
-						echo sprintf( esc_html__( 'Success Amount (%s)', 'wp-fundraising' ), esc_html( $wfpSymbols ) ); ?>
+						echo sprintf( esc_html__( 'Success Amount (%s)', 'wp-fundraising-donation' ), esc_html( $wfpSymbols ) ); ?>
 								: </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_active_sum ) ); ?>
@@ -234,7 +234,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 
 					<ul class="xs_payment_details">
 						<li class="xs_list_title">
-							<?php echo esc_html__( 'Payment Types', 'wp-fundraising' ); ?>
+							<?php echo esc_html__( 'Payment Types', 'wp-fundraising-donation' ); ?>
 						</li>
 						<?php
 
@@ -248,7 +248,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 						<li>
 							<strong> <?php
 							// translators: %s: currency symbol.
-						echo sprintf( esc_html__( 'Default (%s)', 'wp-fundraising' ), esc_html( $wfpSymbols ) ); ?>
+						echo sprintf( esc_html__( 'Default (%s)', 'wp-fundraising-donation' ), esc_html( $wfpSymbols ) ); ?>
 								: </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_default_type_sum ) ); ?>
@@ -258,7 +258,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 						<li>
 							<strong> <?php
 							// translators: %s: currency symbol.
-						echo sprintf( esc_html__( 'Woocommerce (%s)', 'wp-fundraising' ), esc_html( $wfpSymbols ) ); ?>
+						echo sprintf( esc_html__( 'Woocommerce (%s)', 'wp-fundraising-donation' ), esc_html( $wfpSymbols ) ); ?>
 								: </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_woocommerce_type_sum ) ); ?>
@@ -282,14 +282,14 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 						?>
 
 						<li>
-							<strong> <?php echo esc_html__( 'In Process :', 'wp-fundraising' ); ?> </strong>
+							<strong> <?php echo esc_html__( 'In Process :', 'wp-fundraising-donation' ); ?> </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_pending_sum ) ); ?>
 								(<?php echo esc_html( $wfp_pending_count ); ?>)</span>
 						</li>
 
 						<li>
-							<strong> <?php echo esc_html__( 'In Review :', 'wp-fundraising' ); ?> </strong>
+							<strong> <?php echo esc_html__( 'In Review :', 'wp-fundraising-donation' ); ?> </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_review_sum ) ); ?>
 								(<?php echo esc_html( $wfp_review_count ); ?>)</span>
@@ -298,7 +298,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 						<li class="xs_success_amount xs_danger">
 							<strong> <?php
 							// translators: %s: currency symbol.
-						echo sprintf( esc_html__( 'Total Amount (%s)', 'wp-fundraising' ), esc_html( $wfpSymbols ) ); ?> </strong>
+						echo sprintf( esc_html__( 'Total Amount (%s)', 'wp-fundraising-donation' ), esc_html( $wfpSymbols ) ); ?> </strong>
 							<span class="xs_stripe_border"></span>
 							<span><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_pending_sum + $wfp_review_sum ) ); ?>
 								(<?php echo esc_html( $wfp_pending_count + $wfp_review_count ); ?>)</span>
@@ -333,10 +333,10 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 	?>
 	<div class="wdp-form-information xs_shadow_card">
 		<div class="xs_recent_donation_title_wraper">
-			<h3 class="xs-fundrising-title"><?php esc_html_e( 'Recent Donation List', 'wp-fundraising' ); ?> </h3>
+			<h3 class="xs-fundrising-title"><?php esc_html_e( 'Recent Donation List', 'wp-fundraising-donation' ); ?> </h3>
 
 			<div class="xs_period_wraper xs_text_center">
-				<?php echo esc_html__( 'Period : ', 'wp-fundraising' ); ?>
+				<?php echo esc_html__( 'Period : ', 'wp-fundraising-donation' ); ?>
 				<datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfp_days_10ago ) ) ); ?></datetime>
 				<em>to</em>
 				<datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpTodayDate ) ) ); ?></datetime>
@@ -345,13 +345,13 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 			<div class="report-heading">
 				<ul class="xs_fundrising_filter xs_text_center">
 					<li><a class="<?php echo ( $wfp_tab == 'all' ) ? 'active' : ''; ?>"
-					   href="<?php echo esc_url( $wfp_link ); ?>&wfp_report_tab=all"> <?php echo esc_html( strtoupper( __( 'Success', 'wp-fundraising' ) ) ); ?> </a>
+					   href="<?php echo esc_url( $wfp_link ); ?>&wfp_report_tab=all"> <?php echo esc_html( strtoupper( __( 'Success', 'wp-fundraising-donation' ) ) ); ?> </a>
 				</li>
 				<li><a class="<?php echo ( $wfp_tab == 'review' ) ? 'active' : ''; ?>"
-					   href="<?php echo esc_url( $wfp_link ); ?>&wfp_report_tab=review"> <?php echo esc_html( strtoupper( __( 'In Review', 'wp-fundraising' ) ) ); ?></a>
+					   href="<?php echo esc_url( $wfp_link ); ?>&wfp_report_tab=review"> <?php echo esc_html( strtoupper( __( 'In Review', 'wp-fundraising-donation' ) ) ); ?></a>
 				</li>
 				<li><a class="<?php echo ( $wfp_tab == 'pending' ) ? 'active' : ''; ?>"
-					   href="<?php echo esc_url( $wfp_link ); ?>&wfp_report_tab=pending"><?php echo esc_html( strtoupper( __( 'In Process', 'wp-fundraising' ) ) ); ?></a>
+					   href="<?php echo esc_url( $wfp_link ); ?>&wfp_report_tab=pending"><?php echo esc_html( strtoupper( __( 'In Process', 'wp-fundraising-donation' ) ) ); ?></a>
 					</li>
 				</ul>
 			</div>
@@ -359,7 +359,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 			<div>
 				<span><?php
 			// translators: %s: number of items per page.
-			echo sprintf( esc_html__( 'Show %s (per page) in total ', 'wp-fundraising' ), esc_html( $wfp_limit ) ); ?><?php echo esc_html( $wfp_total_donation_count ); ?></span>
+			echo sprintf( esc_html__( 'Show %s (per page) in total ', 'wp-fundraising-donation' ), esc_html( $wfp_limit ) ); ?><?php echo esc_html( $wfp_total_donation_count ); ?></span>
 			</div>
 		</div>
 
@@ -367,12 +367,12 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 			<table class="form-table xs_payment_review_table">
 				<thead>
 				<tr>
-					<th class="sort"><?php echo esc_html__( 'S.L.', 'wp-fundraising' ); ?></th>
-					<th class="name"> <?php echo esc_html__( 'Email', 'wp-fundraising' ); ?></th>
+					<th class="sort"><?php echo esc_html__( 'S.L.', 'wp-fundraising-donation' ); ?></th>
+					<th class="name"> <?php echo esc_html__( 'Email', 'wp-fundraising-donation' ); ?></th>
 					<th class="enable"> <?php echo esc_html( 'Amount [' . $wfpSymbols . ']' ); ?></th>
-					<th class=""> <?php echo esc_html__( 'Payment Method', 'wp-fundraising' ); ?> </th>
-					<th class=""> <?php echo esc_html__( 'Date', 'wp-fundraising' ); ?> </th>
-					<th class="info"> <?php echo esc_html__( 'Action', 'wp-fundraising' ); ?></th>
+					<th class=""> <?php echo esc_html__( 'Payment Method', 'wp-fundraising-donation' ); ?> </th>
+					<th class=""> <?php echo esc_html__( 'Date', 'wp-fundraising-donation' ); ?> </th>
+					<th class="info"> <?php echo esc_html__( 'Action', 'wp-fundraising-donation' ); ?></th>
 				</tr>
 				</thead>
 
@@ -402,17 +402,17 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 							if ( $wfp_tab == 'all' ) {
 
 								$wfp_d_stat = array(
-									'Active'   => esc_html__( 'Success', 'wp-fundraising' ),
-									'Refunded' => esc_html__( 'Refund', 'wp-fundraising' ),
+									'Active'   => esc_html__( 'Success', 'wp-fundraising-donation' ),
+									'Refunded' => esc_html__( 'Refund', 'wp-fundraising-donation' ),
 								);
 
 							} else {
 
 								$wfp_d_stat = array(
-									'Pending'  => esc_html__( 'In Process', 'wp-fundraising' ),
-									'Review'   => esc_html__( 'In Review', 'wp-fundraising' ),
-									'Active'   => esc_html__( 'Success', 'wp-fundraising' ),
-									'DeActive' => esc_html__( 'Cancel', 'wp-fundraising' ),
+									'Pending'  => esc_html__( 'In Process', 'wp-fundraising-donation' ),
+									'Review'   => esc_html__( 'In Review', 'wp-fundraising-donation' ),
+									'Active'   => esc_html__( 'Success', 'wp-fundraising-donation' ),
+									'DeActive' => esc_html__( 'Cancel', 'wp-fundraising-donation' ),
 								);
 							}
 
@@ -446,7 +446,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 				<tfoot>
 				<tr>
 					<th colspan="2">
-						<?php echo esc_html__( 'Total Amount : ', 'wp-fundraising' ); ?> [<?php echo esc_html( $wfpSymbols ); ?>]
+						<?php echo esc_html__( 'Total Amount : ', 'wp-fundraising-donation' ); ?> [<?php echo esc_html( $wfpSymbols ); ?>]
 					</th>
 					<th>
 						<?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_total_amount ) ); ?>

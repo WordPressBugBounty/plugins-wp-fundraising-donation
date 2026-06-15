@@ -62,7 +62,7 @@ require __DIR__ . '/donation-display-form-common.php';
 							} else {
 								?>
 								<button type="submit" class="xs-btn btn-special submit-btn"
-										name="submit-form-donation" <?php echo esc_html( $wfpFormTermsData->enable ? 'disabled' : '' ); ?> > <?php echo esc_html( $wfpFormDesignData->submit_button ? $wfpFormDesignData->submit_button : __( 'Donate Now', 'wp-fundraising' ) ); ?>
+										name="submit-form-donation" <?php echo esc_html( $wfpFormTermsData->enable ? 'disabled' : '' ); ?> > <?php echo esc_html( $wfpFormDesignData->submit_button ? $wfpFormDesignData->submit_button : __( 'Donate Now', 'wp-fundraising-donation' ) ); ?>
 								</button>
 							<?php } ?>
 						</div>
@@ -115,7 +115,7 @@ require __DIR__ . '/donation-display-form-common.php';
 												class="xs-btn btn-special submit-btn"
 												<?php echo esc_html( $wfpFormTermsData->enable ? 'disabled' : '' ); ?> 
 												>
-										<?php echo esc_html( $wfpFormDesignData->submit_button ? $wfpFormDesignData->submit_button : __( 'Donate Now', 'wp-fundraising' ) ); ?></button>
+										<?php echo esc_html( $wfpFormDesignData->submit_button ? $wfpFormDesignData->submit_button : __( 'Donate Now', 'wp-fundraising-donation' ) ); ?></button>
 										<?php
 									}
 									if ( isset( $wfpFormTermsData->enable ) && $wfpFormTermsData->content_position == 'after-submit-button' ) {

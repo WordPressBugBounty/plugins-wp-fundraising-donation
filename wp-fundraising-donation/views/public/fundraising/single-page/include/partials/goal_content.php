@@ -144,7 +144,7 @@ if ( isset( $wfpFormGoalData->enable ) && $wfpFormGoalData->enable === \WfpFundr
 					<div class="target-date-goal raised-amount"> 
 					<?php
 
-					$wfp_def_cont = __( 'Raised', 'wp-fundraising' );
+					$wfp_def_cont = __( 'Raised', 'wp-fundraising-donation' );
 
 					echo wp_kses( apply_filters( 'wfp_single_raisedamount_title', $wfp_def_cont ), \WfpFundraising\Utilities\Utils::get_kses_array() );
 
@@ -177,7 +177,7 @@ if ( isset( $wfpFormGoalData->enable ) && $wfpFormGoalData->enable === \WfpFundr
 
 					<div class="target-date-goal  goal-amount">
 
-						<?php echo wp_kses( apply_filters( 'wfp_single_goalcounter_title', esc_html__( 'Goal', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
+						<?php echo wp_kses( apply_filters( 'wfp_single_goalcounter_title', esc_html__( 'Goal', 'wp-fundraising-donation' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
 
 						<div class="wfp-inner-data">
 							<span class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?></span>
@@ -225,7 +225,7 @@ if ( isset( $wfpFormGoalData->enable ) && $wfpFormGoalData->enable === \WfpFundr
 
 							<span class="wfp-icon wfpf wfpf-time"></span>
 
-							<?php echo esc_attr( $wfpFormattedDate ); ?> <?php echo wp_kses( apply_filters( 'wfp_single_date_left_title', esc_html__( 'days left', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
+							<?php echo esc_attr( $wfpFormattedDate ); ?> <?php echo wp_kses( apply_filters( 'wfp_single_date_left_title', esc_html__( 'days left', 'wp-fundraising-donation' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
 
 						</span>
 

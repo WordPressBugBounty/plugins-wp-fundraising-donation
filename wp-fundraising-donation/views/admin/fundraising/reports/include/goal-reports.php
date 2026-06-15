@@ -6,8 +6,8 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <div class="wfdp-income-report">
 	<div class="wfp-report-headding">
-		<h2><?php echo esc_html__( 'Goal Statements', 'wp-fundraising' ); ?></h2>
-		<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpFromDate ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpToDate ) ) ); ?></datetime></p>
+		<h2><?php echo esc_html__( 'Goal Statements', 'wp-fundraising-donation' ); ?></h2>
+		<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising-donation' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpFromDate ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpToDate ) ) ); ?></datetime></p>
 	</div>
 	<div class="report-body">
 	<?php
@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
 		
 		<?php
 	} else {
-		echo wp_kses( '<p style="text-align:center; padding:5px;">' . __( 'Not found any reports', 'wp-fundraising' ) . '</p>', \WfpFundraising\Utilities\Utils::get_kses_array() ); }
+		echo wp_kses( '<p style="text-align:center; padding:5px;">' . __( 'Not found any reports', 'wp-fundraising-donation' ) . '</p>', \WfpFundraising\Utilities\Utils::get_kses_array() ); }
 	?>
 
 	</div>

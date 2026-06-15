@@ -41,7 +41,7 @@ class Elements {
 		\Elementor\Plugin::$instance->elements_manager->add_category(
 			'wfp-fundraising',
 			array(
-				'title' => esc_html__( 'FundEngine', 'wp-fundraising' ),
+				'title' => esc_html__( 'FundEngine', 'wp-fundraising-donation' ),
 				'icon'  => 'fa fa-plug',
 			),
 			1

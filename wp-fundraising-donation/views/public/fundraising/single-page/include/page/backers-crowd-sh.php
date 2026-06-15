@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 
 $wfpPostId = empty( $post->ID ) ? get_the_ID() : $post->ID;
 
-$wfpGoalMessage = strlen( $wfpGoalMessage ) > 2 ? $wfpGoalMessage : __( 'Campaign closed', 'wp-fundraising' );
+$wfpGoalMessage = strlen( $wfpGoalMessage ) > 2 ? $wfpGoalMessage : __( 'Campaign closed', 'wp-fundraising-donation' );
 
 if ( $wfpDonationTypeData == 'crowdfunding' ) {
 	global $wpdb;
@@ -28,7 +28,7 @@ if ( $wfpDonationTypeData == 'crowdfunding' ) {
 
 	if ( apply_filters( 'wfp_single_backers_title_hide', true ) ) : ?>
 		<div class="wfp-total-backers-count trace2">
-			<p class="wfp-backers-title"><?php echo esc_html( apply_filters( 'wfp_single_backers_title', __( 'Backers', 'wp-fundraising' ) ) ); ?></p>
+			<p class="wfp-backers-title"><?php echo esc_html( apply_filters( 'wfp_single_backers_title', __( 'Backers', 'wp-fundraising-donation' ) ) ); ?></p>
 			<p class="wfp-backers-count"> <?php echo esc_html( $wfpTotalRaisedCount ); ?></p>
 		</div>
 
@@ -38,7 +38,7 @@ if ( $wfpDonationTypeData == 'crowdfunding' ) {
 	if ( apply_filters( 'wfp_single_target_pledged_hide', true ) ) :
 		?>
 		<div class="wfp-total-pledge-count">
-			<p class="wfp-pledge-title"><?php echo esc_html( apply_filters( 'wfp_single_target_pledged', __( 'Pledged', 'wp-fundraising' ) ) ); ?></p>
+			<p class="wfp-pledge-title"><?php echo esc_html( apply_filters( 'wfp_single_target_pledged', __( 'Pledged', 'wp-fundraising-donation' ) ) ); ?></p>
 			<p class="wfp-pledge-count">
 				<em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?></em><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpTotalRaisedAmount ) ); ?>
 				<em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em>
@@ -108,7 +108,7 @@ if ( $wfpDonationTypeData == 'crowdfunding' ) {
 
 								id="wfp_pledge_button_fixed"
 								class="xs-btn btn-special submit-btn">
-									<?php echo esc_html( apply_filters( 'wfp_single_continue_title', __( 'Continue', 'wp-fundraising' ) ) ); ?>
+									<?php echo esc_html( apply_filters( 'wfp_single_continue_title', __( 'Continue', 'wp-fundraising-donation' ) ) ); ?>
 							</button>
 						</div>
 					</div>

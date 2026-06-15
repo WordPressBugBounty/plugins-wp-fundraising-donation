@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <div class="wfp-add-campaign">
 	<button class="xs-btn xs-btn-primary xs-text-center add-button">
-		<a href="?wfp-page=campaign"><?php echo esc_html( apply_filters( 'wfp_dashboard_new_campaign_text', __( '+ New Campaign', 'wp-fundraising' ) ) ); ?><span class="icon"></span> </a>
+		<a href="?wfp-page=campaign"><?php echo esc_html( apply_filters( 'wfp_dashboard_new_campaign_text', __( '+ New Campaign', 'wp-fundraising-donation' ) ) ); ?><span class="icon"></span> </a>
 	</button>
 </div>
 

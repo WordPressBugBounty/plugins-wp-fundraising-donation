@@ -36,7 +36,7 @@ defined( 'ABSPATH' ) || exit;
 		if ( ! empty( $wfp_fixed_data->enable_custom_amount ) && $wfp_fixed_data->enable_custom_amount == 'Yes' ) :
 			?>
 
-		<option value=""> <?php echo esc_html__( 'Custom', 'wp-fundraising' ); ?></option>
+		<option value=""> <?php echo esc_html__( 'Custom', 'wp-fundraising-donation' ); ?></option>
 									 <?php
 
 		endif;

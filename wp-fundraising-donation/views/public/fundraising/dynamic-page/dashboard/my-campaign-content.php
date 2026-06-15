@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 ?>
 <div class="my-campaign wfp-content-padding">
-	<h2 class="dashboard-right-section--title"> <?php echo esc_html( apply_filters( 'wfp_dashboard_mycampaign_heading', __( 'My campaigns ', 'wp-fundraising' ) ) ); ?></h2>
+	<h2 class="dashboard-right-section--title"> <?php echo esc_html( apply_filters( 'wfp_dashboard_mycampaign_heading', __( 'My campaigns ', 'wp-fundraising-donation' ) ) ); ?></h2>
 	
 	<div class="campaign-tab-container">	
 		
@@ -21,10 +21,10 @@ defined( 'ABSPATH' ) || exit;
 		?>
 		<div class="campaign-tab">
 			<ul class="top-menu-dashboard">
-				<li class="<?php echo esc_attr( ( $wfpGetType == 'all' ) ? 'active' : '' ); ?>" > <a href="?wfp-page=my-campaign&type=all&nonce=<?php echo esc_attr( wp_create_nonce( 'wp_rest' ) ); ?>"> <?php echo esc_html__( 'All', 'wp-fundraising' ); ?> </a></li>
-				<li class="<?php echo esc_attr( ( $wfpGetType == 'publish' ) ? 'active' : '' ); ?>" > <a href="?wfp-page=my-campaign&type=publish&nonce=<?php echo esc_attr( wp_create_nonce( 'wp_rest' ) ); ?>"> <?php echo esc_html__( 'Publish', 'wp-fundraising' ); ?> </a></li>
-				<li class="<?php echo esc_attr( ( $wfpGetType == 'review' ) ? 'active' : '' ); ?>" > <a href="?wfp-page=my-campaign&type=review&nonce=<?php echo esc_attr( wp_create_nonce( 'wp_rest' ) ); ?>"> <?php echo esc_html__( 'Review', 'wp-fundraising' ); ?> </a></li>
-				<li class="<?php echo esc_attr( ( $wfpGetType == 'draft' ) ? 'active' : '' ); ?>" > <a href="?wfp-page=my-campaign&type=draft&nonce=<?php echo esc_attr( wp_create_nonce( 'wp_rest' ) ); ?>"> <?php echo esc_html__( 'Draft', 'wp-fundraising' ); ?> </a></li>
+				<li class="<?php echo esc_attr( ( $wfpGetType == 'all' ) ? 'active' : '' ); ?>" > <a href="?wfp-page=my-campaign&type=all&nonce=<?php echo esc_attr( wp_create_nonce( 'wp_rest' ) ); ?>"> <?php echo esc_html__( 'All', 'wp-fundraising-donation' ); ?> </a></li>
+				<li class="<?php echo esc_attr( ( $wfpGetType == 'publish' ) ? 'active' : '' ); ?>" > <a href="?wfp-page=my-campaign&type=publish&nonce=<?php echo esc_attr( wp_create_nonce( 'wp_rest' ) ); ?>"> <?php echo esc_html__( 'Publish', 'wp-fundraising-donation' ); ?> </a></li>
+				<li class="<?php echo esc_attr( ( $wfpGetType == 'review' ) ? 'active' : '' ); ?>" > <a href="?wfp-page=my-campaign&type=review&nonce=<?php echo esc_attr( wp_create_nonce( 'wp_rest' ) ); ?>"> <?php echo esc_html__( 'Review', 'wp-fundraising-donation' ); ?> </a></li>
+				<li class="<?php echo esc_attr( ( $wfpGetType == 'draft' ) ? 'active' : '' ); ?>" > <a href="?wfp-page=my-campaign&type=draft&nonce=<?php echo esc_attr( wp_create_nonce( 'wp_rest' ) ); ?>"> <?php echo esc_html__( 'Draft', 'wp-fundraising-donation' ); ?> </a></li>
 			</ul>
 		</div>
 		<div class="campaign-body">
@@ -63,7 +63,7 @@ defined( 'ABSPATH' ) || exit;
 							
 							<div class="campaign-blog--raised"> 
 							<?php
-							esc_html_e( 'Raised Amount : ', 'wp-fundraising' );
+							esc_html_e( 'Raised Amount : ', 'wp-fundraising-donation' );
 							//phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 							$wfp_raised_amount = $wpdb->get_var( $wpdb->prepare( "SELECT SUM(donate_amount) FROM {$wpdb->prefix}wdp_fundraising WHERE form_id = %d AND status = 'Active' AND payment_gateway NOT IN ('test_payment')", get_the_ID() ) );
 							?>
@@ -71,12 +71,12 @@ defined( 'ABSPATH' ) || exit;
 								<span class="campaign-blog--raised__price"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_raised_amount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em> </span>
 							</div>
 							
-							<div class="campaign-blog--date"><?php echo esc_html__( 'Publish Date : ', 'wp-fundraising' ); ?><time class="campaign-blog--date__text" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" itemprop="datePublished"><?php echo esc_html( get_the_date() ); ?></time> </div>
+							<div class="campaign-blog--date"><?php echo esc_html__( 'Publish Date : ', 'wp-fundraising-donation' ); ?><time class="campaign-blog--date__text" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" itemprop="datePublished"><?php echo esc_html( get_the_date() ); ?></time> </div>
 						</div>
 						
 						<div class="campaign-blog-edit-btn">
 							<?php if ( in_array( get_post_status(), array( 'draft', 'publish', 'pending' ) ) ) : ?>
-								<a class="xs-btn xs-btn-outline-primary xs-btn-sm campaign-blog--edit" name="filter_my_campaign" href="?wfp-page=campaign&camp=<?php echo esc_attr( get_the_ID() ); ?>&nonce=<?php echo esc_attr( wp_create_nonce( 'wp_nonce' ) ); ?>" > <?php echo esc_html__( 'Edit : ', 'wp-fundraising' ); ?> </a>
+								<a class="xs-btn xs-btn-outline-primary xs-btn-sm campaign-blog--edit" name="filter_my_campaign" href="?wfp-page=campaign&camp=<?php echo esc_attr( get_the_ID() ); ?>&nonce=<?php echo esc_attr( wp_create_nonce( 'wp_nonce' ) ); ?>" > <?php echo esc_html__( 'Edit : ', 'wp-fundraising-donation' ); ?> </a>
 							<?php endif; ?>
 						</div>
 						
@@ -84,7 +84,7 @@ defined( 'ABSPATH' ) || exit;
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
 			<?php else : ?>
-				<p><?php esc_html_e( 'Sorry, not found any campaign.', 'wp-fundraising' ); ?></p>
+				<p><?php esc_html_e( 'Sorry, not found any campaign.', 'wp-fundraising-donation' ); ?></p>
 			<?php endif; ?>
 		</div>
 	</div>

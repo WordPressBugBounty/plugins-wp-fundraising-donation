@@ -17,8 +17,8 @@ defined( 'ABSPATH' ) || exit;
 			<div class="section-content wfp-login-content xs-donate-hidden <?php echo esc_attr( ( 'yes' != get_option( 'wfp_enable_myaccount_registration' ) ) ? 'xs-donate-visible' : '' ); ?>" id="wfp-login-section">
 				<?php if ( apply_filters( 'wfp_login_form_login_heading_display', true ) == true ) { ?>
 				<div class="wfp-login-heading">
-					<h2 class="wfp-login-heading--main"><?php echo esc_html( apply_filters( 'wfp_login_form_login_heading', esc_html__( 'Welcome to ', 'wp-fundraising' ) ) ); ?><?php bloginfo( 'name' ); ?></h2>
-					<h3 class="wfp-login-heading--sub"><?php echo esc_html( apply_filters( 'wfp_login_form_login_sub_heading', esc_html__( 'Login your account', 'wp-fundraising' ) ) ); ?></h3>
+					<h2 class="wfp-login-heading--main"><?php echo esc_html( apply_filters( 'wfp_login_form_login_heading', esc_html__( 'Welcome to ', 'wp-fundraising-donation' ) ) ); ?><?php bloginfo( 'name' ); ?></h2>
+					<h3 class="wfp-login-heading--sub"><?php echo esc_html( apply_filters( 'wfp_login_form_login_sub_heading', esc_html__( 'Login your account', 'wp-fundraising-donation' ) ) ); ?></h3>
 				</div>
 				<?php } ?>
 				
@@ -45,13 +45,13 @@ defined( 'ABSPATH' ) || exit;
 						<?php do_action( 'wfp_login_form_button_before' ); ?>
 						<div class="wfp-from-group wfp-remember-me-container">
 							<label class="wfp-rememberme">
-								<input class="wfp-form__input wfp-form__input-checkbox wfp-rememberme--checkbox" name="wfp_login[rememberme]" type="checkbox" id="rememberme" value="forever" /> <span class="wfp-rememberme--label"><?php echo esc_html( apply_filters( 'wfp_login_form_remember', esc_html__( 'Remember me', 'wp-fundraising' ) ) ); ?></span>
+								<input class="wfp-form__input wfp-form__input-checkbox wfp-rememberme--checkbox" name="wfp_login[rememberme]" type="checkbox" id="rememberme" value="forever" /> <span class="wfp-rememberme--label"><?php echo esc_html( apply_filters( 'wfp_login_form_remember', esc_html__( 'Remember me', 'wp-fundraising-donation' ) ) ); ?></span>
 							</label>
 							<?php wp_nonce_field( 'wfp-login', 'wfp-login-nonce' ); ?>
-							<button type="submit" class="xs-btn xs-btn-primary wfp-button button wfp-form-login__submit" name="wfp-login" value="<?php echo esc_attr( apply_filters( 'wfp_login_form_login_button', esc_html__( 'Login Now', 'wp-fundraising' ) ) ); ?>"><?php echo esc_html( apply_filters( 'wfp_login_form_login_button', __( 'Login Now', 'wp-fundraising' ) ) ); ?></button>
+							<button type="submit" class="xs-btn xs-btn-primary wfp-button button wfp-form-login__submit" name="wfp-login" value="<?php echo esc_attr( apply_filters( 'wfp_login_form_login_button', esc_html__( 'Login Now', 'wp-fundraising-donation' ) ) ); ?>"><?php echo esc_html( apply_filters( 'wfp_login_form_login_button', __( 'Login Now', 'wp-fundraising-donation' ) ) ); ?></button>
 						</div>
 						<p class="wfp-LostPassword lost_password">
-							<a class="wfp-LostPassword--link" href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php echo esc_html( apply_filters( 'wfp_login_form_lost_password', __( 'Lost your password?', 'wp-fundraising' ) ) ); ?></a>
+							<a class="wfp-LostPassword--link" href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php echo esc_html( apply_filters( 'wfp_login_form_lost_password', __( 'Lost your password?', 'wp-fundraising-donation' ) ) ); ?></a>
 						</p>
 						<?php do_action( 'wfp_login_form_button_end' ); ?>
 						
@@ -63,8 +63,8 @@ defined( 'ABSPATH' ) || exit;
 
 				<?php if ( apply_filters( 'wfp_login_form_login_heading_display', true ) == true ) { ?>
 					<div class="wfp-login-heading">
-						<h2 class="wfp-login-heading--main"><?php echo esc_html( apply_filters( 'wfp_login_form_login_heading', esc_html__( 'Welcome to ', 'wp-fundraising' ) ) ); ?><?php bloginfo( 'name' ); ?></h2>
-						<h3 class="wfp-login-heading--sub"><?php echo esc_html( apply_filters( 'wfp_login_form_login_sub_heading', esc_html__( 'Create your account today!', 'wp-fundraising' ) ) ); ?></h3>
+						<h2 class="wfp-login-heading--main"><?php echo esc_html( apply_filters( 'wfp_login_form_login_heading', esc_html__( 'Welcome to ', 'wp-fundraising-donation' ) ) ); ?><?php bloginfo( 'name' ); ?></h2>
+						<h3 class="wfp-login-heading--sub"><?php echo esc_html( apply_filters( 'wfp_login_form_login_sub_heading', esc_html__( 'Create your account today!', 'wp-fundraising-donation' ) ) ); ?></h3>
 					</div>
 				<?php } ?>
 				<p class="wfp-login-message">
@@ -98,10 +98,10 @@ defined( 'ABSPATH' ) || exit;
 						<?php do_action( 'wfp_login_form_button_before' ); ?>
 						<div class="wfp-from-group wfp-remember-me-container">
 							<?php wp_nonce_field( 'wfp-register', 'wfp-register-nonce' ); ?>
-							<button type="submit" class="xs-btn xs-btn-primary wfp-button button wfp-form-register__submit" name="wfp-register" value="<?php echo esc_attr( apply_filters( 'wfp_register_form_register_button', __( 'Register', 'wp-fundraising' ) ) ); ?>"><?php echo esc_html( apply_filters( 'wfp_register_form_register_button', __( 'Register', 'wp-fundraising' ) ) ); ?></button>
+							<button type="submit" class="xs-btn xs-btn-primary wfp-button button wfp-form-register__submit" name="wfp-register" value="<?php echo esc_attr( apply_filters( 'wfp_register_form_register_button', __( 'Register', 'wp-fundraising-donation' ) ) ); ?>"><?php echo esc_html( apply_filters( 'wfp_register_form_register_button', __( 'Register', 'wp-fundraising-donation' ) ) ); ?></button>
 						</div>
 						<p class="wfp-LostPassword lost_password">
-							<a class="wfp-LostPassword--link" href="<?php echo esc_url( wp_login_url() ); ?>"><?php echo esc_html( apply_filters( 'wfp_register_form_have_account', esc_html__( 'Do you have an account?', 'wp-fundraising' ) ) ); ?></a>
+							<a class="wfp-LostPassword--link" href="<?php echo esc_url( wp_login_url() ); ?>"><?php echo esc_html( apply_filters( 'wfp_register_form_have_account', esc_html__( 'Do you have an account?', 'wp-fundraising-donation' ) ) ); ?></a>
 						</p>
 						<?php do_action( 'wfp_login_form_button_end' ); ?>
 						

@@ -45,9 +45,9 @@ if ( empty( $wfpToDate ) ) {
 					 wp_nonce_field( 'filter_income_report', 'income_report_nonce' );
 					?>
 
-					<label for="wfdp-forms-search"> <?php echo esc_html__( 'Select Form', 'wp-fundraising' ); ?> </label>
+					<label for="wfdp-forms-search"> <?php echo esc_html__( 'Select Form', 'wp-fundraising-donation' ); ?> </label>
 					<select class="" name="wfdp-forms-search" id="wfdp-forms-search">
-						<option value="all" <?php echo esc_attr( ( isset( $wfpSearchForm ) && $wfpSearchForm == 'all' ) ? 'selected' : '' ); ?> > <?php echo esc_html__( 'All Forms', 'wp-fundraising' ); ?></option>
+						<option value="all" <?php echo esc_attr( ( isset( $wfpSearchForm ) && $wfpSearchForm == 'all' ) ? 'selected' : '' ); ?> > <?php echo esc_html__( 'All Forms', 'wp-fundraising-donation' ); ?></option>
 						<?php
 						foreach ( $wfpGetForms as $postData ) :
 							?>
@@ -59,22 +59,22 @@ if ( empty( $wfpToDate ) ) {
 					</select>
 				</div>
 				<div class="search-tab">
-					<label for="wfdp-forms-search"> <?php echo esc_html__( 'From Date', 'wp-fundraising' ); ?> </label>
+					<label for="wfdp-forms-search"> <?php echo esc_html__( 'From Date', 'wp-fundraising-donation' ); ?> </label>
 					<input type="text" value="<?php echo esc_attr( $wfpFromDate ); ?>" name="donate_report_from_date" class="datepicker-fundrasing" id="donate_report_from_date">
 				</div>
 				<div class="search-tab">
-					<label for="wfdp-forms-search"> <?php echo esc_html__( 'To Date', 'wp-fundraising' ); ?> </label>
+					<label for="wfdp-forms-search"> <?php echo esc_html__( 'To Date', 'wp-fundraising-donation' ); ?> </label>
 					<input type="text" value="<?php echo esc_attr( $wfpToDate ); ?>" name="donate_report_to_date" class="datepicker-fundrasing" id="donate_report_to_date">
 				</div>
 				<div class="search-tab">
-					<label for="wfdp-forms-search"> <?php echo esc_html__( 'Status', 'wp-fundraising' ); ?> </label>
+					<label for="wfdp-forms-search"> <?php echo esc_html__( 'Status', 'wp-fundraising-donation' ); ?> </label>
 					<select name="status_modify" >
-						<option value="all" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'all' ? 'selected' : '' ); ?> ><?php echo esc_html__( 'All', 'wp-fundraising' ); ?>  </option>
-						<option value="Pending" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'Pending' ? 'selected' : '' ); ?> ><?php echo esc_html__( 'In Process', 'wp-fundraising' ); ?>  </option>
-						<option value="Review" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'Review' ? 'selected' : '' ); ?>> <?php echo esc_html__( 'In Review', 'wp-fundraising' ); ?> </option>
-						<option value="Active" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'Active' ? 'selected' : '' ); ?>> <?php echo esc_html__( 'Success', 'wp-fundraising' ); ?> </option>
-						<option value="Refunded" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'Refunded' ? 'selected' : '' ); ?>> <?php echo esc_html__( 'Refund', 'wp-fundraising' ); ?> </option>
-						<option value="DeActive" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'DeActive' ? 'selected' : '' ); ?>> <?php echo esc_html__( 'Cancel', 'wp-fundraising' ); ?> </option>
+						<option value="all" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'all' ? 'selected' : '' ); ?> ><?php echo esc_html__( 'All', 'wp-fundraising-donation' ); ?>  </option>
+						<option value="Pending" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'Pending' ? 'selected' : '' ); ?> ><?php echo esc_html__( 'In Process', 'wp-fundraising-donation' ); ?>  </option>
+						<option value="Review" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'Review' ? 'selected' : '' ); ?>> <?php echo esc_html__( 'In Review', 'wp-fundraising-donation' ); ?> </option>
+						<option value="Active" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'Active' ? 'selected' : '' ); ?>> <?php echo esc_html__( 'Success', 'wp-fundraising-donation' ); ?> </option>
+						<option value="Refunded" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'Refunded' ? 'selected' : '' ); ?>> <?php echo esc_html__( 'Refund', 'wp-fundraising-donation' ); ?> </option>
+						<option value="DeActive" <?php echo esc_attr( isset( $wfpStatusDonate ) && $wfpStatusDonate == 'DeActive' ? 'selected' : '' ); ?>> <?php echo esc_html__( 'Cancel', 'wp-fundraising-donation' ); ?> </option>
 					</select>
 				</div>
 				<div class="search-tab">

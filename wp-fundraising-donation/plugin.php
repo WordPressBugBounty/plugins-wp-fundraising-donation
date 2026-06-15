@@ -97,8 +97,8 @@ final class Plugin {
 
 
 	public function wfp_action_links( $links ) {
-		$links[] = '<a href="' . admin_url( 'edit.php?post_type=wp-fundraising&page=settings' ) . '"> ' . __( 'Settings', 'wp-fundraising' ) . '</a>';
-		$links[] = '<a href="' . admin_url( 'post-new.php?post_type=wp-fundraising' ) . '" target="_blank">' . __( 'Add', 'wp-fundraising' ) . '</a>';
+		$links[] = '<a href="' . admin_url( 'edit.php?post_type=wp-fundraising&page=settings' ) . '"> ' . __( 'Settings', 'wp-fundraising-donation' ) . '</a>';
+		$links[] = '<a href="' . admin_url( 'post-new.php?post_type=wp-fundraising' ) . '" target="_blank">' . __( 'Add', 'wp-fundraising-donation' ) . '</a>';
 
 		return $links;
 	}
@@ -135,7 +135,7 @@ final class Plugin {
 				unset( $actions['trash'] );
 			}
 
-			$actions['wfp_donations'] = '<a href="' . $url . '" title="check all donations" target="_blank" >' . esc_html__( 'Donations', 'wp-fundraising' ) . '</a>';
+			$actions['wfp_donations'] = '<a href="' . $url . '" title="check all donations" target="_blank" >' . esc_html__( 'Donations', 'wp-fundraising-donation' ) . '</a>';
 			
 			// Restore trash action if it existed
 			if ( ! empty( $trash ) ) {
@@ -163,73 +163,73 @@ final class Plugin {
         ->set_plugins(
 			[
 				'elementskit-lite/elementskit-lite.php' => [
-					'name' => esc_html__('ElementsKit', 'wp-fundraising'),
+					'name' => esc_html__('ElementsKit', 'wp-fundraising-donation'),
 					'url'  => 'https://wordpress.org/plugins/elementskit-lite/',
 					'icon' => $apps_img_path. 'elementskit.gif',
-					'desc' => esc_html__('All-in-one Elementor addon trusted by 1 Million+ users, makes your website builder process easier with ultimate freedom.', 'wp-fundraising'),
+					'desc' => esc_html__('All-in-one Elementor addon trusted by 1 Million+ users, makes your website builder process easier with ultimate freedom.', 'wp-fundraising-donation'),
 					'docs' => 'https://wpmet.com/doc/elementskit/',
 				],
 				'getgenie/getgenie.php' => [
-					'name' => esc_html__('GetGenie', 'wp-fundraising'),
+					'name' => esc_html__('GetGenie', 'wp-fundraising-donation'),
 					'url'  => 'https://wordpress.org/plugins/getgenie/',
 					'icon' => $apps_img_path.'getgenie.gif',
-					'desc' => esc_html__('Your personal AI assistant for content and SEO. Write content that ranks on Google with NLP keywords and SERP analysis data.', 'wp-fundraising'),
+					'desc' => esc_html__('Your personal AI assistant for content and SEO. Write content that ranks on Google with NLP keywords and SERP analysis data.', 'wp-fundraising-donation'),
 					'docs' => 'https://getgenie.ai/docs/',
 				],
 				'gutenkit-blocks-addon/gutenkit-blocks-addon.php' => [
-					'name' => esc_html__('GutenKit', 'wp-fundraising'),
+					'name' => esc_html__('GutenKit', 'wp-fundraising-donation'),
 					'url'  => 'https://wordpress.org/plugins/gutenkit-blocks-addon/',
 					'icon' => 'https://ps.w.org/gutenkit-blocks-addon/assets/icon-128x128.png?rev=3044956',
-					'desc' => esc_html__('Gutenberg blocks, patterns, and templates that extend the page-building experience using the WordPress block editor.', 'wp-fundraising'),
+					'desc' => esc_html__('Gutenberg blocks, patterns, and templates that extend the page-building experience using the WordPress block editor.', 'wp-fundraising-donation'),
 					'docs' => 'https://wpmet.com/doc/gutenkit/',
 				],
 				'shopengine/shopengine.php' => [
-					'name' => esc_html__('Shopengine', 'wp-fundraising'),
+					'name' => esc_html__('Shopengine', 'wp-fundraising-donation'),
 					'url'  => 'https://wordpress.org/plugins/shopengine/',
 					'icon' => $apps_img_path. 'shopengine.gif',
-					'desc' => esc_html__('Complete WooCommerce solution for Elementor to fully customize any pages including cart, checkout, shop page, and so on.', 'wp-fundraising'),
+					'desc' => esc_html__('Complete WooCommerce solution for Elementor to fully customize any pages including cart, checkout, shop page, and so on.', 'wp-fundraising-donation'),
 					'docs' => 'https://wpmet.com/doc/shopengine/',
 				],
 				'metform/metform.php' => [
-					'name' => esc_html__('MetForm', 'wp-fundraising'),
+					'name' => esc_html__('MetForm', 'wp-fundraising-donation'),
 					'url'  => 'https://wordpress.org/plugins/metform/',
 					'icon' => $apps_img_path. 'metform.png',
-					'desc' => esc_html__('Drag & drop form builder for Elementor to create contact forms, multi-step forms, and more — smoother, faster, and better!', 'wp-fundraising'),
+					'desc' => esc_html__('Drag & drop form builder for Elementor to create contact forms, multi-step forms, and more — smoother, faster, and better!', 'wp-fundraising-donation'),
 					'docs' => 'https://wpmet.com/doc/metform/',
 				],
 				'emailkit/EmailKit.php' => [
-					'name' => esc_html__('EmailKit', 'wp-fundraising'),
+					'name' => esc_html__('EmailKit', 'wp-fundraising-donation'),
 					'url'  => 'https://wordpress.org/plugins/emailkit/',
 					'icon' => $apps_img_path . 'emailkit.png',
-					'desc' => esc_html__('Advanced email customizer for WooCommerce and WordPress. Build, customize, and send emails from WordPress to boost your sales!', 'wp-fundraising'),
+					'desc' => esc_html__('Advanced email customizer for WooCommerce and WordPress. Build, customize, and send emails from WordPress to boost your sales!', 'wp-fundraising-donation'),
 					'docs' => 'https://wpmet.com/doc/emailkit/',
 				],
 				'wp-social/wp-social.php' => [
-					'name' => esc_html__('WP Social', 'wp-fundraising'),
+					'name' => esc_html__('WP Social', 'wp-fundraising-donation'),
 					'url'  => 'https://wordpress.org/plugins/wp-social/',
 					'icon' => $apps_img_path . 'wp-social.png',
-					'desc' => esc_html__('Add social share, login, and engagement counter — unified solution for all social media with tons of different styles for your website.', 'wp-fundraising'),
+					'desc' => esc_html__('Add social share, login, and engagement counter — unified solution for all social media with tons of different styles for your website.', 'wp-fundraising-donation'),
 					'docs' => 'https://wpmet.com/doc/wp-social/',
 				],
 				'wp-ultimate-review/wp-ultimate-review.php' => [
-					'name' => esc_html__('WP Ultimate Review', 'wp-fundraising'),
+					'name' => esc_html__('WP Ultimate Review', 'wp-fundraising-donation'),
 					'url'  => 'https://wordpress.org/plugins/wp-ultimate-review/',
 					'icon' => $apps_img_path . 'ultimate-review.png',
-					'desc' => esc_html__('Collect and showcase reviews on your website to build brand credibility and social proof with the easiest solution.', 'wp-fundraising'),
+					'desc' => esc_html__('Collect and showcase reviews on your website to build brand credibility and social proof with the easiest solution.', 'wp-fundraising-donation'),
 					'docs' => 'https://wpmet.com/doc/wp-ultimate-review/',
 				],
 				'blocks-for-shopengine/shopengine-gutenberg-addon.php' => [
-					'name' => esc_html__('Blocks for ShopEngine', 'wp-fundraising'),
+					'name' => esc_html__('Blocks for ShopEngine', 'wp-fundraising-donation'),
 					'url'  => 'https://wordpress.org/plugins/blocks-for-shopengine/',
 					'icon' => $apps_img_path. 'shopengine.gif',
-					'desc' => esc_html__('All in one WooCommerce solution for Gutenberg! Build your WooCommerce pages in a block editor with full customization.', 'wp-fundraising'),
+					'desc' => esc_html__('All in one WooCommerce solution for Gutenberg! Build your WooCommerce pages in a block editor with full customization.', 'wp-fundraising-donation'),
 					'docs' => 'https://wpmet.com/doc/shopengine/shopengine-gutenberg/',
 				],
 				'genie-image-ai/genie-image-ai.php' => [
-					'name' => esc_html__('Genie Image', 'wp-fundraising'),
+					'name' => esc_html__('Genie Image', 'wp-fundraising-donation'),
 					'url'  => 'https://wordpress.org/plugins/genie-image-ai/',
 					'icon' => $apps_img_path . 'genie-image.png',
-					'desc' => esc_html__('AI-powered text-to-image generator for WordPress with OpenAI’s DALL-E 2 technology to generate high-quality images in one click.', 'wp-fundraising'),
+					'desc' => esc_html__('AI-powered text-to-image generator for WordPress with OpenAI’s DALL-E 2 technology to generate high-quality images in one click.', 'wp-fundraising-donation'),
 					'docs' => 'https://getgenie.ai/docs/',
 				],
 			]

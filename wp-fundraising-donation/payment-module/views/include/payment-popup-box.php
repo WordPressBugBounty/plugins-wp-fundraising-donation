@@ -96,7 +96,7 @@ foreach ( $arrayPayment as $wfp_fundraising_key => $wfp_fundraising_payment ) : 
 									
 									<tr class="add-button">
 										<td colspan="<?php echo count( $wfp_fundraising_filedData ) + 1; ?>">
-											<button type="button" class="xs-payment-btnAdd"><?php echo esc_html__( '+ Add', 'wp-fundraising' ); ?></button>
+											<button type="button" class="xs-payment-btnAdd"><?php echo esc_html__( '+ Add', 'wp-fundraising-donation' ); ?></button>
 										</td>
 									</tr>
 								</tbody>	
@@ -120,7 +120,7 @@ foreach ( $arrayPayment as $wfp_fundraising_key => $wfp_fundraising_payment ) : 
 							<?php } elseif ( $wfp_fundraising_filedData == 'dropdown' && ( $wfp_fundraising_keyFiled == 'success_page' or $wfp_fundraising_keyFiled == 'cancel_page' ) ) { ?>
 									<select name="xs_submit_settings_data[gateways][services][<?php echo esc_attr( $wfp_fundraising_key ); ?>][setup][<?php echo esc_attr( $wfp_fundraising_keyFiled ); ?>]"> 
 										<option value="">
-										<?php echo esc_attr( __( 'Select page', 'wp-fundraising' ) ); ?></option> 
+										<?php echo esc_attr( __( 'Select page', 'wp-fundraising-donation' ) ); ?></option> 
 										<?php
 										$pages = get_pages();
 										foreach ( $pages as $page ) {
@@ -154,7 +154,7 @@ foreach ( $arrayPayment as $wfp_fundraising_key => $wfp_fundraising_payment ) : 
 			?>
 			</div>
 			<div class="xs-modal-footer">
-				<button type="submit" name="submit_donate_settings_gateways" class="xs-btn btn-special submit-bt wfdp-btn"><?php echo esc_html__( 'Save', 'wp-fundraising' ); ?></button>		
+				<button type="submit" name="submit_donate_settings_gateways" class="xs-btn btn-special submit-bt wfdp-btn"><?php echo esc_html__( 'Save', 'wp-fundraising-donation' ); ?></button>		
 			</div>
 		</div>
 		

@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
 	
 	<div class="xs-col-md-6 intro-info short-info">
 		<label for="camapign_post_name">
-			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_categories', __( 'Campaign Categories', 'wp-fundraising' ) ) ); ?>
+			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_categories', __( 'Campaign Categories', 'wp-fundraising-donation' ) ) ); ?>
 		</label>
 		<?php
 			$wfpCateId     = '';
@@ -59,7 +59,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="xs-col-md-6 intro-info short-info">
 		<label for="camapign_post_name">
-			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_tags', __( 'TAGs', 'wp-fundraising' ) ) ); ?>
+			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_tags', __( 'TAGs', 'wp-fundraising-donation' ) ) ); ?>
 		</label>
 		<?php
 		$wfp_tags = get_the_terms( $wfp_post_id, 'wfp-tags' );
@@ -80,7 +80,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="xs-col-md-6 intro-info short-info">
 		<label for="camapign_post_name">
-			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_featured_type', __( 'Campaign Featured Type', 'wp-fundraising' ) ) ); ?>
+			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_featured_type', __( 'Campaign Featured Type', 'wp-fundraising-donation' ) ) ); ?>
 		</label>
 		<?php
 			$wfpImageData = '';
@@ -95,21 +95,21 @@ defined( 'ABSPATH' ) || exit;
 		}
 		?>
 		<select name="campaign_meta_post[attatch_type]" onchange="xs_show_hide_donate_font('.wfp-target-div')" class="wfp-require-filed wfp-input" oninput="wfp_modify_class(this)" required="1" >
-			<option value="image"><?php echo esc_html__( 'image', 'wp-fundraising' ); ?></option>
-			<option value="video" <?php echo esc_attr( strlen( $wfp_video ) > 5 ? 'selected' : '' ); ?>><?php echo esc_html__( 'Video', 'wp-fundraising' ); ?></option>
+			<option value="image"><?php echo esc_html__( 'image', 'wp-fundraising-donation' ); ?></option>
+			<option value="video" <?php echo esc_attr( strlen( $wfp_video ) > 5 ? 'selected' : '' ); ?>><?php echo esc_html__( 'Video', 'wp-fundraising-donation' ); ?></option>
 		</select>
 	</div>
 
 
 	<div class="xs-col-md-6 intro-info short-info wfp-target-div xs-donate-hidden <?php echo esc_attr( strlen( $wfp_video ) > 5 ? '' : 'xs-donate-visible' ); ?>">
 		<label for="camapign_post_image">
-			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_image', __( 'Campaign Image', 'wp-fundraising' ) ) ); ?>
+			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_image', __( 'Campaign Image', 'wp-fundraising-donation' ) ) ); ?>
 		</label>
 		<div class="image-box xs-text-right">
 			
 			<div class="image-box--inputs">
 				<input type="file" onchange="wfp_choose_image(this)" accept="image/*" name="wfp_files_upload[]" id="camapign_post_image" class="inputfile inputfile-6" multiple="true">
-				<label for="file-7"><i class="wfpf wfpf-upload"></i> <?php echo esc_html__( 'Upload', 'wp-fundraising' ); ?></label>
+				<label for="file-7"><i class="wfpf wfpf-upload"></i> <?php echo esc_html__( 'Upload', 'wp-fundraising-donation' ); ?></label>
 			</div>
 			
 
@@ -139,7 +139,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="xs-col-md-6 intro-info short-info wfp-target-div xs-donate-hidden <?php echo esc_attr( strlen( $wfp_video ) > 5 ? 'xs-donate-visible' : '' ); ?>">
 		<label for="camapign_post_video">
-			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_video', __( 'Campaign Video URL', 'wp-fundraising' ) ) ); ?>
+			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_video', __( 'Campaign Video URL', 'wp-fundraising-donation' ) ) ); ?>
 		</label>
 		<input type="text" name="campaign_meta_post[wfp_featured_video_url]" id="camapign_post_video" value="<?php echo esc_attr( $wfp_video ); ?>" class="wfp-input" >
 	</div>
@@ -161,7 +161,7 @@ defined( 'ABSPATH' ) || exit;
 		<label for="camapign_post_minimum">
 			<?php
 			// translators: %s: currency symbol.
-			echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_min_amount', sprintf( __( 'Minimum Amount (%s)', 'wp-fundraising' ), esc_html( $wfpSymbols ) ) ) );
+			echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_min_amount', sprintf( __( 'Minimum Amount (%s)', 'wp-fundraising-donation' ), esc_html( $wfpSymbols ) ) ) );
 			?>
 		</label>
 		<input type="number" name="campaign_meta_post[set_limit][min_amt]" id="camapign_post_minimum" value="<?php echo esc_attr( $wfp_min_amount ); ?>" class="wfp-input" >
@@ -171,7 +171,7 @@ defined( 'ABSPATH' ) || exit;
 		<label for="camapign_post_maximum">
 			<?php
 			// translators: %s: currency symbol.
-			echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_max_amount', sprintf( __( 'Maximum Amount (%s)', 'wp-fundraising' ), esc_html( $wfpSymbols ) ) ) );
+			echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_max_amount', sprintf( __( 'Maximum Amount (%s)', 'wp-fundraising-donation' ), esc_html( $wfpSymbols ) ) ) );
 			?>
 		</label>
 		<input type="number" name="campaign_meta_post[set_limit][max_amt]" id="camapign_post_maximum" value="<?php echo esc_attr( $wfp_max_amount ); ?>" class="wfp-input" >
@@ -181,7 +181,7 @@ defined( 'ABSPATH' ) || exit;
 		<label for="camapign_post_recomended">
 			<?php
 			// translators: %s: currency symbol.
-			echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_recomended_amount', sprintf( __( 'Recomended Amount (%s)', 'wp-fundraising' ), esc_html( $wfpSymbols ) ) ) );
+			echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_recomended_amount', sprintf( __( 'Recomended Amount (%s)', 'wp-fundraising-donation' ), esc_html( $wfpSymbols ) ) ) );
 			?>
 		</label>
 		<input type="number" name="campaign_meta_post[donation][fixed][price]" id="camapign_post_recomended" value="<?php echo esc_attr( $wfp_recomended ); ?>"  class="wfp-input" >
@@ -203,13 +203,13 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="xs-col-md-6 intro-info short-info">
 		<label for="camapign_post_goal_type">
-			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_end_method', __( 'End Method', 'wp-fundraising' ) ) ); ?>
+			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_end_method', __( 'End Method', 'wp-fundraising-donation' ) ) ); ?>
 		</label>
 		<select name="campaign_meta_post[goal_setup][goal_type]" id="camapign_post_goal_type" class="wfp-require-filed wfp-input" >
-			<option value="terget_goal" <?php echo esc_attr( ( $wfp_goal_type == 'terget_goal' ) ? 'selected' : '' ); ?> ><?php echo esc_html__( 'Target Goal', 'wp-fundraising' ); ?> </option>
-			<option value="terget_date" <?php echo esc_attr( ( $wfp_goal_type == 'terget_date' ) ? 'selected' : '' ); ?> ><?php echo esc_html__( 'Target Date', 'wp-fundraising' ); ?> </option>
-			<option value="terget_goal_date" <?php echo esc_attr( ( $wfp_goal_type == 'terget_goal_date' ) ? 'selected' : '' ); ?> ><?php echo esc_html__( 'Target Goal & Date', 'wp-fundraising' ); ?> </option>
-			<option value="campaign_never_end" <?php echo esc_attr( ( $wfp_goal_type == 'campaign_never_end' ) ? 'selected' : '' ); ?> ><?php echo esc_html__( 'Campaign Never Ends', 'wp-fundraising' ); ?> </option>
+			<option value="terget_goal" <?php echo esc_attr( ( $wfp_goal_type == 'terget_goal' ) ? 'selected' : '' ); ?> ><?php echo esc_html__( 'Target Goal', 'wp-fundraising-donation' ); ?> </option>
+			<option value="terget_date" <?php echo esc_attr( ( $wfp_goal_type == 'terget_date' ) ? 'selected' : '' ); ?> ><?php echo esc_html__( 'Target Date', 'wp-fundraising-donation' ); ?> </option>
+			<option value="terget_goal_date" <?php echo esc_attr( ( $wfp_goal_type == 'terget_goal_date' ) ? 'selected' : '' ); ?> ><?php echo esc_html__( 'Target Goal & Date', 'wp-fundraising-donation' ); ?> </option>
+			<option value="campaign_never_end" <?php echo esc_attr( ( $wfp_goal_type == 'campaign_never_end' ) ? 'selected' : '' ); ?> ><?php echo esc_html__( 'Campaign Never Ends', 'wp-fundraising-donation' ); ?> </option>
 		</select>
 		
 	</div>
@@ -219,7 +219,7 @@ defined( 'ABSPATH' ) || exit;
 		<label for="camapign_post_target_raised">
 			<?php
 			// translators: %s: currency symbol.
-			echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_raised_amount', sprintf( __( 'Raised Amount (%s)', 'wp-fundraising' ), esc_html( $wfpSymbols ) ) ) );
+			echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_raised_amount', sprintf( __( 'Raised Amount (%s)', 'wp-fundraising-donation' ), esc_html( $wfpSymbols ) ) ) );
 			?>
 		</label>
 		<input type="number" name="campaign_meta_post[goal_setup][terget][terget_goal][amount]" id="camapign_post_target_raised" value="<?php echo esc_attr( $wfpTargetAmount ); ?>" class="wfp-input" >
@@ -227,7 +227,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="xs-col-md-6 intro-info short-info goal_terget_amount_show ">
 		<label for="camapign_post_target_donation">
-			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_target_date', __( 'Target Date', 'wp-fundraising' ) ) ); ?>
+			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_target_date', __( 'Target Date', 'wp-fundraising-donation' ) ) ); ?>
 		</label>
 		<div class="search-tab wfp-no-date-limit">
 			<input type="text" name="campaign_meta_post[goal_setup][terget][terget_goal][date]" id="camapign_post_target_donation" value="<?php echo esc_attr( $wfp_targetdate ); ?>" class="wfp-input datepicker-fundrasing" >
@@ -237,7 +237,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="xs-col-md-6 intro-info goal_terget_amount_show ">
 		<label for="camapign_post_target_date_raised">
-			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_raised_message', __( 'After Goal Raised Message', 'wp-fundraising' ) ) ); ?>
+			<?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_campaign_raised_message', __( 'After Goal Raised Message', 'wp-fundraising-donation' ) ) ); ?>
 		</label>
 		<textarea name="campaign_meta_post[goal_setup][terget][message]" id="camapign_post_excerpt" class="wfp-input wfp-textarea" ><?php echo wp_kses( $wfp_goal_message, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></textarea>
 	</div>

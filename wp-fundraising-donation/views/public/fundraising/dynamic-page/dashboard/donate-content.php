@@ -6,13 +6,13 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <div class="reports-content wfp-content-padding">
-	<h3 class="dashboard-right-section--title"> <?php echo esc_html( apply_filters( 'wfp_dashboard_donate_content_headding', __( 'Donate Reports ', 'wp-fundraising' ) ) ); ?></h3>
+	<h3 class="dashboard-right-section--title"> <?php echo esc_html( apply_filters( 'wfp_dashboard_donate_content_headding', __( 'Donate Reports ', 'wp-fundraising-donation' ) ) ); ?></h3>
 	
 	<?php require_once __DIR__ . '/report-search/donate-report-search.php'; ?>
 	<div class="wfdp-income-report-table-wraper">
 		<div class="wfp-report-headding">
-			<h2><?php echo esc_html__( 'Donate Statements', 'wp-fundraising' ); ?></h2>
-			<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpFromDate ) ) ); ?></datetime> <em><?php esc_html_e( 'to', 'wp-fundraising' ); ?></em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpToDate ) ) ); ?></datetime></p>
+			<h2><?php echo esc_html__( 'Donate Statements', 'wp-fundraising-donation' ); ?></h2>
+			<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising-donation' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpFromDate ) ) ); ?></datetime> <em><?php esc_html_e( 'to', 'wp-fundraising-donation' ); ?></em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpToDate ) ) ); ?></datetime></p>
 		</div>
 		<div class="report-body">
 			<?php
@@ -26,14 +26,14 @@ defined( 'ABSPATH' ) || exit;
 				<table class="form-table wfdp-table-design wc_gateways widefat wfp-report-table">
 					<thead>
 						<tr>
-							<th class="name"> <?php echo esc_html__( 'Campaign', 'wp-fundraising' ); ?></th>
+							<th class="name"> <?php echo esc_html__( 'Campaign', 'wp-fundraising-donation' ); ?></th>
 							<th class="name wfp-tbl-price"> 
 							<?php
-							echo esc_html__( 'Amount', 'wp-fundraising' );
+							echo esc_html__( 'Amount', 'wp-fundraising-donation' );
 							echo wp_kses( ' <strong>[' . $wfpSymbols . ']</strong>', \WfpFundraising\Utilities\Utils::get_kses_array() );
 							?>
 							</th>
-							<th class="" ><?php echo esc_html__( 'Date', 'wp-fundraising' ); ?> </th>
+							<th class="" ><?php echo esc_html__( 'Date', 'wp-fundraising-donation' ); ?> </th>
 						</tr>
 					</thead>
 				<tbody>
@@ -63,7 +63,7 @@ defined( 'ABSPATH' ) || exit;
 				</tbody>
 				<tfoot>
 					<tr>
-						<th colspan="1" style="text-align: right"> <?php echo esc_html__( 'Total Amount : ', 'wp-fundraising' ); ?> </th>
+						<th colspan="1" style="text-align: right"> <?php echo esc_html__( 'Total Amount : ', 'wp-fundraising-donation' ); ?> </th>
 						<th class="wfp-tbl-price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpTotalAmount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em> </th>
 						<th>&nbsp; </th>
 					</tr>
@@ -72,7 +72,7 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 				<?php
 			}else { ?>
-				<h4 style="text-align: center;"><?php echo esc_html__('No data Found', 'wp-fundraising');?></h4>
+				<h4 style="text-align: center;"><?php echo esc_html__('No data Found', 'wp-fundraising-donation');?></h4>
 			<?php }
 			?>
 		</div>

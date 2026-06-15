@@ -31,8 +31,8 @@ class Donation_Report {
 
 		add_submenu_page(
 			'edit.php?post_type=' . Fundraising_Cpt::TYPE . '',
-			esc_html__( 'Donations', 'wp-fundraising' ),
-			esc_html__( 'Donations', 'wp-fundraising' ),
+			esc_html__( 'Donations', 'wp-fundraising-donation' ),
+			esc_html__( 'Donations', 'wp-fundraising-donation' ),
 			'manage_options',
 			'donations',
 			array( $this, 'payments_details' )

@@ -1,9 +1,9 @@
 === FundEngine – Donation and Crowdfunding Platform ===
 Contributors: ataurr, XpeedStudio
 Tags: crowdfunding, fundraising, donate, recurring-donations, donation
-Requires at least: 5.2
-Tested up to: 6.9.4
-Stable tag: 1.7.7
+Requires at least: 6.0
+Tested up to: 7.0
+Stable tag: 1.7.8
 Requires PHP: 7.4
 License:  GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -122,6 +122,11 @@ FundEngine - Fundraising Donation plugin and Crowdfunding Platform comes with Si
 
 
 == Changelog ==
+Version 1.7.8 //2026-06-15
+- Improved: Compatibility with WordPress 7.0.
+- Fixed: Output escaping security issue.
+
+
 Version 1.7.7 //2026-05-18
 - Fixed: Woocommerce product price and type changing security issue.
 - Improved: Security recommendations from WP.ORG. 

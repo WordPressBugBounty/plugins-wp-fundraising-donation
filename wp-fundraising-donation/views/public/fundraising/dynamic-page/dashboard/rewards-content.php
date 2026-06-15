@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <div class="rewards-content wfp-content-padding">
-	<h3 class="dashboard-right-section--title"> <?php echo esc_html( apply_filters( 'wfp_dashboard_reward_content_headding', __( 'Rewards Info ', 'wp-fundraising' ) ) ); ?></h3>
+	<h3 class="dashboard-right-section--title"> <?php echo esc_html( apply_filters( 'wfp_dashboard_reward_content_headding', __( 'Rewards Info ', 'wp-fundraising-donation' ) ) ); ?></h3>
 
 	<div class="xs-row">
 
@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) || exit;
 						<p class="wfp-description--text"><?php echo esc_html( isset( $wfp_user_pledge->description ) ? wp_trim_words( $wfp_user_pledge->description, 6, '...' ) : '' ); ?></p>
 					</div>
 					<div class="pledge__detail">
-						<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_amount', esc_html__( 'Reward Amount:', 'wp-fundraising' ) ) ); ?></span>
+						<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_amount', esc_html__( 'Reward Amount:', 'wp-fundraising-donation' ) ) ); ?></span>
 						<span class="pledge__detail-info"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpDonateAmount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_attr( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em> </span>
 					</div>
 					<?php
@@ -43,7 +43,7 @@ defined( 'ABSPATH' ) || exit;
 					if ( strlen( $wfpEstimatedData ) > 3 ) {
 						?>
 					<div class="pledge__detail">
-						<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_estimated', esc_html__( 'Estimated Delivery:', 'wp-fundraising' ) ) ); ?></span>
+						<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_estimated', esc_html__( 'Estimated Delivery:', 'wp-fundraising-donation' ) ) ); ?></span>
 						<span class="pledge__detail-info"> <?php echo esc_html( gmdate( 'M Y', strtotime( $wfpEstimatedData ) ) ); ?></span>
 					</div>
 						<?php
@@ -52,7 +52,7 @@ defined( 'ABSPATH' ) || exit;
 					if ( strlen( $wfpShipsdData ) > 3 ) {
 						?>
 					<div class="pledge__detail">
-						<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_ships', esc_html__( 'Ships To:', 'wp-fundraising' ) ) ); ?></span>
+						<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_ships', esc_html__( 'Ships To:', 'wp-fundraising-donation' ) ) ); ?></span>
 						<span class="pledge__detail-info"> <?php echo esc_html( $wfpShipsdData ); ?></span>
 					</div>
 					<?php } ?>

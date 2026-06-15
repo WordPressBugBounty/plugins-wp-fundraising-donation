@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<li>
 		<input type="radio" id="wfp___<?php echo esc_attr( strtolower( $wfpLebelName ) ); ?>_0_<?php echo esc_html( $post->ID ); ?>" class="xs_radio_filed" onchange="xs_donate_amount_set(0, <?php echo esc_html( $post->ID ); ?>);" name="xs-dimention-amount" value=""/>
-		<label for="wfp___<?php echo esc_attr( strtolower( $wfpLebelName ) ); ?>_0_<?php echo esc_attr( $post->ID ); ?>"><?php echo esc_html__( 'Custom', 'wp-fundraising' ); ?></label>
+		<label for="wfp___<?php echo esc_attr( strtolower( $wfpLebelName ) ); ?>_0_<?php echo esc_attr( $post->ID ); ?>"><?php echo esc_html__( 'Custom', 'wp-fundraising-donation' ); ?></label>
 	</li>
 		<?php
 

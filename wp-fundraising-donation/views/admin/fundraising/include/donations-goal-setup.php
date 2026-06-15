@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <fieldset class="xs-donate-field-wrap ">
-	<span class="xs-donate-field-label"><?php echo esc_html__( 'Enable Goal', 'wp-fundraising' ); ?></span>
+	<span class="xs-donate-field-label"><?php echo esc_html__( 'Enable Goal', 'wp-fundraising-donation' ); ?></span>
 	<div class="xs-field-body">
 		<div class="xs-repeater-field-wrap">
 			<ul class="xs-donate-option">
@@ -15,45 +15,45 @@ defined( 'ABSPATH' ) || exit;
 						<label for="donation_form_goal_enable" class="xs_donate_switch_button_label small xs-round"></label>
 					</div>
 				</li>
-				<li><label for="donation_form_goal_enable" class="xs-donetion-field-description"><?php echo esc_html__( 'Display goal terget.', 'wp-fundraising' ); ?></label></li>
+				<li><label for="donation_form_goal_enable" class="xs-donetion-field-description"><?php echo esc_html__( 'Display goal terget.', 'wp-fundraising-donation' ); ?></label></li>
 			</ul>
 			<div class="xs-donate-goal-content-section xs-donate-hidden <?php echo esc_attr( ( isset( $wfpFormGoalData->enable ) && $wfpFormGoalData->enable == 'Yes' ) ? 'xs-donate-visible' : '' ); ?>">	
 				<ul class="xs-donate-option">
-					<li class="xs-m-0"><label class="xs-donate-label"> <?php echo esc_html__( 'Style : ', 'wp-fundraising' ); ?></label></li>
+					<li class="xs-m-0"><label class="xs-donate-label"> <?php echo esc_html__( 'Style : ', 'wp-fundraising-donation' ); ?></label></li>
 					<li>
 						<label>
-							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][bar_style]" value="line_bar"  type="radio" <?php echo ( isset( $wfpFormGoalData->bar_style ) && $wfpFormGoalData->bar_style == 'line_bar' ) ? 'checked' : 'checked'; ?> > <?php echo esc_html__( 'Progress ', 'wp-fundraising' ); ?>
+							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][bar_style]" value="line_bar"  type="radio" <?php echo ( isset( $wfpFormGoalData->bar_style ) && $wfpFormGoalData->bar_style == 'line_bar' ) ? 'checked' : 'checked'; ?> > <?php echo esc_html__( 'Progress ', 'wp-fundraising-donation' ); ?>
 						</label>
 					</li>
 					<li>
 						<label>
-							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][bar_style]" value="pie_bar" type="radio" <?php echo ( isset( $wfpFormGoalData->bar_style ) && $wfpFormGoalData->bar_style == 'pie_bar' ) ? 'checked' : ''; ?>  > <?php echo esc_html__( 'Pie', 'wp-fundraising' ); ?>
+							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][bar_style]" value="pie_bar" type="radio" <?php echo ( isset( $wfpFormGoalData->bar_style ) && $wfpFormGoalData->bar_style == 'pie_bar' ) ? 'checked' : ''; ?>  > <?php echo esc_html__( 'Pie', 'wp-fundraising-donation' ); ?>
 						</label>
 					</li>
 				</ul>
 			</div>
 			<div class="xs-donate-goal-content-section xs-donate-hidden <?php echo esc_attr( ( isset( $wfpFormGoalData->enable ) && $wfpFormGoalData->enable == 'Yes' ) ? 'xs-donate-visible' : '' ); ?>">	
 				<ul class="xs-donate-option">
-					<li class="xs-m-0"><label class="xs-donate-label"> <?php echo esc_html__( 'Display As : ', 'wp-fundraising' ); ?></label></li>
+					<li class="xs-m-0"><label class="xs-donate-label"> <?php echo esc_html__( 'Display As : ', 'wp-fundraising-donation' ); ?></label></li>
 					<li>
 						<label>
-							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][bar_display_sty]" value="percentage"  type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->bar_display_sty ) && $wfpFormGoalData->bar_display_sty == 'percentage' ) ? 'checked' : 'checked' ); ?> > <?php echo esc_html__( 'Percentage ', 'wp-fundraising' ); ?>
+							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][bar_display_sty]" value="percentage"  type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->bar_display_sty ) && $wfpFormGoalData->bar_display_sty == 'percentage' ) ? 'checked' : 'checked' ); ?> > <?php echo esc_html__( 'Percentage ', 'wp-fundraising-donation' ); ?>
 						</label>
 					</li>
 					<li>
 						<label>
-							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][bar_display_sty]" value="amount_show" type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->bar_display_sty ) && $wfpFormGoalData->bar_display_sty == 'amount_show' ) ? 'checked' : '' ); ?>  > <?php echo esc_html__( 'Flat', 'wp-fundraising' ); ?>
+							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][bar_display_sty]" value="amount_show" type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->bar_display_sty ) && $wfpFormGoalData->bar_display_sty == 'amount_show' ) ? 'checked' : '' ); ?>  > <?php echo esc_html__( 'Flat', 'wp-fundraising-donation' ); ?>
 						</label>
 					</li>
 					<li>
 						<label>
-							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][bar_display_sty]" value="both_show" type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->bar_display_sty ) && $wfpFormGoalData->bar_display_sty == 'both_show' ) ? 'checked' : '' ); ?>  > <?php echo esc_html__( 'Both', 'wp-fundraising' ); ?>
+							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][bar_display_sty]" value="both_show" type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->bar_display_sty ) && $wfpFormGoalData->bar_display_sty == 'both_show' ) ? 'checked' : '' ); ?>  > <?php echo esc_html__( 'Both', 'wp-fundraising-donation' ); ?>
 						</label>
 					</li>
 				</ul>
 			</div>
 			<div class="xs-donate-goal-content-section xs-donate-hidden <?php echo esc_attr( ( isset( $wfpFormGoalData->enable ) && $wfpFormGoalData->enable == 'Yes' ) ? 'xs-donate-visible' : '' ); ?>">
-				<label for="progressbar" class="xs-donate-label"> <?php echo esc_html__( 'Color : ', 'wp-fundraising' ); ?></label>
+				<label for="progressbar" class="xs-donate-label"> <?php echo esc_html__( 'Color : ', 'wp-fundraising-donation' ); ?></label>
 				<input type="hidden" id="progressbar" name="xs_submit_donation_data[goal_setup][bar_color]" class="wfdp_color_field" value="<?php echo esc_attr( isset( $wfpFormGoalData->bar_color ) ? $wfpFormGoalData->bar_color : '#324aff' ); ?>">
 			</div>
 		</div>
@@ -61,7 +61,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="xs-clearfix"></div>
 </fieldset>
 <fieldset class="xs-donate-field-wrap xs-donate-goal-content-section xs-donate-hidden <?php echo esc_attr( ( isset( $wfpFormGoalData->enable ) && $wfpFormGoalData->enable == 'Yes' ) ? 'xs-donate-visible' : '' ); ?>">
-	<span class="xs-donate-field-label"><?php echo esc_html__( 'Goal Type', 'wp-fundraising' ); ?></span>
+	<span class="xs-donate-field-label"><?php echo esc_html__( 'Goal Type', 'wp-fundraising-donation' ); ?></span>
 	<div class="xs-field-body">
 		<div class="xs-repeater-field-wrap">
 			<div class="donation-none-float">
@@ -69,28 +69,28 @@ defined( 'ABSPATH' ) || exit;
 				<ul class="xs-donate-option">
 					<li>
 						<label>
-							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][goal_type]" value="terget_goal"  type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->goal_type ) && $wfpFormGoalData->goal_type == 'terget_goal' ) ? 'checked' : 'checked' ); ?> > <?php echo esc_html__( 'Target Goal ', 'wp-fundraising' ); ?>
+							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][goal_type]" value="terget_goal"  type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->goal_type ) && $wfpFormGoalData->goal_type == 'terget_goal' ) ? 'checked' : 'checked' ); ?> > <?php echo esc_html__( 'Target Goal ', 'wp-fundraising-donation' ); ?>
 						</label>
 					</li>
 					<li>
 						<label>
-							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][goal_type]" value="terget_date"  type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->goal_type ) && $wfpFormGoalData->goal_type == 'terget_date' ) ? 'checked' : '' ); ?>  > <?php echo esc_html__( 'Target Date', 'wp-fundraising' ); ?>
+							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][goal_type]" value="terget_date"  type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->goal_type ) && $wfpFormGoalData->goal_type == 'terget_date' ) ? 'checked' : '' ); ?>  > <?php echo esc_html__( 'Target Date', 'wp-fundraising-donation' ); ?>
 						</label>
 					</li>
 					<li>
 						<label>
-							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][goal_type]" value="terget_goal_date" type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->goal_type ) && $wfpFormGoalData->goal_type == 'terget_goal_date' ) ? 'checked' : '' ); ?>  > <?php echo esc_html__( 'Target Goal & Date', 'wp-fundraising' ); ?>
+							<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][goal_type]" value="terget_goal_date" type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->goal_type ) && $wfpFormGoalData->goal_type == 'terget_goal_date' ) ? 'checked' : '' ); ?>  > <?php echo esc_html__( 'Target Goal & Date', 'wp-fundraising-donation' ); ?>
 						</label>
 					</li>
 					<li>
 						<label>
-						<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][goal_type]" value="campaign_never_end" type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->goal_type ) && $wfpFormGoalData->goal_type == 'campaign_never_end' ) ? 'checked' : '' ); ?>  > <?php echo esc_html__( 'Campaign Never Ends', 'wp-fundraising' ); ?>
+						<input class="xs_radio_filed" name="xs_submit_donation_data[goal_setup][goal_type]" value="campaign_never_end" type="radio" <?php echo esc_attr( ( isset( $wfpFormGoalData->goal_type ) && $wfpFormGoalData->goal_type == 'campaign_never_end' ) ? 'checked' : '' ); ?>  > <?php echo esc_html__( 'Campaign Never Ends', 'wp-fundraising-donation' ); ?>
 						</label>
 					</li>
 				</ul>
 				<div class="goal_terget_amount_show ">
 					<div class="xs-donate-field-group xs-donate-field-wrap ">	
-						<label for="xs_donate_fixed_amount"> <?php echo esc_html__( 'Raised Amount', 'wp-fundraising' ); ?></label>
+						<label for="xs_donate_fixed_amount"> <?php echo esc_html__( 'Raised Amount', 'wp-fundraising-donation' ); ?></label>
 
 						<div class="xs-donate-field-wrap-amount">
 							<span class="xs-money-symbol xs-money-symbol-before"><?php echo esc_html( $wfpSymbols ); ?></span>
@@ -109,7 +109,7 @@ defined( 'ABSPATH' ) || exit;
 						
 					</div>-->
 					<div class="xs-donate-field-group xs-donate-field-wrap">
-						<label for="xs_donate_fixed_target_date"  style="margin-bottom:10px;"> <?php echo esc_html__( 'Target Date', 'wp-fundraising' ); ?></label><br/>
+						<label for="xs_donate_fixed_target_date"  style="margin-bottom:10px;"> <?php echo esc_html__( 'Target Date', 'wp-fundraising-donation' ); ?></label><br/>
 						<div class="search-tab wfp-no-date-limit">
 							<input type="text" style="" name="xs_submit_donation_data[goal_setup][terget][terget_goal][date]" id="xs_donate_fixed_target_date" value="<?php echo isset( $wfpFormGoalData->terget->terget_goal->date ) ? esc_attr( $wfpFormGoalData->terget->terget_goal->date ) : ''; ?>" placeholder="YYYY-MM-DD" class="xs-field xs-text-field  datepicker-donate">
 						</div>
@@ -122,7 +122,7 @@ defined( 'ABSPATH' ) || exit;
 </fieldset>
 
 <fieldset class="xs-donate-field-wrap xs-donate-goal-content-section xs-donate-hidden <?php echo esc_attr( ( isset( $wfpFormGoalData->enable ) && $wfpFormGoalData->enable == 'Yes' ) ? 'xs-donate-visible' : '' ); ?>">
-	<span class="xs-donate-field-label"><?php echo esc_html__( 'After Goal Raised', 'wp-fundraising' ); ?></span>
+	<span class="xs-donate-field-label"><?php echo esc_html__( 'After Goal Raised', 'wp-fundraising-donation' ); ?></span>
 	<div class="xs-field-body">
 		<div class="donation-none-float">
 			<ul class="xs-donate-option">
@@ -132,10 +132,10 @@ defined( 'ABSPATH' ) || exit;
 						<label for="donation_form_goal_taget_message_enable" class="xs_donate_switch_button_label small xs-round"></label>
 					</div>
 				</li>
-				<li><label for="donation_form_goal_taget_message_enable"  class="xs-donetion-field-description"><?php echo esc_html__( 'Enable after goal target.', 'wp-fundraising' ); ?></label></li>
+				<li><label for="donation_form_goal_taget_message_enable"  class="xs-donetion-field-description"><?php echo esc_html__( 'Enable after goal target.', 'wp-fundraising-donation' ); ?></label></li>
 			</ul>
 			<div class="xs-donate-goal-message-section xs-donate-hidden xs-repeater-field-wrap xs-donate-field-wrap-with-help-text <?php echo esc_attr( ( isset( $wfpFormGoalData->terget->enable ) && $wfpFormGoalData->terget->enable == 'Yes' ) ? 'xs-donate-visible' : '' ); ?>">
-				<label for="xs_donate_forms_company_name_title" > <?php echo esc_html__( 'Message:', 'wp-fundraising' ); ?></label>
+				<label for="xs_donate_forms_company_name_title" > <?php echo esc_html__( 'Message:', 'wp-fundraising-donation' ); ?></label>
 			
 
 				<?php

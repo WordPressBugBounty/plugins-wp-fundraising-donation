@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <div class="wfdp-payment-section" >
 	<div class="wfdp-payment-headding">
-		<h2><?php echo esc_html__( 'Setup Global Options', 'wp-fundraising' ); ?></h2>
+		<h2><?php echo esc_html__( 'Setup Global Options', 'wp-fundraising-donation' ); ?></h2>
 	</div>
 	<div class="wfdp-payment-gateway">
 		<form action="<?php echo esc_url( admin_url() . 'edit.php?post_type=' . self::post_type() . '&page=settings&tab=global' ); ?>" method="post">
@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) || exit;
 				</li>
 			<?php endforeach; ?>
 			</ul>
-			<button type="submit" name="submit_donate_global_setting" class="button button-primary button-large"><?php echo esc_html__( 'Save', 'wp-fundraising' ); ?></button>
+			<button type="submit" name="submit_donate_global_setting" class="button button-primary button-large"><?php echo esc_html__( 'Save', 'wp-fundraising-donation' ); ?></button>
 		</form>
 	</div>
 </div>

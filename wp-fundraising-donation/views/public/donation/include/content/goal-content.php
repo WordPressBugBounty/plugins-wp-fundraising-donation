@@ -69,7 +69,7 @@ if ( isset( $wfpFormGoalData->enable ) ) {
 						<div class="target-date-goal raised-amount"> 
 																			<?php
 
-																			$wfp_def_cont = ' ' . __( 'Raised', 'wp-fundraising' );
+																			$wfp_def_cont = ' ' . __( 'Raised', 'wp-fundraising-donation' );
 
 																			echo esc_html(
 																				( $wfpDisplayStyle != 'amount_show' && $wfpDisplayStyle != 'both_show' ) ? apply_filters( 'wfp_single_raisedamount_title', $wfp_def_cont ) : ''
@@ -86,7 +86,7 @@ if ( isset( $wfpFormGoalData->enable ) ) {
 																				elseif ( $wfpDisplayStyle == 'amount_show' || $wfpDisplayStyle == 'both_show' ) :
 
 																					require __DIR__ . '/_partials/amount-to-raise.php';
-																					printf( "<span class='wfp-raised-text'>%s</span>", esc_html__( 'raised', 'wp-fundraising' ) );
+																					printf( "<span class='wfp-raised-text'>%s</span>", esc_html__( 'raised', 'wp-fundraising-donation' ) );
 
 																				else :
 
@@ -115,7 +115,7 @@ if ( isset( $wfpFormGoalData->enable ) ) {
 							<div class="wfp-inner-data">
 																		<?php
 																		if ( $wfpDisplayStyle == 'amount_show' || $wfpDisplayStyle == 'both_show' ) {
-																			echo wp_kses( '<span class="wfp-of">' . __( 'of', 'wp-fundraising' ) . '</span>', \WfpFundraising\Utilities\Utils::get_kses_array() );
+																			echo wp_kses( '<span class="wfp-of">' . __( 'of', 'wp-fundraising-donation' ) . '</span>', \WfpFundraising\Utilities\Utils::get_kses_array() );
 																		}
 																		?>
 								<span class="wfp-currency-symbol">
@@ -171,7 +171,7 @@ if ( isset( $wfpFormGoalData->enable ) ) {
 
 							<span class="wfp-icon wfpf wfpf-time"></span>
 
-																			<?php echo esc_html( $wfpFormattedDate ); ?> <?php echo esc_html( apply_filters( 'wfp_single_date_left_title', __( 'days left', 'wp-fundraising' ) ) ); ?>
+																			<?php echo esc_html( $wfpFormattedDate ); ?> <?php echo esc_html( apply_filters( 'wfp_single_date_left_title', __( 'days left', 'wp-fundraising-donation' ) ) ); ?>
 						</span>
 																			<?php
 																		endif;

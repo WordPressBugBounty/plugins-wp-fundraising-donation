@@ -31,7 +31,7 @@ class Wfp_Listing extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Campaign List', 'wp-fundraising' );
+		return esc_html__( 'Campaign List', 'wp-fundraising-donation' );
 	}
 
 	public function get_icon() {
@@ -44,13 +44,13 @@ class Wfp_Listing extends Widget_Base {
 
 	public function wfp_fundrising_navigation_position() {
 		$position_options = array(
-			'top-left'      => esc_html__( 'Top Left', 'wp-fundraising' ),
-			'top-center'    => esc_html__( 'Top Center', 'wp-fundraising' ),
-			'top-right'     => esc_html__( 'Top Right', 'wp-fundraising' ),
-			'center'        => esc_html__( 'Center', 'wp-fundraising' ),
-			'bottom-left'   => esc_html__( 'Bottom Left', 'wp-fundraising' ),
-			'bottom-center' => esc_html__( 'Bottom Center', 'wp-fundraising' ),
-			'bottom-right'  => esc_html__( 'Bottom Right', 'wp-fundraising' ),
+			'top-left'      => esc_html__( 'Top Left', 'wp-fundraising-donation' ),
+			'top-center'    => esc_html__( 'Top Center', 'wp-fundraising-donation' ),
+			'top-right'     => esc_html__( 'Top Right', 'wp-fundraising-donation' ),
+			'center'        => esc_html__( 'Center', 'wp-fundraising-donation' ),
+			'bottom-left'   => esc_html__( 'Bottom Left', 'wp-fundraising-donation' ),
+			'bottom-center' => esc_html__( 'Bottom Center', 'wp-fundraising-donation' ),
+			'bottom-right'  => esc_html__( 'Bottom Right', 'wp-fundraising-donation' ),
 		);
 
 		return $position_options;
@@ -59,12 +59,12 @@ class Wfp_Listing extends Widget_Base {
 
 	public function wfp_fundrising_pagination_position() {
 		$position_options = array(
-			'top-left'      => esc_html__( 'Top Left', 'wp-fundraising' ),
-			'top-center'    => esc_html__( 'Top Center', 'wp-fundraising' ),
-			'top-right'     => esc_html__( 'Top Right', 'wp-fundraising' ),
-			'bottom-left'   => esc_html__( 'Bottom Left', 'wp-fundraising' ),
-			'bottom-center' => esc_html__( 'Bottom Center', 'wp-fundraising' ),
-			'bottom-right'  => esc_html__( 'Bottom Right', 'wp-fundraising' ),
+			'top-left'      => esc_html__( 'Top Left', 'wp-fundraising-donation' ),
+			'top-center'    => esc_html__( 'Top Center', 'wp-fundraising-donation' ),
+			'top-right'     => esc_html__( 'Top Right', 'wp-fundraising-donation' ),
+			'bottom-left'   => esc_html__( 'Bottom Left', 'wp-fundraising-donation' ),
+			'bottom-center' => esc_html__( 'Bottom Center', 'wp-fundraising-donation' ),
+			'bottom-right'  => esc_html__( 'Bottom Right', 'wp-fundraising-donation' ),
 		);
 
 		return $position_options;
@@ -120,7 +120,7 @@ class Wfp_Listing extends Widget_Base {
 
 		wp_reset_postdata();
 
-		return count( $options ) > 0 ? $options : array( 0 => __( 'None', 'wp-fundraising' ) );
+		return count( $options ) > 0 ? $options : array( 0 => __( 'None', 'wp-fundraising-donation' ) );
 	}
 
 
@@ -218,7 +218,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundraising_content',
 			array(
-				'label' => esc_html__( 'Content', 'wp-fundraising' ),
+				'label' => esc_html__( 'Content', 'wp-fundraising-donation' ),
 			)
 		);
 
@@ -226,7 +226,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__layout_options',
 			array(
-				'label'     => __( 'Layout Options', 'wp-fundraising' ),
+				'label'     => __( 'Layout Options', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 			)
@@ -234,13 +234,13 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__layout_style',
 			array(
-				'label'   => esc_html__( 'Layout Style', 'wp-fundraising' ),
+				'label'   => esc_html__( 'Layout Style', 'wp-fundraising-donation' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'wfp-layout-grid',
 				'options' => array(
-					'wfp-layout-list'     => esc_html__( 'List', 'wp-fundraising' ),
-					'wfp-layout-grid'     => esc_html__( 'Grid', 'wp-fundraising' ),
-					'wfp-layout-masonary' => esc_html__( 'Masonary', 'wp-fundraising' ),
+					'wfp-layout-list'     => esc_html__( 'List', 'wp-fundraising-donation' ),
+					'wfp-layout-grid'     => esc_html__( 'Grid', 'wp-fundraising-donation' ),
+					'wfp-layout-masonary' => esc_html__( 'Masonary', 'wp-fundraising-donation' ),
 				),
 			)
 		);
@@ -248,7 +248,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__is_button',
 			array(
-				'label'     => esc_html__( 'Enable Button', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Enable Button', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'no',
 				'separator' => 'before',
@@ -261,10 +261,10 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__btn1-text',
 			array(
-				'label'       => esc_html__( 'Label One', 'wp-fundraising' ),
+				'label'       => esc_html__( 'Label One', 'wp-fundraising-donation' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Learn more ', 'wp-fundraising' ),
-				'placeholder' => esc_html__( 'Learn more ', 'wp-fundraising' ),
+				'default'     => esc_html__( 'Learn more ', 'wp-fundraising-donation' ),
+				'placeholder' => esc_html__( 'Learn more ', 'wp-fundraising-donation' ),
 				'dynamic'     => array(
 					'active' => true,
 				),
@@ -277,7 +277,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__btn1-url',
 			array(
-				'label'       => esc_html__( 'URL One', 'wp-fundraising' ),
+				'label'       => esc_html__( 'URL One', 'wp-fundraising-donation' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => esc_url( 'http://your-link.com' ),
 				'dynamic'     => array(
@@ -297,7 +297,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__btn2-text',
 			array(
-				'label'     => esc_html__( 'Label Two', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Label Two', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => array(
 					'active' => true,
@@ -311,7 +311,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__btn2-url',
 			array(
-				'label'       => esc_html__( 'URL Two', 'wp-fundraising' ),
+				'label'       => esc_html__( 'URL Two', 'wp-fundraising-donation' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => esc_url( 'http://your-link.com' ),
 				'dynamic'     => array(
@@ -327,14 +327,14 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_content__column_grid',
 			array(
-				'label'              => esc_html__( 'Columns Grid', 'wp-fundraising' ),
+				'label'              => esc_html__( 'Columns Grid', 'wp-fundraising-donation' ),
 				'type'               => Controls_Manager::SELECT,
 				'frontend_available' => true,
 				'options'            => array(
-					'1' => esc_html__( '1 Columns', 'wp-fundraising' ),
-					'2' => esc_html__( '2 Columns', 'wp-fundraising' ),
-					'3' => esc_html__( '3 Columns', 'wp-fundraising' ),
-					'4' => esc_html__( '4 Columns', 'wp-fundraising' ),
+					'1' => esc_html__( '1 Columns', 'wp-fundraising-donation' ),
+					'2' => esc_html__( '2 Columns', 'wp-fundraising-donation' ),
+					'3' => esc_html__( '3 Columns', 'wp-fundraising-donation' ),
+					'4' => esc_html__( '4 Columns', 'wp-fundraising-donation' ),
 				),
 				'devices'            => array( 'desktop', 'tablet', 'mobile' ),
 				'desktop_default'    => 3,
@@ -348,11 +348,11 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__is_carousel',
 			array(
-				'label'     => esc_html__( 'Enable Carousel? ', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Enable Carousel? ', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'no',
-				'label_on'  => esc_html__( 'Yes', 'wp-fundraising' ),
-				'label_off' => esc_html__( 'No', 'wp-fundraising' ),
+				'label_on'  => esc_html__( 'Yes', 'wp-fundraising-donation' ),
+				'label_off' => esc_html__( 'No', 'wp-fundraising-donation' ),
 			)
 		);
 
@@ -360,7 +360,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__query_options',
 			array(
-				'label'     => __( 'Query Options', 'wp-fundraising' ),
+				'label'     => __( 'Query Options', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 			)
@@ -369,13 +369,13 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_layout_option',
 			array(
-				'label'   => esc_html__( 'Show Campaign by:', 'wp-fundraising' ),
+				'label'   => esc_html__( 'Show Campaign by:', 'wp-fundraising-donation' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'categories',
 				'options' => array(
-					'categories' => esc_html__( 'Categories', 'wp-fundraising' ),
-					'selected'   => esc_html__( 'Selected Campaign', 'wp-fundraising' ),
-					'recent'     => esc_html__( 'Recent Campaign', 'wp-fundraising' ),
+					'categories' => esc_html__( 'Categories', 'wp-fundraising-donation' ),
+					'selected'   => esc_html__( 'Selected Campaign', 'wp-fundraising-donation' ),
+					'recent'     => esc_html__( 'Recent Campaign', 'wp-fundraising-donation' ),
 				),
 
 			)
@@ -384,7 +384,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__categories',
 			array(
-				'label'     => __( 'Select Categories', 'wp-fundraising' ),
+				'label'     => __( 'Select Categories', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::SELECT2,
 				'multiple'  => true,
 				'options'   => $this->get_category(),
@@ -401,7 +401,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__selected',
 			array(
-				'label'       => esc_html__( 'Select Campaign', 'wp-fundraising' ),
+				'label'       => esc_html__( 'Select Campaign', 'wp-fundraising-donation' ),
 				'type'        => Controls_Manager::SELECT2,
 				'options'     => $camp_list,
 				'default'     => array( $def ),
@@ -418,12 +418,12 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__orderby',
 			array(
-				'label'     => esc_html__( 'Order By', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Order By', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'post_date',
 				'options'   => array(
-					'name'      => esc_html__( 'Name', 'wp-fundraising' ),
-					'post_date' => esc_html__( 'Date', 'wp-fundraising' ),
+					'name'      => esc_html__( 'Name', 'wp-fundraising-donation' ),
+					'post_date' => esc_html__( 'Date', 'wp-fundraising-donation' ),
 				),
 				'condition' => array(
 					'wfp_fundraising_layout_option!' => 'recent',
@@ -434,7 +434,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__show_post',
 			array(
-				'label'   => esc_html__( 'Show Per Page', 'wp-fundraising' ),
+				'label'   => esc_html__( 'Show Per Page', 'wp-fundraising-donation' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 9,
 				'min'     => 1,
@@ -447,12 +447,12 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__order',
 			array(
-				'label'   => esc_html__( 'Order', 'wp-fundraising' ),
+				'label'   => esc_html__( 'Order', 'wp-fundraising-donation' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'DESC',
 				'options' => array(
-					'ASC'  => esc_html__( 'ASC', 'wp-fundraising' ),
-					'DESC' => esc_html__( 'DESC', 'wp-fundraising' ),
+					'ASC'  => esc_html__( 'ASC', 'wp-fundraising-donation' ),
+					'DESC' => esc_html__( 'DESC', 'wp-fundraising-donation' ),
 				),
 			)
 		);
@@ -460,7 +460,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__display_options',
 			array(
-				'label'     => __( 'Display Options', 'wp-fundraising' ),
+				'label'     => __( 'Display Options', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 			)
@@ -468,10 +468,10 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__flip_enable',
 			array(
-				'label'        => esc_html__( 'Flip Content', 'wp-fundraising' ),
+				'label'        => esc_html__( 'Flip Content', 'wp-fundraising-donation' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'wp-fundraising' ),
-				'label_off'    => esc_html__( 'Hide', 'wp-fundraising' ),
+				'label_on'     => esc_html__( 'Show', 'wp-fundraising-donation' ),
+				'label_off'    => esc_html__( 'Hide', 'wp-fundraising-donation' ),
 				'return_value' => 'Yes',
 				'default'      => 'no',
 			)
@@ -479,10 +479,10 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__filter_enable',
 			array(
-				'label'        => esc_html__( 'Show Filter', 'wp-fundraising' ),
+				'label'        => esc_html__( 'Show Filter', 'wp-fundraising-donation' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'wp-fundraising' ),
-				'label_off'    => esc_html__( 'Hide', 'wp-fundraising' ),
+				'label_on'     => esc_html__( 'Show', 'wp-fundraising-donation' ),
+				'label_off'    => esc_html__( 'Hide', 'wp-fundraising-donation' ),
 				'return_value' => 'Yes',
 				'default'      => 'no',
 			)
@@ -490,10 +490,10 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__featured_enable',
 			array(
-				'label'        => esc_html__( 'Show Featured', 'wp-fundraising' ),
+				'label'        => esc_html__( 'Show Featured', 'wp-fundraising-donation' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'wp-fundraising' ),
-				'label_off'    => esc_html__( 'Hide', 'wp-fundraising' ),
+				'label_on'     => esc_html__( 'Show', 'wp-fundraising-donation' ),
+				'label_off'    => esc_html__( 'Hide', 'wp-fundraising-donation' ),
 				'return_value' => 'Yes',
 				'default'      => 'Yes',
 			)
@@ -501,10 +501,10 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__time_left',
 			array(
-				'label'        => esc_html__( 'Show Time Left', 'wp-fundraising' ),
+				'label'        => esc_html__( 'Show Time Left', 'wp-fundraising-donation' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'wp-fundraising' ),
-				'label_off'    => esc_html__( 'Hide', 'wp-fundraising' ),
+				'label_on'     => esc_html__( 'Show', 'wp-fundraising-donation' ),
+				'label_off'    => esc_html__( 'Hide', 'wp-fundraising-donation' ),
 				'return_value' => 'Yes',
 				'default'      => 'Yes',
 				'condition'    => array(
@@ -515,10 +515,10 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__title_enable',
 			array(
-				'label'        => esc_html__( 'Show Title', 'wp-fundraising' ),
+				'label'        => esc_html__( 'Show Title', 'wp-fundraising-donation' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'wp-fundraising' ),
-				'label_off'    => esc_html__( 'Hide', 'wp-fundraising' ),
+				'label_on'     => esc_html__( 'Show', 'wp-fundraising-donation' ),
+				'label_off'    => esc_html__( 'Hide', 'wp-fundraising-donation' ),
 				'return_value' => 'Yes',
 				'default'      => 'Yes',
 			)
@@ -526,7 +526,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__title_limit',
 			array(
-				'label'     => esc_html__( 'Title Limit', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Title Limit', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 40,
 				'min'       => 1,
@@ -539,10 +539,10 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__excerpt_enable',
 			array(
-				'label'        => esc_html__( 'Show Excerpt', 'wp-fundraising' ),
+				'label'        => esc_html__( 'Show Excerpt', 'wp-fundraising-donation' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'wp-fundraising' ),
-				'label_off'    => esc_html__( 'Hide', 'wp-fundraising' ),
+				'label_on'     => esc_html__( 'Show', 'wp-fundraising-donation' ),
+				'label_off'    => esc_html__( 'Hide', 'wp-fundraising-donation' ),
 				'return_value' => 'Yes',
 				'default'      => 'Yes',
 			)
@@ -550,7 +550,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__excerpt_limit',
 			array(
-				'label'     => esc_html__( 'Excerpt Limit', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Excerpt Limit', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 60,
 				'min'       => 1,
@@ -562,10 +562,10 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__category_enable',
 			array(
-				'label'        => esc_html__( 'Show Category', 'wp-fundraising' ),
+				'label'        => esc_html__( 'Show Category', 'wp-fundraising-donation' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'wp-fundraising' ),
-				'label_off'    => esc_html__( 'Hide', 'wp-fundraising' ),
+				'label_on'     => esc_html__( 'Show', 'wp-fundraising-donation' ),
+				'label_off'    => esc_html__( 'Hide', 'wp-fundraising-donation' ),
 				'return_value' => 'Yes',
 				'default'      => 'Yes',
 			)
@@ -573,10 +573,10 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__goal_enable',
 			array(
-				'label'        => esc_html__( 'Show Goal', 'wp-fundraising' ),
+				'label'        => esc_html__( 'Show Goal', 'wp-fundraising-donation' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'wp-fundraising' ),
-				'label_off'    => esc_html__( 'Hide', 'wp-fundraising' ),
+				'label_on'     => esc_html__( 'Show', 'wp-fundraising-donation' ),
+				'label_off'    => esc_html__( 'Hide', 'wp-fundraising-donation' ),
 				'return_value' => 'Yes',
 				'default'      => 'Yes',
 			)
@@ -584,10 +584,10 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_content__user_enable',
 			array(
-				'label'        => esc_html__( 'Show Author Info', 'wp-fundraising' ),
+				'label'        => esc_html__( 'Show Author Info', 'wp-fundraising-donation' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'wp-fundraising' ),
-				'label_off'    => esc_html__( 'Hide', 'wp-fundraising' ),
+				'label_on'     => esc_html__( 'Show', 'wp-fundraising-donation' ),
+				'label_off'    => esc_html__( 'Hide', 'wp-fundraising-donation' ),
 				'return_value' => 'Yes',
 				'default'      => 'Yes',
 			)
@@ -598,7 +598,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundrising_section_carousel_settings',
 			array(
-				'label'     => esc_html__( 'Carousel Settings', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Carousel Settings', 'wp-fundraising-donation' ),
 				'condition' => array(
 					'wfp_fundraising_content__is_carousel' => 'yes',
 				),
@@ -608,7 +608,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_autoplay',
 			array(
-				'label'   => esc_html__( 'Autoplay', 'wp-fundraising' ),
+				'label'   => esc_html__( 'Autoplay', 'wp-fundraising-donation' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 
@@ -618,7 +618,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_autoplay_speed',
 			array(
-				'label'     => esc_html__( 'Autoplay Speed', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Autoplay Speed', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 5000,
 				'condition' => array(
@@ -630,7 +630,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_loop',
 			array(
-				'label'   => esc_html__( 'Loop', 'wp-fundraising' ),
+				'label'   => esc_html__( 'Loop', 'wp-fundraising-donation' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 
@@ -640,7 +640,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_speed',
 			array(
-				'label'   => esc_html__( 'Animation Speed', 'wp-fundraising' ),
+				'label'   => esc_html__( 'Animation Speed', 'wp-fundraising-donation' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => array(
 					'size' => 50,
@@ -658,7 +658,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundrising_section_content_navigation',
 			array(
-				'label'     => esc_html__( 'Navigation', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Navigation', 'wp-fundraising-donation' ),
 				'condition' => array(
 					'wfp_fundraising_content__is_carousel' => 'yes',
 				),
@@ -668,14 +668,14 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_navigation',
 			array(
-				'label'        => esc_html__( 'Navigation', 'wp-fundraising' ),
+				'label'        => esc_html__( 'Navigation', 'wp-fundraising-donation' ),
 				'type'         => Controls_Manager::SELECT,
 				'default'      => 'none',
 				'options'      => array(
-					'both'   => esc_html__( 'Arrows and Dots', 'wp-fundraising' ),
-					'arrows' => esc_html__( 'Arrows', 'wp-fundraising' ),
-					'dots'   => esc_html__( 'Dots', 'wp-fundraising' ),
-					'none'   => esc_html__( 'None', 'wp-fundraising' ),
+					'both'   => esc_html__( 'Arrows and Dots', 'wp-fundraising-donation' ),
+					'arrows' => esc_html__( 'Arrows', 'wp-fundraising-donation' ),
+					'dots'   => esc_html__( 'Dots', 'wp-fundraising-donation' ),
+					'none'   => esc_html__( 'None', 'wp-fundraising-donation' ),
 				),
 				'prefix_class' => 'wfp_fundrising-navigation-type-',
 				'render_type'  => 'template',
@@ -685,7 +685,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_both_position',
 			array(
-				'label'     => esc_html__( 'Arrows and Dots Position', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Arrows and Dots Position', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'center',
 				'options'   => $this->wfp_fundrising_navigation_position(),
@@ -698,7 +698,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_arrows_position',
 			array(
-				'label'     => esc_html__( 'Arrows Position', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Arrows Position', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'center',
 				'options'   => $this->wfp_fundrising_navigation_position(),
@@ -711,7 +711,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_dots_position',
 			array(
-				'label'     => esc_html__( 'Dots Position', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Dots Position', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'bottom-center',
 				'options'   => $this->wfp_fundrising_pagination_position(),
@@ -728,7 +728,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundraising_style_global',
 			array(
-				'label' => esc_html__( 'Global', 'wp-fundraising' ),
+				'label' => esc_html__( 'Global', 'wp-fundraising-donation' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -737,7 +737,7 @@ class Wfp_Listing extends Widget_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'     => 'wfp_fundraising_style_global__border',
-				'label'    => esc_html__( 'Border', 'wp-fundraising' ),
+				'label'    => esc_html__( 'Border', 'wp-fundraising-donation' ),
 				'selector' => '{{WRAPPER}} .wfp-list-campaign .campaign-blog',
 			)
 		);
@@ -745,7 +745,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_style_global__border_radius',
 			array(
-				'label'      => esc_html__( 'Border radius', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Border radius', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -765,7 +765,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_style_global__padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Padding', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -776,7 +776,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_style_global__margin',
 			array(
-				'label'      => esc_html__( 'Margin', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Margin', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -789,7 +789,7 @@ class Wfp_Listing extends Widget_Base {
 			Group_Control_Background::get_type(),
 			array(
 				'name'     => 'wfp_fundraising_style_global__background',
-				'label'    => esc_html__( 'Background', 'wp-fundraising' ),
+				'label'    => esc_html__( 'Background', 'wp-fundraising-donation' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfp-list-campaign .campaign-blog',
 				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- Excluding image background control is intentional for this widget.
@@ -802,19 +802,19 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_style_global__alignment',
 			array(
-				'label'     => esc_html__( 'Alignment', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Alignment', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'left'   => array(
-						'title' => esc_html__( 'Left', 'wp-fundraising' ),
+						'title' => esc_html__( 'Left', 'wp-fundraising-donation' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'wp-fundraising' ),
+						'title' => esc_html__( 'Center', 'wp-fundraising-donation' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right'  => array(
-						'title' => esc_html__( 'Right', 'wp-fundraising' ),
+						'title' => esc_html__( 'Right', 'wp-fundraising-donation' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -830,7 +830,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundraising_style_content_wrapper',
 			array(
-				'label' => esc_html__( 'Content Wrapper', 'wp-fundraising' ),
+				'label' => esc_html__( 'Content Wrapper', 'wp-fundraising-donation' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -838,7 +838,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_style_content_wrapper__padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Padding', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -854,7 +854,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundraising_style_featured',
 			array(
-				'label'     => esc_html__( 'Featured ', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Featured ', 'wp-fundraising-donation' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array( 'wfp_fundraising_content__featured_enable' => 'Yes' ),
 			)
@@ -863,7 +863,7 @@ class Wfp_Listing extends Widget_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'     => 'wfp_fundraising_style_featured__border',
-				'label'    => esc_html__( 'Border', 'wp-fundraising' ),
+				'label'    => esc_html__( 'Border', 'wp-fundraising-donation' ),
 				'selector' => '{{WRAPPER}} .wfp-list-campaign .campaign-blog  .wfp-feature-video, {{WRAPPER}} .wfp-list-campaign .campaign-blog  .wfp-post-image',
 			)
 		);
@@ -881,7 +881,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundraising_style_title',
 			array(
-				'label'     => esc_html__( 'Title', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Title', 'wp-fundraising-donation' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array( 'wfp_fundraising_content__title_enable' => 'Yes' ),
 			)
@@ -900,7 +900,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_title__color',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -921,7 +921,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_style_title___margin',
 			array(
-				'label'      => __( 'Spacing', 'wp-fundraising' ),
+				'label'      => __( 'Spacing', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -936,7 +936,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundraising_style_excerpt',
 			array(
-				'label'     => esc_html__( 'Excerpt ', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Excerpt ', 'wp-fundraising-donation' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array( 'wfp_fundraising_content__excerpt_enable' => 'Yes' ),
 			)
@@ -955,7 +955,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_excerpt__color',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -976,7 +976,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_style_excerpt___margin',
 			array(
-				'label'      => __( 'Spacing', 'wp-fundraising' ),
+				'label'      => __( 'Spacing', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -991,7 +991,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundraising_style_categories',
 			array(
-				'label'     => esc_html__( 'Categories ', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Categories ', 'wp-fundraising-donation' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array( 'wfp_fundraising_content__category_enable' => 'Yes' ),
 			)
@@ -1010,7 +1010,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_categories__color',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -1031,7 +1031,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_style_author__name_margin',
 			array(
-				'label'      => __( 'Spacing', 'wp-fundraising' ),
+				'label'      => __( 'Spacing', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -1046,7 +1046,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundraising_style_goal',
 			array(
-				'label'     => esc_html__( 'Goal ', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Goal ', 'wp-fundraising-donation' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array( 'wfp_fundraising_content__goal_enable' => 'Yes' ),
 			)
@@ -1055,7 +1055,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_gola__currency_headding',
 			array(
-				'label'     => __( 'Text', 'wp-fundraising' ),
+				'label'     => __( 'Text', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 			)
@@ -1074,7 +1074,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_gola__currency_color',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -1086,7 +1086,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_gola__amount_headding',
 			array(
-				'label'     => __( 'Number', 'wp-fundraising' ),
+				'label'     => __( 'Number', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 			)
@@ -1105,7 +1105,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_gola__amount_color',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -1117,7 +1117,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_bar_time_left',
 			array(
-				'label'     => __( 'Time Left', 'wp-fundraising' ),
+				'label'     => __( 'Time Left', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 			)
@@ -1136,7 +1136,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_bar_time_left_color',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -1147,7 +1147,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_bar_time_left_icon_color',
 			array(
-				'label'     => esc_html__( 'Icon Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Icon Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -1160,7 +1160,7 @@ class Wfp_Listing extends Widget_Base {
 			Group_Control_Background::get_type(),
 			array(
 				'name'     => 'wfp_fundraising_style_bar_time_left_bg',
-				'label'    => esc_html__( 'Background', 'wp-fundraising' ),
+				'label'    => esc_html__( 'Background', 'wp-fundraising-donation' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfp-list-campaign .campaign-blog .wfp-compaign-contents .wfp-campaign-content .number_donation_count, {{WRAPPER}} .number_donation_count_list',
 				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- Excluding image background control is intentional for this widget.
@@ -1173,7 +1173,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'',
 			array(
-				'label'      => esc_html__( 'Padding', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Padding', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
@@ -1185,7 +1185,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_bar_time_left_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Border Radius', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'separator'  => 'after',
@@ -1198,7 +1198,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_gola__bar_headding',
 			array(
-				'label'     => __( 'Bar', 'wp-fundraising' ),
+				'label'     => __( 'Bar', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 			)
@@ -1207,7 +1207,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_gola__visible_bar_headding',
 			array(
-				'label' => __( 'Visible Bar', 'wp-fundraising' ),
+				'label' => __( 'Visible Bar', 'wp-fundraising-donation' ),
 				'type'  => Controls_Manager::HEADING,
 			)
 		);
@@ -1216,7 +1216,7 @@ class Wfp_Listing extends Widget_Base {
 			Group_Control_Background::get_type(),
 			array(
 				'name'     => 'wfp_fundraising_style_gola__bar_visible_background',
-				'label'    => esc_html__( 'Visible Background', 'wp-fundraising' ),
+				'label'    => esc_html__( 'Visible Background', 'wp-fundraising-donation' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfp-list-campaign .campaign-blog .wfdp-progress-bar .xs-progress-bar, {{WRAPPER}} .wfp-round-bar .wfp-round-bar-data',
 				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- Excluding image background control is intentional for this widget.
@@ -1229,7 +1229,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_gola__disable_bar_headding',
 			array(
-				'label' => __( 'Disable Bar', 'wp-fundraising' ),
+				'label' => __( 'Disable Bar', 'wp-fundraising-donation' ),
 				'type'  => Controls_Manager::HEADING,
 			)
 		);
@@ -1238,7 +1238,7 @@ class Wfp_Listing extends Widget_Base {
 			Group_Control_Background::get_type(),
 			array(
 				'name'     => 'wfp_fundraising_style_gola__bar_disable_background',
-				'label'    => esc_html__( 'Disable Background', 'wp-fundraising' ),
+				'label'    => esc_html__( 'Disable Background', 'wp-fundraising-donation' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfp-list-campaign .campaign-blog .wfdp-progress-bar .xs-progress',
 				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- Excluding image background control is intentional for this widget.
@@ -1251,7 +1251,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_gola__global_bar_headding',
 			array(
-				'label' => __( 'Global Bar', 'wp-fundraising' ),
+				'label' => __( 'Global Bar', 'wp-fundraising-donation' ),
 				'type'  => Controls_Manager::HEADING,
 			)
 		);
@@ -1259,7 +1259,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_style_gola__global_bar_border_radius',
 			array(
-				'label'      => esc_html__( 'Border radius', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Border radius', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -1271,7 +1271,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_gola__global_bar_height',
 			array(
-				'label'      => __( 'Bar Height', 'wp-fundraising' ),
+				'label'      => __( 'Bar Height', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%' ),
 				'range'      => array(
@@ -1295,7 +1295,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_global_bar_count',
 			array(
-				'label'      => __( 'Bar Count Size', 'wp-fundraising' ),
+				'label'      => __( 'Bar Count Size', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%' ),
 				'range'      => array(
@@ -1322,7 +1322,7 @@ class Wfp_Listing extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'wfp_fundraising_style_global_bar_count_typo',
-				'label'    => __( 'Bar Count Typography', 'wp-fundraising' ),
+				'label'    => __( 'Bar Count Typography', 'wp-fundraising-donation' ),
 				'selector' => '{{WRAPPER}} .wfp-round-bar .wfp-round-bar-data',
 			)
 		);
@@ -1330,7 +1330,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_global_bar_count_color',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -1345,7 +1345,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundraising_style_author',
 			array(
-				'label'     => esc_html__( 'Author ', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Author ', 'wp-fundraising-donation' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array( 'wfp_fundraising_content__user_enable' => 'Yes' ),
 			)
@@ -1354,7 +1354,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_author__headding',
 			array(
-				'label'     => __( 'Photos', 'wp-fundraising' ),
+				'label'     => __( 'Photos', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 			)
@@ -1363,7 +1363,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_style_author__photos_border_radius',
 			array(
-				'label'      => esc_html__( 'Border radius', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Border radius', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -1375,7 +1375,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_author__photos_width',
 			array(
-				'label'      => __( 'Size', 'wp-fundraising' ),
+				'label'      => __( 'Size', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%' ),
 				'default'    => array(
@@ -1403,7 +1403,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_author__headding_title',
 			array(
-				'label'     => __( 'Title', 'wp-fundraising' ),
+				'label'     => __( 'Title', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 			)
@@ -1421,7 +1421,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_author__title_color',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -1433,7 +1433,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_author__headding_name',
 			array(
-				'label'     => __( 'Name', 'wp-fundraising' ),
+				'label'     => __( 'Name', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 			)
@@ -1451,7 +1451,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_style_author__name_color',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -1466,7 +1466,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_btn_section_style',
 			array(
-				'label'     => esc_html__( 'Button', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Button', 'wp-fundraising-donation' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'wfp_fundraising_content__is_button' => 'yes',
@@ -1477,7 +1477,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_btn_text_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Padding', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
@@ -1490,7 +1490,7 @@ class Wfp_Listing extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'wfp_btn_typography',
-				'label'    => esc_html__( 'Typography', 'wp-fundraising' ),
+				'label'    => esc_html__( 'Typography', 'wp-fundraising-donation' ),
 				'selector' => '{{WRAPPER}} .wfp-view .wfp-list-campaign .wfp-fundrising-button',
 			)
 		);
@@ -1508,14 +1508,14 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_tab(
 			'wfp_btn_tabnormal',
 			array(
-				'label' => esc_html__( 'Normal', 'wp-fundraising' ),
+				'label' => esc_html__( 'Normal', 'wp-fundraising-donation' ),
 			)
 		);
 
 		$this->add_control(
 			'wfp_btn_text_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Text Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
@@ -1538,14 +1538,14 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_tab(
 			'wfp_btn_tab_button_hover',
 			array(
-				'label' => esc_html__( 'Hover', 'wp-fundraising' ),
+				'label' => esc_html__( 'Hover', 'wp-fundraising-donation' ),
 			)
 		);
 
 		$this->add_control(
 			'wfp_btn_hover_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Text Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => array(
@@ -1573,7 +1573,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundrising_section_style_navigation',
 			array(
-				'label'     => esc_html__( 'Navigation', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Navigation', 'wp-fundraising-donation' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'wfp_fundrising_navigation' => array( 'arrows', 'both' ),
@@ -1585,14 +1585,14 @@ class Wfp_Listing extends Widget_Base {
 			$this->start_controls_tab(
 				'wfp_fundrising_arrows_prev_icon_tab',
 				array(
-					'label' => esc_html__( 'Previous', 'wp-fundraising' ),
+					'label' => esc_html__( 'Previous', 'wp-fundraising-donation' ),
 				)
 			);
 
 			$this->add_control(
 				'wfp_fundrising_arrows_prev_icons',
 				array(
-					'label'            => esc_html__( 'Icon', 'wp-fundraising' ),
+					'label'            => esc_html__( 'Icon', 'wp-fundraising-donation' ),
 					'type'             => Controls_Manager::ICONS,
 					'fa4compatibility' => 'wfp_fundrising_arrows_prev_icon',
 					'default'          => array(
@@ -1610,14 +1610,14 @@ class Wfp_Listing extends Widget_Base {
 			$this->start_controls_tab(
 				'wfp_fundrising_arrows_next_icon_tab',
 				array(
-					'label' => esc_html__( 'Next', 'wp-fundraising' ),
+					'label' => esc_html__( 'Next', 'wp-fundraising-donation' ),
 				)
 			);
 
 			$this->add_control(
 				'wfp_fundrising_arrows_next_icons',
 				array(
-					'label'            => esc_html__( 'Icon', 'wp-fundraising' ),
+					'label'            => esc_html__( 'Icon', 'wp-fundraising-donation' ),
 					'type'             => Controls_Manager::ICONS,
 					'fa4compatibility' => 'wfp_fundrising_arrows_next_icon',
 					'default'          => array(
@@ -1636,7 +1636,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_arrows_size',
 			array(
-				'label'     => esc_html__( 'Arrows Size', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Arrows Size', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -1657,7 +1657,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_arrows_space',
 			array(
-				'label'      => esc_html__( 'Space', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Space', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::SLIDER,
 				'range'      => array(
 					'px' => array(
@@ -1688,7 +1688,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundrising_arrows_margin',
 			array(
-				'label'      => esc_html__( 'Margin', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Margin', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
@@ -1701,13 +1701,13 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_tab(
 			'wfp_fundrising_arrows_color_normal_tab',
 			array(
-				'label' => esc_html__( 'Normal', 'wp-fundraising' ),
+				'label' => esc_html__( 'Normal', 'wp-fundraising-donation' ),
 			)
 		);
 		$this->add_control(
 			'wfp_fundrising_arrows_color',
 			array(
-				'label'     => esc_html__( 'Arrows Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Arrows Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}}  .wfp_fundrising-slidenav-container .wfp_fundrising-slidenav' => 'color: {{VALUE}};',
@@ -1724,14 +1724,14 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_tab(
 			'wfp_fundrising_arrows_color_hover_tab',
 			array(
-				'label' => esc_html__( 'Hover', 'wp-fundraising' ),
+				'label' => esc_html__( 'Hover', 'wp-fundraising-donation' ),
 			)
 		);
 
 		$this->add_control(
 			'wfp_fundrising_arrows_hover_color',
 			array(
-				'label'     => esc_html__( 'Arrows Hover Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Arrows Hover Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}}  .wfp_fundrising-slidenav-container .wfp_fundrising-slidenav:hover' => 'color: {{VALUE}}',
@@ -1751,7 +1751,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundrising-woo-carousel-dots',
 			array(
-				'label'     => esc_html__( 'Dots', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Dots', 'wp-fundraising-donation' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array(
 					'wfp_fundrising_navigation' => array( 'dots', 'both' ),
@@ -1762,7 +1762,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_dots_size',
 			array(
-				'label'     => esc_html__( 'Dots Size', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Dots Size', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -1783,7 +1783,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_dots_space',
 			array(
-				'label'     => esc_html__( 'Dots Space', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Dots Space', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::SLIDER,
 				'default'   => array(
 					'size' => 10,
@@ -1807,7 +1807,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundrising_dots_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Padding', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
@@ -1819,7 +1819,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundrising_dots_margin',
 			array(
-				'label'      => esc_html__( 'Margin', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Margin', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
@@ -1831,7 +1831,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundrising_dots_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Border Radius', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'default'    => array(
@@ -1852,20 +1852,20 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'ekti_dots_alignment',
 			array(
-				'label'     => esc_html__( 'Alignment', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Alignment', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'default'   => 'center',
 				'options'   => array(
 					'left'   => array(
-						'title' => esc_html__( 'Left', 'wp-fundraising' ),
+						'title' => esc_html__( 'Left', 'wp-fundraising-donation' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'wp-fundraising' ),
+						'title' => esc_html__( 'Center', 'wp-fundraising-donation' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right'  => array(
-						'title' => esc_html__( 'Right', 'wp-fundraising' ),
+						'title' => esc_html__( 'Right', 'wp-fundraising-donation' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -1879,14 +1879,14 @@ class Wfp_Listing extends Widget_Base {
 			$this->start_controls_tab(
 				'wfp_fundrising_dots_normal_tab',
 				array(
-					'label' => esc_html__( 'Normal', 'wp-fundraising' ),
+					'label' => esc_html__( 'Normal', 'wp-fundraising-donation' ),
 				)
 			);
 
 			$this->add_control(
 				'wfp_fundrising_dots_color',
 				array(
-					'label'     => esc_html__( 'Dots Color', 'wp-fundraising' ),
+					'label'     => esc_html__( 'Dots Color', 'wp-fundraising-donation' ),
 					'type'      => Controls_Manager::COLOR,
 					'selectors' => array(
 						'{{WRAPPER}} .wfp_fundrising-swiper-pagination .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
@@ -1903,14 +1903,14 @@ class Wfp_Listing extends Widget_Base {
 			$this->start_controls_tab(
 				'wfp_fundrising_dots_hover_tab',
 				array(
-					'label' => esc_html__( 'Hover', 'wp-fundraising' ),
+					'label' => esc_html__( 'Hover', 'wp-fundraising-donation' ),
 				)
 			);
 
 			$this->add_control(
 				'wfp_fundrising_dots_hover_color',
 				array(
-					'label'     => esc_html__( 'Dots Color', 'wp-fundraising' ),
+					'label'     => esc_html__( 'Dots Color', 'wp-fundraising-donation' ),
 					'type'      => Controls_Manager::COLOR,
 					'selectors' => array(
 						'{{WRAPPER}} .wfp_fundrising-swiper-pagination .swiper-pagination-bullet:hover, {{WRAPPER}} .wfp_fundrising-swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active:hover' => 'background-color: {{VALUE}}',
@@ -1927,14 +1927,14 @@ class Wfp_Listing extends Widget_Base {
 			$this->start_controls_tab(
 				'wfp_fundrising_dots_active_tab',
 				array(
-					'label' => esc_html__( 'Active', 'wp-fundraising' ),
+					'label' => esc_html__( 'Active', 'wp-fundraising-donation' ),
 				)
 			);
 
 			$this->add_control(
 				'wfp_fundrising_active_dot_color',
 				array(
-					'label'     => esc_html__( 'Active Dots Color', 'wp-fundraising' ),
+					'label'     => esc_html__( 'Active Dots Color', 'wp-fundraising-donation' ),
 					'type'      => Controls_Manager::COLOR,
 					'selectors' => array(
 						'{{WRAPPER}} .wfp_fundrising-swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
@@ -1957,7 +1957,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_section(
 			'wfp_fundraising_filter',
 			array(
-				'label'     => esc_html__( 'Filter', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Filter', 'wp-fundraising-donation' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => array( 'wfp_fundraising_content__filter_enable' => 'Yes' ),
 			)
@@ -1975,7 +1975,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_filter__padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Padding', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
@@ -1987,7 +1987,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_responsive_control(
 			'wfp_fundraising_filter__margin',
 			array(
-				'label'      => esc_html__( 'Margin', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Margin', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => array(
@@ -1999,7 +1999,7 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_filter__border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'wp-fundraising' ),
+				'label'      => esc_html__( 'Border Radius', 'wp-fundraising-donation' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2011,20 +2011,20 @@ class Wfp_Listing extends Widget_Base {
 		$this->add_control(
 			'wfp_fundraising_filter__alignment',
 			array(
-				'label'     => esc_html__( 'Alignment', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Alignment', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'default'   => 'center',
 				'options'   => array(
 					'left'   => array(
-						'title' => esc_html__( 'Left', 'wp-fundraising' ),
+						'title' => esc_html__( 'Left', 'wp-fundraising-donation' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'wp-fundraising' ),
+						'title' => esc_html__( 'Center', 'wp-fundraising-donation' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right'  => array(
-						'title' => esc_html__( 'Right', 'wp-fundraising' ),
+						'title' => esc_html__( 'Right', 'wp-fundraising-donation' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -2040,14 +2040,14 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_tab(
 			'wfp_fundraising_filter__tab',
 			array(
-				'label' => esc_html__( 'Normal', 'wp-fundraising' ),
+				'label' => esc_html__( 'Normal', 'wp-fundraising-donation' ),
 			)
 		);
 		// color
 		$this->add_control(
 			'wfp_fundraising_filter__color',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -2060,7 +2060,7 @@ class Wfp_Listing extends Widget_Base {
 			Group_Control_Background::get_type(),
 			array(
 				'name'     => 'wfp_fundraising_filter__bg',
-				'label'    => esc_html__( 'Background', 'wp-fundraising' ),
+				'label'    => esc_html__( 'Background', 'wp-fundraising-donation' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfp-campaign-filter-nav .wfp-campaign-filter-nav-item',
 			)
@@ -2071,14 +2071,14 @@ class Wfp_Listing extends Widget_Base {
 		$this->start_controls_tab(
 			'wfp_fundraising_filter__tab2',
 			array(
-				'label' => esc_html__( 'Active', 'wp-fundraising' ),
+				'label' => esc_html__( 'Active', 'wp-fundraising-donation' ),
 			)
 		);
 		// color
 		$this->add_control(
 			'wfp_fundraising_filter__color_active',
 			array(
-				'label'     => esc_html__( 'Color', 'wp-fundraising' ),
+				'label'     => esc_html__( 'Color', 'wp-fundraising-donation' ),
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => array(
@@ -2091,7 +2091,7 @@ class Wfp_Listing extends Widget_Base {
 			Group_Control_Background::get_type(),
 			array(
 				'name'     => 'wfp_fundraising_filter__bg_active',
-				'label'    => esc_html__( 'Background', 'wp-fundraising' ),
+				'label'    => esc_html__( 'Background', 'wp-fundraising-donation' ),
 				'types'    => array( 'classic', 'gradient' ),
 				'selector' => '{{WRAPPER}} .wfp-campaign-filter-nav .wfp-campaign-filter-nav-item.active',
 			)

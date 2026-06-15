@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="xs-donate-field-wrap ">
 
 					<label for="xs_additional_<?php echo esc_attr( $wfp_counter ); ?>_type" data-pattern-for="xs_additional_++_type">
-						<?php echo esc_html__( 'Type', 'wp-fundraising' ); ?>
+						<?php echo esc_html__( 'Type', 'wp-fundraising-donation' ); ?>
 					</label>
 
 					<div class="xs-donate-field-wrap-amount xs-donate-field-wrap-no-symbol">
@@ -35,14 +35,14 @@ defined( 'ABSPATH' ) || exit;
 								id="xs_additional_<?php echo esc_attr( $wfp_counter ); ?>_type"
 								name="xs_submit_donation_data[form_content][<?php echo esc_attr( $wfp_group ); ?>][dimentions][<?php echo esc_attr( $wfp_counter ); ?>][type]">
 
-							<option value="text" <?php echo esc_attr( $wfp_type == 'text' ? 'selected' : '' ); ?>> <?php esc_html_e( 'Text', 'wp-fundraising' ); ?></option>
-							<option value="email" <?php echo esc_attr( $wfp_type == 'email' ? 'selected' : '' ); ?>> <?php esc_html_e( 'Email', 'wp-fundraising' ); ?></option>
-							<option value="number" <?php echo esc_attr( $wfp_type == 'number' ? 'selected' : '' ); ?>> <?php esc_html_e( 'Number', 'wp-fundraising' ); ?></option>
+							<option value="text" <?php echo esc_attr( $wfp_type == 'text' ? 'selected' : '' ); ?>> <?php esc_html_e( 'Text', 'wp-fundraising-donation' ); ?></option>
+							<option value="email" <?php echo esc_attr( $wfp_type == 'email' ? 'selected' : '' ); ?>> <?php esc_html_e( 'Email', 'wp-fundraising-donation' ); ?></option>
+							<option value="number" <?php echo esc_attr( $wfp_type == 'number' ? 'selected' : '' ); ?>> <?php esc_html_e( 'Number', 'wp-fundraising-donation' ); ?></option>
 							<?php
 
 							if ( $wfp_type == 'select' ) :
 								?>
-								<option value="number" selected> <?php esc_html_e( 'Selection', 'wp-fundraising' ); ?></option>
+								<option value="number" selected> <?php esc_html_e( 'Selection', 'wp-fundraising-donation' ); ?></option>
 																							   <?php
 							endif;
 							?>
@@ -54,7 +54,7 @@ defined( 'ABSPATH' ) || exit;
 
 					<label for="xs_additional_<?php echo esc_attr( $wfp_counter ); ?>_label_name"
 						   data-pattern-for="xs_additional_++_label_name">
-						<?php echo esc_html__( 'Label', 'wp-fundraising' ); ?>
+						<?php echo esc_html__( 'Label', 'wp-fundraising-donation' ); ?>
 					</label>
 
 					<div class="xs-donate-field-wrap-amount xs-donate-field-wrap-no-symbol">
@@ -75,7 +75,7 @@ defined( 'ABSPATH' ) || exit;
 			<div class="xs-donate-field-wrap ">
 				<label for="xs_additional_<?php echo esc_attr( $wfp_counter ); ?>_required_name"
 					   data-pattern-for="xs_additional_++_required_name">
-					<?php echo esc_html__( 'Required', 'wp-fundraising' ); ?>
+					<?php echo esc_html__( 'Required', 'wp-fundraising-donation' ); ?>
 				</label>
 
 				<div class="xs-switch-button_wraper">

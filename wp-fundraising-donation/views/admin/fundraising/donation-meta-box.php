@@ -55,8 +55,8 @@ defined( 'ABSPATH' ) || exit;
 			<li class="form_field_options_tab active">
 				<a href="#form_general_options">
 					<span class="xs-donate-title-wraper">
-						<span class="xs-donate-title"><?php echo esc_html__( 'General', 'wp-fundraising' ); ?></span>
-						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising' ); ?></span>
+						<span class="xs-donate-title"><?php echo esc_html__( 'General', 'wp-fundraising-donation' ); ?></span>
+						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising-donation' ); ?></span>
 					</span>
 					<span class="xs-donate-icon dashicons-before dashicons-admin-site"></span>
 				</a>
@@ -72,8 +72,8 @@ defined( 'ABSPATH' ) || exit;
 				<li class="form_field_options_tab">
 					<a href="#form_donate_goal_setup">
 					<span class="xs-donate-title-wraper">
-						<span class="xs-donate-title"><?php echo esc_html__( 'Goal Setup', 'wp-fundraising' ); ?></span>
-						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising' ); ?></span>
+						<span class="xs-donate-title"><?php echo esc_html__( 'Goal Setup', 'wp-fundraising-donation' ); ?></span>
+						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising-donation' ); ?></span>
 					</span>
 						<span class="xs-donate-icon dashicons-before dashicons-admin-plugins"></span>
 					</a>
@@ -92,8 +92,8 @@ defined( 'ABSPATH' ) || exit;
 			<li class="form_field_options_tab donation_target_type_filed pledge_setup_target xs-donate-hidden <?php echo esc_attr( $wfpPledge ); ?>">
 				<a href="#form_donate_Pledge_setup">
 					<span class="xs-donate-title-wraper">
-						<span class="xs-donate-title"><?php echo esc_html__( 'Pledge Setup', 'wp-fundraising' ); ?></span>
-						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising' ); ?></span>
+						<span class="xs-donate-title"><?php echo esc_html__( 'Pledge Setup', 'wp-fundraising-donation' ); ?></span>
+						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising-donation' ); ?></span>
 					</span>
 					<span class="xs-donate-icon dashicons-before dashicons-sticky"></span>
 				</a>
@@ -102,8 +102,8 @@ defined( 'ABSPATH' ) || exit;
 			<li class="form_field_options_tab">
 				<a href="#form_donate_form_terms_condition">
 					<span class="xs-donate-title-wraper">
-						<span class="xs-donate-title"><?php echo esc_html__( 'Terms & Condition', 'wp-fundraising' ); ?></span>
-						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising' ); ?></span>
+						<span class="xs-donate-title"><?php echo esc_html__( 'Terms & Condition', 'wp-fundraising-donation' ); ?></span>
+						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising-donation' ); ?></span>
 					</span>
 					<span class="xs-donate-icon dashicons-before dashicons-image-filter"></span>
 				</a>
@@ -112,8 +112,8 @@ defined( 'ABSPATH' ) || exit;
 			<li class="form_field_options_tab">
 				<a href="#form_donate_form_content">
 					<span class="xs-donate-title-wraper">
-						<span class="xs-donate-title"><?php echo esc_html__( 'Form Content', 'wp-fundraising' ); ?></span>
-						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising' ); ?></span>
+						<span class="xs-donate-title"><?php echo esc_html__( 'Form Content', 'wp-fundraising-donation' ); ?></span>
+						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising-donation' ); ?></span>
 					</span>
 					<span class="xs-donate-icon dashicons-before dashicons-admin-settings"></span>
 				</a>
@@ -121,8 +121,8 @@ defined( 'ABSPATH' ) || exit;
 			<li class="form_field_options_tab">
 				<a href="#form_donate_form_settings">
 					<span class="xs-donate-title-wraper">
-						<span class="xs-donate-title"><?php echo esc_html__( 'Settings', 'wp-fundraising' ); ?></span>
-						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising' ); ?></span>
+						<span class="xs-donate-title"><?php echo esc_html__( 'Settings', 'wp-fundraising-donation' ); ?></span>
+						<span class="xs-donate-label"><?php echo esc_html__( 'Features or Elements', 'wp-fundraising-donation' ); ?></span>
 					</span>
 					<span class="xs-donate-icon dashicons-before dashicons-admin-tools"></span>
 				</a>
@@ -136,8 +136,8 @@ defined( 'ABSPATH' ) || exit;
 				<li class="form_field_options_tab">
 					<a href="#form_donate_pp_settings">
 					<span class="xs-donate-title-wraper">
-						<span class="xs-donate-title"><?php echo esc_html__( 'Payment accounts', 'wp-fundraising' ); ?></span>
-						<span class="xs-donate-label"><?php echo esc_html__( 'Account settings to receive donation', 'wp-fundraising' ); ?></span>
+						<span class="xs-donate-title"><?php echo esc_html__( 'Payment accounts', 'wp-fundraising-donation' ); ?></span>
+						<span class="xs-donate-label"><?php echo esc_html__( 'Account settings to receive donation', 'wp-fundraising-donation' ); ?></span>
 					</span>
 						<span class="xs-donate-icon dashicons-before dashicons-admin-tools"></span>
 					</a>

@@ -20,7 +20,7 @@ require __DIR__ . '/_form_terms_before.php'; ?>
 			<button type="submit"
 					name="submit-form-donation"
 					class="xs-btn btn-special submit-btn">
-			<?php echo esc_html( $wfpFormDesignData->submit_button ? $wfpFormDesignData->submit_button : ( __( 'Donate Now', 'wp-fundraising' ) ) ); ?>
+			<?php echo esc_html( $wfpFormDesignData->submit_button ? $wfpFormDesignData->submit_button : ( __( 'Donate Now', 'wp-fundraising-donation' ) ) ); ?>
 			</button>
 			<?php
 	}

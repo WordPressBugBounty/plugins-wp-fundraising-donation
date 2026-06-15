@@ -36,10 +36,10 @@ if ( isset( $_GET['nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash
 		?>
 
 		<div class="wfp-tab-step-control xs-text-left" wfp-control="yes">
-			<button class="wfp-step xs-btn xs-btn-primary active" ><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_tab_intro', __( '1. Campaign Intro', 'wp-fundraising' ) ) ); ?></button>
-			<button class="wfp-step xs-btn xs-btn-primary " ><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_tab_details', __( '2. Add Details', 'wp-fundraising' ) ) ); ?></button>
-			<button class="wfp-step xs-btn xs-btn-primary" ><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_tab_rewards', __( '3. Add Rewards', 'wp-fundraising' ) ) ); ?></button>
-			<button class="wfp-step xs-btn xs-btn-primary" ><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_tab_submit', __( '4. Submit Now', 'wp-fundraising' ) ) ); ?></button>
+			<button class="wfp-step xs-btn xs-btn-primary active" ><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_tab_intro', __( '1. Campaign Intro', 'wp-fundraising-donation' ) ) ); ?></button>
+			<button class="wfp-step xs-btn xs-btn-primary " ><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_tab_details', __( '2. Add Details', 'wp-fundraising-donation' ) ) ); ?></button>
+			<button class="wfp-step xs-btn xs-btn-primary" ><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_tab_rewards', __( '3. Add Rewards', 'wp-fundraising-donation' ) ) ); ?></button>
+			<button class="wfp-step xs-btn xs-btn-primary" ><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_tab_submit', __( '4. Submit Now', 'wp-fundraising-donation' ) ) ); ?></button>
 		</div>
 
 		<div class="wfp-tabs-control ">
@@ -57,11 +57,11 @@ if ( isset( $_GET['nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash
 			</div>
 			<div class="wfp-form-fotter">
 				<div class="xs-float-left">
-					<button type="button" class="wfp-form-button xs-btn xs-btn-primary wfp-preview"><span class=""></span><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_button_pre', __( 'Previous', 'wp-fundraising' ) ) ); ?></button>
+					<button type="button" class="wfp-form-button xs-btn xs-btn-primary wfp-preview"><span class=""></span><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_button_pre', __( 'Previous', 'wp-fundraising-donation' ) ) ); ?></button>
 				</div>
 
 				<div class="xs-float-right">
-					<button type="submit" class="wfp-form-button xs-btn xs-btn-primary wfp-next xs-text-right" wfp-finish-button="Submit" name="post_dashboard_campaign"><span class=""></span><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_button_next', __( 'Next', 'wp-fundraising' ) ) ); ?></button>
+					<button type="submit" class="wfp-form-button xs-btn xs-btn-primary wfp-next xs-text-right" wfp-finish-button="Submit" name="post_dashboard_campaign"><span class=""></span><?php echo esc_html( apply_filters( 'wfp_dashboard_newcam_button_next', __( 'Next', 'wp-fundraising-donation' ) ) ); ?></button>
 				</div>
 			</div>
 		</div>

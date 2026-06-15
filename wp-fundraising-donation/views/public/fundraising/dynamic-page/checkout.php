@@ -4,7 +4,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! isset( $_REQUEST['wpf_checkout_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['wpf_checkout_nonce_field'] ) ), 'wpf_checkout' ) ) {
-	die( esc_html__( 'Security check failed', 'wp-fundraising' ) );
+	die( esc_html__( 'Security check failed', 'wp-fundraising-donation' ) );
 }
 
 $wfp_author_id   = get_current_user_id();
@@ -66,7 +66,7 @@ $wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_pa
 							<div class="wfp-title-section">
 								<?php do_action( 'wfp_checkout_title_before' ); ?>
 								<h2 class="checkout-heading">
-									<?php echo esc_html( apply_filters( 'wfp_checkout_billing_details', esc_html__( 'Billing details:', 'wp-fundraising' ) ) ); ?>
+									<?php echo esc_html( apply_filters( 'wfp_checkout_billing_details', esc_html__( 'Billing details:', 'wp-fundraising-donation' ) ) ); ?>
 								</h2>
 								<?php do_action( 'wfp_checkout_title_after' ); ?>
 							</div>
@@ -77,7 +77,7 @@ $wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_pa
 								<label for="xs_donate_country_pledge"></label>
 								<?php
 
-								echo esc_html( apply_filters( 'wfp_checkout_country_name', esc_html__( 'Country Destination:', 'wp-fundraising' ) ) );
+								echo esc_html( apply_filters( 'wfp_checkout_country_name', esc_html__( 'Country Destination:', 'wp-fundraising-donation' ) ) );
 
 								$wfpDefultStreet   = get_user_meta( $wfp_author_id, '_wfp_street_address', true );
 								$wfpDefultCity     = get_user_meta( $wfp_author_id, '_wfp_city', true );
@@ -163,7 +163,7 @@ $wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_pa
 							<div class="wfp-title-section">
 								<?php do_action( 'wfp_checkout_details_before' ); ?>
 								<h2 class="order-heading">
-									<?php echo esc_html( apply_filters( 'wfp_checkout_details', esc_html__( 'Checkout Details', 'wp-fundraising' ) ) ); ?>
+									<?php echo esc_html( apply_filters( 'wfp_checkout_details', esc_html__( 'Checkout Details', 'wp-fundraising-donation' ) ) ); ?>
 								</h2>
 								<?php do_action( 'wfp_checkout_details_after' ); ?>
 							</div>
@@ -172,10 +172,10 @@ $wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_pa
 									<thead>
 									<tr>
 										<th class="product-name">
-											<?php echo esc_html( apply_filters( 'wfp_order_checkout_product', __( 'Product', 'wp-fundraising' ) ) ); ?>
+											<?php echo esc_html( apply_filters( 'wfp_order_checkout_product', __( 'Product', 'wp-fundraising-donation' ) ) ); ?>
 										</th>
 										<th class="payment-total">
-											<?php echo esc_html( apply_filters( 'wfp_order_checkout_total', __( 'Total', 'wp-fundraising' ) ) ); ?>
+											<?php echo esc_html( apply_filters( 'wfp_order_checkout_total', __( 'Total', 'wp-fundraising-donation' ) ) ); ?>
 										</th>
 									</tr>
 									</thead>
@@ -218,7 +218,7 @@ $wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_pa
 									<tfoot>
 									<tr>
 										<td>
-											<strong><?php echo esc_html( apply_filters( 'wfp_checkout_details_subtotal', __( 'Subtotal:', 'wp-fundraising' ) ) ); ?></strong>
+											<strong><?php echo esc_html( apply_filters( 'wfp_checkout_details_subtotal', __( 'Subtotal:', 'wp-fundraising-donation' ) ) ); ?></strong>
 										</td>
 										<td>
 											<em>
@@ -230,7 +230,7 @@ $wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_pa
 									</tr>
 									<tr>
 										<td>
-											<strong><?php echo esc_html( apply_filters( 'wfp_checkout_details_shipping', __( 'Shipping:', 'wp-fundraising' ) ) ); ?></strong>
+											<strong><?php echo esc_html( apply_filters( 'wfp_checkout_details_shipping', __( 'Shipping:', 'wp-fundraising-donation' ) ) ); ?></strong>
 										</td>
 										<td>
 											<em>
@@ -247,7 +247,7 @@ $wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_pa
 											<td>
 												<strong>
 												<?php
-											$wfp_additext = isset( $wfpAdd_fees->fees_label ) ? $wfpAdd_fees->fees_label : __( 'Fees', 'wp-fundraising' );
+											$wfp_additext = isset( $wfpAdd_fees->fees_label ) ? $wfpAdd_fees->fees_label : __( 'Fees', 'wp-fundraising-donation' );
 												echo esc_html( apply_filters( 'wfp_donate_forms_additional_fees', $wfp_additext ) );
 												if ( $wfp_fees_type == 'percentage' ) {
 													?>
@@ -264,7 +264,7 @@ $wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_pa
 									<?php } ?>
 									<tr>
 										<td>
-											<strong><?php echo esc_html( apply_filters( 'wfp_checkout_details_total_amount', __( 'Total:', 'wp-fundraising' ) ) ); ?></strong>
+											<strong><?php echo esc_html( apply_filters( 'wfp_checkout_details_total_amount', __( 'Total:', 'wp-fundraising-donation' ) ) ); ?></strong>
 										</td>
 										<td>
 											<em>
@@ -299,14 +299,14 @@ $wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_pa
 								?>
 							</div>
 							<div class="submit-form-checkout">
-								<button type="submit" name="submit-form-donation" class="xs-btn xs-btn-primary xs-btn-block xs-btn-lg"><?php echo esc_html( apply_filters( 'wfp_checkout_button', __( 'Checkout', 'wp-fundraising' ) ) ); ?></button>
+								<button type="submit" name="submit-form-donation" class="xs-btn xs-btn-primary xs-btn-block xs-btn-lg"><?php echo esc_html( apply_filters( 'wfp_checkout_button', __( 'Checkout', 'wp-fundraising-donation' ) ) ); ?></button>
 							</div>
 						</div>
 					</div>
 				</form>
 				<?php
 			} else {
-				echo wp_kses( '<p class="wfp-error-message">' . apply_filters( 'wfp_checkout_invalid_message', __( 'Invalid Payment', 'wp-fundraising' ) ) . '</p>', \WfpFundraising\Utilities\Utils::get_kses_array() );
+				echo wp_kses( '<p class="wfp-error-message">' . apply_filters( 'wfp_checkout_invalid_message', __( 'Invalid Payment', 'wp-fundraising-donation' ) ) . '</p>', \WfpFundraising\Utilities\Utils::get_kses_array() );
 			}
 			?>
 		</div>

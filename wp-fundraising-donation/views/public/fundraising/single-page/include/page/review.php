@@ -109,13 +109,13 @@ defined( 'ABSPATH' ) || exit;
 				<form class="wfp-user-review " id="wfp_user-<?php echo esc_attr( $wfpPostId ); ?>" method="post">
 					<div class="message-review-status"></div>
 					<div class="wfp-review-header">
-						<h2 class="wfp-review-header--title"><?php echo esc_html( apply_filters( 'wfp_single_content_review_write', __( 'Write a Review', 'wp-fundraising' ) ) ); ?></h2>
-						<p class="wfp-review-header--description"><?php echo esc_html( apply_filters( 'wfp_single_content_review_dsc', __( 'Your email address will not be published. Required fields are marked *', 'wp-fundraising' ) ) ); ?></p>
+						<h2 class="wfp-review-header--title"><?php echo esc_html( apply_filters( 'wfp_single_content_review_write', __( 'Write a Review', 'wp-fundraising-donation' ) ) ); ?></h2>
+						<p class="wfp-review-header--description"><?php echo esc_html( apply_filters( 'wfp_single_content_review_dsc', __( 'Your email address will not be published. Required fields are marked *', 'wp-fundraising-donation' ) ) ); ?></p>
 					</div>
 
 					<div class="wfp-review-filed xs-review-rating-stars wfp-review-rating">
 						<label class="wfp-review-rating--label"
-							   for="reviewer_ratting"><?php echo esc_html( apply_filters( 'wfp_single_content_reviewer_ratting', __( 'Ratting', 'wp-fundraising' ) ) ); ?></label>
+							   for="reviewer_ratting"><?php echo esc_html( apply_filters( 'wfp_single_content_reviewer_ratting', __( 'Ratting', 'wp-fundraising-donation' ) ) ); ?></label>
 						<ul id="xs_review_stars" class="xs_review_stars">
 							<?php for ( $wfp_ratting = 1; $wfp_ratting <= 5; $wfp_ratting ++ ) : ?>
 								<li class="star-li star  
@@ -135,12 +135,12 @@ defined( 'ABSPATH' ) || exit;
 					<div class="wfp-review-filed-container">
 						<div class="wfp-review-filed">
 							<input type="text" name="review_post[name]" id="reviewer_name"
-								   placeholder="<?php echo esc_attr__( 'Name *', 'wp-fundraising' ); ?>" required class="wfp-input"
+								   placeholder="<?php echo esc_attr__( 'Name *', 'wp-fundraising-donation' ); ?>" required class="wfp-input"
 								   value="<?php echo esc_attr( $wfp_current_user->user_firstname ); ?>">
 						</div>
 						<div class="wfp-review-filed">
 							<input type="email" name="review_post[email]" id="reviewer_email"
-								   placeholder="<?php echo esc_html__( 'Email *', 'wp-fundraising' ); ?>" required class="wfp-input"
+								   placeholder="<?php echo esc_html__( 'Email *', 'wp-fundraising-donation' ); ?>" required class="wfp-input"
 								   value="<?php echo esc_attr( $wfp_current_user->user_email ); ?>">
 						</div>
 					</div>
@@ -149,12 +149,12 @@ defined( 'ABSPATH' ) || exit;
 					<div class="wfp-review-filed wfp-review-message">
 					<textarea type="text" rows="4" name="review_post[summery]" id="reviewer_summery"
 							  class="wfp-input wfp-textarea"
-							  placeholder="<?php echo esc_html__( 'Your Review *', 'wp-fundraising' ); ?>"></textarea>
+							  placeholder="<?php echo esc_html__( 'Your Review *', 'wp-fundraising-donation' ); ?>"></textarea>
 					</div>
 					<div class="wfp-review-submit">
 						<button type="submit" class="wfp-form-button xs-btn xs-btn-primary xs-btn-lg xs-float-right"
 								id="wfp-review-button"
-								name="post_review_submit"><?php echo esc_html( apply_filters( 'wfp_single_content_reviewer_submit', __( 'Submit', 'wp-fundraising' ) ) ); ?></button>
+								name="post_review_submit"><?php echo esc_html( apply_filters( 'wfp_single_content_reviewer_submit', __( 'Submit', 'wp-fundraising-donation' ) ) ); ?></button>
 					</div>
 					<input type="hidden" name="review_post[parent]" id="reviewer_parent" class="wfp-input" value="0">
 				</form>
@@ -165,7 +165,7 @@ defined( 'ABSPATH' ) || exit;
 			?>
 
 			<div class="wfp-review-list">
-				<span><?php esc_html_e( 'As a author of this campaign you can not give review!', 'wp-fundraising' ); ?></span>
+				<span><?php esc_html_e( 'As a author of this campaign you can not give review!', 'wp-fundraising-donation' ); ?></span>
 			</div>
 			<?php
 		endif;
@@ -174,9 +174,9 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="wfp-review-list">
 
-			<span><?php esc_html_e( 'To give review you need to', 'wp-fundraising' ); ?> </span>
-			<a href="<?php echo esc_url( wp_login_url( get_permalink() ) ); ?>" alt="<?php esc_attr_e( 'Login', 'wp-fundraising' ); ?>">
-				<?php esc_html_e( 'Login', 'wp-fundraising' ); ?>
+			<span><?php esc_html_e( 'To give review you need to', 'wp-fundraising-donation' ); ?> </span>
+			<a href="<?php echo esc_url( wp_login_url( get_permalink() ) ); ?>" alt="<?php esc_attr_e( 'Login', 'wp-fundraising-donation' ); ?>">
+				<?php esc_html_e( 'Login', 'wp-fundraising-donation' ); ?>
 			</a>
 		</div>
 		<?php

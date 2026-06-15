@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
 <div class="wfdp-donation-input-form wfdp-input-payment-field-wraper <?php echo esc_attr( $wfpEnableDisplayField ); ?>">
 	<div class="wfdp-input-payment-field">
 		<?php echo wp_kses( do_action( 'wfp_donate_forms_payment_method_headding_before' ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
-		<span class=""> <?php echo wp_kses( apply_filters( 'wfp_donate_forms_payment_method_headding', esc_html__( 'Select Payment Method:', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></span>
+		<span class=""> <?php echo wp_kses( apply_filters( 'wfp_donate_forms_payment_method_headding', esc_html__( 'Select Payment Method:', 'wp-fundraising-donation' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></span>
 		<?php echo wp_kses( do_action( 'wfp_donate_forms_payment_method_headding_after' ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?>
 
 		<ul class="xs-donate-display-amount wfp-radio-input-style-2">
@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) || exit;
 				endif;
 			endforeach;
 		} else {
-			echo wp_kses( '<p> ' . __( 'Set Payment Method', 'wp-fundraising' ) . ' </p>', \WfpFundraising\Utilities\Utils::get_kses_array() );
+			echo wp_kses( '<p> ' . __( 'Set Payment Method', 'wp-fundraising-donation' ) . ' </p>', \WfpFundraising\Utilities\Utils::get_kses_array() );
 		}
 		?>
 		</ul>
@@ -61,7 +61,7 @@ defined( 'ABSPATH' ) || exit;
 			if ( $wfp_key == 'bank_payment' ) {
 				$wfpSetupData = isset( $arrayPayment[ $wfp_key ]['setup']['account_details'] ) ? $arrayPayment[ $wfp_key ]['setup']['account_details'] : array();
 				?>
-			<div> <strong> <?php echo esc_html__( 'Account Details:', 'wp-fundraising' ); ?></strong></div>
+			<div> <strong> <?php echo esc_html__( 'Account Details:', 'wp-fundraising-donation' ); ?></strong></div>
 				<?php
 				if ( isset( $wfpInfoData['account_details'] ) ) {
 					?>
@@ -110,14 +110,14 @@ defined( 'ABSPATH' ) || exit;
 			}
 			if ( isset( $wfpInfoData['description'] ) && strlen( $wfpInfoData['description'] ) > 4 ) :
 				?>
-				<div class="wfp-payment-method-acc-details"> <strong class="wfp-payment-method-acc-details--title"><?php echo wp_kses( apply_filters( 'wfp_donate_forms_payment_method_details', esc_html__( 'Details:', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></strong>
+				<div class="wfp-payment-method-acc-details"> <strong class="wfp-payment-method-acc-details--title"><?php echo wp_kses( apply_filters( 'wfp_donate_forms_payment_method_details', esc_html__( 'Details:', 'wp-fundraising-donation' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></strong>
 					<span class="wfp-payment-method-acc-details--description"><?php echo esc_html( isset( $wfpInfoData['description'] ) ? $wfpInfoData['description'] : '' ); ?></span>
 				</div>
 				<?php
 			endif;
 			if ( isset( $wfpInfoData['instructions'] ) && strlen( $wfpInfoData['instructions'] ) > 4 ) :
 				?>
-				<div class="wfp-payment-method-acc-details"> <strong class="wfp-payment-method-acc-details--title"><?php echo wp_kses( apply_filters( 'wfp_donate_forms_payment_method_instructions', esc_html__( 'Instructions:', 'wp-fundraising' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></strong>
+				<div class="wfp-payment-method-acc-details"> <strong class="wfp-payment-method-acc-details--title"><?php echo wp_kses( apply_filters( 'wfp_donate_forms_payment_method_instructions', esc_html__( 'Instructions:', 'wp-fundraising-donation' ) ), \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></strong>
 					<span class="wfp-payment-method-acc-details--description"><?php echo esc_html( isset( $wfpInfoData['instructions'] ) ? $wfpInfoData['instructions'] : '' ); ?></span>
 				</div>
 			<?php endif; ?>

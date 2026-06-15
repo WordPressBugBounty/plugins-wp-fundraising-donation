@@ -5,13 +5,13 @@ defined( 'ABSPATH' ) || exit;
 
 if ( isset( $_POST['wpf_settings_nonce'] ) ) {
 	if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wpf_settings_nonce'] ) ), 'wpf_save_settings' ) ) {
-		esc_html_e( 'You are not allowed to save data.', 'wp-fundraising' );
+		esc_html_e( 'You are not allowed to save data.', 'wp-fundraising-donation' );
 	}
 }
 ?>
 <div class="wrap wfp-view wfp-view-admin">
 	<div class="wfdp-donation-reports">
-		<h1> <?php echo esc_html__( 'Settings', 'wp-fundraising' ); ?></h1>
+		<h1> <?php echo esc_html__( 'Settings', 'wp-fundraising-donation' ); ?></h1>
 
 		<?php if ( $message_status == 'show' ) { ?>
 
@@ -19,7 +19,7 @@ if ( isset( $_POST['wpf_settings_nonce'] ) ) {
 				<div class="updated  notice is-dismissible" style="margin: 1em 0px; visibility: visible; opacity: 1;">
 					<p><?php echo wp_kses( $message_text, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></p>
 					<button type="button" class="notice-dismiss">
-						<span class="screen-reader-text"><?php echo esc_html__( 'Dismiss this notice.', 'wp-fundraising' ); ?></span>
+						<span class="screen-reader-text"><?php echo esc_html__( 'Dismiss this notice.', 'wp-fundraising-donation' ); ?></span>
 					</button>
 				</div>
 			</div>

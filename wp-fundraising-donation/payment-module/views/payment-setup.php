@@ -3,7 +3,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <div class="wfdp-payment-section wfp-disabled-div <?php echo ( $wfpGateCampaignData == 'woocommerce' ) ? 'wfp-disabled' : ''; ?>" >
 	<div class="wfdp-payment-headding">
-		<h2><?php echo esc_html__( 'Setup Payment Gateways', 'wp-fundraising' ); ?></h2>
+		<h2><?php echo esc_html__( 'Setup Payment Gateways', 'wp-fundraising-donation' ); ?></h2>
 	</div>
 	 
 	<div class="wfdp-payment-gateway">
@@ -15,9 +15,9 @@ defined( 'ABSPATH' ) || exit;
 					<thead>
 						<tr>
 							<th class="sort"></th>
-							<th class="name"> <?php echo esc_html__( 'Gateways', 'wp-fundraising' ); ?></th>
-							<th class="enable"> <?php echo esc_html__( 'Enable', 'wp-fundraising' ); ?></th>
-							<th class="description"> <?php echo esc_html__( 'Description', 'wp-fundraising' ); ?></th>
+							<th class="name"> <?php echo esc_html__( 'Gateways', 'wp-fundraising-donation' ); ?></th>
+							<th class="enable"> <?php echo esc_html__( 'Enable', 'wp-fundraising-donation' ); ?></th>
+							<th class="description"> <?php echo esc_html__( 'Description', 'wp-fundraising-donation' ); ?></th>
 							<th class="info"></th>
 						</tr>
 					</thead>
@@ -56,7 +56,7 @@ defined( 'ABSPATH' ) || exit;
 							</td>
 							<td class="information">
 							<button type="button" class="xs-btn btn-special continue-bt <?php echo esc_attr( $wfp_fundraising_key ); ?> wfdp-btn" <?php echo isset( $wfp_fundraising_optionsData['enable'] ) && $wfp_fundraising_optionsData['enable'] == 'Yes' ? '' : 'disabled'; ?> data-type="modal-trigger" data-target="xs-donate-modal-popup__<?php echo esc_attr( $wfp_fundraising_key ); ?>"> 
-						<?php echo esc_html( isset( $wfp_fundraising_optionsData['enable'] ) && $wfp_fundraising_optionsData['enable'] == 'Yes' ? __( 'Manage', 'wp-fundraising' ) : __( 'Setup', 'wp-fundraising' ) ); ?>
+						<?php echo esc_html( isset( $wfp_fundraising_optionsData['enable'] ) && $wfp_fundraising_optionsData['enable'] == 'Yes' ? __( 'Manage', 'wp-fundraising-donation' ) : __( 'Setup', 'wp-fundraising-donation' ) ); ?>
 							</button>
 							
 							</td>
@@ -70,7 +70,7 @@ endforeach;
 					<tfoot>
 						<tr>
 							<td colspan="5" align="right"> 
-								<button type="submit" name="submit_donate_settings_gateways" class="button button-primary button-large"><?php echo esc_html__( 'Save', 'wp-fundraising' ); ?></button>
+								<button type="submit" name="submit_donate_settings_gateways" class="button button-primary button-large"><?php echo esc_html__( 'Save', 'wp-fundraising-donation' ); ?></button>
 							</td>
 						</tr>
 					</tfoot>

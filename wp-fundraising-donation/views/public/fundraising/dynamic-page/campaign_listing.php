@@ -251,7 +251,7 @@ $wfp_fundraising_content__flip_enable = '';
 									<div class="wfp-compaign-contents">
 										<div class="wfp-campaign-content">
 											<div class="number_donation_count_list">
-												<span class="wfp-icon wfpf wfpf-time"></span><?php esc_html_e( '28 Days Left', 'wp-fundraising' ); ?>
+												<span class="wfp-icon wfpf wfpf-time"></span><?php esc_html_e( '28 Days Left', 'wp-fundraising-donation' ); ?>
 											</div>
 
 											<?php
@@ -326,7 +326,7 @@ $wfp_fundraising_content__flip_enable = '';
 												</div>
 
 												<div class="profile-info">
-													<span class="display-name"><?php esc_html_e( 'Created by', 'wp-fundraising' ); ?>
+													<span class="display-name"><?php esc_html_e( 'Created by', 'wp-fundraising-donation' ); ?>
 														<strong class="display-name__author"><?php the_author_meta( 'display_name', $wfp_author_id ); ?></strong></span>
 												</div>
 											</div>
@@ -334,7 +334,7 @@ $wfp_fundraising_content__flip_enable = '';
 
 										<?php if ( isset( $wfp_fundraising_content__is_button ) && $wfp_fundraising_content__is_button == 'yes' ) : ?>
 											<a href="#"
-											   class="wfp-fundrising-button"><?php esc_html_e( 'Back Project', 'wp-fundraising' ); ?>
+											   class="wfp-fundrising-button"><?php esc_html_e( 'Back Project', 'wp-fundraising-donation' ); ?>
 												<span class="wfp-fundrising-icon xs-icon-plus"></span></a>
 										<?php endif; ?>
 									</div>
@@ -357,7 +357,7 @@ $wfp_fundraising_content__flip_enable = '';
 					<?php endif; ?>
 					</div>
 					<?php else : ?>
-						<p class="xs-alert xs-alert-danger"><?php esc_html_e( 'Sorry, not found any campaign.', 'wp-fundraising' ); ?></p>
+						<p class="xs-alert xs-alert-danger"><?php esc_html_e( 'Sorry, not found any campaign.', 'wp-fundraising-donation' ); ?></p>
 					<?php endif; ?>
 				</div>
 			</div>

@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <fieldset class="xs-donate-field-wrap">
-	<span class="xs-donate-field-label"><?php echo esc_html__( 'Enable Pledge', 'wp-fundraising' ); ?></span>
+	<span class="xs-donate-field-label"><?php echo esc_html__( 'Enable Pledge', 'wp-fundraising-donation' ); ?></span>
 	<div class="xs-field-body">
 		<ul class="xs-donate-option">
 			<li>
@@ -14,12 +14,12 @@ defined( 'ABSPATH' ) || exit;
 					<label for="donation_form_pledge_enable" class="xs_donate_switch_button_label small xs-round"></label>
 				</div>
 			</li>	
-			<li><label for="donation_form_pledge_enable" class="xs-donetion-field-description"><?php echo esc_html__( 'Display Pledge or Rewards.', 'wp-fundraising' ); ?></label></li>
+			<li><label for="donation_form_pledge_enable" class="xs-donetion-field-description"><?php echo esc_html__( 'Display Pledge or Rewards.', 'wp-fundraising-donation' ); ?></label></li>
 		</ul>
 	</div>
 </fieldset>
 <fieldset class="xs-donate-pledge-content-section xs-donate-field-wrap xs-donate-hidden <?php echo esc_attr( ( isset( $wfpFormPledgeData->enable ) && $wfpFormPledgeData->enable == 'Yes' ) ? 'xs-donate-visible' : '' ); ?>">	
-	<span class="xs-donate-field-label"><?php echo esc_html__( 'Pledge Label', 'wp-fundraising' ); ?></span>
+	<span class="xs-donate-field-label"><?php echo esc_html__( 'Pledge Label', 'wp-fundraising-donation' ); ?></span>
 	<div class="xs-donate-repeatable-field-section xs-field-body">
 		<div class="xs-donate-repeatable-fields-section-wrapper" >
 		 <div class="repater_pledge_item ui-sortable" id="wfdp-pledge-sortable-sub" >
@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 					</div>
 					<div class="xs-row-body xs-donate-hidden xs-donate-visible">
 						<div class="xs-donate-field-wrap ">
-							<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_amount" data-pattern-for="xs_pledge_++_amount"> <?php echo esc_html__( 'Amount', 'wp-fundraising' ); ?></label>
+							<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_amount" data-pattern-for="xs_pledge_++_amount"> <?php echo esc_html__( 'Amount', 'wp-fundraising-donation' ); ?></label>
 
 							<div class="xs-donate-field-wrap-amount">
 								<span class="xs-money-symbol xs-money-symbol-before"><?php echo esc_attr( $wfpSymbols ); ?></span>
@@ -50,33 +50,33 @@ defined( 'ABSPATH' ) || exit;
 						</div>
 
 						<div class="xs-donate-field-wrap ">
-							<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_quantity" data-pattern-for="xs_pledge_++_quantity"> <?php echo esc_html__( 'Quantity', 'wp-fundraising' ); ?></label>
+							<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_quantity" data-pattern-for="xs_pledge_++_quantity"> <?php echo esc_html__( 'Quantity', 'wp-fundraising-donation' ); ?></label>
 							
 							<input type="number" style="" name="xs_submit_donation_data[pledge_setup][multi][dimentions][<?php echo esc_attr( $wfp_m ); ?>][quantity]" data-pattern-name="xs_submit_donation_data[pledge_setup][multi][dimentions][++][quantity]" id="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_quantity" data-pattern-id="xs_pledge_++_quantity" value="<?php echo isset( $multi->quantity ) ? esc_attr( $multi->quantity ) : ''; ?>" placeholder="1" class="xs-field xs-money-field xs-text_small">
 							
 						</div>
 						<div class="xs-donate-field-wrap ">
-							<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_name" data-pattern-for="xs_pledge_++_lebel_name"><?php echo esc_html__( 'Label', 'wp-fundraising' ); ?></label>
+							<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_name" data-pattern-for="xs_pledge_++_lebel_name"><?php echo esc_html__( 'Label', 'wp-fundraising-donation' ); ?></label>
 							<input type="text" style="" name="xs_submit_donation_data[pledge_setup][multi][dimentions][<?php echo esc_attr( $wfp_m ); ?>][lebel]" data-pattern-name="xs_submit_donation_data[pledge_setup][multi][dimentions][++][lebel]" id="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_name" data-pattern-id="xs_pledge_++_lebel_name" onkeyup="xs_modify_lebel_name(this);" value="<?php echo isset( $multi->lebel ) ? esc_attr( $multi->lebel ) : ''; ?>" placeholder="Basic" class="xs-field xs-text-field">
 						</div>
 						<div class="xs-donate-field-wrap ">
-							<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_description" data-pattern-for="xs_pledge_++_lebel_description"><?php echo esc_html__( 'Label Description', 'wp-fundraising' ); ?></label>
+							<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_description" data-pattern-for="xs_pledge_++_lebel_description"><?php echo esc_html__( 'Label Description', 'wp-fundraising-donation' ); ?></label>
 							<input type="text" style="" name="xs_submit_donation_data[pledge_setup][multi][dimentions][<?php echo esc_attr( $wfp_m ); ?>][description]" data-pattern-name="xs_submit_donation_data[pledge_setup][multi][dimentions][++][description]" id="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_description" data-pattern-id="xs_pledge_++_lebel_description" value="<?php echo isset( $multi->description ) ? esc_attr( $multi->description ) : ''; ?>" placeholder="Basic" class="xs-field xs-text-field">
 						</div>
 						<div class="xs-donate-field-wrap repater_pledge_item_additional">
-							<div class="repater_pledge_item_additional--title"><?php echo esc_html__( 'Additional Data : ', 'wp-fundraising' ); ?></div>
+							<div class="repater_pledge_item_additional--title"><?php echo esc_html__( 'Additional Data : ', 'wp-fundraising-donation' ); ?></div>
 							<div class="xs-donate-field-wrap padding-left" >
-								<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_includes" data-pattern-for="xs_pledge_++_lebel_includes"><?php echo esc_html__( 'Includes', 'wp-fundraising' ); ?></label>
+								<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_includes" data-pattern-for="xs_pledge_++_lebel_includes"><?php echo esc_html__( 'Includes', 'wp-fundraising-donation' ); ?></label>
 								
 								<div class="xs-donate-field-wrap-amount xs-donate-field-wrap-no-symbol">
 									<input type="text" style="" name="xs_submit_donation_data[pledge_setup][multi][dimentions][<?php echo esc_attr( $wfp_m ); ?>][includes]" data-pattern-name="xs_submit_donation_data[pledge_setup][multi][dimentions][++][includes]" id="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_includes" data-pattern-id="xs_pledge_++_lebel_includes" value="<?php echo isset( $multi->includes ) ? esc_attr( $multi->includes ) : ''; ?>" placeholder="value 1, value 2" class="xs-field xs-text-field">
-									<span class="xs-donetion-field-description"><?php echo esc_html__( 'Multiple Value Seperate by comma(,)', 'wp-fundraising' ); ?></span>
+									<span class="xs-donetion-field-description"><?php echo esc_html__( 'Multiple Value Seperate by comma(,)', 'wp-fundraising-donation' ); ?></span>
 								</div>
 								
 							</div>
 							
 							<div class="xs-donate-field-wrap padding-left" >
-								<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_estimated" data-pattern-for="xs_pledge_++_lebel_estimated"><?php echo esc_html__( 'Estimated Delivery', 'wp-fundraising' ); ?></label>
+								<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_estimated" data-pattern-for="xs_pledge_++_lebel_estimated"><?php echo esc_html__( 'Estimated Delivery', 'wp-fundraising-donation' ); ?></label>
 
 								<div class="search-tab wfp-no-date-limit">
 									<input type="text" style="" name="xs_submit_donation_data[pledge_setup][multi][dimentions][<?php echo esc_attr( $wfp_m ); ?>][estimated]" data-pattern-name="xs_submit_donation_data[pledge_setup][multi][dimentions][++][estimated]" id="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_estimated" data-pattern-id="xs_pledge_++_lebel_estimated" value="<?php echo isset( $multi->estimated ) ? esc_attr( $multi->estimated ) : ''; ?>" placeholder="" class="xs-field xs-text-field datepicker-donate">
@@ -86,7 +86,7 @@ defined( 'ABSPATH' ) || exit;
 								
 							</div>
 							<div class="xs-donate-field-wrap padding-left" >
-								<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_ships" data-pattern-for="xs_pledge_++_lebel_ships"><?php echo esc_html__( 'Ships To', 'wp-fundraising' ); ?></label>
+								<label for="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_ships" data-pattern-for="xs_pledge_++_lebel_ships"><?php echo esc_html__( 'Ships To', 'wp-fundraising-donation' ); ?></label>
 								<input type="text" style="" name="xs_submit_donation_data[pledge_setup][multi][dimentions][<?php echo esc_attr( $wfp_m ); ?>][ships]" data-pattern-name="xs_submit_donation_data[pledge_setup][multi][dimentions][++][ships]" id="xs_pledge_<?php echo esc_attr( $wfp_m ); ?>_lebel_ships" data-pattern-id="xs_pledge_++_lebel_ships" value="<?php echo isset( $multi->ships ) ? esc_attr( $multi->ships ) : ''; ?>" placeholder="" class="xs-field xs-text-field">
 								
 							</div>	
@@ -103,7 +103,7 @@ defined( 'ABSPATH' ) || exit;
 			?>
 				
 				<div class="add_button_sections">
-					<button type="button" class="xs-pledge-btnAdd xs-review-add-button"><?php echo esc_html__( 'Add Pledge', 'wp-fundraising' ); ?></button>
+					<button type="button" class="xs-pledge-btnAdd xs-review-add-button"><?php echo esc_html__( 'Add Pledge', 'wp-fundraising-donation' ); ?></button>
 				</div>
 			</div>
 			

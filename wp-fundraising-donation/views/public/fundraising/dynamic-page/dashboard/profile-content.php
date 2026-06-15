@@ -9,11 +9,11 @@ defined( 'ABSPATH' ) || exit;
 		<div class="message-campaign-status" role="alert"></div>
 		<div class="profile-section">
 			<div class="profile-block left-profile">
-				<h3><i class="wfpf wfpf-store-front"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_billing_headding', __( 'Billing Info ', 'wp-fundraising' ) ) ); ?></h3>
+				<h3><i class="wfpf wfpf-store-front"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_billing_headding', __( 'Billing Info ', 'wp-fundraising-donation' ) ) ); ?></h3>
 				
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_first_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_first_name', __( 'First Name', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_first_name', __( 'First Name', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
 						<span>:</span>
@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 				
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_last_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_last_name', __( 'Last Name', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_last_name', __( 'Last Name', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -39,7 +39,7 @@ defined( 'ABSPATH' ) || exit;
 
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_company_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_attr( apply_filters( 'wfp_dashboard_profile_content_company_name', __( 'Company', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_attr( apply_filters( 'wfp_dashboard_profile_content_company_name', __( 'Company', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -53,7 +53,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_address" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_address', __( 'Address', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_address', __( 'Address', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -68,7 +68,7 @@ defined( 'ABSPATH' ) || exit;
 
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_city_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_city_name', __( 'City', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_city_name', __( 'City', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -83,7 +83,7 @@ defined( 'ABSPATH' ) || exit;
 
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_city_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_postcode', __( 'Postcode', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_postcode', __( 'Postcode', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -97,7 +97,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_country" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_country', __( 'Country', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_country', __( 'Country', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -142,7 +142,7 @@ defined( 'ABSPATH' ) || exit;
 				
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_city_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_telephone', __( 'Telephone', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_telephone', __( 'Telephone', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -156,7 +156,7 @@ defined( 'ABSPATH' ) || exit;
 
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_email_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_email', __( 'Email', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_email', __( 'Email', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -170,15 +170,15 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 
 				<div class="xs-text-right">
-					<button type="submit" class="wfp-form-button xs-btn xs-btn-primary" name="post_dashboard_campaign"><?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_submit_button', __( 'Update', 'wp-fundraising' ) ) ); ?></button>
+					<button type="submit" class="wfp-form-button xs-btn xs-btn-primary" name="post_dashboard_campaign"><?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_submit_button', __( 'Update', 'wp-fundraising-donation' ) ) ); ?></button>
 				</div>
 				
 			</div>
 			<div class="profile-block right-profile">
-				<h3><i class="wfpf wfpf-travel-car"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_shipping_headding', __( 'Shipping Info ', 'wp-fundraising' ) ) ); ?></h3>
+				<h3><i class="wfpf wfpf-travel-car"></i><?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_shipping_headding', __( 'Shipping Info ', 'wp-fundraising-donation' ) ) ); ?></h3>
 				<div class="xs-form-group xs-row intro-info">
 					<label for="shipping_first_name"  class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_first_name', __( 'First Name', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_first_name', __( 'First Name', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -192,7 +192,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="xs-form-group xs-row intro-info">
 					<label for="shipping_last_name"  class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_last_name', __( 'Last Name', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_last_name', __( 'Last Name', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -206,7 +206,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="xs-form-group xs-row intro-info">
 					<label for="shipping_company_name"  class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_company_name', __( 'Company', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_company_name', __( 'Company', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -220,7 +220,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="xs-form-group xs-row intro-info">
 					<label for="shipping_address"  class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_address', __( 'Address', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_address', __( 'Address', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -234,7 +234,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="xs-form-group xs-row intro-info">
 					<label for="shipping_city_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_city_name', __( 'City', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_city_name', __( 'City', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -248,7 +248,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="xs-form-group xs-row intro-info">
 					<label for="shipping_city_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_postcode', __( 'Postcode', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_postcode', __( 'Postcode', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -261,7 +261,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="xs-form-group xs-row intro-info">
 					<label for="shipping_city_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_country', __( 'Country', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_country', __( 'Country', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -305,7 +305,7 @@ defined( 'ABSPATH' ) || exit;
 				
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_city_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_telephone', __( 'Telephone', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_telephone', __( 'Telephone', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -319,7 +319,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 				<div class="xs-form-group xs-row intro-info">
 					<label for="billing_email_name" class="xs-col-4 xs-col-md-4 xs-col-form-label">
-						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_email', __( 'Email', 'wp-fundraising' ) ) ); ?>
+						<?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_email', __( 'Email', 'wp-fundraising-donation' ) ) ); ?>
 					</label>
 
 					<div class="xs-col-1 xs-col-md-1 wfp-separator">
@@ -333,7 +333,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 
 				<div class="xs-text-right">
-					<button type="submit" class="wfp-form-button xs-btn xs-btn-primary" name="post_dashboard_campaign"><?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_submit_button', __( 'Update', 'wp-fundraising' ) ) ); ?></button>
+					<button type="submit" class="wfp-form-button xs-btn xs-btn-primary" name="post_dashboard_campaign"><?php echo esc_html( apply_filters( 'wfp_dashboard_profile_content_submit_button', __( 'Update', 'wp-fundraising-donation' ) ) ); ?></button>
 				</div>
 				
 				
