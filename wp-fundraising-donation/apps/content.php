@@ -1929,12 +1929,12 @@ class Content {
 
 		$form_data = isset( $request['params'] ) ? sanitize_text_field( $request['params'] ) : '';
 		$ex_form   = explode( '__', $form_data );
-		$user_id   = isset( $ex_form[2] ) ? $ex_form[2] : 0;
-		$formId    = isset( $ex_form[1] ) ? $ex_form[1] : 0;
+		$formId    = isset( $ex_form[1] ) ? (int) $ex_form[1] : 0;
+		$user_id   = get_current_user_id();
 
 		$post = get_post( $formId );
 
-		if ( ! property_exists( $post, 'ID' ) ) {
+		if ( ! $post || ! property_exists( $post, 'ID' ) ) {
 			$return['error'] = __( 'Sorry invalid review.', 'wp-fundraising-donation' );
 
 			return $return;
@@ -1947,7 +1947,7 @@ class Content {
 		$post_parent      = get_post( $parentId );
 		$author_id_parent = ( property_exists( $post_parent, 'post_author' ) ) ? (int) $post_parent->post_author : 0;
 
-		if ( $author_id != $user_id and $user_id != $author_id_parent ) {
+		if ( $author_id !== $user_id && $user_id !== $author_id_parent ) {
 			$return['error'] = __( 'Sorry you are not valid user.', 'wp-fundraising-donation' );
 
 			return $return;

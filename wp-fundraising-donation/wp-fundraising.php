@@ -5,7 +5,7 @@
  * Description: FundEngine - Fundraising Donation plugin and Crowdfunding Platform comes with Single donation and crowdfunding solution. This plugin gives the ability to anyone to create a crowdfunding and single donation site with WordPress.
  * Plugin URI: https://wpmet.com/
  * Author: Wpmet
- * Version: 1.7.8
+ * Version: 1.7.9
  * Author URI: https://wpmet.com/
  * Text Domain: wp-fundraising-donation
  *
@@ -18,8 +18,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WFP_FUNDRAISING_VERSION', '1.7.8' );
-define( 'WFP_FUNDRAISING_PREVIOUS_STABLE_VERSION', '1.7.7' );
+define( 'WFP_FUNDRAISING_VERSION', '1.7.9' );
+define( 'WFP_FUNDRAISING_PREVIOUS_STABLE_VERSION', '1.7.8' );
 
 
 /**
