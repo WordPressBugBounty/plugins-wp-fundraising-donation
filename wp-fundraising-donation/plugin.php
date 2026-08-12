@@ -135,7 +135,7 @@ final class Plugin {
 				unset( $actions['trash'] );
 			}
 
-			$actions['wfp_donations'] = '<a href="' . $url . '" title="check all donations" target="_blank" >' . esc_html__( 'Donations', 'wp-fundraising-donation' ) . '</a>';
+			$actions['wfp_donations'] = '<a href="' . $url . '" title="' . esc_attr__( 'Check all donations', 'wp-fundraising-donation' ) . '" target="_blank" >' . esc_html__( 'Donations', 'wp-fundraising-donation' ) . '</a>';
 			
 			// Restore trash action if it existed
 			if ( ! empty( $trash ) ) {
@@ -156,9 +156,9 @@ final class Plugin {
         */
 		\WfpFundraising\Wpmet\Libs\Plugins::instance()->init('wp-fundraising-donation')
         ->set_parent_menu_slug('edit.php?post_type=wp-fundraising')
-        ->set_submenu_name('Our Plugins')
-        ->set_section_title('Want to Take Your Fundraising to the Next Level?')
-        ->set_section_description('Install other plugins from us and unleash the full potential of your fundraising website!')
+        ->set_submenu_name(esc_html__('Our Plugins', 'wp-fundraising-donation'))
+        ->set_section_title(esc_html__('Want to Take Your Fundraising to the Next Level?', 'wp-fundraising-donation'))
+        ->set_section_description(esc_html__('Install other plugins from us and unleash the full potential of your fundraising website!', 'wp-fundraising-donation'))
         ->set_items_per_row(4)
         ->set_plugins(
 			[

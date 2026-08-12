@@ -13,7 +13,7 @@ function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingCo
 				'instructions'              => 'textarea',
 				'accept_for_virtual_orders' => 'checkbox',
 			),
-			'description' => 'Have your customers pay with cash (or by other means) upon delivery.',
+			'description' => __( 'Have your customers pay with cash (or by other means) upon delivery.', 'wp-fundraising-donation' ),
 		),
 		'online_payment'  => array(
 			'name'        => __( 'Paypal Payment', 'wp-fundraising-donation' ),
@@ -34,7 +34,7 @@ function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingCo
 				'live_API_signature'    => 'input',
 				/*'redirect_page_setup' => 'headding', 'success_page' => 'dropdown', 'sub_headding' => 'After success payment then redirect to this page.', 'cancel_page' => 'dropdown', 'sub_headding_cencel' => 'After cancel payment then redirect to this page.'*/
 			),
-			'description' => 'PayPal Standard redirects customers to PayPal to enter their payment information',
+			'description' => __( 'PayPal Standard redirects customers to PayPal to enter their payment information', 'wp-fundraising-donation' ),
 		),
 
 		'bank_payment'    => array(
@@ -53,7 +53,7 @@ function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingCo
 					'BIC_/_Swift'    => 'input',
 				),
 			),
-			'description' => 'Take payments in person via BACS. More commonly known as direct bank/wire transfer',
+			'description' => __( 'Take payments in person via BACS. More commonly known as direct bank/wire transfer', 'wp-fundraising-donation' ),
 		),
 		'check_payment'   =>
 			array(
@@ -63,7 +63,7 @@ function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingCo
 					'description'  => 'textarea',
 					'instructions' => 'textarea',
 				),
-				'description' => 'Take payments in person via checks. This offline gateway can also be useful to test purchases.',
+				'description' => __( 'Take payments in person via checks. This offline gateway can also be useful to test purchases.', 'wp-fundraising-donation' ),
 			),
 		'stripe_payment'  =>
 			array(
@@ -83,7 +83,7 @@ function wfp_fundraising_payment_services() { // phpcs:ignore WordPress.NamingCo
 					'live_secret_key'      => 'input',
 					/*'redirect_page_setup' => 'headding', 'success_page' => 'dropdown', 'sub_headding' => 'After success payment then redirect to this page.', 'cancel_page' => 'dropdown', 'sub_headding_cencel' => 'After cancel payment then redirect to this page.'*/
 				),
-				'description' => 'Stripe works by adding payment fields on the checkout and then sending the details to Stripe for verification. <a href="https://dashboard.stripe.com/register" target="_blank">Sign up </a> for a Stripe account, and <a target="_blank" href="https://dashboard.stripe.com/account/apikeys">get your Stripe account keys </a>.',
+				'description' => __( 'Stripe works by adding payment fields on the checkout and then sending the details to Stripe for verification. <a href="https://dashboard.stripe.com/register" target="_blank">Sign up </a> for a Stripe account, and <a target="_blank" href="https://dashboard.stripe.com/account/apikeys">get your Stripe account keys </a>.', 'wp-fundraising-donation' ),
 			),
 	);
 

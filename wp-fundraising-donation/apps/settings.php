@@ -103,11 +103,11 @@ class Settings {
 
 	public function wfp_excerpt_modify( $translation, $original ) {
 		if ( 'Excerpt' == $original ) {
-			return 'Short Brief';
+			return __( 'Short Brief', 'wp-fundraising-donation' );
 		} else {
 			$pos = strpos( $original, 'Excerpts are optional hand-crafted summaries of your' );
 			if ( $pos !== false ) {
-				return 'Tell something about your campaign.';
+				return __( 'Tell something about your campaign.', 'wp-fundraising-donation' );
 			}
 		}
 
@@ -220,7 +220,7 @@ class Settings {
 		$metaSetupKey = 'wfp_setup_services_data';
 		if ( update_option( $metaSetupKey, $data ) ) {
 			$return['success'] = array(
-				'message'    => 'Successfully Setup',
+				'message'    => __( 'Successfully Setup', 'wp-fundraising-donation' ),
 				'finish_url' => $url,
 			);
 		}
@@ -456,43 +456,43 @@ class Settings {
 
 		return array(
 			'dashboard'    => array(
-				'title'      => 'WFP Dashboard',
+				'title'      => __( 'WFP Dashboard', 'wp-fundraising-donation' ),
 				'slug'       => 'wfp-dashboard',
 				'short_code' => 'wfp-dashboard',
 			),
 
 			'checkout'     => array(
-				'title'      => 'WFP Checkout',
+				'title'      => __( 'WFP Checkout', 'wp-fundraising-donation' ),
 				'slug'       => 'wfp-checkout',
 				'short_code' => 'wfp-checkout',
 			),
 
 			'success'      => array(
-				'title'      => 'WFP Success',
+				'title'      => __( 'WFP Success', 'wp-fundraising-donation' ),
 				'slug'       => 'wfp-success',
 				'short_code' => 'wfp-success',
 			),
 
 			'cancel'       => array(
-				'title'      => 'WFP Failed Transaction',
+				'title'      => __( 'WFP Failed Transaction', 'wp-fundraising-donation' ),
 				'slug'       => 'wfp-cancel',
 				'short_code' => 'wfp-cancel',
 			),
 
 			'campaign'     => array(
-				'title'      => 'WFP Campaign listing',
+				'title'      => __( 'WFP Campaign listing', 'wp-fundraising-donation' ),
 				'slug'       => 'wfp-campaign',
 				'short_code' => 'wfp-campaign',
 			),
 
 			'auth-form'    => array(
-				'title'      => 'WFP Auth Form',
+				'title'      => __( 'WFP Auth Form', 'wp-fundraising-donation' ),
 				'slug'       => 'wfp-auth-form',
 				'short_code' => 'wfp_fundraising_form',
 			),
 
 			'invoice-info' => array(
-				'title'      => 'WFP Donation Invoice',
+				'title'      => __( 'WFP Donation Invoice', 'wp-fundraising-donation' ),
 				'slug'       => Key::SLUG_INVOICE_PAGE,
 				'short_code' => '',
 			),
@@ -762,7 +762,7 @@ class Settings {
 	public static function share_options() {
 
 		$link['facebook']  = array(
-			'label'  => 'Facebook',
+			'label'  => __( 'Facebook', 'wp-fundraising-donation' ),
 			'url'    => 'https://www.facebook.com/sharer/sharer.php',
 			'icon'   => 'met-social met-social-facebook',
 			'params' => array(
@@ -772,7 +772,7 @@ class Settings {
 			),
 		);
 		$link['twitter']   = array(
-			'label'  => 'Twitter',
+			'label'  => __( 'Twitter', 'wp-fundraising-donation' ),
 			'url'    => 'https://twitter.com/intent/tweet',
 			'icon'   => 'met-social met-social-twitter',
 			'params' => array(
@@ -782,7 +782,7 @@ class Settings {
 			),
 		);
 		$link['linkedin']  = array(
-			'label'  => 'LinkedIn',
+			'label'  => __( 'LinkedIn', 'wp-fundraising-donation' ),
 			'url'    => 'https://www.linkedin.com/shareArticle',
 			'icon'   => 'met-social met-social-linkedin',
 			'params' => array(
@@ -794,7 +794,7 @@ class Settings {
 			),
 		);
 		$link['pinterest'] = array(
-			'label'  => 'Pinterest',
+			'label'  => __( 'Pinterest', 'wp-fundraising-donation' ),
 			'url'    => 'https://pinterest.com/pin/create/button/',
 			'icon'   => 'met-social met-social-pinterest',
 			'params' => array(
@@ -804,17 +804,18 @@ class Settings {
 			),
 		);
 		$link['whatsapp']  = array(
-			'label'  => 'WhatsApp',
+			'label'  => __( 'WhatsApp', 'wp-fundraising-donation' ),
 			'url'    => 'https://web.whatsapp.com/send',
 			'icon'   => 'met-social met-social-whatsapp',
 			'params' => array( 'text' => '[%title%] [%url%]' ),
 		);
 		$link['email']     = array(
-			'label'  => 'Email',
+			'label'  => __( 'Email', 'wp-fundraising-donation' ),
 			'url'    => 'mailto:',
 			'icon'   => 'met-social met-social-email',
 			'params' => array(
-				'body'    => 'Title: [%title%] \n\n URL: [%url%]',
+				/* translators: 1: campaign title, 2: campaign URL */
+				'body'    => sprintf( __( 'Title: %1$s \n\n URL: %2$s', 'wp-fundraising-donation' ), '[%title%]', '[%url%]' ),
 				'subject' => '[%title%]',
 			),
 		);
@@ -926,28 +927,28 @@ class Settings {
 	public static function global_options() {
 		return array(
 			'goal_setup'       => array(
-				'name' => 'Goal Setup',
-				'note' => 'Enable goal setting in all compaign forms. - Tab "Goal Setup" in Campaign Form.',
+				'name' => __( 'Goal Setup', 'wp-fundraising-donation' ),
+				'note' => __( 'Enable goal setting in all compaign forms. - Tab "Goal Setup" in Campaign Form.', 'wp-fundraising-donation' ),
 			),
 			'pledge_setup'     => array(
-				'name' => 'Pledge Setup',
-				'note' => 'Enable pledge setting in all compaign forms for Crowdfunding. - Tab "Pledge Setup" in Campaign Form.',
+				'name' => __( 'Pledge Setup', 'wp-fundraising-donation' ),
+				'note' => __( 'Enable pledge setting in all compaign forms for Crowdfunding. - Tab "Pledge Setup" in Campaign Form.', 'wp-fundraising-donation' ),
 			),
 			'custom_fileds'    => array(
-				'name' => 'Custom Fileds',
-				'note' => 'Use custom fileds in forms like as [Phone, Address etc.] - Section "Form Content" in Campaign Form.',
+				'name' => __( 'Custom Fileds', 'wp-fundraising-donation' ),
+				'note' => __( 'Use custom fileds in forms like as [Phone, Address etc.] - Section "Form Content" in Campaign Form.', 'wp-fundraising-donation' ),
 			),
 			// 'additional_fees'  => [
 			// 'name' => 'Additional Fees',
 			// 'note' => 'Enable vat(%) amount for each payment. - Section "General" in Campaign Form.',
 			// ],
 			'limit_setup'      => array(
-				'name' => 'Limit Options',
-				'note' => 'Set limit amount (min, max) on the campaign submission form. - Section "General" in Campaign Form.',
+				'name' => __( 'Limit Options', 'wp-fundraising-donation' ),
+				'note' => __( 'Set limit amount (min, max) on the campaign submission form. - Section "General" in Campaign Form.', 'wp-fundraising-donation' ),
 			),
 			'contributor_info' => array(
-				'name' => 'Contributor Info',
-				'note' => 'Enable this option to display the contributors for this Campaign. - Section "Settings" in Campaign Form.',
+				'name' => __( 'Contributor Info', 'wp-fundraising-donation' ),
+				'note' => __( 'Enable this option to display the contributors for this Campaign. - Section "Settings" in Campaign Form.', 'wp-fundraising-donation' ),
 			),
 		);
 	}
@@ -962,13 +963,13 @@ class Settings {
 
 		return array(
 			'welcome'      => array(
-				'headding' => 'Welcome FundEngine',
-				'details'  => 'Welcome to our FundEngine for Single Donation & Crowdfunding',
+				'headding' => __( 'Welcome FundEngine', 'wp-fundraising-donation' ),
+				'details'  => __( 'Welcome to our FundEngine for Single Donation & Crowdfunding', 'wp-fundraising-donation' ),
 				'img_url'  => \WFP_Fundraising::plugin_url() . 'views/welcome/image/screenshot-welcome.png',
 				'button'   => array(
-					'pre'       => 'Cancel',
+					'pre'       => __( 'Cancel', 'wp-fundraising-donation' ),
 					'pre_type'  => 'close',
-					'next'      => 'Start',
+					'next'      => __( 'Start', 'wp-fundraising-donation' ),
 					'next_type' => 'next',
 					'data'      => '',
 				),
@@ -978,26 +979,26 @@ class Settings {
 				),
 			),
 			'campaign'     => array(
-				'headding' => 'Campaign Format',
-				'details'  => 'Select once format for Campaign then click "Ok" button and go to next step.',
+				'headding' => __( 'Campaign Format', 'wp-fundraising-donation' ),
+				'details'  => __( 'Select once format for Campaign then click "Ok" button and go to next step.', 'wp-fundraising-donation' ),
 				'img_url'  => '',
 				'button'   => array(
-					'pre'       => 'Previous',
+					'pre'       => __( 'Previous', 'wp-fundraising-donation' ),
 					'pre_type'  => 'pre',
-					'next'      => 'Ok',
+					'next'      => __( 'Ok', 'wp-fundraising-donation' ),
 					'next_type' => 'install',
 				),
 				'data'     => 'include/setup-campaign.php',
 			),
 
 			'payment_type' => array(
-				'headding' => 'Payment Getway',
-				'details'  => 'Select payment getway for Campaigns and click "Select" button and go to next step.',
+				'headding' => __( 'Payment Getway', 'wp-fundraising-donation' ),
+				'details'  => __( 'Select payment getway for Campaigns and click "Select" button and go to next step.', 'wp-fundraising-donation' ),
 				'img_url'  => '',
 				'button'   => array(
-					'pre'       => 'Previous',
+					'pre'       => __( 'Previous', 'wp-fundraising-donation' ),
 					'pre_type'  => 'pre',
-					'next'      => 'Select',
+					'next'      => __( 'Select', 'wp-fundraising-donation' ),
 					'next_type' => 'install',
 				),
 				'data'     => 'include/setup-payment-type.php',
@@ -1008,13 +1009,13 @@ class Settings {
 			'currency' => ['headding' => 'Currency & Country Selection', 'details' => '', 'img_url' => '', 'button' => ['pre' => 'Skip', 'pre_type' => 'skip',  'next' => 'Install', 'next_type' => 'install'], 'data' => 'include/setup-currency.php'
 			],*/
 			'finish'       => array(
-				'headding' => 'Finish Setup..',
-				'details'  => 'Click this finish button and complete your basic setup process and go to next settings.',
+				'headding' => __( 'Finish Setup..', 'wp-fundraising-donation' ),
+				'details'  => __( 'Click this finish button and complete your basic setup process and go to next settings.', 'wp-fundraising-donation' ),
 				'img_url'  => '',
 				'button'   => array(
-					'pre'       => 'Previous',
+					'pre'       => __( 'Previous', 'wp-fundraising-donation' ),
 					'pre_type'  => 'pre',
-					'next'      => 'Finish',
+					'next'      => __( 'Finish', 'wp-fundraising-donation' ),
 					'next_type' => 'finish',
 				),
 				'data'     => '',
@@ -1124,7 +1125,7 @@ class Settings {
 	 */
 	public static function valid_email( $str ) {
 
-		return filter_var( $str, FILTER_VALIDATE_EMAIL ) !== false;
+		return filter_var( $str, FILTER_VALIDATE_EMAIL ) !== false && is_email( $str );
 		// return !(!filter_var($str, FILTER_VALIDATE_EMAIL));
 		// return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? false : true;
 	}
@@ -1172,7 +1173,9 @@ class Settings {
 		$myrows = $wpdb->get_results( $wpdb->prepare( 'SELECT `meta_value` FROM ' . $wpdb->prefix . 'wdp_fundraising_meta WHERE meta_key = %s AND donate_id = %d', $meta_key, $wfp_post_id ) );
 		$result = isset( $myrows[0]->meta_value ) ? $myrows[0]->meta_value : '';
 
-		return ( @unserialize( $result ) !== false ) ? unserialize( $result ) : $result;
+		$unserialized = @unserialize( $result, array( 'allowed_classes' => false ) );
+
+		return ( $unserialized !== false ) ? $unserialized : $result;
 	}
 
 
@@ -1495,19 +1498,19 @@ class Settings {
 		return array(
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => 'First Name',
+				'lebel'    => __( 'First Name', 'wp-fundraising-donation' ),
 				'default'  => '',
 				'required' => 'Yes',
 			),
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => 'Last Name',
+				'lebel'    => __( 'Last Name', 'wp-fundraising-donation' ),
 				'default'  => '',
 				'required' => 'Yes',
 			),
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => 'Email Address',
+				'lebel'    => __( 'Email Address', 'wp-fundraising-donation' ),
 				'default'  => '',
 				'required' => 'Yes',
 			),
@@ -1528,7 +1531,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_first_name',
-			'label'     => __( 'First Name', 'wp-fundraising-donation' ),
+			'lebel'     => __( 'First Name', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['last_name'] = array(
@@ -1536,7 +1539,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_last_name',
-			'label'     => __( 'Last Name', 'wp-fundraising-donation' ),
+			'lebel'     => __( 'Last Name', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['email_address'] = array(
@@ -1544,7 +1547,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_email_address',
-			'label'     => __( 'Email Address', 'wp-fundraising-donation' ),
+			'lebel'     => __( 'Email Address', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['country_destination'] = array(
@@ -1552,7 +1555,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_country_pledge',
-			'label'     => __( 'Country Destination', 'wp-fundraising-donation' ),
+			'lebel'     => __( 'Country Destination', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['street_address'] = array(
@@ -1560,7 +1563,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_street_pledge',
-			'label'     => __( 'Street Address', 'wp-fundraising-donation' ),
+			'lebel'     => __( 'Street Address', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['city'] = array(
@@ -1568,7 +1571,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_city_pledge',
-			'label'     => __( 'City :', 'wp-fundraising-donation' ),
+			'lebel'     => __( 'City :', 'wp-fundraising-donation' ),
 		);
 
 		$fields['additional']['postcode'] = array(
@@ -1576,7 +1579,7 @@ class Settings {
 			'required'  => true,
 			'closeable' => false,
 			'id'        => 'xs_donate_post_pledge',
-			'label'     => __( 'Postcode / ZIP :', 'wp-fundraising-donation' ),
+			'lebel'     => __( 'Postcode / ZIP :', 'wp-fundraising-donation' ),
 		);
 
 		return $fields;

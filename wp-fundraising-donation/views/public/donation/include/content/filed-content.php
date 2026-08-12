@@ -76,6 +76,10 @@ if ( is_array( $wfpMultiFiledData ) && sizeof( $wfpMultiFiledData ) > 0 && $wfpA
 		<textarea style="width:100%;" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_attr( $wfpNameFiled ); ?>]" id="xs-<?php echo esc_attr( $wfpNameFiled ); ?>" <?php echo esc_attr( ( $wfp_required == 'Yes' ) ? 'required' : '' ); ?>><?php echo esc_html( $wfp_value ); ?></textarea>
 		<?php } elseif ( $wfpTyleFiled == 'number' ) { ?>
 		<input type="number" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_attr( $wfpNameFiled ); ?>]" value="<?php echo esc_html( $wfp_value ); ?>" id="xs-<?php echo esc_attr( $wfpNameFiled ); ?>" <?php echo esc_attr( ( $wfp_required == 'Yes' ) ? 'required' : '' ); ?> />
+		<?php } elseif ( $wfpTyleFiled == 'email' ) { ?>
+		<input type="email" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_attr( $wfpNameFiled ); ?>]" value="<?php echo esc_html( $wfp_value ); ?>" id="xs-<?php echo esc_attr( $wfpNameFiled ); ?>" <?php echo esc_attr( ( $wfp_required == 'Yes' ) ? 'required' : '' ); ?> />
+		<?php } else { ?>
+		<input type="text" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_attr( $wfpNameFiled ); ?>]" value="<?php echo esc_html( $wfp_value ); ?>" id="xs-<?php echo esc_attr( $wfpNameFiled ); ?>" <?php echo esc_attr( ( $wfp_required == 'Yes' ) ? 'required' : '' ); ?> />
 		<?php } ?>
 	</div>
 			<?php

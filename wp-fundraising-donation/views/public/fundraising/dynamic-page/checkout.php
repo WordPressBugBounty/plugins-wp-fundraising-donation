@@ -140,7 +140,7 @@ $wfp_payment_settings = \WfpFundraising\Apps\Settings::instance()->get_active_pa
 
 										<div class="wfdp-donation-input-form wfp-input-field <?php echo esc_attr( $wfpEnableDisplayField ); ?>">
 											<label for="<?php echo esc_attr( $fld_info['id'] ); ?>">
-												<?php echo esc_html( $fld_info['label'] ); ?>
+												<?php echo esc_html( $fld_info['lebel'] ); ?>
 											</label>
 											<input type="text"
 												   class="regular-text"

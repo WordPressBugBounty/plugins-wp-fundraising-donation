@@ -77,6 +77,10 @@ if ( isset( $wfpFormContentData->additional->enable ) && $wfpFormContentData->ad
 					<textarea style="width:100%;" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_html( $wfpNameFiled ); ?>]" id="xs-<?php echo esc_html( $wfpNameFiled ); ?>" <?php echo ( $wfp_required == 'Yes' ) ? 'required' : ''; ?>><?php echo esc_html( $wfp_value ); ?></textarea>
 				<?php } elseif ( $wfp_field_type == 'number' ) { ?>
 					<input type="number" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_html( $wfpNameFiled ); ?>]" value="<?php echo esc_html( $wfp_value ); ?>" id="xs-<?php echo esc_html( $wfpNameFiled ); ?>" <?php echo ( $wfp_required == 'Yes' ) ? 'required' : ''; ?> />
+				<?php } elseif ( $wfp_field_type == 'email' ) { ?>
+					<input type="email" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_html( $wfpNameFiled ); ?>]" value="<?php echo esc_html( $wfp_value ); ?>" id="xs-<?php echo esc_html( $wfpNameFiled ); ?>" <?php echo ( $wfp_required == 'Yes' ) ? 'required' : ''; ?> />
+				<?php } else { ?>
+					<input type="text" class="regular-text" name="xs_donate_data_submit[additonal][<?php echo esc_html( $wfpNameFiled ); ?>]" value="<?php echo esc_html( $wfp_value ); ?>" id="xs-<?php echo esc_html( $wfpNameFiled ); ?>" <?php echo ( $wfp_required == 'Yes' ) ? 'required' : ''; ?> />
 				<?php } ?>
 			</div>
 			<?php

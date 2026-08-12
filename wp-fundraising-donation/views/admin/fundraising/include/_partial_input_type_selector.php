@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 		<div class="xs-donate-row-head xs-move ui-sortable-handle"
 			 onclick="xs_show_hide_parents_elements(this)">
 			<h2>
-				<span class="level_donate_multi"><?php echo esc_html( $fld_info['label'] ); ?></span>
+				<span class="level_donate_multi"><?php echo esc_html( $fld_info['lebel'] ); ?></span>
 			</h2>
 
 			<div class="xs-header-btn-group" style="">
@@ -42,7 +42,7 @@ defined( 'ABSPATH' ) || exit;
 
 							if ( $wfp_type == 'select' ) :
 								?>
-								<option value="number" selected> <?php esc_html_e( 'Selection', 'wp-fundraising-donation' ); ?></option>
+								<option value="select" selected> <?php esc_html_e( 'Selection', 'wp-fundraising-donation' ); ?></option>
 																							   <?php
 							endif;
 							?>
@@ -59,12 +59,12 @@ defined( 'ABSPATH' ) || exit;
 
 					<div class="xs-donate-field-wrap-amount xs-donate-field-wrap-no-symbol">
 						<input type="text"
-							   data-pattern-name="xs_submit_donation_data[form_content][<?php echo esc_attr( $wfp_group ); ?>][dimentions][++][label]"
+							   data-pattern-name="xs_submit_donation_data[form_content][<?php echo esc_attr( $wfp_group ); ?>][dimentions][++][lebel]"
 							   data-pattern-id="xs_additional_++_label_name"
 							   id="xs_additional_<?php echo esc_attr( $wfp_counter ); ?>_label_name"
-							   name="xs_submit_donation_data[form_content][<?php echo esc_attr( $wfp_group ); ?>][dimentions][<?php echo esc_attr( $wfp_counter ); ?>][label]"
+							   name="xs_submit_donation_data[form_content][<?php echo esc_attr( $wfp_group ); ?>][dimentions][<?php echo esc_attr( $wfp_counter ); ?>][lebel]"
 							   onkeyup="xs_modify_lebel_name(this);"
-							   value="<?php echo esc_attr( $fld_info['label'] ); ?>"
+							   value="<?php echo esc_attr( $fld_info['lebel'] ); ?>"
 							   placeholder="Basic"
 							   class="xs-field xs-text-field xs-money-field"/>
 					</div>

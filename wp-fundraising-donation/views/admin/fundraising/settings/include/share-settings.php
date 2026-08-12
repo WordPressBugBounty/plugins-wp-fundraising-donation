@@ -19,7 +19,10 @@ defined( 'ABSPATH' ) || exit;
 				?>
 				<li class="wfdp-social-input-container"> 
 				<div class="wfdp-social-label">
-					<?php echo esc_html( 'Enable ' . $wfp_value['label'] ); ?>
+					<?php
+					/* translators: %s: social share network name, e.g. Facebook */
+					echo esc_html( sprintf( __( 'Enable %s', 'wp-fundraising-donation' ), $wfp_value['label'] ) );
+					?>
 				</div>
 				<div class="xs-switch-button_wraper">
 					<input class="xs_donate_switch_button" type="checkbox" id="donation_form_payment_enable__<?php echo esc_attr( $wfp_key ); ?>" <?php echo ( $wfpCheckEnable == 'Yes' ) ? 'checked' : ''; ?> name="xs_submit_settings_data_share[media][<?php echo esc_attr( $wfp_key ); ?>][enable]" value="Yes">

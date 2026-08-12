@@ -214,7 +214,7 @@
 <fieldset class="xs-donate-field-wrap ">
 	<span class="xs-donate-field-label"><?php echo esc_html__( 'Custom Form Class', 'wp-fundraising-donation' ); ?></span>
 	<div class="xs-field-body xs-repeater-field-wrap">
-		<input class="xs-text-field xs_block_input" type="text" style="" name="xs_submit_donation_data[form_design][custom_class]" id="xs_donate_forms_custom_class" value="<?php echo isset( $wfpFormDesignData->custom_class ) ? esc_attr( $wfpFormDesignData->custom_class ) : ''; ?>" placeholder="Enter Class Name" class="xs-field xs-money-field">
+		<input class="xs-text-field xs_block_input" type="text" style="" name="xs_submit_donation_data[form_design][custom_class]" id="xs_donate_forms_custom_class" value="<?php echo isset( $wfpFormDesignData->custom_class ) ? esc_attr( $wfpFormDesignData->custom_class ) : ''; ?>" placeholder="<?php echo esc_attr__( 'Enter Class Name', 'wp-fundraising-donation' ); ?>" class="xs-field xs-money-field">
 		<span class="xs-donetion-field-description"><?php echo esc_html__( 'This class for custom design.', 'wp-fundraising-donation' ); ?></span>
 	</div>
 	<div class="xs-clearfix"></div>
@@ -222,7 +222,7 @@
 <fieldset class="xs-donate-field-wrap">
 	<span class="xs-donate-field-label"><?php echo esc_html__( 'Custom Form Id', 'wp-fundraising-donation' ); ?></span>
 	<div class="xs-field-body xs-repeater-field-wrap">
-		<input class="xs-text-field xs_block_input" type="text" style="" name="xs_submit_donation_data[form_design][custom_id]" id="xs_donate_forms_custom_id" value="<?php echo isset( $wfpFormDesignData->custom_id ) ? esc_attr( $wfpFormDesignData->custom_id ) : ''; ?>" placeholder="Enter Id Name" class="xs-field xs-money-field">
+		<input class="xs-text-field xs_block_input" type="text" style="" name="xs_submit_donation_data[form_design][custom_id]" id="xs_donate_forms_custom_id" value="<?php echo isset( $wfpFormDesignData->custom_id ) ? esc_attr( $wfpFormDesignData->custom_id ) : ''; ?>" placeholder="<?php echo esc_attr__( 'Enter Id Name', 'wp-fundraising-donation' ); ?>" class="xs-field xs-money-field">
 		<span class="xs-donetion-field-description"><?php echo esc_html__( 'Declare form id.', 'wp-fundraising-donation' ); ?></span>
 	</div>
 	<div class="xs-clearfix"></div>

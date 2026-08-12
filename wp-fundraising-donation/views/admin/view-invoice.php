@@ -150,9 +150,9 @@ if ( is_user_logged_in() ) {
 
 				if ( ! empty( $wfp_obj['_wfp_additional_data']->meta_value ) ) {
 
-					$wfp_addi = unserialize( $wfp_obj['_wfp_additional_data']->meta_value );
+					$wfp_addi = unserialize( $wfp_obj['_wfp_additional_data']->meta_value, array( 'allowed_classes' => false ) );
 
-					foreach ( $wfp_addi as $wfp_ky => $vl ) {
+					foreach ( (array) $wfp_addi as $wfp_ky => $vl ) {
 						?>
 
 						<tr>

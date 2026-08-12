@@ -736,6 +736,13 @@ class Content {
 			'error'   => array(),
 		);
 
+		$wfp_nonce = $request->get_header( 'X-WP-Nonce' );
+		if ( empty( $wfp_nonce ) || ! wp_verify_nonce( $wfp_nonce, 'wp_rest' ) ) {
+			$return['error'] = esc_html__( 'Security check failed. Please reload the page and try again.', 'wp-fundraising-donation' );
+
+			return $return;
+		}
+
 		$error = false;
 
 		global $wpdb;

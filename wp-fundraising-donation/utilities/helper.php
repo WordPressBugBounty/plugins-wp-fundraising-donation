@@ -103,43 +103,43 @@ class Helper {
 
 		$fields[] = array(
 			'type'     => 'text',
-			'label'    => __( 'First Name', 'wp-fundraising-donation' ),
+			'lebel'    => __( 'First Name', 'wp-fundraising-donation' ),
 			'required' => Key::WFP_YES,
 		);
 
 		$fields[] = array(
 			'type'     => 'text',
-			'label'    => __( 'Last Name', 'wp-fundraising-donation' ),
+			'lebel'    => __( 'Last Name', 'wp-fundraising-donation' ),
 			'required' => Key::WFP_YES,
 		);
 
 		$fields[] = array(
 			'type'     => 'email',
-			'label'    => __( 'Email Address', 'wp-fundraising-donation' ),
+			'lebel'    => __( 'Email Address', 'wp-fundraising-donation' ),
 			'required' => Key::WFP_YES,
 		);
 
 		$fields[] = array(
 			'type'     => 'country', // !!! :P
-			'label'    => __( 'Country Destination', 'wp-fundraising-donation' ),
+			'lebel'    => __( 'Country Destination', 'wp-fundraising-donation' ),
 			'required' => Key::WFP_YES,
 		);
 
 		$fields[] = array(
 			'type'     => 'text',
-			'label'    => __( 'Street Address', 'wp-fundraising-donation' ),
+			'lebel'    => __( 'Street Address', 'wp-fundraising-donation' ),
 			'required' => Key::WFP_YES,
 		);
 
 		$fields[] = array(
 			'type'     => 'text',
-			'label'    => __( 'City', 'wp-fundraising-donation' ),
+			'lebel'    => __( 'City', 'wp-fundraising-donation' ),
 			'required' => Key::WFP_YES,
 		);
 
 		$fields[] = array(
 			'type'     => 'text',
-			'label'    => __( 'Postcode / ZIP', 'wp-fundraising-donation' ),
+			'lebel'    => __( 'Postcode / ZIP', 'wp-fundraising-donation' ),
 			'required' => Key::WFP_YES,
 		);
 
