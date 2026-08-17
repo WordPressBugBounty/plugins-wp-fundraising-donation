@@ -3,7 +3,7 @@ Contributors: ataurr, XpeedStudio
 Tags: crowdfunding, fundraising, donate, recurring-donations, donation
 Requires at least: 6.0
 Tested up to: 7.0
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 Requires PHP: 7.4
 License:  GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -114,6 +114,11 @@ FundEngine - Fundraising Donation plugin and Crowdfunding Platform comes with Si
 14. Donation level
 
 == Changelog ==
+Version 1.8.1 //2026-08-17
+- Fixed: Crowdfunding campaigns reverting to a single donation after saving.
+- Fixed: Unauthenticated option overwrite vulnerability affecting plugin settings and payment configuration.
+- Fixed: Hard-coded and untranslatable strings.
+
 Version 1.8.0 //2026-07-22
 - Fixed: An unauthenticated PHP Object Injection vulnerability in the donation submission and reports functionality.
 - Fixed: Translation issues.

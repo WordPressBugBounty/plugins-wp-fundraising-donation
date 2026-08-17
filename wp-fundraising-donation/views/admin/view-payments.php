@@ -369,7 +369,8 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 				<tr>
 					<th class="sort"><?php echo esc_html__( 'S.L.', 'wp-fundraising-donation' ); ?></th>
 					<th class="name"> <?php echo esc_html__( 'Email', 'wp-fundraising-donation' ); ?></th>
-					<th class="enable"> <?php echo esc_html( 'Amount [' . $wfpSymbols . ']' ); ?></th>
+					<?php /* translators: %s: currency symbol. */ ?>
+					<th class="enable"> <?php echo esc_html( sprintf( __( 'Amount [%s]', 'wp-fundraising-donation' ), $wfpSymbols ) ); ?></th>
 					<th class=""> <?php echo esc_html__( 'Payment Method', 'wp-fundraising-donation' ); ?> </th>
 					<th class=""> <?php echo esc_html__( 'Date', 'wp-fundraising-donation' ); ?> </th>
 					<th class="info"> <?php echo esc_html__( 'Action', 'wp-fundraising-donation' ); ?></th>

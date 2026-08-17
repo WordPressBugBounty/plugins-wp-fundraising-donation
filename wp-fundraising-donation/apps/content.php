@@ -136,7 +136,7 @@ class Content {
 		unset( $link['linkedin'] );
 
 		$link['link'] = array(
-			'label'   => 'Copy Link',
+			'label'   => __( 'Copy Link', 'wp-fundraising-donation' ),
 			'onclick' => 'wfp_copy_link(this)',
 			'url'     => '',
 			'params'  => array( 'url' => '[%url%]' ),
@@ -780,19 +780,19 @@ class Content {
 		$multiFiledData   = isset( $wfpGetMetaData->form_content->additional->dimentions ) && sizeof( $wfpGetMetaData->form_content->additional->dimentions ) ? $wfpGetMetaData->form_content->additional->dimentions : array(
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => 'First Name',
+				'lebel'    => __( 'First Name', 'wp-fundraising-donation' ),
 				'default'  => '',
 				'required' => 'Yes',
 			),
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => 'Last Name',
+				'lebel'    => __( 'Last Name', 'wp-fundraising-donation' ),
 				'default'  => '',
 				'required' => 'Yes',
 			),
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => 'Email Address',
+				'lebel'    => __( 'Email Address', 'wp-fundraising-donation' ),
 				'default'  => '',
 				'required' => 'Yes',
 			),
@@ -1267,7 +1267,7 @@ class Content {
 			$generateMeta['donation']['multi']['dimentions'] = array(
 				(object) array(
 					'price' => '1.00',
-					'lebel' => 'Basic',
+					'lebel' => __( 'Basic', 'wp-fundraising-donation' ),
 				),
 			);
 			$generateMeta['donation']['fixed']['price']      = isset( $meta_post['donation']['fixed']['price'] ) ? $meta_post['donation']['fixed']['price'] : 1;

@@ -163,13 +163,60 @@ class Settings {
 					'xs-welcome-form',
 					'/welcome-submit/(?P<formid>\w+)/',
 					array(
-						'methods'             => 'GET',
+						// The route writes the plugin's setup option, so it is a
+						// state-changing request: POST only, never GET.
+						'methods'             => \WP_REST_Server::CREATABLE,
 						'callback'            => array( $this, 'wfp_action_rest_welcome_submit' ),
-						'permission_callback' => '__return_true',
+						'permission_callback' => array( $this, 'wfp_can_run_setup_wizard' ),
 					)
 				);
 			}
 		);
+	}
+
+
+	/**
+	 * Permission callback for the setup wizard route.
+	 *
+	 * The wizard writes the `wfp_setup_services_data` option, which controls the
+	 * active payment gateway and campaign type for the whole site. Only a site
+	 * administrator acting from the plugin's own admin screen may do that, so we
+	 * require both the `manage_options` capability and a valid `wp_rest` nonce.
+	 *
+	 * @since 1.8.1
+	 * @access public
+	 *
+	 * @param \WP_REST_Request $request Current request.
+	 *
+	 * @return true|\WP_Error True when allowed, WP_Error otherwise.
+	 */
+	public function wfp_can_run_setup_wizard( \WP_REST_Request $request ) {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+
+			return new \WP_Error(
+				'wfp_rest_forbidden',
+				__( 'You are not allowed to change the setup settings.', 'wp-fundraising-donation' ),
+				array( 'status' => rest_authorization_required_code() )
+			);
+		}
+
+		$nonce = $request->get_header( 'X-WP-Nonce' );
+
+		if ( empty( $nonce ) ) {
+			$nonce = $request->get_param( '_wpnonce' );
+		}
+
+		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
+
+			return new \WP_Error(
+				'wfp_rest_invalid_nonce',
+				__( 'Invalid or expired security token.', 'wp-fundraising-donation' ),
+				array( 'status' => 403 )
+			);
+		}
+
+		return true;
 	}
 
 
@@ -210,20 +257,64 @@ class Settings {
 			'success' => array(),
 			'error'   => array(),
 		);
-		$error  = false;
 
-		$getPath                    = isset( $request['formid'] ) ? $request['formid'] : 'welcome';
-		$data                       = isset( $request['xs_welcome_data_submit'] ) ? self::sanitize( $request['xs_welcome_data_submit'] ) : array();
-		$data['services']['finish'] = $getPath;
+		$steps = self::default_setup();
 
-		$url          = '';
-		$metaSetupKey = 'wfp_setup_services_data';
-		if ( update_option( $metaSetupKey, $data ) ) {
-			$return['success'] = array(
-				'message'    => __( 'Successfully Setup', 'wp-fundraising-donation' ),
-				'finish_url' => $url,
-			);
+		// The step name comes from the URL. Only the wizard's own step keys are
+		// accepted, otherwise `finish` could be set to an arbitrary string and
+		// the setup gate in check_setup() would be left in an unknown state.
+		$getPath = isset( $request['formid'] ) ? sanitize_key( $request['formid'] ) : '';
+		if ( ! array_key_exists( $getPath, $steps ) ) {
+			$getPath = current( array_keys( $steps ) );
 		}
+
+		$submitted = $request->get_param( 'xs_welcome_data_submit' );
+		$submitted = is_array( $submitted ) ? $submitted : array();
+		$services  = ( isset( $submitted['services'] ) && is_array( $submitted['services'] ) ) ? $submitted['services'] : array();
+
+		$metaSetupKey = 'wfp_setup_services_data';
+
+		$stored = get_option( $metaSetupKey );
+		$stored = ( is_array( $stored ) && isset( $stored['services'] ) && is_array( $stored['services'] ) ) ? $stored['services'] : array();
+
+		// Allow-list: the wizard only ever submits these two fields, and each
+		// one only accepts the values its own radio buttons offer.
+		$allowed_services = array(
+			'campaign' => array( Key::WFP_DONATION_TYPE_SINGLE, Key::WFP_DONATION_TYPE_CROWED ),
+			'payment'  => array( 'default', 'woocommerce' ),
+		);
+
+		// Rebuild the option from the known keys only. A field the current step
+		// does not submit keeps its stored value, so a partial submission does
+		// not wipe the other steps -- but the stored value has to pass the same
+		// allow-list, otherwise a value injected while this route was still
+		// unauthenticated would be carried forward for ever. Anything that fails
+		// both checks is dropped, and the readers all fall back to their own
+		// defaults for a missing key.
+		$services_out = array();
+
+		foreach ( $allowed_services as $field => $choices ) {
+
+			if ( isset( $services[ $field ] ) && in_array( $services[ $field ], $choices, true ) ) {
+
+				$services_out[ $field ] = $services[ $field ];
+
+			} elseif ( isset( $stored[ $field ] ) && in_array( $stored[ $field ], $choices, true ) ) {
+
+				$services_out[ $field ] = $stored[ $field ];
+			}
+		}
+
+		$services_out['finish'] = $getPath;
+
+		$data = array( 'services' => $services_out );
+
+		update_option( $metaSetupKey, $data );
+
+		$return['success'] = array(
+			'message'    => __( 'Successfully Setup', 'wp-fundraising-donation' ),
+			'finish_url' => '',
+		);
 
 		return $return;
 	}
@@ -305,7 +396,9 @@ class Settings {
 			'wfp_donation_form_script',
 			'donation_form_ajax',
 			array(
-				'nonce' => wp_create_nonce( 'stripe_nonce' ),
+				'nonce'           => wp_create_nonce( 'stripe_nonce' ),
+				'invalidRewards'  => __( 'Invalid Rewards', 'wp-fundraising-donation' ),
+				'addToCartFailed' => __( 'Add to cart failed!', 'wp-fundraising-donation' ),
 			)
 		);
 		// from step script
@@ -320,6 +413,14 @@ class Settings {
 		wp_register_script( 'fancybox_js', \WFP_Fundraising::plugin_url() . 'assets/public/script/single-page/fancybox.umd.min.js', array( 'jquery' ), \WFP_Fundraising::version(), false );
 		// single script
 		wp_register_script( 'wfp_single_script', \WFP_Fundraising::plugin_url() . 'assets/public/script/single-page/single-page.js', array( 'jquery' ), \WFP_Fundraising::version(), false );
+		wp_localize_script(
+			'wfp_single_script',
+			'wfpSingleL10n',
+			array(
+				'confirmRemoveReview' => __( 'Are you sure? Remove this review.', 'wp-fundraising-donation' ),
+				'updateButton'        => __( 'Update', 'wp-fundraising-donation' ),
+			)
+		);
 		// essay pie chart
 		wp_register_script( 'wfp_easy_pie_script', \WFP_Fundraising::plugin_url() . 'assets/public/script/single-page/easy-pie-chart.js', array( 'jquery' ), \WFP_Fundraising::version(), false );
 
@@ -347,6 +448,103 @@ class Settings {
 
 		// modal for payment
 		wp_enqueue_script( 'wfp_payment_script_modal' );
+
+		$this->wfp_localize_vendor_scripts();
+	}
+
+
+	/**
+	 * Localise the bundled flatpickr and Select2 builds.
+	 *
+	 * Both libraries ship English-only UI text, so the date pickers and the
+	 * country dropdowns stay English on a translated site unless we hand them
+	 * localised strings. Month and weekday names are taken from WordPress core's
+	 * own translations via $wp_locale, so the calendars follow the site language
+	 * without needing any plugin translation for them.
+	 *
+	 * Attached with wp_add_inline_script( ..., 'after' ) so it runs immediately
+	 * after each library and always before the inline init calls in the views.
+	 *
+	 * @since 1.8.1
+	 * @access public
+	 */
+	public function wfp_localize_vendor_scripts() {
+
+		global $wp_locale;
+
+		if ( $wp_locale instanceof \WP_Locale ) {
+
+			$weekdays_long  = array_values( $wp_locale->weekday );
+			$weekdays_short = array();
+			foreach ( $weekdays_long as $wfp_weekday ) {
+				$weekdays_short[] = $wp_locale->get_weekday_abbrev( $wfp_weekday );
+			}
+
+			$months_long  = array_values( $wp_locale->month );
+			$months_short = array();
+			foreach ( $months_long as $wfp_month ) {
+				$months_short[] = $wp_locale->get_month_abbrev( $wfp_month );
+			}
+
+			$flatpickr_l10n = array(
+				'weekdays'       => array(
+					'shorthand' => $weekdays_short,
+					'longhand'  => $weekdays_long,
+				),
+				'months'         => array(
+					'shorthand' => $months_short,
+					'longhand'  => $months_long,
+				),
+				'firstDayOfWeek' => (int) get_option( 'start_of_week', 0 ),
+				'rangeSeparator' => __( ' to ', 'wp-fundraising-donation' ),
+				'scrollTitle'    => __( 'Scroll to increment', 'wp-fundraising-donation' ),
+				'toggleTitle'    => __( 'Click to toggle', 'wp-fundraising-donation' ),
+				'amPM'           => array(
+					$wp_locale->get_meridiem( 'AM' ) ? $wp_locale->get_meridiem( 'AM' ) : 'AM',
+					$wp_locale->get_meridiem( 'PM' ) ? $wp_locale->get_meridiem( 'PM' ) : 'PM',
+				),
+			);
+
+			wp_add_inline_script(
+				'flatpickr-wfp',
+				'if ( window.flatpickr ) { window.flatpickr.localize( ' . wp_json_encode( $flatpickr_l10n ) . ' ); }',
+				'after'
+			);
+		}
+
+		$select2_l10n = array(
+			'errorLoading'    => __( 'The results could not be loaded.', 'wp-fundraising-donation' ),
+			'loadingMore'     => __( 'Loading more results…', 'wp-fundraising-donation' ),
+			'noResults'       => __( 'No results found', 'wp-fundraising-donation' ),
+			'searching'       => __( 'Searching…', 'wp-fundraising-donation' ),
+			'removeAllItems'  => __( 'Remove all items', 'wp-fundraising-donation' ),
+			/* translators: %s: number of characters that need to be removed */
+			'inputTooLong'    => __( 'Please delete %s character(s)', 'wp-fundraising-donation' ),
+			/* translators: %s: number of additional characters that need to be typed */
+			'inputTooShort'   => __( 'Please enter %s or more characters', 'wp-fundraising-donation' ),
+			/* translators: %s: maximum number of items that may be selected */
+			'maximumSelected' => __( 'You can only select %s item(s)', 'wp-fundraising-donation' ),
+		);
+
+		wp_add_inline_script(
+			'select2',
+			'( function ( $ ) {
+				if ( ! $ || ! $.fn || ! $.fn.select2 ) { return; }
+				var t = ' . wp_json_encode( $select2_l10n ) . ';
+				var fmt = function ( str, num ) { return String( str ).replace( "%s", num ); };
+				$.fn.select2.defaults.set( "language", {
+					errorLoading: function () { return t.errorLoading; },
+					inputTooLong: function ( args ) { return fmt( t.inputTooLong, args.input.length - args.maximum ); },
+					inputTooShort: function ( args ) { return fmt( t.inputTooShort, args.minimum - args.input.length ); },
+					loadingMore: function () { return t.loadingMore; },
+					maximumSelected: function ( args ) { return fmt( t.maximumSelected, args.maximum ); },
+					noResults: function () { return t.noResults; },
+					searching: function () { return t.searching; },
+					removeAllItems: function () { return t.removeAllItems; }
+				} );
+			}( window.jQuery ) );',
+			'after'
+		);
 	}
 
 	/**

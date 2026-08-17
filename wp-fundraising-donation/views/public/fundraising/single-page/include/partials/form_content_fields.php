@@ -25,19 +25,19 @@ if ( isset( $wfpFormContentData->additional->enable ) && $wfpFormContentData->ad
 		array(
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => 'First Name',
+				'lebel'    => __( 'First Name', 'wp-fundraising-donation' ),
 				'default'  => '',
 				'required' => 'Yes',
 			),
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => 'Last Name',
+				'lebel'    => __( 'Last Name', 'wp-fundraising-donation' ),
 				'default'  => '',
 				'required' => 'Yes',
 			),
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => 'Email Address',
+				'lebel'    => __( 'Email Address', 'wp-fundraising-donation' ),
 				'default'  => '',
 				'required' => 'Yes',
 			),

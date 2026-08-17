@@ -30,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 						<div class="xs-row xs-form-group wfp-from-group">
 							<div class="xs-col-2 xs-col-sm-2"><i class="wfpf wfpf-user wfp-from-group--icon"></i></div>
 							<div class="xs-col-10 xs-col-sm-10">
-								<input type="text" class="xs-form-control-plaintext wfp-input wfp-email" name="wfp_login[user_name]" id="username" autocomplete="username" placeholder="Username" />
+								<input type="text" class="xs-form-control-plaintext wfp-input wfp-email" name="wfp_login[user_name]" id="username" autocomplete="username" placeholder="<?php esc_attr_e( 'Username', 'wp-fundraising-donation' ); ?>" />
 							</div>
 						</div>
 
@@ -38,7 +38,7 @@ defined( 'ABSPATH' ) || exit;
 							<div class="xs-col-2 xs-col-sm-2"><i class="wfpf wfpf-lock-closed wfp-from-group--icon"></i></div>
 							<div class="xs-col-10 xs-col-sm-10  wfp-from-group--password">
 								<i class="wfpf wfpf-eye-open wfp-from-group--password__icon"></i>
-								<input type="password" class="xs-form-control-plaintext wfp-input wfp-password" name="wfp_login[user_password]" id="password" autocomplete="password" placeholder="Password" />
+								<input type="password" class="xs-form-control-plaintext wfp-input wfp-password" name="wfp_login[user_password]" id="password" autocomplete="password" placeholder="<?php esc_attr_e( 'Password', 'wp-fundraising-donation' ); ?>" />
 							</div>
 						</div>
 
@@ -76,14 +76,14 @@ defined( 'ABSPATH' ) || exit;
 						<div class="xs-row xs-form-group wfp-from-group">
 							<div class="xs-col-2 xs-col-sm-2"><i class="wfpf wfpf-user wfp-from-group--icon"></i></div>
 							<div class="xs-col-10 xs-col-sm-10  wfp-from-group--password">
-								<input type="text" class="xs-form-control-plaintext wfp-input wfp-email" name="wfp_register[user_name]" id="register_username" autocomplete="username" placeholder="User Name" />
+								<input type="text" class="xs-form-control-plaintext wfp-input wfp-email" name="wfp_register[user_name]" id="register_username" autocomplete="username" placeholder="<?php esc_attr_e( 'User Name', 'wp-fundraising-donation' ); ?>" />
 							</div>
 						</div>
 
 						<div class="xs-row xs-form-group wfp-from-group">
 							<div class="xs-col-2 xs-col-sm-2"><i class="wfpf wfpf-envelope wfp-from-group--icon"></i></div>
 							<div class="xs-col-10 xs-col-sm-10  wfp-from-group--password">
-								<input type="text" class="xs-form-control-plaintext wfp-input wfp-email" name="wfp_register[user_email]" id="email" autocomplete="email" placeholder="Email" />
+								<input type="text" class="xs-form-control-plaintext wfp-input wfp-email" name="wfp_register[user_email]" id="email" autocomplete="email" placeholder="<?php esc_attr_e( 'Email', 'wp-fundraising-donation' ); ?>" />
 							</div>
 						</div>
 
@@ -91,7 +91,7 @@ defined( 'ABSPATH' ) || exit;
 							<div class="xs-col-2 xs-col-sm-2"><i class="wfpf wfpf-lock-closed wfp-from-group--icon"></i></div>
 							<div class="xs-col-10 xs-col-sm-10  wfp-from-group--password">
 								<i class="wfpf wfpf-eye-open wfp-from-group--password__icon"></i>
-								<input type="password" class="xs-form-control-plaintext wfp-input wfp-password" name="wfp_register[user_password]" id="register_password" autocomplete="password" placeholder="Password" />
+								<input type="password" class="xs-form-control-plaintext wfp-input wfp-password" name="wfp_register[user_password]" id="register_password" autocomplete="password" placeholder="<?php esc_attr_e( 'Password', 'wp-fundraising-donation' ); ?>" />
 							</div>
 						</div>
 
@@ -110,8 +110,8 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 		</div>
 		<div class="section-content wfp-tab-control wfp-reg-login-navs">
-			<button class="wfp-button wfp-login-btn wfp-button-active xs-btn xs-btn-muted" onclick="xs_show_hide_login_multiple('.xs-donate-hidden', '#wfp-login-section')"><i class="wfpf wfpf-user wfp-reg-login-navs--icon"></i>Login</button>
-			<button class="wfp-button wfp-register-btn xs-btn xs-btn-secondary" onclick="xs_show_hide_login_multiple('.xs-donate-hidden', '#wfp-register-section')"><i class="wfpf wfpf-user wfp-reg-login-navs--icon"></i>Register</button>
+			<button class="wfp-button wfp-login-btn wfp-button-active xs-btn xs-btn-muted" onclick="xs_show_hide_login_multiple('.xs-donate-hidden', '#wfp-login-section')"><i class="wfpf wfpf-user wfp-reg-login-navs--icon"></i><?php esc_html_e( 'Login', 'wp-fundraising-donation' ); ?></button>
+			<button class="wfp-button wfp-register-btn xs-btn xs-btn-secondary" onclick="xs_show_hide_login_multiple('.xs-donate-hidden', '#wfp-register-section')"><i class="wfpf wfpf-user wfp-reg-login-navs--icon"></i><?php esc_html_e( 'Register', 'wp-fundraising-donation' ); ?></button>
 		</div>
 		
 		<?php do_action( 'wfp_login_form_after_inner' ); ?>

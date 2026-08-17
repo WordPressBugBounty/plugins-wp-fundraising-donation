@@ -230,7 +230,7 @@ if ( $wfp_layout_style == 'wfp-layout-list' ) {
 											<a href="<?php the_permalink(); ?>">
 												<?php if ( $wfp_feature->has_featured_video( get_the_ID() ) ) { ?>
 													<div class="wfp-feature-video">
-														<img src="<?php echo esc_url( $wfp_feature->get_video_thumbnail( get_the_ID() ) ); ?>" alt="Video Thumbnail">
+														<img src="<?php echo esc_url( $wfp_feature->get_video_thumbnail( get_the_ID() ) ); ?>" alt="<?php esc_attr_e( 'Video Thumbnail', 'wp-fundraising-donation' ); ?>">
 													</div>
 												<?php } else { ?>
 													<div class="wfp-post-image">
@@ -248,12 +248,12 @@ if ( $wfp_layout_style == 'wfp-layout-list' ) {
 																	'post-thumbnail',
 																	array(
 																		'class' => 'wfp-feature wfp-full-image',
-																		'title' => 'Feature image',
+																		'title' => esc_attr__( 'Feature image', 'wp-fundraising-donation' ),
 																	)
 																)
 															);
 															?>
-																		" alt="Image Thumbnail" />
+																		" alt="<?php esc_attr_e( 'Image Thumbnail', 'wp-fundraising-donation' ); ?>" />
 
 															<?php
 														}

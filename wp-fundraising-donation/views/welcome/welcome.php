@@ -10,6 +10,14 @@ $wfpGetSetUpData = get_option( $wfpMetaSetupKey );
 $wfpGateWaysData = isset( $wfpGetSetUpData['services'] ) ? $wfpGetSetUpData['services'] : array();
 $wfpCheckStep    = isset( $wfpGetSetUpData['services']['finish'] ) ? $wfpGetSetUpData['services']['finish'] : current( array_keys( $wfp_settings ) );
 
+// The stored step must be one of the wizard's own keys. If the option was
+// corrupted or tampered with, no block below would get the `wfp-open` class:
+// the modal would render empty and welcome.js would find no open block, so
+// every button click becomes a no-op. Fall back to the first step instead.
+if ( ! array_key_exists( $wfpCheckStep, $wfp_settings ) ) {
+	$wfpCheckStep = current( array_keys( $wfp_settings ) );
+}
+
 ?>
 <div class="wfp-welcome-contrainer">
 	<div class="wfp-welcome-header">

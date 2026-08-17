@@ -11,7 +11,7 @@ if ( empty( $_GET['invoice'] ) || empty( $_GET['campaign'] ) ) {
 
 	?>
 	<div>
-		<strong>No invoice found.</strong>
+		<strong><?php esc_html_e( 'No invoice found.', 'wp-fundraising-donation' ); ?></strong>
 	</div>
 	<?php
 
@@ -43,7 +43,7 @@ if ( is_user_logged_in() ) {
 
 		?>
 		<div>
-			<strong>Invalid data.</strong>
+			<strong><?php esc_html_e( 'Invalid data.', 'wp-fundraising-donation' ); ?></strong>
 		</div>
 		<?php
 
@@ -70,44 +70,44 @@ if ( is_user_logged_in() ) {
 			<table class="table table-bordered">
 				<thead>
 				<tr>
-					<th colspan="2">Order details</th>
+					<th colspan="2"><?php esc_html_e( 'Order details', 'wp-fundraising-donation' ); ?></th>
 				</tr>
 				</thead>
 				<tbody>
 				<tr>
-					<td>Order No.</td>
+					<td><?php esc_html_e( 'Order No.', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_donation['donate_id'] ); ?></td>
 				</tr>
 				<tr>
-					<td>Invoice</td>
+					<td><?php esc_html_e( 'Invoice', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_donation['invoice'] ); ?></td>
 				</tr>
 				<tr>
-					<td>Date</td>
+					<td><?php esc_html_e( 'Date', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_donation['date_time'] ); ?></td>
 				</tr>
 				<tr>
-					<td>Amount</td>
+					<td><?php esc_html_e( 'Amount', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_donation['donate_amount'] ); ?></td>
 				</tr>
 				<tr>
-					<td>Currency</td>
+					<td><?php esc_html_e( 'Currency', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_obj['_wfp_currency']->meta_value ); ?></td>
 				</tr>
 				<tr>
-					<td>Payment type</td>
+					<td><?php esc_html_e( 'Payment type', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_donation['payment_type'] ); ?></td>
 				</tr>
 				<tr>
-					<td>Payment gateway</td>
+					<td><?php esc_html_e( 'Payment gateway', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_donation['payment_gateway'] ); ?></td>
 				</tr>
 				<tr>
-					<td>Type</td>
+					<td><?php esc_html_e( 'Type', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_donation['fundraising_type'] ); ?></td>
 				</tr>
 				<tr>
-					<td>Status</td>
+					<td><?php esc_html_e( 'Status', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_donation['status'] ); ?></td>
 				</tr>
 				</tbody>
@@ -117,20 +117,20 @@ if ( is_user_logged_in() ) {
 			<table class="table table-bordered">
 				<thead>
 				<tr>
-					<th colspan="2">Donor details</th>
+					<th colspan="2"><?php esc_html_e( 'Donor details', 'wp-fundraising-donation' ); ?></th>
 				</tr>
 				</thead>
 				<tbody>
 				<tr>
-					<td>Name</td>
+					<td><?php esc_html_e( 'Name', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_obj['_wfp_first_name']->meta_value . ' ' . $wfp_obj['_wfp_last_name']->meta_value ); ?></td>
 				</tr>
 				<tr>
-					<td>Email</td>
+					<td><?php esc_html_e( 'Email', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_donation['email'] ); ?></td>
 				</tr>
 				<tr>
-					<td>Country</td>
+					<td><?php esc_html_e( 'Country', 'wp-fundraising-donation' ); ?></td>
 					<td><?php echo esc_html( $wfp_obj['_wfp_country']->meta_value ); ?></td>
 				</tr>
 
@@ -141,7 +141,7 @@ if ( is_user_logged_in() ) {
 			<table class="table table-bordered">
 				<thead>
 				<tr>
-					<th colspan="2">Billing details</th>
+					<th colspan="2"><?php esc_html_e( 'Billing details', 'wp-fundraising-donation' ); ?></th>
 				</tr>
 				</thead>
 				<tbody>

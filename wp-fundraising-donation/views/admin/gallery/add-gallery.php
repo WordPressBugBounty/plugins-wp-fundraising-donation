@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 				case 'media':
 					echo '<input id="wfp_portfolio_image" type="hidden" name="wfp_portfolio_image" value="' . esc_attr( $wfp_meta ) . '" />
 					<div class="wfp_portfolio_image_container">' . ( $wfp_meta ? '<span class="wfp_portfolio_close"></span>' : '' ) . '<img id="wfp_portfolio_image_src" src="' . esc_url( wp_get_attachment_thumb_url( $this->wfp_portfolio_get_image_id( $wfp_meta ) ) ) . '"></div>
-					<input id="wfp_portfolio_image_button" class="button button-primary button-large" type="button" value="Add Image" />';
+					<input id="wfp_portfolio_image_button" class="button button-primary button-large" type="button" value="' . esc_attr__( 'Add Image', 'wp-fundraising-donation' ) . '" />';
 					break;
 				case 'gallery':
 					$wfp_meta_html = '';
@@ -30,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 
 					echo '<input id="wfp_portfolio_gallery" type="hidden" name="wfp_portfolio_gallery" value="' . esc_attr( $wfp_meta ) . '" />
 					<span id="wfp_portfolio_gallery_src">' . wp_kses( $wfp_meta_html, \WfpFundraising\Utilities\Utils::get_kses_array() ) . '</span>
-					<div class="wfp_gallery_button_container"><input id="wfp_portfolio_gallery_button" class="button button-primary button-large" type="button" value="Add Gallery" /></div>';
+					<div class="wfp_gallery_button_container"><input id="wfp_portfolio_gallery_button" class="button button-primary button-large" type="button" value="' . esc_attr__( 'Add Gallery', 'wp-fundraising-donation' ) . '" /></div>';
 					break;
 				?>
 		

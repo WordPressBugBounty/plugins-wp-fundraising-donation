@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 		$wfpMultiData = isset( $wfpGetMetaData->donation->multi->dimentions ) && sizeof( $wfpGetMetaData->donation->multi->dimentions ) ? $wfpGetMetaData->donation->multi->dimentions : array(
 			(object) array(
 				'price' => '1.00',
-				'lebel' => 'Basic',
+				'lebel' => __( 'Basic', 'wp-fundraising-donation' ),
 			),
 		);
 
@@ -197,8 +197,8 @@ defined( 'ABSPATH' ) || exit;
 				$wfpMultiPleData = isset( $wfpGetMetaData->pledge_setup->multi->dimentions ) && sizeof( $wfpGetMetaData->pledge_setup->multi->dimentions ) ? $wfpGetMetaData->pledge_setup->multi->dimentions : array(
 					(object) array(
 						'price'       => '1.00',
-						'lebel'       => 'Basic',
-						'description' => 'Basic Information',
+						'lebel'       => __( 'Basic', 'wp-fundraising-donation' ),
+						'description' => __( 'Basic Information', 'wp-fundraising-donation' ),
 					),
 				);
 

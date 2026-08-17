@@ -70,6 +70,21 @@ class Gallery {
 
 		wp_enqueue_script( 'wfp-featured-gallery-js', \WFP_Fundraising::plugin_url() . 'assets/admin/script/gallery/gallery_portfolio_admin.js', array( 'jquery' ), \WFP_Fundraising::version(), true );
 		wp_enqueue_style( 'wfp-featured-gallery-css', \WFP_Fundraising::plugin_url() . 'assets/admin/css/gallery/gallery_portfolio_admin.css', false, \WFP_Fundraising::version() );
+
+		wp_localize_script(
+			'wfp-featured-gallery-js',
+			'wfpGalleryL10n',
+			array(
+				'imageFrameTitle'       => __( 'Select Image', 'wp-fundraising-donation' ),
+				'imageFrameButton'      => __( 'Use this image', 'wp-fundraising-donation' ),
+				'mobileFrameTitle'      => __( 'Select Mobile Image', 'wp-fundraising-donation' ),
+				'mobileFrameButton'     => __( 'Use this image', 'wp-fundraising-donation' ),
+				'galleryFrameTitle'     => __( 'Select Gallery Images', 'wp-fundraising-donation' ),
+				'galleryFrameButton'    => __( 'Add to gallery', 'wp-fundraising-donation' ),
+				'gallerySelectionTitle' => __( 'Select Images for Featured Gallery', 'wp-fundraising-donation' ),
+				'confirmRemoveImage'    => __( 'Are you sure you want to remove this image?', 'wp-fundraising-donation' ),
+			)
+		);
 	}
 
 	public static function wfp_featured_gallery_filed() {
@@ -83,8 +98,8 @@ class Gallery {
 				'type'  => 'media'
 			),*/
 			array(
-				'label' => 'Gallery Images',
-				'desc'  => 'This is the gallery images on the single item page.',
+				'label' => __( 'Gallery Images', 'wp-fundraising-donation' ),
+				'desc'  => __( 'This is the gallery images on the single item page.', 'wp-fundraising-donation' ),
 				'id'    => $prefix . 'gallery',
 				'type'  => 'gallery',
 			),
@@ -98,7 +113,7 @@ class Gallery {
 		if ( $post->post_type == self::post_type() ) :
 			add_meta_box(
 				'wfp_featured_gallery',
-				'Featured Gallery',
+				__( 'Featured Gallery', 'wp-fundraising-donation' ),
 				array( $this, 'wfp_portfolio_gallery_action' ),
 				self::post_type(),
 				'side',
@@ -203,7 +218,7 @@ class Gallery {
 			}
 		);
 
-		$tabs['mettab'] = 'Met Tab';
+		$tabs['mettab'] = __( 'Met Tab', 'wp-fundraising-donation' );
 		return $tabs;
 	}
 
@@ -213,7 +228,7 @@ class Gallery {
 
 	function my_new_form() {
 		echo media_upload_header(); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- echo wordpress media uploader header
-		echo '<p>Example HTML content goes here.</p>';
+		echo '<p>' . esc_html__( 'Example HTML content goes here.', 'wp-fundraising-donation' ) . '</p>';
 	}
 
 	public function honor_ssl_for_attachments( $url, $wfp_post_id ) {

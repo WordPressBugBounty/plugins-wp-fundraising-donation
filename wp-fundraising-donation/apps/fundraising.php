@@ -317,7 +317,17 @@ class Fundraising {
 			// output for display settings. Get from options
 			$metaKey      = self::WFP_MK_FORM_DATA;
 			$metaDataJson = get_post_meta( $post->ID, $metaKey, false );
-			$getMetaData  = json_decode( json_encode( end( $metaDataJson ), JSON_UNESCAPED_UNICODE ) );
+
+			/**
+			 * The metabox template and its includes read the saved form data
+			 * from `$wfpGetMetaData`, while the pro add-on template
+			 * (pp-metabox-settings.php) still reads `$getMetaData`.
+			 * Both names must stay available here, otherwise the fields of
+			 * whichever template misses its variable silently fall back to
+			 * their default values on render.
+			 */
+			$getMetaData    = json_decode( json_encode( end( $metaDataJson ), JSON_UNESCAPED_UNICODE ) );
+			$wfpGetMetaData = $getMetaData;
 
 			// get global setting data
 			$metaGlobalKey       = 'wfp_global_options_data';
@@ -475,10 +485,10 @@ class Fundraising {
 		$columns = array(
 			'cb'        => '<input type="checkbox" />',
 			'title'     => esc_html__( 'Name', 'wp-fundraising-donation' ),
-			// translators: %s: currency symbol or code (e.g. $, EUR).
+			// translators: %s: currency symbol.
 			'amount'    => sprintf( esc_html__( 'Amount (%s)', 'wp-fundraising-donation' ), $symbols ),
 			'goal_info' => esc_html__( 'Goal', 'wp-fundraising-donation' ),
-			// translators: %s: currency symbol or code (e.g. $, EUR).
+			// translators: %s: currency symbol.
 			'raised'    => sprintf( esc_html__( 'Raised Amount (%s)', 'wp-fundraising-donation' ), $symbols ),
 			'settings'  => esc_html__( 'Settings', 'wp-fundraising-donation' ),
 			'author'    => esc_html__( 'Author', 'wp-fundraising-donation' ),
@@ -955,6 +965,9 @@ class Fundraising {
 			'xs_donate_url',
 			array(
 				'siteurl' => get_option( 'siteurl' ),
+				// The setup wizard route is capability + nonce protected, so the
+				// nonce has to travel with the request as the X-WP-Nonce header.
+				'nonce'   => wp_create_nonce( 'wp_rest' ),
 				'resturl' => get_rest_url(),
 			)
 		);
@@ -1020,7 +1033,7 @@ class Fundraising {
 			
 			return array(
 				'success' => false,
-				'error'   => 'Access Denied',
+				'error'   => __( 'Access Denied', 'wp-fundraising-donation' ),
 			);
 		}
 		
@@ -1071,7 +1084,7 @@ class Fundraising {
 			
 			return array(
 				'success' => false,
-				'error'   => 'Access Denied',
+				'error'   => __( 'Access Denied', 'wp-fundraising-donation' ),
 			);
 		}
 
@@ -1107,7 +1120,7 @@ class Fundraising {
 			
 			return array(
 				'success' => false,
-				'error'   => 'Access Denied',
+				'error'   => __( 'Access Denied', 'wp-fundraising-donation' ),
 			);
 		}
 

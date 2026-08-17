@@ -92,15 +92,15 @@ defined( 'ABSPATH' ) || exit;
 
 					// chart data
 					$wfp_data_lavel['rasied_report'] = array(
-						'label'           => 'Raised',
+						'label'           => __( 'Raised', 'wp-fundraising-donation' ),
 						'backgroundColor' => 'rgba(53, 60, 220, 0.35)',
 					);
 					$wfp_data_lavel['backed_report'] = array(
-						'label'           => 'Income',
+						'label'           => __( 'Income', 'wp-fundraising-donation' ),
 						'backgroundColor' => 'rgba(120, 43, 40, 0.26)',
 					);
 					$wfp_data_lavel['pledge_report'] = array(
-						'label'           => 'Pledge',
+						'label'           => __( 'Pledge', 'wp-fundraising-donation' ),
 						'backgroundColor' => 'rgba(220, 53, 59, 0.46)',
 					);
 

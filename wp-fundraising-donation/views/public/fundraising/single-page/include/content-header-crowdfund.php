@@ -56,7 +56,7 @@ defined( 'ABSPATH' ) || exit;
 						'post-thumbnail',
 						array(
 							'class' => 'wfp-feature wfp-full-image',
-							'title' => 'Feature image',
+							'title' => esc_attr__( 'Feature image', 'wp-fundraising-donation' ),
 						)
 					);
 					?>

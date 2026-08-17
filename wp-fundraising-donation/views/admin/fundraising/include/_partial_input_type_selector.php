@@ -65,7 +65,7 @@ defined( 'ABSPATH' ) || exit;
 							   name="xs_submit_donation_data[form_content][<?php echo esc_attr( $wfp_group ); ?>][dimentions][<?php echo esc_attr( $wfp_counter ); ?>][lebel]"
 							   onkeyup="xs_modify_lebel_name(this);"
 							   value="<?php echo esc_attr( $fld_info['lebel'] ); ?>"
-							   placeholder="Basic"
+							   placeholder="<?php esc_attr_e( 'Basic', 'wp-fundraising-donation' ); ?>"
 							   class="xs-field xs-text-field xs-money-field"/>
 					</div>
 				</div>

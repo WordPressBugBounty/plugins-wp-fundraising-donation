@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
 			<div class="xs-pledge-row">
 				<div class="xs-repeater-field-wrap xs-column xs-opened" >
 					<div class="xs-donate-row-head xs-move " onclick="xs_show_hide_parents_elements(this)">
-						<h2><span class="level_donate_multi"><?php echo esc_html( 'Donation Level dfsa: ' . isset( $multi->lebel ) ? $multi->lebel : '' . '' ); ?></span></h2>
+						<h2><span class="level_donate_multi"><?php echo esc_html( isset( $multi->lebel ) ? $multi->lebel : '' ); ?></span></h2>
 						<div class="xs-header-btn-group">
 							<button type="button" class="xs-pledge-btnRemove xs-remove"><span class="wfpf wfpf-close-outline"></span></button>
 							<button type="button" class="handlediv button-link xs-donate-toggole-button" aria-expanded="false"><span class="toggle-indicator"></span></button>

@@ -2,10 +2,10 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: FundEngine – Donation and Crowdfunding Platform 1.8.0\n"
+"Project-Id-Version: FundEngine – Donation and Crowdfunding Platform 1.8.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wp-fundraising-donation\n"
-"POT-Creation-Date: 2026-08-12 07:15:48+00:00\n"
+"POT-Creation-Date: 2026-08-17 11:10:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,6 +13,10 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: apps/content.php:139
+msgid "Copy Link"
+msgstr ""
 
 #: apps/content.php:431 apps/content.php:562
 msgid "Sorry wrong campaign."
@@ -51,6 +55,33 @@ msgstr ""
 msgid "Sorry invalid form of Donation."
 msgstr ""
 
+#: apps/content.php:783 apps/settings.php:1699 apps/settings.php:1732
+#: utilities/helper.php:106
+#: views/public/donation/include/content/filed-content.php:29
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:195
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:16
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:181
+#: views/public/fundraising/single-page/include/partials/form_content_fields.php:28
+msgid "First Name"
+msgstr ""
+
+#: apps/content.php:789 apps/settings.php:1705 apps/settings.php:1740
+#: utilities/helper.php:112
+#: views/public/donation/include/content/filed-content.php:35
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:207
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:28
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:195
+#: views/public/fundraising/single-page/include/partials/form_content_fields.php:34
+msgid "Last Name"
+msgstr ""
+
+#: apps/content.php:795 apps/settings.php:1711 apps/settings.php:1748
+#: utilities/helper.php:118
+#: views/public/donation/include/content/filed-content.php:41
+#: views/public/fundraising/single-page/include/partials/form_content_fields.php:40
+msgid "Email Address"
+msgstr ""
+
 #: apps/content.php:852
 msgid "Enter select payment method"
 msgstr ""
@@ -85,6 +116,14 @@ msgstr ""
 
 #: apps/content.php:1209
 msgid "Sorry could't update this campaign"
+msgstr ""
+
+#: apps/content.php:1270 views/admin/fundraising/donation-meta-box.php:28
+#: views/admin/fundraising/donation-meta-box.php:200
+#: views/admin/fundraising/include/_partial_input_type_selector.php:68
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:28
+#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:73
+msgid "Basic"
 msgstr ""
 
 #: apps/content.php:1447
@@ -236,6 +275,8 @@ msgid "Sorry invalid user for post campaign update."
 msgstr ""
 
 #: apps/content.php:2342 apps/content.php:2847 views/public/auth/form.php:144
+#: views/public/auth/modal.php:165
+#: views/public/fundraising/dynamic-page/login.php:113
 #: views/public/fundraising/single-page/include/page/review.php:178
 #: views/public/fundraising/single-page/include/page/review.php:179
 msgid "Login"
@@ -243,7 +284,9 @@ msgstr ""
 
 #: apps/content.php:2343 apps/content.php:2848 views/public/auth/form.php:124
 #: views/public/auth/form.php:145 views/public/auth/modal.php:145
+#: views/public/auth/modal.php:166
 #: views/public/fundraising/dynamic-page/login.php:101
+#: views/public/fundraising/dynamic-page/login.php:114
 msgid "Register"
 msgstr ""
 
@@ -870,16 +913,17 @@ msgid "Order By"
 msgstr ""
 
 #: apps/elementor/widgets/listing.php:425
-#: apps/elementor/widgets/listing.php:1436 apps/fundraising.php:477
+#: apps/elementor/widgets/listing.php:1436 apps/fundraising.php:487
 #: views/admin/fundraising/reports/include/donors-reports.php:42
-#: widgets/listing/listing.php:417 widgets/listing/listing.php:1428
+#: views/admin/view-invoice.php:125 widgets/listing/listing.php:417
+#: widgets/listing/listing.php:1428
 msgid "Name"
 msgstr ""
 
 #: apps/elementor/widgets/listing.php:426
 #: views/admin/fundraising/meta-content/recent-donate.php:64
 #: views/admin/fundraising/reports/include/income-reports.php:53
-#: views/admin/view-payments.php:374
+#: views/admin/view-invoice.php:86 views/admin/view-payments.php:375
 #: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:295
 #: views/public/fundraising/dynamic-page/dashboard/donate-content.php:36
 #: views/public/fundraising/dynamic-page/dashboard/income-content.php:57
@@ -1089,8 +1133,8 @@ msgstr ""
 msgid "Hover"
 msgstr ""
 
-#: apps/elementor/widgets/listing.php:1588 apps/settings.php:986
-#: apps/settings.php:999 apps/settings.php:1016
+#: apps/elementor/widgets/listing.php:1588 apps/settings.php:1184
+#: apps/settings.php:1197 apps/settings.php:1214
 #: views/public/fundraising/dynamic-page/dashboard/campaign-content.php:60
 #: widgets/listing/listing.php:1580
 msgid "Previous"
@@ -1272,7 +1316,7 @@ msgstr ""
 msgid "Reports"
 msgstr ""
 
-#: apps/fundraising.php:265 apps/fundraising.php:266 apps/fundraising.php:483
+#: apps/fundraising.php:265 apps/fundraising.php:266 apps/fundraising.php:493
 #: plugin.php:100 views/admin/fundraising/donation-meta-box.php:124
 #: views/admin/fundraising/settings/donation-settings.php:14
 msgid "Settings"
@@ -1282,42 +1326,94 @@ msgstr ""
 msgid "Campaign Form"
 msgstr ""
 
-#: apps/fundraising.php:479
-#. translators: %s: currency symbol or code (e.g. $, EUR).
+#: apps/fundraising.php:489
+#. translators: %s: currency symbol.
 msgid "Amount (%s)"
 msgstr ""
 
-#: apps/fundraising.php:480
+#: apps/fundraising.php:490
 #: views/public/fundraising/single-page/include/page/backers.php:65
 #: views/public/fundraising/single-page/include/partials/goal_content.php:180
 msgid "Goal"
 msgstr ""
 
-#: apps/fundraising.php:482
+#: apps/fundraising.php:492
 #: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:222
-#. translators: %s: currency symbol or code (e.g. $, EUR).
 #. translators: %s: currency symbol.
 msgid "Raised Amount (%s)"
 msgstr ""
 
-#: apps/fundraising.php:484
+#: apps/fundraising.php:494
 msgid "Author"
 msgstr ""
 
-#: apps/fundraising.php:485
+#: apps/fundraising.php:495
 msgid "Donate Date"
 msgstr ""
 
-#: apps/fundraising.php:1060
+#: apps/fundraising.php:1036 apps/fundraising.php:1087
+#: apps/fundraising.php:1123
+msgid "Access Denied"
+msgstr ""
+
+#: apps/fundraising.php:1073
 msgid "Unsuccess"
 msgstr ""
 
-#: apps/fundraising.php:1087
+#: apps/fundraising.php:1100
 msgid "Failed to validate"
 msgstr ""
 
-#: apps/fundraising.php:1091
+#: apps/fundraising.php:1104
 msgid "Failed"
+msgstr ""
+
+#: apps/gallery.php:78
+msgid "Select Image"
+msgstr ""
+
+#: apps/gallery.php:79 apps/gallery.php:81
+msgid "Use this image"
+msgstr ""
+
+#: apps/gallery.php:80
+msgid "Select Mobile Image"
+msgstr ""
+
+#: apps/gallery.php:82
+msgid "Select Gallery Images"
+msgstr ""
+
+#: apps/gallery.php:83
+msgid "Add to gallery"
+msgstr ""
+
+#: apps/gallery.php:84
+msgid "Select Images for Featured Gallery"
+msgstr ""
+
+#: apps/gallery.php:85
+msgid "Are you sure you want to remove this image?"
+msgstr ""
+
+#: apps/gallery.php:101
+msgid "Gallery Images"
+msgstr ""
+
+#: apps/gallery.php:102
+msgid "This is the gallery images on the single item page."
+msgstr ""
+
+#: apps/gallery.php:116
+msgid "Featured Gallery"
+msgstr ""
+
+#: apps/gallery.php:221
+msgid "Met Tab"
+msgstr ""
+
+#: apps/gallery.php:231
+msgid "Example HTML content goes here."
 msgstr ""
 
 #: apps/settings.php:106
@@ -1331,75 +1427,150 @@ msgstr ""
 msgid "Tell something about your campaign."
 msgstr ""
 
-#: apps/settings.php:193
+#: apps/settings.php:199
+msgid "You are not allowed to change the setup settings."
+msgstr ""
+
+#: apps/settings.php:214
+msgid "Invalid or expired security token."
+msgstr ""
+
+#: apps/settings.php:240
 msgid "Fundraising Dashboard"
 msgstr ""
 
-#: apps/settings.php:223
+#: apps/settings.php:315
 msgid "Successfully Setup"
 msgstr ""
 
-#: apps/settings.php:459
+#: apps/settings.php:400
+msgid "Invalid Rewards"
+msgstr ""
+
+#: apps/settings.php:401
+msgid "Add to cart failed!"
+msgstr ""
+
+#: apps/settings.php:420
+msgid "Are you sure? Remove this review."
+msgstr ""
+
+#: apps/settings.php:421
+#: views/public/fundraising/dynamic-page/dashboard/password-content.php:42
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:173
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:336
+msgid "Update"
+msgstr ""
+
+#: apps/settings.php:499
+msgid " to "
+msgstr ""
+
+#: apps/settings.php:500
+msgid "Scroll to increment"
+msgstr ""
+
+#: apps/settings.php:501
+msgid "Click to toggle"
+msgstr ""
+
+#: apps/settings.php:516
+msgid "The results could not be loaded."
+msgstr ""
+
+#: apps/settings.php:517
+msgid "Loading more results…"
+msgstr ""
+
+#: apps/settings.php:518
+msgid "No results found"
+msgstr ""
+
+#: apps/settings.php:519
+msgid "Searching…"
+msgstr ""
+
+#: apps/settings.php:520
+msgid "Remove all items"
+msgstr ""
+
+#: apps/settings.php:522
+#. translators: %s: number of characters that need to be removed
+msgid "Please delete %s character(s)"
+msgstr ""
+
+#: apps/settings.php:524
+#. translators: %s: number of additional characters that need to be typed
+msgid "Please enter %s or more characters"
+msgstr ""
+
+#: apps/settings.php:526
+#. translators: %s: maximum number of items that may be selected
+msgid "You can only select %s item(s)"
+msgstr ""
+
+#: apps/settings.php:657
 msgid "WFP Dashboard"
 msgstr ""
 
-#: apps/settings.php:465
+#: apps/settings.php:663
 msgid "WFP Checkout"
 msgstr ""
 
-#: apps/settings.php:471
+#: apps/settings.php:669
 msgid "WFP Success"
 msgstr ""
 
-#: apps/settings.php:477
+#: apps/settings.php:675
 msgid "WFP Failed Transaction"
 msgstr ""
 
-#: apps/settings.php:483
+#: apps/settings.php:681
 msgid "WFP Campaign listing"
 msgstr ""
 
-#: apps/settings.php:489
+#: apps/settings.php:687
 msgid "WFP Auth Form"
 msgstr ""
 
-#: apps/settings.php:495
+#: apps/settings.php:693
 msgid "WFP Donation Invoice"
 msgstr ""
 
-#: apps/settings.php:765
+#: apps/settings.php:963
 msgid "Facebook"
 msgstr ""
 
-#: apps/settings.php:775
+#: apps/settings.php:973
 msgid "Twitter"
 msgstr ""
 
-#: apps/settings.php:785
+#: apps/settings.php:983
 msgid "LinkedIn"
 msgstr ""
 
-#: apps/settings.php:797
+#: apps/settings.php:995
 msgid "Pinterest"
 msgstr ""
 
-#: apps/settings.php:807
+#: apps/settings.php:1005
 msgid "WhatsApp"
 msgstr ""
 
-#: apps/settings.php:813
+#: apps/settings.php:1011
 #: views/admin/fundraising/include/_partial_input_type_selector.php:39
 #: views/admin/fundraising/meta-content/recent-donate.php:59
 #: views/admin/fundraising/reports/include/donors-reports.php:41
-#: views/admin/view-payments.php:371 views/public/auth/form.php:107
-#: views/public/auth/modal.php:128
+#: views/admin/view-invoice.php:129 views/admin/view-payments.php:371
+#: views/public/auth/form.php:107 views/public/auth/modal.php:128
 #: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:220
 #: views/public/fundraising/dynamic-page/dashboard/profile-content.php:159
 #: views/public/fundraising/dynamic-page/dashboard/profile-content.php:322
+#: views/public/fundraising/dynamic-page/login.php:86
 msgid "Email"
 msgstr ""
 
-#: apps/settings.php:818
+#: apps/settings.php:1016
 #. translators: 1: campaign title, 2: campaign URL
 msgid ""
 "Title: %1$s \\n"
@@ -1407,159 +1578,141 @@ msgid ""
 " URL: %2$s"
 msgstr ""
 
-#: apps/settings.php:930 views/admin/fundraising/donation-meta-box.php:75
+#: apps/settings.php:1128 views/admin/fundraising/donation-meta-box.php:75
 msgid "Goal Setup"
 msgstr ""
 
-#: apps/settings.php:931
+#: apps/settings.php:1129
 msgid ""
 "Enable goal setting in all compaign forms. - Tab \"Goal Setup\" in Campaign "
 "Form."
 msgstr ""
 
-#: apps/settings.php:934 views/admin/fundraising/donation-meta-box.php:95
+#: apps/settings.php:1132 views/admin/fundraising/donation-meta-box.php:95
 msgid "Pledge Setup"
 msgstr ""
 
-#: apps/settings.php:935
+#: apps/settings.php:1133
 msgid ""
 "Enable pledge setting in all compaign forms for Crowdfunding. - Tab "
 "\"Pledge Setup\" in Campaign Form."
 msgstr ""
 
-#: apps/settings.php:938
+#: apps/settings.php:1136
 msgid "Custom Fileds"
 msgstr ""
 
-#: apps/settings.php:939
+#: apps/settings.php:1137
 msgid ""
 "Use custom fileds in forms like as [Phone, Address etc.] - Section \"Form "
 "Content\" in Campaign Form."
 msgstr ""
 
-#: apps/settings.php:946
+#: apps/settings.php:1144
 msgid "Limit Options"
 msgstr ""
 
-#: apps/settings.php:947
+#: apps/settings.php:1145
 msgid ""
 "Set limit amount (min, max) on the campaign submission form. - Section "
 "\"General\" in Campaign Form."
 msgstr ""
 
-#: apps/settings.php:950
+#: apps/settings.php:1148
 msgid "Contributor Info"
 msgstr ""
 
-#: apps/settings.php:951
+#: apps/settings.php:1149
 msgid ""
 "Enable this option to display the contributors for this Campaign. - Section "
 "\"Settings\" in Campaign Form."
 msgstr ""
 
-#: apps/settings.php:966 views/welcome/welcome.php:16
+#: apps/settings.php:1164 views/welcome/welcome.php:24
 msgid "Welcome FundEngine"
 msgstr ""
 
-#: apps/settings.php:967
+#: apps/settings.php:1165
 msgid "Welcome to our FundEngine for Single Donation & Crowdfunding"
 msgstr ""
 
-#: apps/settings.php:970
+#: apps/settings.php:1168
 #: views/admin/fundraising/meta-content/recent-donate.php:115
 #: views/admin/fundraising/reports/donation-reports.php:105
-#: views/admin/view-payments.php:415
+#: views/admin/view-payments.php:416
 #: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:77
 msgid "Cancel"
 msgstr ""
 
-#: apps/settings.php:972
+#: apps/settings.php:1170
 msgid "Start"
 msgstr ""
 
-#: apps/settings.php:982
+#: apps/settings.php:1180
 #: views/admin/fundraising/include/donations-general-backup.php:8
 #: views/admin/fundraising/include/donations-general.php:8
 msgid "Campaign Format"
 msgstr ""
 
-#: apps/settings.php:983
+#: apps/settings.php:1181
 msgid ""
 "Select once format for Campaign then click \"Ok\" button and go to next "
 "step."
 msgstr ""
 
-#: apps/settings.php:988
+#: apps/settings.php:1186
 msgid "Ok"
 msgstr ""
 
-#: apps/settings.php:995
+#: apps/settings.php:1193
 msgid "Payment Getway"
 msgstr ""
 
-#: apps/settings.php:996
+#: apps/settings.php:1194
 msgid ""
 "Select payment getway for Campaigns and click \"Select\" button and go to "
 "next step."
 msgstr ""
 
-#: apps/settings.php:1001
+#: apps/settings.php:1199
 msgid "Select"
 msgstr ""
 
-#: apps/settings.php:1012
+#: apps/settings.php:1210
 msgid "Finish Setup.."
 msgstr ""
 
-#: apps/settings.php:1013
+#: apps/settings.php:1211
 msgid ""
 "Click this finish button and complete your basic setup process and go to "
 "next settings."
 msgstr ""
 
-#: apps/settings.php:1018
+#: apps/settings.php:1216
 msgid "Finish"
 msgstr ""
 
-#: apps/settings.php:1195
+#: apps/settings.php:1393
 msgid "Activate Woocommerce"
 msgstr ""
 
-#: apps/settings.php:1203
+#: apps/settings.php:1401
 msgid "Install Woocommerce"
 msgstr ""
 
-#: apps/settings.php:1501 apps/settings.php:1534 utilities/helper.php:106
-#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:195
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:16
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:181
-msgid "First Name"
-msgstr ""
-
-#: apps/settings.php:1507 apps/settings.php:1542 utilities/helper.php:112
-#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:207
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:28
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:195
-msgid "Last Name"
-msgstr ""
-
-#: apps/settings.php:1513 apps/settings.php:1550 utilities/helper.php:118
-msgid "Email Address"
-msgstr ""
-
-#: apps/settings.php:1558 utilities/helper.php:124
+#: apps/settings.php:1756 utilities/helper.php:124
 msgid "Country Destination"
 msgstr ""
 
-#: apps/settings.php:1566 utilities/helper.php:130
+#: apps/settings.php:1764 utilities/helper.php:130
 msgid "Street Address"
 msgstr ""
 
-#: apps/settings.php:1574
+#: apps/settings.php:1772
 msgid "City :"
 msgstr ""
 
-#: apps/settings.php:1582
+#: apps/settings.php:1780
 msgid "Postcode / ZIP :"
 msgstr ""
 
@@ -1666,7 +1819,7 @@ msgstr ""
 msgid "Manage"
 msgstr ""
 
-#: payment-module/views/payment-setup.php:59 views/welcome/welcome.php:23
+#: payment-module/views/payment-setup.php:59 views/welcome/welcome.php:31
 msgid "Setup"
 msgstr ""
 
@@ -1884,7 +2037,12 @@ msgstr ""
 msgid "Account settings to receive donation"
 msgstr ""
 
+#: views/admin/fundraising/donation-meta-box.php:201
+msgid "Basic Information"
+msgstr ""
+
 #: views/admin/fundraising/include/_partial_input_type_selector.php:28
+#: views/admin/view-invoice.php:106
 msgid "Type"
 msgstr ""
 
@@ -1982,6 +2140,7 @@ msgstr ""
 #: views/admin/fundraising/include/donations-general.php:267
 #: views/admin/fundraising/include/donations-pledge-setup.php:43
 #: views/admin/fundraising/reports/include/income-reports.php:49
+#: views/admin/view-invoice.php:90
 #: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:49
 #: views/public/fundraising/dynamic-page/dashboard/donate-content.php:32
 #: views/public/fundraising/dynamic-page/dashboard/income-content.php:53
@@ -2457,7 +2616,7 @@ msgstr ""
 #: views/admin/fundraising/meta-content/recent-donate.php:44
 #: views/admin/fundraising/meta-content/recent-donate.php:106
 #: views/admin/fundraising/reports/donation-reports.php:102
-#: views/admin/view-payments.php:351 views/admin/view-payments.php:413
+#: views/admin/view-payments.php:351 views/admin/view-payments.php:414
 #: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:74
 msgid "In Review"
 msgstr ""
@@ -2465,7 +2624,7 @@ msgstr ""
 #: views/admin/fundraising/meta-content/recent-donate.php:45
 #: views/admin/fundraising/meta-content/recent-donate.php:103
 #: views/admin/fundraising/reports/donation-reports.php:101
-#: views/admin/view-payments.php:354 views/admin/view-payments.php:412
+#: views/admin/view-payments.php:354 views/admin/view-payments.php:413
 #: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:73
 msgid "In Process"
 msgstr ""
@@ -2482,32 +2641,33 @@ msgid "S.L."
 msgstr ""
 
 #: views/admin/fundraising/meta-content/recent-donate.php:62
+#: views/admin/view-payments.php:373
 #. translators: %s: currency symbol.
 msgid "Amount [%s]"
 msgstr ""
 
 #: views/admin/fundraising/meta-content/recent-donate.php:63
 #: views/admin/fundraising/settings/settings-tab-menu.php:32
-#: views/admin/view-payments.php:373
+#: views/admin/view-payments.php:374
 msgid "Payment Method"
 msgstr ""
 
 #: views/admin/fundraising/meta-content/recent-donate.php:65
-#: views/admin/view-payments.php:375
+#: views/admin/view-payments.php:376
 msgid "Action"
 msgstr ""
 
 #: views/admin/fundraising/meta-content/recent-donate.php:109
 #: views/admin/fundraising/reports/donation-reports.php:103
-#: views/admin/view-payments.php:348 views/admin/view-payments.php:405
-#: views/admin/view-payments.php:414
+#: views/admin/view-payments.php:348 views/admin/view-payments.php:406
+#: views/admin/view-payments.php:415
 #: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:75
 msgid "Success"
 msgstr ""
 
 #: views/admin/fundraising/meta-content/recent-donate.php:112
 #: views/admin/fundraising/reports/donation-reports.php:104
-#: views/admin/view-payments.php:406
+#: views/admin/view-payments.php:407
 #: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:76
 msgid "Refund"
 msgstr ""
@@ -2515,7 +2675,7 @@ msgstr ""
 #: views/admin/fundraising/meta-content/recent-donate.php:128
 #: views/admin/fundraising/reports/include/donors-reports.php:96
 #: views/admin/fundraising/reports/include/income-reports.php:96
-#: views/admin/view-payments.php:449
+#: views/admin/view-payments.php:450
 #: views/public/fundraising/dynamic-page/dashboard/donate-content.php:66
 #: views/public/fundraising/dynamic-page/dashboard/income-content.php:94
 msgid "Total Amount : "
@@ -2561,6 +2721,7 @@ msgid "To Date"
 msgstr ""
 
 #: views/admin/fundraising/reports/donation-reports.php:98
+#: views/admin/view-invoice.php:110
 #: views/public/fundraising/dynamic-page/dashboard/report-search/income-report-search.php:70
 msgid "Status"
 msgstr ""
@@ -2597,6 +2758,7 @@ msgid "Income Statements"
 msgstr ""
 
 #: views/admin/fundraising/reports/include/income-reports.php:44
+#: views/admin/view-invoice.php:82
 #: views/public/fundraising/dynamic-page/dashboard/income-content.php:48
 msgid "Invoice"
 msgstr ""
@@ -2614,6 +2776,7 @@ msgid "View"
 msgstr ""
 
 #: views/admin/fundraising/reports/reports-tab-menu.php:14
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:99
 #: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:21
 msgid "Income"
 msgstr ""
@@ -2668,6 +2831,7 @@ msgid "Currency options"
 msgstr ""
 
 #: views/admin/fundraising/settings/include/general-options.php:21
+#: views/admin/view-invoice.php:94
 msgid "Currency"
 msgstr ""
 
@@ -2788,6 +2952,10 @@ msgstr ""
 msgid "Agreement Label "
 msgstr ""
 
+#: views/admin/fundraising/settings/include/terms-settings.php:67
+msgid "Enter terms & condition level"
+msgstr ""
+
 #: views/admin/fundraising/settings/include/terms-settings.php:72
 msgid "Agreement Details "
 msgstr ""
@@ -2816,8 +2984,55 @@ msgstr ""
 msgid "Personal payment"
 msgstr ""
 
+#: views/admin/gallery/add-gallery.php:17
+msgid "Add Image"
+msgstr ""
+
+#: views/admin/gallery/add-gallery.php:33
+msgid "Add Gallery"
+msgstr ""
+
 #: views/admin/view-invoice.php:7
 msgid "You are not allowed to view the page"
+msgstr ""
+
+#: views/admin/view-invoice.php:14
+msgid "No invoice found."
+msgstr ""
+
+#: views/admin/view-invoice.php:46
+msgid "Invalid data."
+msgstr ""
+
+#: views/admin/view-invoice.php:73
+#: views/public/fundraising/dynamic-page/order-confirm.php:56
+msgid "Order details"
+msgstr ""
+
+#: views/admin/view-invoice.php:78
+msgid "Order No."
+msgstr ""
+
+#: views/admin/view-invoice.php:98
+msgid "Payment type"
+msgstr ""
+
+#: views/admin/view-invoice.php:102
+msgid "Payment gateway"
+msgstr ""
+
+#: views/admin/view-invoice.php:120
+msgid "Donor details"
+msgstr ""
+
+#: views/admin/view-invoice.php:133
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:100
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:264
+msgid "Country"
+msgstr ""
+
+#: views/admin/view-invoice.php:144
+msgid "Billing details"
 msgstr ""
 
 #: views/admin/view-invoice.php:179
@@ -2907,12 +3122,15 @@ msgid "Dashboard"
 msgstr ""
 
 #: views/public/auth/form.php:48 views/public/auth/modal.php:69
+#: views/public/fundraising/dynamic-page/login.php:33
 msgid "Username"
 msgstr ""
 
 #: views/public/auth/form.php:56 views/public/auth/form.php:115
 #: views/public/auth/modal.php:77 views/public/auth/modal.php:136
 #: views/public/fundraising/dynamic-page/dashboard/menu/left-menu.php:15
+#: views/public/fundraising/dynamic-page/login.php:41
+#: views/public/fundraising/dynamic-page/login.php:94
 msgid "Password"
 msgstr ""
 
@@ -2927,6 +3145,7 @@ msgid "Lost your password?"
 msgstr ""
 
 #: views/public/auth/form.php:100 views/public/auth/modal.php:121
+#: views/public/fundraising/dynamic-page/login.php:79
 msgid "User Name"
 msgstr ""
 
@@ -3019,6 +3238,7 @@ msgid "Total charge :"
 msgstr ""
 
 #: views/public/donation/include/content/goal-content.php:72
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:95
 #: views/public/fundraising/single-page/include/partials/goal_content.php:147
 msgid "Raised"
 msgstr ""
@@ -3066,6 +3286,28 @@ msgstr ""
 #: views/public/fundraising/single-page/include/partials/_check_category_markup.php:26
 #. translators: %s: category name.
 msgid "View all posts in %s"
+msgstr ""
+
+#: views/public/donation/include/featured-gal-crowd-sh.php:34
+#: views/public/fundraising/dynamic-page/campaign_listing.php:230
+#: views/public/fundraising/dynamic-page/campaign-elementor.php:251
+#: views/public/fundraising/dynamic-page/campaign.php:220
+#: views/public/fundraising/single-page/include/content-header-crowdfund.php:59
+#: views/public/fundraising/single-page/include/content-header-donation.php:24
+#: views/public/fundraising/single-page/include/crowd_donation_body.php:66
+msgid "Feature image"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/campaign_listing.php:212
+#: views/public/fundraising/dynamic-page/campaign-elementor.php:233
+#: views/public/fundraising/dynamic-page/campaign.php:202
+msgid "Video Thumbnail"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/campaign_listing.php:236
+#: views/public/fundraising/dynamic-page/campaign-elementor.php:256
+#: views/public/fundraising/dynamic-page/campaign.php:225
+msgid "Image Thumbnail"
 msgstr ""
 
 #: views/public/fundraising/dynamic-page/campaign_listing.php:254
@@ -3212,10 +3454,6 @@ msgstr ""
 msgid "Setup rewards for campaign."
 msgstr ""
 
-#: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:73
-msgid "Basic"
-msgstr ""
-
 #: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-rewards.php:140
 msgid "Add Rewards"
 msgstr ""
@@ -3301,6 +3539,10 @@ msgstr ""
 
 #: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:78
 msgid "Income Data"
+msgstr ""
+
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:103
+msgid "Pledge"
 msgstr ""
 
 #: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:167
@@ -3432,12 +3674,6 @@ msgstr ""
 msgid "Confirm Password"
 msgstr ""
 
-#: views/public/fundraising/dynamic-page/dashboard/password-content.php:42
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:173
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:336
-msgid "Update"
-msgstr ""
-
 #: views/public/fundraising/dynamic-page/dashboard/profile-content.php:12
 msgid "Billing Info "
 msgstr ""
@@ -3455,11 +3691,6 @@ msgstr ""
 #: views/public/fundraising/dynamic-page/dashboard/profile-content.php:86
 #: views/public/fundraising/dynamic-page/dashboard/profile-content.php:251
 msgid "Postcode"
-msgstr ""
-
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:100
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:264
-msgid "Country"
 msgstr ""
 
 #: views/public/fundraising/dynamic-page/dashboard/profile-content.php:145
@@ -3534,10 +3765,6 @@ msgstr ""
 #: views/public/fundraising/dynamic-page/order-confirm.php:35
 #: views/public/fundraising/dynamic-page/order-confirm.php:107
 msgid "Payment method:"
-msgstr ""
-
-#: views/public/fundraising/dynamic-page/order-confirm.php:56
-msgid "Order details"
 msgstr ""
 
 #: views/public/fundraising/dynamic-page/order-confirm.php:127
@@ -3658,7 +3885,7 @@ msgstr ""
 msgid "Fundraising System with Donate."
 msgstr ""
 
-#: views/welcome/welcome.php:33
+#: views/welcome/welcome.php:41
 msgid "Setup Process"
 msgstr ""
 

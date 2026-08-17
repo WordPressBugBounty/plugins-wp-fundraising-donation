@@ -64,7 +64,7 @@ defined( 'ABSPATH' ) || exit;
 							   name="xs_submit_terms_condition_data[form_terma][level]"
 							   id="xs_donate_forms_design_submit_button"
 							   value="<?php echo isset( $wfpGetMetaTerms->level ) ? esc_attr( $wfpGetMetaTerms->level ) : 'Agree to Terms'; ?>"
-							   placeholder="Enter terms & condition level" class="xs-field xs-money-field">
+							   placeholder="<?php esc_attr_e( 'Enter terms & condition level', 'wp-fundraising-donation' ); ?>" class="xs-field xs-money-field">
 					</div>
 				</li>
 				<li class="wfdp-social-input-container wfdp-social-textarea">
