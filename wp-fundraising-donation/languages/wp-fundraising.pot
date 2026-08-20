@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: FundEngine – Donation and Crowdfunding Platform 1.8.0\n"
+"Project-Id-Version: FundEngine – Donation and Crowdfunding Platform 1.8.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-fundraising-donation\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-16T10:37:35+02:00\n"
+"POT-Creation-Date: 2026-08-18T06:09:40+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-fundraising-donation\n"
@@ -80,78 +80,45 @@ msgstr ""
 msgid "Sorry invalid form of Donation."
 msgstr ""
 
-#: apps/content.php:783
-#: apps/settings.php:1608
-#: apps/settings.php:1641
-#: utilities/helper.php:106
-#: views/public/donation/include/content/filed-content.php:29
-#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:195
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:16
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:181
-#: views/public/fundraising/single-page/include/partials/form_content_fields.php:28
-msgid "First Name"
-msgstr ""
-
-#: apps/content.php:789
-#: apps/settings.php:1614
-#: apps/settings.php:1649
-#: utilities/helper.php:112
-#: views/public/donation/include/content/filed-content.php:35
-#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:207
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:28
-#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:195
-#: views/public/fundraising/single-page/include/partials/form_content_fields.php:34
-msgid "Last Name"
-msgstr ""
-
-#: apps/content.php:795
-#: apps/settings.php:1620
-#: apps/settings.php:1657
-#: utilities/helper.php:118
-#: views/public/donation/include/content/filed-content.php:41
-#: views/public/fundraising/single-page/include/partials/form_content_fields.php:40
-msgid "Email Address"
-msgstr ""
-
-#: apps/content.php:852
+#: apps/content.php:860
 msgid "Enter select payment method"
 msgstr ""
 
-#: apps/content.php:862
+#: apps/content.php:870
 msgid "Enter donate amount"
 msgstr ""
 
-#: apps/content.php:874
+#: apps/content.php:882
 msgid "Sorry! minimum donate amount: "
 msgstr ""
 
-#: apps/content.php:878
+#: apps/content.php:886
 msgid "Sorry! max donate amount: "
 msgstr ""
 
-#: apps/content.php:1115
+#: apps/content.php:1123
 msgid "Successfully donation. "
 msgstr ""
 
-#: apps/content.php:1121
+#: apps/content.php:1129
 msgid "Something is wrong"
 msgstr ""
 
-#: apps/content.php:1184
-#: apps/content.php:1519
+#: apps/content.php:1192
+#: apps/content.php:1527
 msgid "Something error."
 msgstr ""
 
-#: apps/content.php:1189
-#: apps/content.php:1510
+#: apps/content.php:1197
+#: apps/content.php:1518
 msgid "Invalid request."
 msgstr ""
 
-#: apps/content.php:1209
+#: apps/content.php:1217
 msgid "Sorry could't update this campaign"
 msgstr ""
 
-#: apps/content.php:1270
+#: apps/content.php:1278
 #: views/admin/fundraising/donation-meta-box.php:28
 #: views/admin/fundraising/donation-meta-box.php:200
 #: views/admin/fundraising/include/_partial_input_type_selector.php:68
@@ -160,171 +127,171 @@ msgstr ""
 msgid "Basic"
 msgstr ""
 
-#: apps/content.php:1447
+#: apps/content.php:1455
 msgid "Successfully Update this Campaign."
 msgstr ""
 
-#: apps/content.php:1449
+#: apps/content.php:1457
 msgid "Successfully Submitted Campaign for Review."
 msgstr ""
 
-#: apps/content.php:1469
+#: apps/content.php:1477
 msgid "Invalid Campaign."
 msgstr ""
 
-#: apps/content.php:1566
+#: apps/content.php:1574
 msgid "Successfully Update your Information."
 msgstr ""
 
-#: apps/content.php:1588
+#: apps/content.php:1596
 msgid "Sorry you could not able to update password."
 msgstr ""
 
-#: apps/content.php:1610
+#: apps/content.php:1618
 msgid "Successfully set new password."
 msgstr ""
 
-#: apps/content.php:1613
+#: apps/content.php:1621
 msgid "Sorry don't match new password"
 msgstr ""
 
-#: apps/content.php:1616
+#: apps/content.php:1624
 msgid "Sorry current don't match password"
 msgstr ""
 
-#: apps/content.php:1619
+#: apps/content.php:1627
 msgid "Please enter current password."
 msgstr ""
 
-#: apps/content.php:1647
-#: apps/content.php:2952
+#: apps/content.php:1655
+#: apps/content.php:2960
 msgid "Please enter email or username"
 msgstr ""
 
-#: apps/content.php:1654
-#: apps/content.php:2959
+#: apps/content.php:1662
+#: apps/content.php:2967
 msgid "Please enter password"
 msgstr ""
 
-#: apps/content.php:1693
-#: apps/content.php:3000
+#: apps/content.php:1701
+#: apps/content.php:3008
 msgid "System Error"
 msgstr ""
 
-#: apps/content.php:1695
-#: apps/content.php:3010
+#: apps/content.php:1703
+#: apps/content.php:3018
 msgid "New user registration option is turned off"
 msgstr ""
 
-#: apps/content.php:1703
+#: apps/content.php:1711
 msgid "Already used this email"
 msgstr ""
 
-#: apps/content.php:1706
-#: apps/content.php:1786
+#: apps/content.php:1714
+#: apps/content.php:1794
 msgid "Please enter email address"
 msgstr ""
 
-#: apps/content.php:1711
+#: apps/content.php:1719
 msgid "Please enter your user name"
 msgstr ""
 
-#: apps/content.php:1717
-#: apps/content.php:3042
+#: apps/content.php:1725
+#: apps/content.php:3050
 msgid "Please set your password"
 msgstr ""
 
-#: apps/content.php:1731
+#: apps/content.php:1739
 msgid "Sorry system error. Try again."
 msgstr ""
 
-#: apps/content.php:1744
+#: apps/content.php:1752
 msgid "Please enter your valid email address"
 msgstr ""
 
-#: apps/content.php:1771
-#: apps/content.php:2062
+#: apps/content.php:1779
+#: apps/content.php:2070
 msgid "Sorry invalid campaign."
 msgstr ""
 
-#: apps/content.php:1791
+#: apps/content.php:1799
 msgid "Please enter your name"
 msgstr ""
 
-#: apps/content.php:1797
+#: apps/content.php:1805
 msgid "Please give your ratting"
 msgstr ""
 
-#: apps/content.php:1815
-#: apps/content.php:1945
-#: apps/content.php:2006
+#: apps/content.php:1823
+#: apps/content.php:1953
+#: apps/content.php:2014
 msgid "Sorry invalid review."
 msgstr ""
 
-#: apps/content.php:1826
-#: apps/content.php:1958
-#: apps/content.php:2019
+#: apps/content.php:1834
+#: apps/content.php:1966
+#: apps/content.php:2027
 msgid "Sorry you are not valid user."
 msgstr ""
 
-#: apps/content.php:1832
-#: apps/content.php:1964
-#: apps/content.php:2025
+#: apps/content.php:1840
+#: apps/content.php:1972
+#: apps/content.php:2033
 msgid "Invalid Review."
 msgstr ""
 
-#: apps/content.php:1855
+#: apps/content.php:1863
 msgid "Successfully updated review"
 msgstr ""
 
-#: apps/content.php:1860
+#: apps/content.php:1868
 msgid "Sorry system error."
 msgstr ""
 
-#: apps/content.php:1870
+#: apps/content.php:1878
 msgid "Sorry already submitted review"
 msgstr ""
 
-#: apps/content.php:1899
+#: apps/content.php:1907
 msgid "Successfully submitted review"
 msgstr ""
 
-#: apps/content.php:1904
-#: apps/content.php:2100
+#: apps/content.php:1912
+#: apps/content.php:2108
 msgid "System error"
 msgstr ""
 
-#: apps/content.php:1909
+#: apps/content.php:1917
 msgid "Please sign in first"
 msgstr ""
 
-#: apps/content.php:1932
-#: apps/content.php:1993
+#: apps/content.php:1940
+#: apps/content.php:2001
 msgid "Sorry you are not valid author for delete review."
 msgstr ""
 
-#: apps/content.php:1970
+#: apps/content.php:1978
 msgid "Successfully remove your review."
 msgstr ""
 
-#: apps/content.php:1972
+#: apps/content.php:1980
 msgid "System error."
 msgstr ""
 
-#: apps/content.php:2077
+#: apps/content.php:2085
 msgid "Please enter your update details."
 msgstr ""
 
-#: apps/content.php:2096
+#: apps/content.php:2104
 msgid "Successfully submitted update"
 msgstr ""
 
-#: apps/content.php:2105
+#: apps/content.php:2113
 msgid "Sorry invalid user for post campaign update."
 msgstr ""
 
-#: apps/content.php:2342
-#: apps/content.php:2847
+#: apps/content.php:2350
+#: apps/content.php:2855
 #: views/public/auth/form.php:144
 #: views/public/auth/modal.php:165
 #: views/public/fundraising/dynamic-page/login.php:113
@@ -333,8 +300,8 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: apps/content.php:2343
-#: apps/content.php:2848
+#: apps/content.php:2351
+#: apps/content.php:2856
 #: views/public/auth/form.php:124
 #: views/public/auth/form.php:145
 #: views/public/auth/modal.php:145
@@ -344,43 +311,43 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: apps/content.php:2344
+#: apps/content.php:2352
 #: views/public/auth/form.php:69
 #: views/public/auth/modal.php:90
 #: views/public/fundraising/dynamic-page/login.php:51
 msgid "Login Now"
 msgstr ""
 
-#: apps/content.php:2843
+#: apps/content.php:2851
 msgid "Dahsboard"
 msgstr ""
 
-#: apps/content.php:2845
+#: apps/content.php:2853
 msgid "Sign Out"
 msgstr ""
 
-#: apps/content.php:3019
+#: apps/content.php:3027
 msgid "This email is already used"
 msgstr ""
 
-#: apps/content.php:3026
+#: apps/content.php:3034
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: apps/content.php:3035
+#: apps/content.php:3043
 msgid "Please enter valid username"
 msgstr ""
 
-#: apps/content.php:3071
+#: apps/content.php:3079
 msgid "Sorry system error. Try again"
 msgstr ""
 
-#: apps/content.php:3111
+#: apps/content.php:3119
 #: apps/wfpwoocommerce.php:136
 msgid "Invalid product."
 msgstr ""
 
-#: apps/content.php:3121
+#: apps/content.php:3129
 msgid "Invalid price."
 msgstr ""
 
@@ -1140,7 +1107,7 @@ msgstr ""
 
 #: apps/elementor/widgets/listing.php:425
 #: apps/elementor/widgets/listing.php:1436
-#: apps/fundraising.php:477
+#: apps/fundraising.php:487
 #: views/admin/fundraising/reports/include/donors-reports.php:42
 #: views/admin/view-invoice.php:125
 #: widgets/listing/listing.php:417
@@ -1411,9 +1378,9 @@ msgid "Hover"
 msgstr ""
 
 #: apps/elementor/widgets/listing.php:1588
-#: apps/settings.php:1093
-#: apps/settings.php:1106
-#: apps/settings.php:1123
+#: apps/settings.php:1184
+#: apps/settings.php:1197
+#: apps/settings.php:1214
 #: views/public/fundraising/dynamic-page/dashboard/campaign-content.php:60
 #: widgets/listing/listing.php:1580
 msgid "Previous"
@@ -1637,7 +1604,7 @@ msgstr ""
 
 #: apps/fundraising.php:265
 #: apps/fundraising.php:266
-#: apps/fundraising.php:483
+#: apps/fundraising.php:493
 #: plugin.php:100
 #: views/admin/fundraising/donation-meta-box.php:124
 #: views/admin/fundraising/settings/donation-settings.php:14
@@ -1649,47 +1616,47 @@ msgid "Campaign Form"
 msgstr ""
 
 #. translators: %s: currency symbol.
-#: apps/fundraising.php:479
+#: apps/fundraising.php:489
 #, php-format
 msgid "Amount (%s)"
 msgstr ""
 
-#: apps/fundraising.php:480
+#: apps/fundraising.php:490
 #: views/public/fundraising/single-page/include/page/backers.php:65
 #: views/public/fundraising/single-page/include/partials/goal_content.php:180
 msgid "Goal"
 msgstr ""
 
 #. translators: %s: currency symbol.
-#: apps/fundraising.php:482
+#: apps/fundraising.php:492
 #: views/public/fundraising/dynamic-page/dashboard/add-campaign/add-details.php:222
 #, php-format
 msgid "Raised Amount (%s)"
 msgstr ""
 
-#: apps/fundraising.php:484
+#: apps/fundraising.php:494
 msgid "Author"
 msgstr ""
 
-#: apps/fundraising.php:485
+#: apps/fundraising.php:495
 msgid "Donate Date"
 msgstr ""
 
-#: apps/fundraising.php:1023
-#: apps/fundraising.php:1074
-#: apps/fundraising.php:1110
+#: apps/fundraising.php:1036
+#: apps/fundraising.php:1087
+#: apps/fundraising.php:1123
 msgid "Access Denied"
 msgstr ""
 
-#: apps/fundraising.php:1060
+#: apps/fundraising.php:1073
 msgid "Unsuccess"
 msgstr ""
 
-#: apps/fundraising.php:1087
+#: apps/fundraising.php:1100
 msgid "Failed to validate"
 msgstr ""
 
-#: apps/fundraising.php:1091
+#: apps/fundraising.php:1104
 msgid "Failed"
 msgstr ""
 
@@ -1753,132 +1720,140 @@ msgstr ""
 msgid "Tell something about your campaign."
 msgstr ""
 
-#: apps/settings.php:193
+#: apps/settings.php:199
+msgid "You are not allowed to change the setup settings."
+msgstr ""
+
+#: apps/settings.php:214
+msgid "Invalid or expired security token."
+msgstr ""
+
+#: apps/settings.php:240
 msgid "Fundraising Dashboard"
 msgstr ""
 
-#: apps/settings.php:223
+#: apps/settings.php:315
 msgid "Successfully Setup"
 msgstr ""
 
-#: apps/settings.php:309
+#: apps/settings.php:400
 msgid "Invalid Rewards"
 msgstr ""
 
-#: apps/settings.php:310
+#: apps/settings.php:401
 msgid "Add to cart failed!"
 msgstr ""
 
-#: apps/settings.php:329
+#: apps/settings.php:420
 msgid "Are you sure? Remove this review."
 msgstr ""
 
-#: apps/settings.php:330
+#: apps/settings.php:421
 #: views/public/fundraising/dynamic-page/dashboard/password-content.php:42
 #: views/public/fundraising/dynamic-page/dashboard/profile-content.php:173
 #: views/public/fundraising/dynamic-page/dashboard/profile-content.php:336
 msgid "Update"
 msgstr ""
 
-#: apps/settings.php:408
+#: apps/settings.php:499
 msgid " to "
 msgstr ""
 
-#: apps/settings.php:409
+#: apps/settings.php:500
 msgid "Scroll to increment"
 msgstr ""
 
-#: apps/settings.php:410
+#: apps/settings.php:501
 msgid "Click to toggle"
 msgstr ""
 
-#: apps/settings.php:425
+#: apps/settings.php:516
 msgid "The results could not be loaded."
 msgstr ""
 
-#: apps/settings.php:426
+#: apps/settings.php:517
 msgid "Loading more results…"
 msgstr ""
 
-#: apps/settings.php:427
+#: apps/settings.php:518
 msgid "No results found"
 msgstr ""
 
-#: apps/settings.php:428
+#: apps/settings.php:519
 msgid "Searching…"
 msgstr ""
 
-#: apps/settings.php:429
+#: apps/settings.php:520
 msgid "Remove all items"
 msgstr ""
 
 #. translators: %s: number of characters that need to be removed
-#: apps/settings.php:431
+#: apps/settings.php:522
 #, php-format
 msgid "Please delete %s character(s)"
 msgstr ""
 
 #. translators: %s: number of additional characters that need to be typed
-#: apps/settings.php:433
+#: apps/settings.php:524
 #, php-format
 msgid "Please enter %s or more characters"
 msgstr ""
 
 #. translators: %s: maximum number of items that may be selected
-#: apps/settings.php:435
+#: apps/settings.php:526
 #, php-format
 msgid "You can only select %s item(s)"
 msgstr ""
 
-#: apps/settings.php:566
+#: apps/settings.php:657
 msgid "WFP Dashboard"
 msgstr ""
 
-#: apps/settings.php:572
+#: apps/settings.php:663
 msgid "WFP Checkout"
 msgstr ""
 
-#: apps/settings.php:578
+#: apps/settings.php:669
 msgid "WFP Success"
 msgstr ""
 
-#: apps/settings.php:584
+#: apps/settings.php:675
 msgid "WFP Failed Transaction"
 msgstr ""
 
-#: apps/settings.php:590
+#: apps/settings.php:681
 msgid "WFP Campaign listing"
 msgstr ""
 
-#: apps/settings.php:596
+#: apps/settings.php:687
 msgid "WFP Auth Form"
 msgstr ""
 
-#: apps/settings.php:602
+#: apps/settings.php:693
 msgid "WFP Donation Invoice"
 msgstr ""
 
-#: apps/settings.php:872
+#: apps/settings.php:963
 msgid "Facebook"
 msgstr ""
 
-#: apps/settings.php:882
+#: apps/settings.php:973
 msgid "Twitter"
 msgstr ""
 
-#: apps/settings.php:892
+#: apps/settings.php:983
 msgid "LinkedIn"
 msgstr ""
 
-#: apps/settings.php:904
+#: apps/settings.php:995
 msgid "Pinterest"
 msgstr ""
 
-#: apps/settings.php:914
+#: apps/settings.php:1005
 msgid "WhatsApp"
 msgstr ""
 
-#: apps/settings.php:920
+#: apps/settings.php:1011
 #: views/admin/fundraising/include/_partial_input_type_selector.php:39
 #: views/admin/fundraising/meta-content/recent-donate.php:59
 #: views/admin/fundraising/reports/include/donors-reports.php:41
@@ -1894,63 +1869,63 @@ msgid "Email"
 msgstr ""
 
 #. translators: 1: campaign title, 2: campaign URL
-#: apps/settings.php:925
+#: apps/settings.php:1016
 #, php-format
 msgid "Title: %1$s \\n\\n URL: %2$s"
 msgstr ""
 
-#: apps/settings.php:1037
+#: apps/settings.php:1128
 #: views/admin/fundraising/donation-meta-box.php:75
 msgid "Goal Setup"
 msgstr ""
 
-#: apps/settings.php:1038
+#: apps/settings.php:1129
 msgid "Enable goal setting in all compaign forms. - Tab \"Goal Setup\" in Campaign Form."
 msgstr ""
 
-#: apps/settings.php:1041
+#: apps/settings.php:1132
 #: views/admin/fundraising/donation-meta-box.php:95
 msgid "Pledge Setup"
 msgstr ""
 
-#: apps/settings.php:1042
+#: apps/settings.php:1133
 msgid "Enable pledge setting in all compaign forms for Crowdfunding. - Tab \"Pledge Setup\" in Campaign Form."
 msgstr ""
 
-#: apps/settings.php:1045
+#: apps/settings.php:1136
 msgid "Custom Fileds"
 msgstr ""
 
-#: apps/settings.php:1046
+#: apps/settings.php:1137
 msgid "Use custom fileds in forms like as [Phone, Address etc.] - Section \"Form Content\" in Campaign Form."
 msgstr ""
 
-#: apps/settings.php:1053
+#: apps/settings.php:1144
 msgid "Limit Options"
 msgstr ""
 
-#: apps/settings.php:1054
+#: apps/settings.php:1145
 msgid "Set limit amount (min, max) on the campaign submission form. - Section \"General\" in Campaign Form."
 msgstr ""
 
-#: apps/settings.php:1057
+#: apps/settings.php:1148
 msgid "Contributor Info"
 msgstr ""
 
-#: apps/settings.php:1058
+#: apps/settings.php:1149
 msgid "Enable this option to display the contributors for this Campaign. - Section \"Settings\" in Campaign Form."
 msgstr ""
 
-#: apps/settings.php:1073
-#: views/welcome/welcome.php:16
+#: apps/settings.php:1164
+#: views/welcome/welcome.php:24
 msgid "Welcome FundEngine"
 msgstr ""
 
-#: apps/settings.php:1074
+#: apps/settings.php:1165
 msgid "Welcome to our FundEngine for Single Donation & Crowdfunding"
 msgstr ""
 
-#: apps/settings.php:1077
+#: apps/settings.php:1168
 #: views/admin/fundraising/meta-content/recent-donate.php:115
 #: views/admin/fundraising/reports/donation-reports.php:105
 #: views/admin/view-payments.php:416
@@ -1958,71 +1933,92 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: apps/settings.php:1079
+#: apps/settings.php:1170
 msgid "Start"
 msgstr ""
 
-#: apps/settings.php:1089
+#: apps/settings.php:1180
 #: views/admin/fundraising/include/donations-general-backup.php:8
 #: views/admin/fundraising/include/donations-general.php:8
 msgid "Campaign Format"
 msgstr ""
 
-#: apps/settings.php:1090
+#: apps/settings.php:1181
 msgid "Select once format for Campaign then click \"Ok\" button and go to next step."
 msgstr ""
 
-#: apps/settings.php:1095
+#: apps/settings.php:1186
 msgid "Ok"
 msgstr ""
 
-#: apps/settings.php:1102
+#: apps/settings.php:1193
 msgid "Payment Getway"
 msgstr ""
 
-#: apps/settings.php:1103
+#: apps/settings.php:1194
 msgid "Select payment getway for Campaigns and click \"Select\" button and go to next step."
 msgstr ""
 
-#: apps/settings.php:1108
+#: apps/settings.php:1199
 msgid "Select"
 msgstr ""
 
-#: apps/settings.php:1119
+#: apps/settings.php:1210
 msgid "Finish Setup.."
 msgstr ""
 
-#: apps/settings.php:1120
+#: apps/settings.php:1211
 msgid "Click this finish button and complete your basic setup process and go to next settings."
 msgstr ""
 
-#: apps/settings.php:1125
+#: apps/settings.php:1216
 msgid "Finish"
 msgstr ""
 
-#: apps/settings.php:1302
+#: apps/settings.php:1393
 msgid "Activate Woocommerce"
 msgstr ""
 
-#: apps/settings.php:1310
+#: apps/settings.php:1401
 msgid "Install Woocommerce"
 msgstr ""
 
-#: apps/settings.php:1665
+#: apps/settings.php:1739
+#: utilities/helper.php:106
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:195
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:16
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:181
+msgid "First Name"
+msgstr ""
+
+#: apps/settings.php:1747
+#: utilities/helper.php:112
+#: views/public/fundraising/dynamic-page/dashboard/dashboard-content.php:207
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:28
+#: views/public/fundraising/dynamic-page/dashboard/profile-content.php:195
+msgid "Last Name"
+msgstr ""
+
+#: apps/settings.php:1755
+#: utilities/helper.php:118
+msgid "Email Address"
+msgstr ""
+
+#: apps/settings.php:1763
 #: utilities/helper.php:124
 msgid "Country Destination"
 msgstr ""
 
-#: apps/settings.php:1673
+#: apps/settings.php:1771
 #: utilities/helper.php:130
 msgid "Street Address"
 msgstr ""
 
-#: apps/settings.php:1681
+#: apps/settings.php:1779
 msgid "City :"
 msgstr ""
 
-#: apps/settings.php:1689
+#: apps/settings.php:1787
 msgid "Postcode / ZIP :"
 msgstr ""
 
@@ -2120,7 +2116,7 @@ msgid "Manage"
 msgstr ""
 
 #: payment-module/views/payment-setup.php:59
-#: views/welcome/welcome.php:23
+#: views/welcome/welcome.php:31
 msgid "Setup"
 msgstr ""
 
@@ -2874,6 +2870,16 @@ msgstr ""
 #: views/admin/fundraising/meta-content/recent-donate.php:37
 #: views/admin/view-payments.php:339
 msgid "Period : "
+msgstr ""
+
+#: views/admin/fundraising/meta-content/recent-donate.php:38
+#: views/admin/fundraising/reports/include/donors-reports.php:10
+#: views/admin/fundraising/reports/include/goal-reports.php:10
+#: views/admin/fundraising/reports/include/income-reports.php:10
+#: views/admin/view-payments.php:341
+#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:15
+#: views/public/fundraising/dynamic-page/dashboard/income-content.php:15
+msgid "to"
 msgstr ""
 
 #: views/admin/fundraising/meta-content/recent-donate.php:43
@@ -3880,10 +3886,6 @@ msgstr ""
 msgid "Donate Statements"
 msgstr ""
 
-#: views/public/fundraising/dynamic-page/dashboard/donate-content.php:15
-msgid "to"
-msgstr ""
-
 #: views/public/fundraising/dynamic-page/dashboard/donate-content.php:29
 msgid "Campaign"
 msgstr ""
@@ -4172,6 +4174,6 @@ msgstr ""
 msgid "Fundraising System with Donate."
 msgstr ""
 
-#: views/welcome/welcome.php:33
+#: views/welcome/welcome.php:41
 msgid "Setup Process"
 msgstr ""

@@ -777,22 +777,30 @@ class Content {
 		$additionalFiled = isset( $data['additonal'] ) ? $data['additonal'] : array();
 
 		// additional filed from setup data
+		/*
+		 * Note: the default labels below are deliberately not wrapped in __().
+		 * The label is slugified into the field's name attribute and _wfp_* meta
+		 * key, and keyword-matched against /\b(first|full|last|nick|email)\b/ to
+		 * identify the donor's name and email. Translating them would change the
+		 * POST keys and break that detection. Labels are editable per campaign,
+		 * so site owners can still localise what visitors actually see.
+		 */
 		$multiFiledData   = isset( $wfpGetMetaData->form_content->additional->dimentions ) && sizeof( $wfpGetMetaData->form_content->additional->dimentions ) ? $wfpGetMetaData->form_content->additional->dimentions : array(
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => __( 'First Name', 'wp-fundraising-donation' ),
+				'lebel'    => 'First Name',
 				'default'  => '',
 				'required' => 'Yes',
 			),
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => __( 'Last Name', 'wp-fundraising-donation' ),
+				'lebel'    => 'Last Name',
 				'default'  => '',
 				'required' => 'Yes',
 			),
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => __( 'Email Address', 'wp-fundraising-donation' ),
+				'lebel'    => 'Email Address',
 				'default'  => '',
 				'required' => 'Yes',
 			),
@@ -1185,16 +1193,32 @@ class Content {
 			return $return;
 		}
 
-		if ( empty( $request['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $request['nonce'] ) ), 'wp_rest' ) ) {
+		$rest_nonce = $request->get_header( 'X-WP-Nonce' );
+		if ( empty( $rest_nonce ) || ! wp_verify_nonce( $rest_nonce, 'wp_rest' ) ) {
 			$return['error'] = __( 'Invalid request.', 'wp-fundraising-donation' );
 
 			return $return;
 		}
 
-		$formId      = isset( $request['formid'] ) ? intval( $request['formid'] ) : 0;
-		$post        = (array) isset( $request['campaign_post'] ) ? map_deep( $request['campaign_post'], function( $value ) {
-			return is_string( $value ) ? wp_kses_post( $value ) : $value;
-		} ) : array();
+		$formId = isset( $request['formid'] ) ? intval( $request['formid'] ) : 0;
+
+		// Only trust the specific fields the front-end form actually submits
+		// (see campaign-intro.php). ID, post_author, post_type, post_status,
+		// post_parent, etc. are set explicitly below and must never come
+		// from the request — see .claude/authz-bypass-wfp-campaign-submit.md.
+		$campaign_post_raw = isset( $request['campaign_post'] ) && is_array( $request['campaign_post'] ) ? $request['campaign_post'] : array();
+
+		// Only include a key at all if the client actually sent it. wp_update_post()
+		// merges this array over the existing DB row, so an omitted key leaves that
+		// field untouched — always including it (even as '') would blank out
+		// post_content/post_excerpt on any edit that doesn't resend every field.
+		$post = array();
+		foreach ( array( 'post_title', 'post_excerpt', 'post_content' ) as $wfp_allowed_field ) {
+			if ( isset( $campaign_post_raw[ $wfp_allowed_field ] ) ) {
+				$post[ $wfp_allowed_field ] = wp_kses_post( $campaign_post_raw[ $wfp_allowed_field ] );
+			}
+		}
+
 		$meta_post   = (array) isset( $request['campaign_meta_post'] ) ? map_deep( $request['campaign_meta_post'], 'sanitize_text_field' ) : array();
 		$update_post = isset( $request['update_post'] ) ? intval( $request['update_post'] ) : 0;
 
@@ -1202,19 +1226,27 @@ class Content {
 
 			$upd = get_post( $update_post );
 
-			if ( isset( $upd->post_author ) && $upd->post_author == get_current_user_id() ) {
+			// Bind this endpoint to campaigns only, and require real ownership.
+			// $post can no longer carry an attacker-controlled ID/post_author at
+			// this point, but keep both checks as belt-and-suspenders.
+			if ( $upd && self::post_type() === $upd->post_type && (int) $upd->post_author === get_current_user_id() ) {
 
-				if ( ! in_array( $upd->post_status, array( 'draft', 'publish', 'pending' ) ) ) {
+				if ( ! in_array( $upd->post_status, array( 'draft', 'publish', 'pending' ), true ) ) {
 
 					$return['error'] = __( 'Sorry could\'t update this campaign', 'wp-fundraising-donation' );
 
 					return $return;
 				}
 
-				$post['ID'] = $update_post;
-				$wfp_post_id    = $update_post;
+				$post['ID']  = $update_post;
+				$wfp_post_id = $update_post;
 				wp_update_post( $post, false );
 
+			} else {
+
+				$return['error'] = __( 'Sorry could\'t update this campaign', 'wp-fundraising-donation' );
+
+				return $return;
 			}
 		} else {
 
@@ -1223,7 +1255,8 @@ class Content {
 			 */
 			$post['post_type']   = self::post_type();
 			$post['post_status'] = Key::WP_POST_STATUS_PENDING;
-			$p_title             = $post['post_title'];
+			$post['post_author'] = get_current_user_id();
+			$p_title             = isset( $post['post_title'] ) ? $post['post_title'] : '';
 
 			$wfp_post_id = (int) wp_insert_post( $post );
 
@@ -1421,7 +1454,7 @@ class Content {
 						}
 					}
 				} elseif ( $meta_post['attatch_type'] == 'video' ) {
-					$videoUrl = isset( $meta_post['wfp_featured_video_url'] ) ? $meta_post['wfp_featured_video_url'] : '';
+					$videoUrl = isset( $meta_post['wfp_featured_video_url'] ) ? esc_url_raw( $meta_post['wfp_featured_video_url'] ) : '';
 					update_post_meta( $wfp_post_id, 'wfp_featured_video_url', $videoUrl );
 				}
 				
@@ -1506,7 +1539,8 @@ class Content {
 		$error  = false;
 		$formId = isset( $request['formid'] ) ? intval( $request['formid'] ) : 0;
 
-		if ( empty( $request['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $request['nonce'] ) ), 'wp_rest' ) ) {
+		$rest_nonce = $request->get_header( 'X-WP-Nonce' );
+		if ( empty( $rest_nonce ) || ! wp_verify_nonce( $rest_nonce, 'wp_rest' ) ) {
 			$return['error'] = __( 'Invalid request.', 'wp-fundraising-donation' );
 
 			return $return;
@@ -2354,6 +2388,9 @@ class Content {
 		$both_show     = $showLogin && $showRegister;
 		$mdl_btn_txt   = $atts['btn_text'];
 
+		// modal.php reads the shortcode attributes under this name.
+		$wfp_atts = $atts;
+
 		// [wfp_fundraising_form]
 		// [wfp_fundraising_form login="yes" register="yes" modal="no" ]
 		// [wfp_fundraising_form login="yes" register="yes" modal="yes" ]
@@ -2410,9 +2447,21 @@ class Content {
 			global $wfpRecentDonation, $wpdb;
 			$wfpRecentDonation = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . $wpdb->prefix . "wdp_fundraising WHERE form_id = %d AND status IN('Active')", $post->ID ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Fetches recent donations for the current campaign; direct query is intentional and indexed.
 
-			$amount_limit = property_exists( $wfpGetMetaData->donation, 'set_limit' ) ? $wfpGetMetaData->donation->set_limit : array();
+			$wfp_amount_limit = property_exists( $wfpGetMetaData->donation, 'set_limit' ) ? $wfpGetMetaData->donation->set_limit : array();
 
 			$wfp_format_style = $format_style;
+
+			// The shortcode views read the passed attributes under this name. Attributes
+			// left empty are dropped: the views test them with isset(), so keeping the
+			// empty shortcode_atts() defaults would override the campaign's own settings.
+			$wfp_atts = array();
+			if ( is_array( $atts ) ) {
+				foreach ( $atts as $wfp_att_key => $wfp_att_value ) {
+					if ( '' !== $wfp_att_value && null !== $wfp_att_value ) {
+						$wfp_atts[ $wfp_att_key ] = $wfp_att_value;
+					}
+				}
+			}
 
 			ob_start();
 			include \WFP_Fundraising::plugin_dir() . 'views/public/donation/donation-page-short-code.php';

@@ -156,7 +156,7 @@ class Featured {
 				$attrs = '';
 				if ( is_array( $attr ) && sizeof( $attr ) > 0 ) :
 					foreach ( $attr as $name => $value ) {
-						$attrs .= " $name=" . '"' . $value . '"';
+						$attrs .= ' ' . esc_attr( $name ) . '="' . esc_attr( $value ) . '"';
 					}
 				endif;
 
@@ -171,9 +171,9 @@ class Featured {
 
 					$youtube_query = http_build_query( $youtube_query );
 
-					$html .= '<iframe class="featured-video-iframe" type="text/html" width="' . $width . '"  height="' . $height . '"';
-					$html .= 'src="//www.youtube.com/embed/' . $video . '?' . $youtube_query . '"';
-					$html .= 'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+					$html .= '<iframe class="featured-video-iframe" type="text/html" width="' . esc_attr( $width ) . '"  height="' . esc_attr( $height ) . '"';
+					$html .= ' src="' . esc_url( '//www.youtube.com/embed/' . $video . '?' . $youtube_query ) . '"';
+					$html .= ' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 
 				} elseif ( $video_type == 'vimeo' ) {
 
@@ -187,9 +187,9 @@ class Featured {
 
 					$vimeo_query = http_build_query( $vimeo_query );
 
-					$html .= '<iframe class="featured-video-iframe" width="' . $width . '" height="' . $height . '"';
-					$html .= 'src="//player.vimeo.com/video/' . $video . '?' . $vimeo_query . '"';
-					$html .= 'frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+					$html .= '<iframe class="featured-video-iframe" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '"';
+					$html .= ' src="' . esc_url( '//player.vimeo.com/video/' . $video . '?' . $vimeo_query ) . '"';
+					$html .= ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 
 				} elseif ( $video_type == 'dailymotion' ) {
 
@@ -200,9 +200,9 @@ class Featured {
 
 					$dailymotion_query = http_build_query( $dailymotion_query );
 
-					$html .= '<iframe class="featured-video-iframe" width="' . $width . '" height="' . $height . '"';
-					$html .= 'src="//www.dailymotion.com/embed/video/' . $video . '?' . $dailymotion_query . '"';
-					$html .= 'frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+					$html .= '<iframe class="featured-video-iframe" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '"';
+					$html .= ' src="' . esc_url( '//www.dailymotion.com/embed/video/' . $video . '?' . $dailymotion_query ) . '"';
+					$html .= ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 
 				}
 
@@ -235,8 +235,8 @@ class Featured {
 
 				$youtube_query = http_build_query( $youtube_query );
 
-				$html .= '<iframe class="featured-video-iframe" type="text/html"  width="' . $width . '"  height="' . $height . '"';
-				$html .= ' src="//www.youtube.com/embed/' . $video . '?' . $youtube_query . '"';
+				$html .= '<iframe class="featured-video-iframe" type="text/html"  width="' . esc_attr( $width ) . '"  height="' . esc_attr( $height ) . '"';
+				$html .= ' src="' . esc_url( '//www.youtube.com/embed/' . $video . '?' . $youtube_query ) . '"';
 				$html .= ' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 
 			} elseif ( $video_type == 'vimeo' ) {
@@ -251,8 +251,8 @@ class Featured {
 
 				$vimeo_query = http_build_query( $vimeo_query );
 
-				$html .= '<iframe class="featured-video-iframe" width="' . $width . '" height="' . $height . '"';
-				$html .= ' src="//player.vimeo.com/video/' . $video . '?' . $vimeo_query . '"';
+				$html .= '<iframe class="featured-video-iframe" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '"';
+				$html .= ' src="' . esc_url( '//player.vimeo.com/video/' . $video . '?' . $vimeo_query ) . '"';
 				$html .= ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 
 			} elseif ( $video_type == 'dailymotion' ) {
@@ -264,8 +264,8 @@ class Featured {
 
 				$dailymotion_query = http_build_query( $dailymotion_query );
 
-				$html .= '<iframe class="featured-video-iframe" width="' . $width . '" height="' . $height . '"';
-				$html .= ' src="//www.dailymotion.com/embed/video/' . $video . '?' . $dailymotion_query . '"';
+				$html .= '<iframe class="featured-video-iframe" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '"';
+				$html .= ' src="' . esc_url( '//www.dailymotion.com/embed/video/' . $video . '?' . $dailymotion_query ) . '"';
 				$html .= ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 
 			}
@@ -325,7 +325,7 @@ class Featured {
 			$getPostTYpe = $post->post_type;
 			if ( $getPostTYpe == self::post_type() ) {
 				if ( isset( $_POST['wfp_featured_video_url'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Already checked by post
-					update_post_meta( $wfp_post_id, 'wfp_featured_video_url', sanitize_text_field( wp_unslash( $_POST['wfp_featured_video_url'] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Already checked by post
+					update_post_meta( $wfp_post_id, 'wfp_featured_video_url', esc_url_raw( wp_unslash( $_POST['wfp_featured_video_url'] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Already checked by post
 				}
 			}
 		}
@@ -436,8 +436,35 @@ class Featured {
 	}
 
 
+	/**
+	 * Whitelist check for extracted video IDs.
+	 *
+	 * YouTube, Vimeo and Dailymotion IDs are only ever letters, digits,
+	 * underscores and hyphens. Anything else means the URL was crafted to
+	 * smuggle extra characters (e.g. quotes) through into markup, so reject it.
+	 *
+	 * @since 1.8.2
+	 * @access private
+	 */
+	private function wfp_is_valid_video_id( $id ) {
+		return (bool) preg_match( '/^[A-Za-z0-9_-]+$/', (string) $id );
+	}
+
+
 	private function wfp_get_video_data_new( $url ) {
 		$return = array();
+
+		if ( empty( $url ) || ! is_string( $url ) ) {
+			return false;
+		}
+
+		// get_video_id() and get_video_type() each call this, so a single front-end
+		// render costs two remote lookups without a cache. Only hits are stored.
+		$cache_key = 'wfp_video_data_' . md5( $url );
+		$cached    = get_transient( $cache_key );
+		if ( false !== $cached ) {
+			return $cached;
+		}
 
 		$youtube = 'https://www.youtube.com/oembed?url=%s&format=json';
 		$vimeo   = '//vimeo.com/api/v2/video/%s.json';
@@ -455,17 +482,27 @@ class Featured {
 			$service = '';
 		}
 		if ( $service == 'youtube' ) {
-			$data_url = sprintf( $youtube, $url );
+			$data_url = sprintf( $youtube, rawurlencode( $url ) );
 			if ( stripos( $url, 'youtu.be' ) !== false ) {
-				$id = substr( wp_parse_url( $url, PHP_URL_PATH ), 1 );
+				$id = substr( (string) wp_parse_url( $url, PHP_URL_PATH ), 1 );
 				$id = strlen( $id ) > 0 ? $id : time();
 			} elseif ( strpos( $url, 'youtube.com' ) !== false ) {
-				parse_str( wp_parse_url( $url, PHP_URL_QUERY ), $query );
-				if ( ! isset( $query['v'] ) ) {
-					return false;
+				parse_str( (string) wp_parse_url( $url, PHP_URL_QUERY ), $query );
+				if ( isset( $query['v'] ) && strlen( $query['v'] ) > 0 ) {
+					$id = $query['v'];
+				} else {
+					// /shorts/ID and /v/ID links carry the id in the path instead.
+					$path     = trim( (string) wp_parse_url( $url, PHP_URL_PATH ), '/' );
+					$segments = '' === $path ? array() : explode( '/', $path );
+					$segment  = count( $segments ) > 1 ? end( $segments ) : '';
+					if ( strlen( $segment ) === 0 ) {
+						return false;
+					}
+					$id = $segment;
 				}
-				$id = $query['v'];
-				$id = strlen( $id ) > 0 ? $id : time();
+			}
+			if ( ! $this->wfp_is_valid_video_id( $id ) ) {
+				return false;
 			}
 			$response = wp_remote_get( $data_url );
 			if ( is_array( $response ) && ! is_wp_error( $response ) ) {
@@ -515,6 +552,9 @@ class Featured {
 			$explode  = explode( '/', $id );
 			$id       = end( $explode );
 			$id       = strlen( $id ) > 0 ? $id : time();
+			if ( ! $this->wfp_is_valid_video_id( $id ) ) {
+				return false;
+			}
 			$data_url = sprintf( $dailymotion, $id );
 			$response = wp_remote_get( $data_url );
 
@@ -539,6 +579,11 @@ class Featured {
 				'html'      => '',
 			);
 		}
+
+		if ( ! empty( $return ) ) {
+			set_transient( $cache_key, $return, DAY_IN_SECONDS );
+		}
+
 		return $return;
 	}
 
@@ -550,32 +595,48 @@ class Featured {
 
 	public function wfp_render_modal() {
 		if ( empty( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'wfp_featured_video_nonce' ) ) {
-			return;
+			wp_die( '', '', array( 'response' => 403 ) );
 		}
-		$video = isset( $_POST['url'] ) ? sanitize_text_field( wp_unslash( $_POST['url'] ) ) : '';
+		$wfp_video = isset( $_POST['url'] ) ? sanitize_text_field( wp_unslash( $_POST['url'] ) ) : '';
 		include \WFP_Fundraising::plugin_dir() . 'views/admin/featured/add-video-modal.php';
+		wp_die();
 	}
 
 
-	public function ajax_render_video_data( $ajax = true, $url = null ) {
-		if ( $ajax || $ajax == '' ) {
+	/**
+	 * Renders the video preview box.
+	 *
+	 * Also runs as the wp_ajax_featured_video_get_data callback. WordPress fires that
+	 * hook with do_action() and no arguments, which hands the callback an empty string,
+	 * so $ajax arrives as '' - not true - on the AJAX path. Only the modal calls this
+	 * inline, and it passes false explicitly, so a strict compare against false is what
+	 * separates the two: everything except an explicit false is an AJAX request.
+	 *
+	 * @param bool|string $ajax    False when included inline by the modal, '' or true on AJAX.
+	 * @param string|null $wfp_url Video URL, used for the inline call only.
+	 */
+	public function ajax_render_video_data( $ajax = true, $wfp_url = null ) {
+		$is_ajax = ( false !== $ajax );
+
+		if ( $is_ajax ) {
 			if ( empty( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'wfp_featured_video_nonce' ) ) {
-				return;
+				wp_die( '', '', array( 'response' => 403 ) );
 			}
-			$url = isset( $_POST['url'] ) ? sanitize_text_field( wp_unslash( $_POST['url'] ) ) : $url;
+			$wfp_url = isset( $_POST['url'] ) ? sanitize_text_field( wp_unslash( $_POST['url'] ) ) : $wfp_url;
 		}
-		$data = $this->wfp_get_video_data_new( $url );
-		// echo '<pre>';var_dump($data);echo '</pre>';
-		if ( $data ) {
-			$title = $data['title'];
-			$thumb = $data['thumbnail'];
+
+		$wfp_data = $this->wfp_get_video_data_new( $wfp_url );
+
+		if ( ! empty( $wfp_data ) && ! empty( $wfp_data['id'] ) ) {
+			$wfp_title = isset( $wfp_data['title'] ) ? $wfp_data['title'] : '';
+			$wfp_thumb = isset( $wfp_data['thumbnail'] ) ? $wfp_data['thumbnail'] : '';
 			include \WFP_Fundraising::plugin_dir() . 'views/admin/featured/preview-video.php';
 		} else {
 			esc_html_e( 'This is not a valid video URL. Please try another URL.', 'wp-fundraising-donation' );
 		}
 
-		if ( $ajax || $ajax == '' ) {
-			die();
+		if ( $is_ajax ) {
+			wp_die();
 		}
 	}
 

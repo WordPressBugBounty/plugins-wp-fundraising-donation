@@ -40,7 +40,7 @@ if ( $wfp_the_review->have_posts() ) { ?>
 
 			?>
 			<div class="wfp-details-update-tab--list">
-				<h3 class="wfp-details-update-tab--list__title"> <?php echo esc_html( gmdate( ' d F Y', strtotime( $wfp_post_date ) ) ); ?></h3>
+				<h3 class="wfp-details-update-tab--list__title"> <?php echo esc_html( wp_date( ' d F Y', strtotime( $wfp_post_date ), new \DateTimeZone( 'UTC' ) ) ); ?></h3>
 				<p class="wfp-details-update-tab--list__content"><?php echo wp_kses( $wfp_post_content, \WfpFundraising\Utilities\Utils::get_kses_array() ); ?></p>
 			</div>
 			<?php

@@ -5,11 +5,11 @@ defined( 'ABSPATH' ) || exit;
 
 $wfpPostId = empty( $post->ID ) ? get_the_ID() : $post->ID;
 
-if ( is_array( $recentDonation ) && sizeof( $recentDonation ) > 0 ) : ?>
+if ( is_array( $wfpRecentDonation ) && sizeof( $wfpRecentDonation ) > 0 ) : ?>
 
 	<div class="wfp-recent-section">
 		<?php
-		foreach ( $recentDonation as $v ) :
+		foreach ( $wfpRecentDonation as $v ) :
 
 			$wfp_form_id      = (int) isset( $v->form_id ) ? $v->form_id : 0;
 			$wfp_user_id      = (int) isset( $v->user_id ) ? $v->user_id : 0;
@@ -58,7 +58,7 @@ if ( is_array( $recentDonation ) && sizeof( $recentDonation ) > 0 ) : ?>
 					<em class="price-report--symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em>
 				</div>
 
-				<div class="report-date"><?php echo esc_html__( 'Date:', 'wp-fundraising-donation' ); ?><?php echo esc_html( gmdate( 'M Y', strtotime( $wfp_date ) ) ); ?></div>
+				<div class="report-date"><?php echo esc_html__( 'Date:', 'wp-fundraising-donation' ); ?><?php echo esc_html( wp_date( 'M Y', strtotime( $wfp_date ), new \DateTimeZone( 'UTC' ) ) ); ?></div>
 			</div>
 		<?php endforeach; ?>
 	</div>

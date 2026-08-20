@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="wfdp-income-report-table-wraper">
 		<div class="wfp-report-headding">
 			<h2><?php echo esc_html__( 'Donate Statements', 'wp-fundraising-donation' ); ?></h2>
-			<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising-donation' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpFromDate ) ) ); ?></datetime> <em><?php esc_html_e( 'to', 'wp-fundraising-donation' ); ?></em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpToDate ) ) ); ?></datetime></p>
+			<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising-donation' ); ?> <datetime><?php echo esc_html( wp_date( 'F j, Y', strtotime( $wfpFromDate ), new \DateTimeZone( 'UTC' ) ) ); ?></datetime> <em><?php esc_html_e( 'to', 'wp-fundraising-donation' ); ?></em> <datetime><?php echo esc_html( wp_date( 'F j, Y', strtotime( $wfpToDate ), new \DateTimeZone( 'UTC' ) ) ); ?></datetime></p>
 		</div>
 		<div class="report-body">
 			<?php
@@ -54,7 +54,7 @@ defined( 'ABSPATH' ) || exit;
 					<tr>
 						<td class="icon"> <?php echo esc_html( $post->post_title ); ?></td>
 						<td class="enable wfp-tbl-price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfpDonateAmount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em> </td>
-						<td class="xs-text-center"><datetime> <?php echo esc_html( gmdate( 'd M, Y', strtotime( $wfp_date ) ) ); ?></datetime></td>
+						<td class="xs-text-center"><datetime> <?php echo esc_html( wp_date( 'd M, Y', strtotime( $wfp_date ), new \DateTimeZone( 'UTC' ) ) ); ?></datetime></td>
 					</tr>
 						<?php
 					}

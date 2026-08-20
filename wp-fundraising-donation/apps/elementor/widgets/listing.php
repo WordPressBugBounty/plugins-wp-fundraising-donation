@@ -2110,6 +2110,9 @@ class Wfp_Listing extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		extract( $settings );
 
+		// campaign-elementor.php reads the widget settings under this name.
+		$wfp_settings = $settings;
+
 		// campaign default blog
 
 		include \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';

@@ -20,24 +20,32 @@ if ( is_user_logged_in() ) {
 
 if ( isset( $wfpFormContentData->additional->enable ) && $wfpFormContentData->additional->enable == 'Yes' ) {
 
+	/*
+	 * Note: the default labels below are deliberately not wrapped in __().
+	 * The label is slugified into the field's name attribute and _wfp_* meta
+	 * key, and keyword-matched against /\b(first|full|last|nick|email)\b/ to
+	 * identify the donor's name and email. Translating them would change the
+	 * POST keys and break that detection. Labels are editable per campaign,
+	 * so site owners can still localise what visitors actually see.
+	 */
 	$wfpMultiFiledData = ! empty( $wfpFormContentData->additional->dimentions ) ?
 		$wfpFormContentData->additional->dimentions :
 		array(
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => __( 'First Name', 'wp-fundraising-donation' ),
+				'lebel'    => 'First Name',
 				'default'  => '',
 				'required' => 'Yes',
 			),
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => __( 'Last Name', 'wp-fundraising-donation' ),
+				'lebel'    => 'Last Name',
 				'default'  => '',
 				'required' => 'Yes',
 			),
 			(object) array(
 				'type'     => 'text',
-				'lebel'    => __( 'Email Address', 'wp-fundraising-donation' ),
+				'lebel'    => 'Email Address',
 				'default'  => '',
 				'required' => 'Yes',
 			),

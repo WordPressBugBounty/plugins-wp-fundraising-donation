@@ -193,7 +193,7 @@ defined( 'ABSPATH' ) || exit;
 		$wfp_goal_type    = isset( $wfp_goal_setup->goal_type ) ? $wfp_goal_setup->goal_type : '';
 		$wfpTargetAmount = isset( $wfp_goal_setup->terget->terget_goal->amount ) ? $wfp_goal_setup->terget->terget_goal->amount : 0;
 
-		$wfp_targetdate           = isset( $wfp_goal_setup->terget->terget_goal->date ) ? $wfp_goal_setup->terget->terget_goal->date : 0;
+		$wfp_targetdate           = isset( $wfp_goal_setup->terget->terget_goal->date ) ? $wfp_goal_setup->terget->terget_goal->date : '';
 		$wfp_targetgoaldate       = isset( $wfp_goal_setup->terget->terget_goal_date->date ) ? $wfp_goal_setup->terget->terget_goal_date->date : '';
 		$wfp_targetdate_amount    = isset( $wfp_goal_setup->terget->terget_goal_date->amount ) ? $wfp_goal_setup->terget->terget_goal_date->amount : 0;
 		$wfpTargetAmountCampaing = isset( $wfp_goal_setup->terget->campaign_never->amount ) ? $wfp_goal_setup->terget->campaign_never->amount : 0;

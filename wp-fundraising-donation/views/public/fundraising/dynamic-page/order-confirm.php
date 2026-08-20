@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 							<strong><?php echo esc_html( self::wfp_get_meta( $orderId, '_wfp_invoice' ) ); ?></strong>
 						</li>
 						<li class="order-date"><?php echo esc_html( apply_filters( 'wfp_summery_order_date', __( 'Date:', 'wp-fundraising-donation' ) ) ); ?>
-							<strong><?php echo esc_html( gmdate( 'F d, Y', strtotime( self::wfp_get_meta( $orderId, '_wfp_date_time' ) ) ) ); ?></strong>
+							<strong><?php echo esc_html( wp_date( 'F d, Y', strtotime( self::wfp_get_meta( $orderId, '_wfp_date_time' ) ), new \DateTimeZone( 'UTC' ) ) ); ?></strong>
 						</li>
 						<li class="order-email"><?php echo esc_html( apply_filters( 'wfp_summery_order_email', __( 'Email:', 'wp-fundraising-donation' ) ) ); ?>
 							<strong><?php echo esc_html( self::wfp_get_meta( $orderId, '_wfp_email_address' ) ); ?></strong>

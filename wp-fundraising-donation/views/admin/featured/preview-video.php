@@ -3,11 +3,11 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <div class="wfp-fundrasing-meta-featured">
-	<div class="video-data-item wfp-fundrasing" data-video="<?php echo esc_url( $wfp_url ); ?>" data-thumb="<?php echo esc_url( $thumb ); ?>">
-		<?php if ( strlen( $thumb ) > 4 ) { ?>
+	<div class="video-data-item wfp-fundrasing" data-video="<?php echo esc_url( $wfp_url ); ?>" data-thumb="<?php echo esc_url( $wfp_thumb ); ?>">
+		<?php if ( strlen( $wfp_thumb ) > 4 ) { ?>
 		<div class="video-thumbnail">
 			<span class="dashicons dashicons-video-alt3"></span>
-			<img src="<?php echo esc_url( $thumb ); ?>" alt="<?php echo esc_attr( $wfp_title ); ?>">
+			<img src="<?php echo esc_url( $wfp_thumb ); ?>" alt="<?php echo esc_attr( $wfp_title ); ?>">
 		</div>
 		<?php } ?>
 		<div class="video-information">

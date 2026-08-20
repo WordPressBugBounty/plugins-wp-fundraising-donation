@@ -337,9 +337,9 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 
 			<div class="xs_period_wraper xs_text_center">
 				<?php echo esc_html__( 'Period : ', 'wp-fundraising-donation' ); ?>
-				<datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfp_days_10ago ) ) ); ?></datetime>
-				<em>to</em>
-				<datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpTodayDate ) ) ); ?></datetime>
+				<datetime><?php echo esc_html( wp_date( 'F j, Y', strtotime( $wfp_days_10ago ), new \DateTimeZone( 'UTC' ) ) ); ?></datetime>
+				<em><?php esc_html_e( 'to', 'wp-fundraising-donation' ); ?></em>
+				<datetime><?php echo esc_html( wp_date( 'F j, Y', strtotime( $wfpTodayDate ), new \DateTimeZone( 'UTC' ) ) ); ?></datetime>
 			</div>
 
 			<div class="report-heading">
@@ -392,7 +392,7 @@ $wfp_camp_obj = $wfp_model->set_campaign( $wfp_camp_id );
 						<td class="name"><?php echo esc_html( $wfp_donation->email ); ?></td>
 						<td class="enable"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_donation->donate_amount ) ); ?> </td>
 						<td><?php echo esc_html( \WfpFundraising\Apps\Global_Settings::$allowed_gateway[ $wfp_donation->payment_gateway ] ); ?> </td>
-						<td><?php echo esc_html( gmdate( 'F d, Y', strtotime( $wfp_donation->date_time ) ) ); ?> </td>
+						<td><?php echo esc_html( wp_date( 'F d, Y', strtotime( $wfp_donation->date_time ), new \DateTimeZone( 'UTC' ) ) ); ?> </td>
 
 
 						<td>

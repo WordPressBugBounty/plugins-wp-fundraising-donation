@@ -2,8 +2,8 @@
 Contributors: ataurr, XpeedStudio
 Tags: crowdfunding, fundraising, donate, recurring-donations, donation
 Requires at least: 6.0
-Tested up to: 7.0
-Stable tag: 1.8.1
+Tested up to: 7.1
+Stable tag: 1.8.2
 Requires PHP: 7.4
 License:  GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -114,6 +114,12 @@ FundEngine - Fundraising Donation plugin and Crowdfunding Platform comes with Si
 14. Donation level
 
 == Changelog ==
+Version 1.8.2 //2026-08-20
+- Fixed: Authorization bypass vulnerability allowing unauthorized modification of posts and pages.
+- Fixed: Stored XSS vulnerability in the video URL field.
+- Fixed: Featured video not being saved in campaigns.
+- Fixed: Remaining date strings after “Reporting Period” are now fully translatable.
+
 Version 1.8.1 //2026-08-17
 - Fixed: Crowdfunding campaigns reverting to a single donation after saving.
 - Fixed: Unauthenticated option overwrite vulnerability affecting plugin settings and payment configuration.

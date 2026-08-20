@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) || exit;
 		<h3 class="xs-fundrising-title"><?php echo esc_html__( 'Recent Donation List', 'wp-fundraising-donation' ); ?>  </h3>
 		<div class="xs_period_wraper xs_text_center">
 			<?php echo esc_html__( 'Period : ', 'wp-fundraising-donation' ); ?>
-			<datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfp_days_10ago ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpTodayDate ) ) ); ?></datetime>
+			<datetime><?php echo esc_html( wp_date( 'F j, Y', strtotime( $wfp_days_10ago ), new \DateTimeZone( 'UTC' ) ) ); ?></datetime> <em><?php esc_html_e( 'to', 'wp-fundraising-donation' ); ?></em> <datetime><?php echo esc_html( wp_date( 'F j, Y', strtotime( $wfpTodayDate ), new \DateTimeZone( 'UTC' ) ) ); ?></datetime>
 		</div>
 
 		<div class="report-heading">
@@ -90,7 +90,7 @@ defined( 'ABSPATH' ) || exit;
 						<td class="name"> <?php echo esc_html( $pendingData->email ); ?></td>
 						<td class="enable"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $pendingData->donate_amount ) ); ?> </td>
 						<td><?php echo esc_html( $wfp_payment_gateway ); ?> </td>
-						<td><?php echo esc_html( gmdate( 'F d, Y', strtotime( $pendingData->date_time ) ) ); ?> </td>
+						<td><?php echo esc_html( wp_date( 'F d, Y', strtotime( $pendingData->date_time ), new \DateTimeZone( 'UTC' ) ) ); ?> </td>
 						<td>
 							<?php
 							$wfpClassNameStatus = strtolower( $pendingData->status );

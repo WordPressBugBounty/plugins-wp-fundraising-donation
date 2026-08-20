@@ -30,6 +30,11 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 
 						$wfpDefaultCurrency = isset( $wfpGetMetaGeneral['currency']['name'] ) ? $wfpGetMetaGeneral['currency']['name'] : $wfpOnlyCOuntry[0] . '-' . $wfpDefultCode;
 
+						// Locale defaults for the selected currency's country, used below as the
+						// fallback for symbol position and the separator/decimal fields.
+						$wfpCurrencyCountry = current( explode( '-', $wfpDefaultCurrency ) );
+						$localListDefult    = isset( $wfpCountryList[ $wfpCurrencyCountry ]['currency'] ) ? $wfpCountryList[ $wfpCurrencyCountry ]['currency'] : array();
+
 						?>
 						<select class="regular-text wfp-select2-country" name="xs_submit_settings_data_general[options][currency][name]">
 							<?php
@@ -70,7 +75,7 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 					</div>
 					<div class="wfdp-social-input">
 					<?php
-					$wfp_defaultThou_seperatorCountry = isset( $localListDefult['thousand_sep'] ) ? $localListDefult['thousand_sep'] : ',';
+					$wfp_defaultThou_seperatorCountry = isset( $localListDefult['thousand'] ) ? $localListDefult['thousand'] : ',';
 					$wfp_defaultThou_seperator        = isset( $wfpGetMetaGeneral['currency']['thou_seperator'] ) ? $wfpGetMetaGeneral['currency']['thou_seperator'] : $wfp_defaultThou_seperatorCountry;
 					?>
 						<input type="text" class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][currency][thou_seperator]" value="<?php echo esc_attr( $wfp_defaultThou_seperator ); ?>">
@@ -84,7 +89,7 @@ require \WFP_Fundraising::plugin_dir() . 'country-module/country-info.php';
 					</div>
 					<div class="wfdp-social-input">
 					<?php
-					$wfp_defaultDecimal_seperatorCountry = isset( $localListDefult['decimal_sep'] ) ? $localListDefult['decimal_sep'] : '.';
+					$wfp_defaultDecimal_seperatorCountry = isset( $localListDefult['decimal'] ) ? $localListDefult['decimal'] : '.';
 					$wfp_defaultDecimal_seperator        = isset( $wfpGetMetaGeneral['currency']['decimal_seperator'] ) ? $wfpGetMetaGeneral['currency']['decimal_seperator'] : $wfp_defaultDecimal_seperatorCountry;
 					?>
 						<input type="text" class="regular-text xs-text_small" name="xs_submit_settings_data_general[options][currency][decimal_seperator]" value="<?php echo esc_attr( $wfp_defaultDecimal_seperator ); ?>">

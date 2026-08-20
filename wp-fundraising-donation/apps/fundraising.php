@@ -161,7 +161,7 @@ class Fundraising {
 					'singular_name' => esc_html__( 'FundEngine', 'wp-fundraising-donation' ),
 					'all_items'     => esc_html__( 'All Campaigns', 'wp-fundraising-donation' ),
 					'add_new'       => esc_html__( 'Add Campaign', 'wp-fundraising-donation' ),
-					'add_new_item'  => esc_html__( 'Campaign Name', 'wp-fundraising-donation' ),
+					'add_new_item'  => esc_html__( 'Add Campaign', 'wp-fundraising-donation' ),
 					'edit_item'     => esc_html__( 'Edit Campaign', 'wp-fundraising-donation' ),
 					'view_item'     => esc_html__( 'View Campaign', 'wp-fundraising-donation' ),
 					'view_items'    => esc_html__( 'View Campaigns', 'wp-fundraising-donation' ),
@@ -899,6 +899,12 @@ class Fundraising {
 
 			$auth_settings_option = get_option( $ok_auth );
 		}
+
+		// The settings views read these under their prefixed names.
+		$wfpSetupData       = $setupData;
+		$wfpGetMetaGeneral  = $getMetaGeneral;
+		$wfpGetMetaTerms    = $getMetaTerms;
+		$wfpFormSettingData = $formSettingData;
 
 		require_once \WFP_Fundraising::plugin_dir() . 'views/admin/fundraising/settings/donation-settings.php';
 	}

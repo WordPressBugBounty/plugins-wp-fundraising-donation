@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="wfdp-income-report-table-wraper">
 		<div class="wfp-report-headding">
 			<h2><?php echo esc_html__( 'Income Statements', 'wp-fundraising-donation' ); ?></h2>
-			<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising-donation' ); ?> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpFromDate ) ) ); ?></datetime> <em>to</em> <datetime><?php echo esc_html( gmdate( 'F j, Y', strtotime( $wfpToDate ) ) ); ?></datetime></p>
+			<p class="period"><?php echo esc_html__( 'Reporting Period : ', 'wp-fundraising-donation' ); ?> <datetime><?php echo esc_html( wp_date( 'F j, Y', strtotime( $wfpFromDate ), new \DateTimeZone( 'UTC' ) ) ); ?></datetime> <em><?php esc_html_e( 'to', 'wp-fundraising-donation' ); ?></em> <datetime><?php echo esc_html( wp_date( 'F j, Y', strtotime( $wfpToDate ), new \DateTimeZone( 'UTC' ) ) ); ?></datetime></p>
 		</div>
 
 		<div class="report-body">
@@ -82,7 +82,7 @@ defined( 'ABSPATH' ) || exit;
 						<td class="name"> <?php echo esc_html( $wfpFirstName . ' ' . $wfpLastName ); ?></td>
 						<td class="name"> <a href="mailto:<?php echo esc_attr( $wfp_email ); ?>"><?php echo esc_html( $wfp_email ); ?></a></td>
 						<td class="enable wfp-tbl-price"> <?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'left', $wfp_defaultUse_space ) ); ?><strong><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency( $wfp_amount ) ); ?></strong><em class="wfp-currency-symbol"><?php echo esc_html( WfpFundraising\Apps\Settings::wfp_number_format_currency_icon( 'right', $wfp_defaultUse_space ) ); ?></em> </td>
-						<td><datetime> <?php echo esc_html( gmdate( 'd M, Y', strtotime( $wfp_date ) ) ); ?></datetime></td>
+						<td><datetime> <?php echo esc_html( wp_date( 'd M, Y', strtotime( $wfp_date ), new \DateTimeZone( 'UTC' ) ) ); ?></datetime></td>
 					</tr>
 					<?php
 					$wfp_m++;

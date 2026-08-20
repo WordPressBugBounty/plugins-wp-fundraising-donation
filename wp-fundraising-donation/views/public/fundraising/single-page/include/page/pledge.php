@@ -84,7 +84,7 @@ $wfpPostId      = empty( $post->ID ) ? get_the_ID() : $post->ID;
 				?>
 				<div class="pledge__detail">
 					<span class="pledge__detail-label"> <?php echo esc_html( apply_filters( 'wfp_single_content_rewards_estimated', __( 'Estimated Delivery:', 'wp-fundraising-donation' ) ) ); ?></span>
-					<span class="pledge__detail-info"> <?php echo esc_html( gmdate( 'M Y', strtotime( $wfpEstimatedData ) ) ); ?></span>
+					<span class="pledge__detail-info"> <?php echo esc_html( wp_date( 'M Y', strtotime( $wfpEstimatedData ), new \DateTimeZone( 'UTC' ) ) ); ?></span>
 				</div>
 				<?php
 			}
